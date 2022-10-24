@@ -67,6 +67,8 @@ const Cars = () => {
   //used random json generator to try to map some stuff but couldnt get it to work
   
 
+  // A good filter function would, be a button to decide the display size of the gallery. Like how large the image of the cars need to be
+
 
 
 
@@ -75,15 +77,16 @@ const Cars = () => {
       <Header /> 
       <Filter />
 
+      
+
       <div id="carGallery" className='flex flex-col md:flex-row justify-center w-2/4 m-auto flex-wrap' >
           {cars.map((car) => {
             return <div key={car._id} className="p-10 w-1/4">
 
-            <h1>{car.name}</h1>
-            <h2>Price: {car.price}</h2>
-            <span>Description: {car.description}</span>
-            <img src={car.image} alt='pic'className='w-10 h-10' />
-            <Contact />
+            <h1 className='font-medium text-lg	'>{car.name}</h1>
+            <img src={car.image} alt='pic'className='w-20 h-20 md:w-fit md:h-fit' />
+            <h2 className='font-medium'>Price: {car.price}</h2>
+            <span className='font-medium'>Description: {car.description}</span>
 
             </div>
             })}
