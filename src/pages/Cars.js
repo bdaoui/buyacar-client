@@ -72,9 +72,10 @@ const Cars = () => {
     <>
       <Header /> 
       <Filter />
+
       <div>
           {cars.map((car) => {
-            <div key={car._id}>
+            return <div key={car._id}>
 
             <h1>Name: {car.name}</h1>
             <h2>Price: {car.price}</h2>
