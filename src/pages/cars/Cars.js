@@ -4,6 +4,7 @@ import Filter from '../../components/Filter'
 import Header from '../../components/Header'
 import BestOffer from '../../components/BestOffer.js'
 import './car.css'
+import { Link } from 'react-router-dom'
 
 
 const Cars = () => {
@@ -81,7 +82,9 @@ const Cars = () => {
       <BestOffer /> 
       
 
-      <div id="carGallery" className='flex flex-col md:flex-row justify-center w-2/4 m-auto flex-wrap' >
+      <div id="carGallery" className='flex flex-col md:flex-row justify-center w-2/4 m-auto flex-wrap p-10' >
+          <h1 className='w-full text-center font-medium text-lg p-5'> Other Offers</h1>
+
           {cars.map((car) => {
             return <div key={car._id} className="p-10 w-1/4">
 
@@ -92,6 +95,8 @@ const Cars = () => {
 
             </div>
             })}
+
+          <Link to={"/cars"}> <h1 className='w-full text-center font-medium text-lg mb-20 underline underline-offset-4'> More Offers</h1> </Link>
       </div>
     </>
   )
