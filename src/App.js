@@ -9,7 +9,7 @@ import Login from './pages/Login'
 
 const App = () => {
   return (
-    <div className='flex flex-col h-screen justify-between'>
+    <div className='h-screen'>
     <div>
         <Navbar />
     </div>
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/info" element={<Info />} />
           <Route path="/admin/login" element={<Login />} />
        </Routes>
-    <div>
+    <div className='fixed bottom-0 w-full'>
       <Footer />
     </div>
     </div>
