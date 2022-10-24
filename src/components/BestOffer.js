@@ -20,13 +20,13 @@ const BestOffer = () => {
 
 const [bestOffer, setBestOffer] = useState(data)
 
-const server = "" // this will come from redux or contest
+// const server = "" // this will come from redux or contest
 
-useEffect( () => {
-    axios.get(`${server}/bestOffer`)
-        .then(response => setBestOffer(response.data))
-        .catch(err => console.log(err))
-}, [])
+// useEffect( () => {
+//     axios.get(`${server}/bestOffer`)
+//         .then(response => setBestOffer(response.data))
+//         .catch(err => console.log(err))
+// }, [])
 
 
 
@@ -41,8 +41,8 @@ useEffect( () => {
        
         {bestOffer.map(item => {return <div key={item.id} className="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20" data-carousel-item="active">
             <h1 className='text-center'>{item.name}</h1>
-            <img src={item.image} alt={item.name}className='w-1/4 absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2' />
-            <p>{item.description}</p>
+            <img src={item.image} alt={item.name} className='w-1/4 absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2' />
+            <p className="pt-60">{item.description}</p>
         </div>  
         })
         }
