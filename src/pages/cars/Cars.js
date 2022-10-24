@@ -2,6 +2,7 @@ import React from 'react'
 import Contact from '../../components/Contact'
 import Filter from '../../components/Filter'
 import Header from '../../components/Header'
+import BestOffer from '../../components/BestOffer.js'
 import './car.css'
 
 
@@ -77,6 +78,7 @@ const Cars = () => {
       <Header /> 
       <Filter />
 
+      <BestOffer /> 
       
 
       <div id="carGallery" className='flex flex-col md:flex-row justify-center w-2/4 m-auto flex-wrap' >
