@@ -3,9 +3,10 @@ import { Route, Routes} from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import CarDetails from './pages/CarDetails'
-import Cars from './pages/cars/Cars'
+import Landing from './pages/Landing'
 import Info from './pages/Info'
 import Login from './pages/Login'
+import Cars from './pages/Cars'
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
         <Navbar />
     </div>
        <Routes>
-          <Route path="/" element={<Cars />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/cars" element={<Cars />} />
           <Route path="/:id" element={<CarDetails />} />
           <Route path="/info" element={<Info />} />
           <Route path="/admin/login" element={<Login />} />

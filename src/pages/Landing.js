@@ -1,13 +1,12 @@
 import React from 'react'
-import Contact from '../../components/Contact'
-import Filter from '../../components/Filter'
-import Header from '../../components/Header'
-import BestOffer from '../../components/BestOffer.js'
-import './car.css'
+import Contact from '../components/Contact'
+import Filter from '../components/Filter'
+import Header from '../components/Header'
+import BestOffer from '../components/BestOffer.js'
 import { Link } from 'react-router-dom'
 
 
-const Cars = () => {
+const Landing = () => {
   
   const data = [ 
     {
@@ -77,11 +76,8 @@ const Cars = () => {
   return (
     <>
       <Header /> 
-      <Filter />
-
       <BestOffer /> 
       
-
       <div id="carGallery" className='flex flex-col md:flex-row justify-center w-2/4 m-auto flex-wrap p-10' >
           <h1 className='w-full text-center font-medium text-lg p-5'> Other Offers</h1>
 
@@ -96,10 +92,10 @@ const Cars = () => {
             </div>
             })}
 
-          <Link to={"/cars"}> <h1 className='w-full text-center font-medium text-lg mb-20 underline underline-offset-4'> More Offers</h1> </Link>
+          <Link to="/cars"> <h1 className='w-full text-center font-medium text-lg mb-20 underline underline-offset-4'> More Offers</h1> </Link>
       </div>
     </>
   )
 }
 
-export default Cars
+export default Landing
