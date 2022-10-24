@@ -55,13 +55,21 @@ const Cars = () => {
       ]
 
     const [cars, setCars] = useState(data)
-
+    
+    const [selectedPrice, setSelectedPrice] = useState(0)
+    const [selectedMileage, setSelectedMileage] = useState(0)
 
 // useEffect( () => {
 //     axios.get(`${server}/cars`)
 //         .then(response => setCars(response.data))
 //         .catch(err => console.log(err))
 // }, [])
+
+
+    const handleSelection = (e, check) => {
+        console.log(check)
+        check === "mileage" ? setSelectedMileage(e.target.value) : setSelectedPrice(e.target.value)
+    }
 
 
   return (
@@ -72,15 +80,23 @@ const Cars = () => {
     <div className='flex justify-center'>
         
         <label for="price" className='mr-16 font-medium text-2xl'>Price
-            <input type="range" name="price" min="0" max="20 000" className='ml-5'/>
+            <input type="range" name="price" min="0" max="20000" step="500" className='ml-5' onChange={ (e) => handleSelection(e, "price") }/>
+            <h2 className='text-center underline text-middle'>{selectedPrice}</h2>
         </label> 
 
-        <label for="milage" className='font-medium text-2xl' >Milage
-            <input type="range"  name="milage" min="0" max="200 000" className='ml-5'/>
+        <label for="milage" className='font-medium text-2xl' >Mileage 
+            <input type="range"  name="mileage" min="0" max="200000" step="10000"  className='ml-5' onChange={ (e) => handleSelection(e, "mileage")}/>
+            <h2 className='text-center underline text-middle'>{selectedMileage}</h2>
+
         </label>
 
     </div>
     
+
+
+
+
+
     
     </div>
 
