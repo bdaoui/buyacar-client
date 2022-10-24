@@ -1,7 +1,9 @@
 import React from 'react'
-import Contact from '../components/Contact'
-import Filter from '../components/Filter'
-import Header from '../components/Header'
+import Contact from '../../components/Contact'
+import Filter from '../../components/Filter'
+import Header from '../../components/Header'
+import './car.css'
+
 
 const Cars = () => {
   
@@ -73,11 +75,11 @@ const Cars = () => {
       <Header /> 
       <Filter />
 
-      <div>
+      <div id="carGallery" className='flex flex-col md:flex-row justify-center w-2/4 m-auto flex-wrap' >
           {cars.map((car) => {
-            return <div key={car._id}>
+            return <div key={car._id} className="p-10 w-1/4">
 
-            <h1>Name: {car.name}</h1>
+            <h1>{car.name}</h1>
             <h2>Price: {car.price}</h2>
             <span>Description: {car.description}</span>
             <img src={car.image} alt='pic'className='w-10 h-10' />
