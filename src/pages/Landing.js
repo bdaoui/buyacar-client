@@ -83,7 +83,7 @@ const Landing = () => {
           <h1 className='w-full text-center font-medium text-lg p-5'> Other Offers</h1>
 
           {cars.map((car) => {
-            return <div key={car._id} className="p-10 w-1/4">
+            return <div key={car._id} className="p-10 w-1/4" >
 
             <h1 className='font-medium text-lg	'>{car.name}</h1>
             <img src={car.image} alt='pic'className='w-20 h-20 md:w-fit md:h-fit' />

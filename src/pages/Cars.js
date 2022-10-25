@@ -63,9 +63,13 @@ const Cars = () => {
     const [selectedPrice, setSelectedPrice] = useState(0)
     const [selectedMileage, setSelectedMileage] = useState(0)
 
-    const [name, setName] = useState("")
+    const [make, setMake] = useState("")
     const [price, setPrice] = useState("")
+    const [model, setModel] = useState("")
+    const [bestDeal, setBestDeal] = useState("")
+    const [mileage, setMileage] = useState("")
     const [image, setImage] = useState("")
+    const [gearBox, setGearBox] = useState("")
     const [description, setDescription] = useState("")
 
     const [refresh, setRefresh] = useState(false)
@@ -124,26 +128,67 @@ const Cars = () => {
     </div>
     
 
+    <section className='flex justify-center py-10'>
+    
+        {cars?.map(car => {return <div key={car._id}>
+                <h1>{car.price}</h1>
+                <img src={car.image} alt={car.name} className="w-10 h-10" />
+                <p>{car.description}</p>
+            </div>
+        })
+        }
 
-    {cars?.map(car => {return <div key={car._id}>
-            <h1>{car.name}</h1>
-            <img src={car.image} alt={car.name} className="w-10 h-10" />
-            <p>{car.description}</p>
-        </div>
-    })
-    }
+    </section>
 
     {
-        <form className='flex flex-col w-1/4 m-auto justify-center mt-10 rounded' onSubmit={handleCarRequest} >
+        <form className='flex  flex-wrap justify-center mt-10 rounded' onSubmit={handleCarRequest} >
+        <h1 className='text-3xl text-center mb-5'> Upload New Car</h1>
 
-            <label for="Name">Price</label>
-            <input type='text' className='border-2 border-black mb-5' name="price"  onChange={ (e) => setPrice(e.target.value)}/>
-            <label for="description">Description</label>
-            <input type='text' className="border-2 border-black mb-5" name= 'description' onChange={ (e) => setDescription(e.target.value)}/>
-            <label for="image" >Image</label>
-            <input type='file' name="image" />     
+        <section  className='flex flex-wrap justify-center w-screen mx-32' >
+            <div className='w-2/4 flex flex-col px-5'> 
+            
+                <label for="Name">Price
+                </label>
+                <input type='text' className='border-2 border-emerald-700 mb-5' name="price"  onChange={ (e) => setPrice(e.target.value)}/>
 
-            <button type='submit' className='bg-emerald-500 padding-5 rounded w-1/4 my-5 '> Send</button>
+
+                <label for="model">Model
+                </label>
+                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'model' onChange={ (e) => setModel(e.target.value)}/>
+           
+                <label for="image" className='w-3/4 '>Image
+                <input type='file' multiple name="image" />     
+                </label>
+                
+            </div>
+
+            <div className='w-2/4 flex flex-col'>
+                <label for="description">Gearbox
+                </label>
+                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'gearbox' onChange={ (e) => setGearBox(e.target.value)}/>
+
+                <label for="description">Mileage
+                </label>
+                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'mileage' onChange={ (e) => setMileage(e.target.value)}/>
+
+                <label for="description">BestDeal
+                </label>
+                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'bestDeal' onChange={ (e) => setBestDeal(e.target.value)}/>
+
+
+            </div>
+
+        </section>
+
+        <section  className=' flex flex-col w-screen mx-32 px-5'>
+            <label for="description">Description
+            </label>
+            <input type='textarea' className=" border-2 border-emerald-700 md:mb-5" name= 'description' onChange={ (e) => setDescription(e.target.value)}/>
+
+
+            <button type='submit' className='bg-emerald-500 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2'> Send</button>
+
+        </section>
 
         </form>
 
