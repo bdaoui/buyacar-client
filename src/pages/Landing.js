@@ -77,6 +77,7 @@ const Landing = () => {
     <>
       <Header /> 
       <BestOffer /> 
+      <Contact />
       
       <div id="carGallery" className='flex flex-col md:flex-row justify-center w-2/4 m-auto flex-wrap p-10' >
           <h1 className='w-full text-center font-medium text-lg p-5'> Other Offers</h1>
