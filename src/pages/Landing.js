@@ -13,47 +13,76 @@ const Landing = () => {
       image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
       name: "Peugeot 308 SW",
       price: "24,746",
+      transmission: "auto",
       id: 1
     },
     {
       image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
       name: "Peugeot 2008  ",
       price: "24,746",
+      transmission: "manual",
       id: 2
     },
     {
       image: "https://m.atcdn.co.uk/ect/media/w1224/130edbc6b0684515b22cf423d2f88693.jpg",
       name: "Volvo XC40 ",
       price: "24,746",
+      transmission: "manual",
       id: 3
     },
     {
       image: "https://m.atcdn.co.uk/ect/media/w1224/3520ca655e03439a8b6a3e109f96b4af.jpg",
       name: "Renault Clio",
       price: "24,746",
+      transmission: "auto",
       id: 4
     },
     {
       image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
       name: "Mercedes-Benz GLA",
       price: "24,746",
+      transmission: "manual",
       id: 5
     },
     {
       image: "https://m.atcdn.co.uk/ect/media/w1224/09cc253defdd49079596830eb120d196.jpg",
       name: "Toyota Corolla",
       price: "24,746",
+      transmission: "auto",
       id: 6
     },
     {
       image: "https://m.atcdn.co.uk/ect/media/w1224/6bd0cbcbc1e74b3781d3e355b211cdc9.jpg",
       name: "Mazda CX-30",
       price: "24,746",
+      transmission: "manual",
       id: 7
     },
     {
       image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
       name: "Tesla Model Y",
+      price: "24,746",
+      transmission: "auto",
+      id: 8
+    },
+    {
+      image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
+      name: "Tesla Model Y",
+      price: "24,746",
+      transmission: "manual",
+      id: 8
+    },
+    {
+      image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
+      name: "Tesla Model Y",
+      price: "24,746",
+      transmission: "manual",
+      id: 8
+    },
+    {
+      image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
+      name: "Tesla Model Y",
+      transmission: "auto",
       price: "24,746",
       id: 8
     }
@@ -85,17 +114,16 @@ const Landing = () => {
         </header>
           {cars.map((car) => {
             return <div key={car._id} className="p-10 lg:w-2/4 ">
-            {/*<h1 className='font-medium text-lg	'>{car.name}</h1>
-            <img src={car.image} alt='pic'className='w-20 h-20 md:w-fit md:h-fit' />
-            <h2 className='font-medium'>Price: {car.price}</h2>
-            <span className='font-medium'>Description: {car.description}</span> */}
+
               <div className="bg-emerald-500 rounded-lg border border-gray-200 shadow-2xl">
                   <Link to="">
-                      <img className="rounded-t-lg" src={car.image} alt="" />
+                      <img className="rounded-t-lg" src={car.image} alt={car.name} />
                   </Link>
                   <div className="p-5">                      
-                      <h5 className="mb-2 text-sm md:text-lg font-bold tracking-tight text-white">{car.name}</h5>    
-                      <h5 className="mb-2 text-sm md:text-lg font-bold tracking-tight text-white">€ {car.price}</h5>            
+                      <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.name}</h5>    
+                      <h5 className="text-xs md:text-sm font-bold tracking-tight text-white">{car.transmission}</h5>   
+                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>            
+
                       <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description}</p>
                       <Link to='' className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
                           See more
@@ -105,7 +133,9 @@ const Landing = () => {
               </div>
             </div>
           })}
-          <Link to="/cars" className="py-2 px-3 md:px-10 mb-20 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300"> More Offers</Link>
+          
+          <Link to="/cars" className=" w-full py-2 px-3 md:px-5 mb-20 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300"> More Offers</Link>
+       
       </div>
     </>
   )
