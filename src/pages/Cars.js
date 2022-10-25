@@ -96,7 +96,11 @@ const Cars = () => {
         console.log("I am trying to get it sent with ", price, image, description)
         const data = new FormData()
             data.append("price", price)
-            data.append("image", e.target.image.files[0])
+            data.append("image", e.target.image.files)
+            data.append("make", make)
+            data.append("model", model)
+            data.append("bestDeal", bestDeal)
+            data.append("gearBox", gearBox)
             data.append("description", description)
 
         axios.post(`${server}/api/cars`, data)
