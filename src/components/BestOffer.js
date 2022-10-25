@@ -109,7 +109,7 @@ const BestOffer = () => {
        
        <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4'>---BEST OFFERS---</header>
 
-        <section className='text-center rounded-xl bg-emerald-700 my-2 md:my-10 w-2/4 m-auto'>
+        <section className='text-center rounded-xl bg-emerald-700 my-4 md:my-10 w-2/4 m-auto drop-shadow-xl'>
             <h1 className='text-base md:text-2xl'>{bestOffer[bestOfferIndex].name}</h1>
             <h1 className='text-base md:text-xl'>€ {bestOffer[bestOfferIndex].price}</h1>
         </section>
@@ -126,7 +126,7 @@ const BestOffer = () => {
                     </button>
             </section>
 
-            <p className="text-sm md:text-lg px-10">{bestOffer[bestOfferIndex].description}</p>
+            <p className="text-sm md:text-lg p-10">{bestOffer[bestOfferIndex].description}</p>
 
     </div>
 
