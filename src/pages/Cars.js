@@ -149,17 +149,19 @@ const Cars = () => {
     </div>
         </header>
           {cars.map((car) => {
-            return <div key={car._id} className="p-10 lg:w-2/4 ">
+            return <div key={car._id} className="p-10 w-full ">
 
               <div className="bg-emerald-500 rounded-lg border border-gray-200 shadow-2xl">
                   <Link to="">
                       <img className="rounded-t-lg" src={car.image} alt={car.name} />
                   </Link>
-                  <div className="p-5">                      
-                      <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.name}</h5>    
+                  <div className="p-5 text-center">                      
+                      <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.name}</h5>
+                      <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">car model</h5>      
+                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>    
                       <h5 className="text-xs md:text-sm font-bold tracking-tight text-white">{car.transmission}</h5>   
-                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>            
-
+                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">car description</h5>            
+                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">car mileage</h5> 
                       <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description}</p>
                       <Link to='' className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
                           See more
