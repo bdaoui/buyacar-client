@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+
 
 const Cars = () => {
 
@@ -54,16 +56,22 @@ const Cars = () => {
         
       ]
 
+    const server = "http://localhost:5005"
+
     const [cars, setCars] = useState(data)
     
     const [selectedPrice, setSelectedPrice] = useState(0)
     const [selectedMileage, setSelectedMileage] = useState(0)
 
-// useEffect( () => {
-//     axios.get(`${server}/cars`)
-//         .then(response => setCars(response.data))
-//         .catch(err => console.log(err))
-// }, [])
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
+    const [description, setdescription] = useState("")
+
+    useEffect( () => {
+        axios.get(`${server}/api/cars`)
+            .then(response => setCars(response.data))
+            .catch(err => console.log(err))
+    }, [])
 
 
     const handleSelection = (e, check) => {
@@ -71,8 +79,21 @@ const Cars = () => {
         check === "mileage" ? setSelectedMileage(e.target.value) : setSelectedPrice(e.target.value)
     }
 
+    const handleCarRequest = (e) => {
+        e.preventDefault()
 
-  return (
+        const data = new FormData()
+            data.append("price", price)
+            data.append("image", image)
+            data.append("description", description)
+
+        axios.post('/cars')
+            .then(response => setCars(...cars, response))
+
+    }
+
+    return (
+
     <div>
     
     <h1 className='text-center text-4xl m-10' > Available Cars</h1>
@@ -94,8 +115,27 @@ const Cars = () => {
     
 
 
+    {cars.map(car => {return <div key={car._id}>
+            <h1>{car.name}</h1>
+            <img src={car.image} alt={car.name} />
+            <p>{car.details}</p>
+        </div>
+    })
+    }
 
+    {
+        <form className='flex flex-col w-1/4 m-auto justify-center mt-10 rounded' onSubmit={handleCarRequest} >
 
+            <label for="Name">Name</label>
+            <input type='text' className='border-2 border-black mb-5' name="name"/>
+            <label for="description">Description</label>
+            <input type='text' className="border-2 border-black mb-5" name= 'description' />
+            <label for="image" >Image</label>
+            <input type='file' name="image" />     
+                   
+        </form>
+
+     }
 
     
     </div>

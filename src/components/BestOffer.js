@@ -89,12 +89,11 @@ const BestOffer = () => {
 // const server = "" // this will come from redux or contest
 
 // useEffect( () => {
-//     axios.get(`${server}/bestOffer`)
+//     axios.get(`${server}/api/bestOffer`)
 //         .then(response => setBestOffer(response.data))
 //         .catch(err => console.log(err))
 // }, [])
 
-      console.log(bestOfferIndex, bestOffer)
 
   return (
 
