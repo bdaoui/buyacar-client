@@ -36,55 +36,6 @@ const Landing = () => {
       price: "24,746",
       transmission: "auto",
       id: 4
-    },
-    {
-      image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
-      name: "Mercedes-Benz GLA",
-      price: "24,746",
-      transmission: "manual",
-      id: 5
-    },
-    {
-      image: "https://m.atcdn.co.uk/ect/media/w1224/09cc253defdd49079596830eb120d196.jpg",
-      name: "Toyota Corolla",
-      price: "24,746",
-      transmission: "auto",
-      id: 6
-    },
-    {
-      image: "https://m.atcdn.co.uk/ect/media/w1224/6bd0cbcbc1e74b3781d3e355b211cdc9.jpg",
-      name: "Mazda CX-30",
-      price: "24,746",
-      transmission: "manual",
-      id: 7
-    },
-    {
-      image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
-      name: "Tesla Model Y",
-      price: "24,746",
-      transmission: "auto",
-      id: 8
-    },
-    {
-      image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
-      name: "Tesla Model Y",
-      price: "24,746",
-      transmission: "manual",
-      id: 8
-    },
-    {
-      image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
-      name: "Tesla Model Y",
-      price: "24,746",
-      transmission: "manual",
-      id: 8
-    },
-    {
-      image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
-      name: "Tesla Model Y",
-      transmission: "auto",
-      price: "24,746",
-      id: 8
     }
     
   ]
