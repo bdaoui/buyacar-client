@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 const Cars = () => {
@@ -110,9 +111,29 @@ const Cars = () => {
 
     <div>
     
-    <h1 className='text-center text-4xl m-10' > Available Cars</h1>
     
-    <div className='flex justify-center'>
+  
+    
+
+    {/* <section className='flex justify-center py-10'>
+    
+        {cars?.map(car => {return <div key={car._id}>
+                <h1>{car.price}</h1>
+                <img src={car.image} alt={car.name} className="w-10 h-10" />
+                <p>{car.description}</p>
+            </div>
+        })
+        }
+
+    </section> */}
+
+
+
+    <div id="carGallery" className='flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-10' >
+        <header className='w-full'>
+          <h1 className='text-lg md:text-4xl text-center m-auto font-bold py-4 text-emerald-900 underline'>Available Cars</h1>
+
+          <div className='flex justify-center'>
         
         <label for="price" className='mr-16 font-medium text-2xl'>Price
             <input type="range" name="price" min="0" max="20000" step="500" className='ml-5' onChange={ (e) => handleSelection(e, "price") }/>
@@ -126,19 +147,30 @@ const Cars = () => {
         </label>
 
     </div>
-    
+        </header>
+          {cars.map((car) => {
+            return <div key={car._id} className="p-10 lg:w-2/4 ">
 
-    <section className='flex justify-center py-10'>
-    
-        {cars?.map(car => {return <div key={car._id}>
-                <h1>{car.price}</h1>
-                <img src={car.image} alt={car.name} className="w-10 h-10" />
-                <p>{car.description}</p>
+              <div className="bg-emerald-500 rounded-lg border border-gray-200 shadow-2xl">
+                  <Link to="">
+                      <img className="rounded-t-lg" src={car.image} alt={car.name} />
+                  </Link>
+                  <div className="p-5">                      
+                      <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.name}</h5>    
+                      <h5 className="text-xs md:text-sm font-bold tracking-tight text-white">{car.transmission}</h5>   
+                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>            
+
+                      <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description}</p>
+                      <Link to='' className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
+                          See more
+                          <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                      </Link>
+                  </div>
+              </div>
             </div>
-        })
-        }
-
-    </section>
+          })}
+                 
+      </div>
 
     {
         <form className='flex  flex-wrap justify-center mt-10 rounded' onSubmit={handleCarRequest} >
