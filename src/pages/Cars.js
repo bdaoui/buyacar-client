@@ -4,74 +4,78 @@ import axios from 'axios'
 
 const Cars = () => {
 
-    const data = [ 
-        {
-          image: "https://m.atcdn.co.uk/a/media/w800h600/0ca14354a2d340dcb1a989ba871ec80d.jpg",
-          name: "Peugeot 308 SW",
-          price: "24,746",
-          id: 1
-        },
-        {
-          image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
-          name: "Peugeot 2008  ",
-          price: "24,746",
-          id: 2
-        },
-        {
-          image: "https://m.atcdn.co.uk/ect/media/w1224/130edbc6b0684515b22cf423d2f88693.jpg",
-          name: "Volvo XC40 Rechargeugeot 308 SW",
-          price: "24,746",
-          id: 3
-        },
-        {
-          image: "https://m.atcdn.co.uk/ect/media/w1224/3520ca655e03439a8b6a3e109f96b4af.jpg",
-          name: "Renault Clio",
-          price: "24,746",
-          id: 4
-        },
-        {
-          image: "https://m.atcdn.co.uk/a/media/w800h600/0ca14354a2d340dcb1a989ba871ec80d.jpg",
-          name: "Mercedes-Benz GLA",
-          price: "24,746",
-          id: 5
-        },
-        {
-          image: "https://m.atcdn.co.uk/ect/media/w1224/09cc253defdd49079596830eb120d196.jpg",
-          name: "Toyota Corolla",
-          price: "24,746",
-          id: 6
-        },
-        {
-          image: "https://m.atcdn.co.uk/ect/media/w1224/6bd0cbcbc1e74b3781d3e355b211cdc9.jpg",
-          name: "Mazda CX-30",
-          price: "24,746",
-          id: 7
-        },
-        {
-          image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
-          name: "Tesla Model Y",
-          price: "24,746",
-          id: 8
-        }
+    // const data = [ 
+    //     {
+    //       image: "https://m.atcdn.co.uk/a/media/w800h600/0ca14354a2d340dcb1a989ba871ec80d.jpg",
+    //       name: "Peugeot 308 SW",
+    //       price: "24,746",
+    //       id: 1
+    //     },
+    //     {
+    //       image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
+    //       name: "Peugeot 2008  ",
+    //       price: "24,746",
+    //       id: 2
+    //     },
+    //     {
+    //       image: "https://m.atcdn.co.uk/ect/media/w1224/130edbc6b0684515b22cf423d2f88693.jpg",
+    //       name: "Volvo XC40 Rechargeugeot 308 SW",
+    //       price: "24,746",
+    //       id: 3
+    //     },
+    //     {
+    //       image: "https://m.atcdn.co.uk/ect/media/w1224/3520ca655e03439a8b6a3e109f96b4af.jpg",
+    //       name: "Renault Clio",
+    //       price: "24,746",
+    //       id: 4
+    //     },
+    //     {
+    //       image: "https://m.atcdn.co.uk/a/media/w800h600/0ca14354a2d340dcb1a989ba871ec80d.jpg",
+    //       name: "Mercedes-Benz GLA",
+    //       price: "24,746",
+    //       id: 5
+    //     },
+    //     {
+    //       image: "https://m.atcdn.co.uk/ect/media/w1224/09cc253defdd49079596830eb120d196.jpg",
+    //       name: "Toyota Corolla",
+    //       price: "24,746",
+    //       id: 6
+    //     },
+    //     {
+    //       image: "https://m.atcdn.co.uk/ect/media/w1224/6bd0cbcbc1e74b3781d3e355b211cdc9.jpg",
+    //       name: "Mazda CX-30",
+    //       price: "24,746",
+    //       id: 7
+    //     },
+    //     {
+    //       image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
+    //       name: "Tesla Model Y",
+    //       price: "24,746",
+    //       id: 8
+    //     }
         
-      ]
+    //   ]
 
     const server = "http://localhost:5005"
 
-    const [cars, setCars] = useState(data)
+    const [cars, setCars] = useState([])
     
     const [selectedPrice, setSelectedPrice] = useState(0)
     const [selectedMileage, setSelectedMileage] = useState(0)
 
+    const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [image, setImage] = useState("")
-    const [description, setdescription] = useState("")
+    const [description, setDescription] = useState("")
+
+    const [refresh, setRefresh] = useState(false)
+
 
     useEffect( () => {
         axios.get(`${server}/api/cars`)
             .then(response => setCars(response.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [refresh])
 
 
     const handleSelection = (e, check) => {
@@ -82,13 +86,19 @@ const Cars = () => {
     const handleCarRequest = (e) => {
         e.preventDefault()
 
+        
+
+        console.log("I am trying to get it sent with ", price, image, description)
         const data = new FormData()
             data.append("price", price)
-            data.append("image", image)
+            data.append("image", e.target.image.files[0])
             data.append("description", description)
 
-        axios.post('/cars')
-            .then(response => setCars(...cars, response))
+        axios.post(`${server}/api/cars`, data)
+            .then(response =>  setRefresh(true))
+        
+       
+
 
     }
 
@@ -115,10 +125,10 @@ const Cars = () => {
     
 
 
-    {cars.map(car => {return <div key={car._id}>
+    {cars?.map(car => {return <div key={car._id}>
             <h1>{car.name}</h1>
-            <img src={car.image} alt={car.name} />
-            <p>{car.details}</p>
+            <img src={car.image} alt={car.name} className="w-10 h-10" />
+            <p>{car.description}</p>
         </div>
     })
     }
@@ -126,13 +136,15 @@ const Cars = () => {
     {
         <form className='flex flex-col w-1/4 m-auto justify-center mt-10 rounded' onSubmit={handleCarRequest} >
 
-            <label for="Name">Name</label>
-            <input type='text' className='border-2 border-black mb-5' name="name"/>
+            <label for="Name">Price</label>
+            <input type='text' className='border-2 border-black mb-5' name="price"  onChange={ (e) => setPrice(e.target.value)}/>
             <label for="description">Description</label>
-            <input type='text' className="border-2 border-black mb-5" name= 'description' />
+            <input type='text' className="border-2 border-black mb-5" name= 'description' onChange={ (e) => setDescription(e.target.value)}/>
             <label for="image" >Image</label>
             <input type='file' name="image" />     
-                   
+
+            <button type='submit' className='bg-emerald-500 padding-5 rounded w-1/4 my-5 '> Send</button>
+
         </form>
 
      }
