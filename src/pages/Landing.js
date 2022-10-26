@@ -64,10 +64,11 @@ const Landing = () => {
           <h1 className='text-lg md:text-4xl text-center m-auto font-bold py-4'>---Other Offers---</h1>
         </header>
           {cars.map((car) => {
-            return <div key={car._id} className="p-10 lg:w-2/4 ">
+            console.log(car.id)
+            return <div key={car.id} className="p-10 lg:w-2/4 ">
 
               <div className="bg-emerald-500 rounded-lg border border-gray-200 shadow-2xl">
-                  <Link to="">
+                  <Link to={`/${car.id}`}>
                       <img className="rounded-t-lg" src={car.image} alt={car.name} />
                   </Link>
                   <div className="p-5">                      
@@ -76,7 +77,7 @@ const Landing = () => {
                       <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>            
 
                       <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description}</p>
-                      <Link to='' className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
+                      <Link to={`/${car.id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-emerald-700 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
                           See more
                           <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                       </Link>
