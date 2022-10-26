@@ -24,6 +24,7 @@ const Dashboard = () => {
   const [image, setImage] = useState("");
   const [transmission, setTransmission] = useState("");
   const [description, setDescription] = useState("");
+  const [engine, setEngine] = useState("");
 
   const [visible, setVisible] = useState("flex");
 
@@ -55,6 +56,7 @@ const Dashboard = () => {
     data.append("fuel", fuel);
     data.append("color", color);
     data.append("body", body);
+    data.append("engine", engine);
 
     axios
       .post(`${server}/api/cars`, data)
@@ -79,6 +81,7 @@ const Dashboard = () => {
     data.append("fuel", fuel);
     data.append("color", color);
     data.append("body", body);
+    data.append("engine", engine);
 
     axios
       .put("{server}/api/cars", data)
@@ -226,6 +229,14 @@ const Dashboard = () => {
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
+                  <label for="make">Make</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="make"
+                    onChange={(e) => setMake(e.target.value)}
+                  />
+
                   <label for="model">Model</label>
                   <input
                     type="text"
@@ -233,6 +244,7 @@ const Dashboard = () => {
                     name="model"
                     onChange={(e) => setModel(e.target.value)}
                   />
+
 
                   <label for="fuel">Fuel</label>
                   <input
@@ -260,6 +272,14 @@ const Dashboard = () => {
                 </div>
 
                 <div className="md:w-2/4 flex flex-col px-5">
+                  <label for="description">Engine Size</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="engine"
+                    onChange={(e) => setEngine(e.target.value)}
+                  />
+
                   <label for="description">Mileage</label>
                   <input
                     type="text"
