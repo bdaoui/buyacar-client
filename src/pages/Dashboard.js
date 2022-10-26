@@ -19,6 +19,11 @@ const Dashboard = () => {
     const [image, setImage] = useState("")
     const [gearBox, setGearBox] = useState("")
     const [description, setDescription] = useState("")
+    const [fuel, setFuel] = useState("")
+    const [body, setBody] = useState("")
+    const [color, setColor] = useState("")
+    const [doors, setDoors] = useState("")
+    const [seat, setSeats] = useState("")
 
     // Retreive Data
 
@@ -42,6 +47,8 @@ const Dashboard = () => {
         data.append("bestDeal", bestDeal)
         data.append("gearBox", gearBox)
         data.append("description", description)
+        data.append("body", body)
+        data.append("fuel", fuel)
 
         axios.post('{server}/api/cars', data)
             .then(response => console.log(response))
@@ -76,7 +83,7 @@ const Dashboard = () => {
         
     <div className='flex h-5/6'>
 
-        <section className='w-1/3 border-black border-4 '>
+        <section className='w-1/3 border-black border-4 hidden '>
             
             <div className='flex justify-center text-center pt-5 gap-6'>
                 <h1 className='font-bold text-emerald-900 text-lg'>Car List</h1>
@@ -101,7 +108,7 @@ const Dashboard = () => {
 
         </section>
 
-        <section className='w-2/3 border-black border-4'> 
+        <section className='w-2/3 border-black border-4 overflow-scroll'> 
 
             {selected === "New Post" && 
 
@@ -114,7 +121,7 @@ const Dashboard = () => {
 
 
         <section  className='flex flex-wrap justify-center w-screen mx-32' >
-            <div className='w-2/4 flex flex-col px-5'> 
+            <div className='md:w-2/4 flex flex-col px-5'> 
             
                 <label for="Name">Price
                 </label>
@@ -124,10 +131,20 @@ const Dashboard = () => {
                 <label for="model">Model
                 </label>
                 <input type='text' className="border-2 border-emerald-700 mb-5" name= 'model' onChange={ (e) => setModel(e.target.value)}/>
-           
-                <label for="image" className='w-3/4 '>Image
-                <input type='file' multiple name="image" />     
+                
+                <label for="fuel">Fuel
                 </label>
+                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'fuel' onChange={ (e) => setFuel(e.target.value)}/>
+                
+                <label for="color">Color
+                </label>
+                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'color' onChange={ (e) => setColor(e.target.value)}/>
+                
+                <label for="body">Body
+                </label>
+                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'body' onChange={ (e) => setBody(e.target.value)}/>
+           
+                
                 
             </div>
 
@@ -137,7 +154,7 @@ const Dashboard = () => {
                 </label>
                 <input type='text' className="border-2 border-emerald-700 mb-5" name= 'mileage' onChange={ (e) => setMileage(e.target.value)}/>
                 
-                <fieldset className='flex border-2 border-emerald-600 gap-2 p-1'>
+                <fieldset className='flex border-2 border-emerald-600 gap-2 p-3 my-2'>
                     <legend>Select Gearbox</legend>
                     <label for="description">Gearbox
                     </label>
@@ -149,7 +166,7 @@ const Dashboard = () => {
 
                 </fieldset>
 
-                <fieldset className='flex border-2 border-emerald-600 gap-2 p-1'>
+                <fieldset className='flex border-2 border-emerald-600 gap-2 p-3'>
                     <legend>Is it a BestDeal? </legend>
                     <label for="description">BeastDeal
                     </label>
@@ -161,8 +178,34 @@ const Dashboard = () => {
 
                 </fieldset>
 
-
+                <div className='flex flex-col md:flex-row mt-6 justify-center gap-10'>
+                    <select className='flex border-2 border-emerald-600 gap-2 mr-2  '>
+                        <option selected> Number of Doors</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
         
+                    </select>
+
+                    <select className='flex border-2 border-emerald-600 gap-2 mr-2'>
+                        <option selected> Number of Seats</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                    </select>
+
+
+                </div>
+                <label for="image" className='mt-5 flex justify-center' >Image
+                    <input type='file' multiple name="image" />     
+                </label>
+
+
 
             </div>
 
