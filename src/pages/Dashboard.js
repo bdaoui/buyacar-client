@@ -132,18 +132,37 @@ const Dashboard = () => {
             </div>
 
             <div className='w-2/4 flex flex-col'>
-                <label for="description">Gearbox
-                </label>
-                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'gearbox' onChange={ (e) => setGearBox(e.target.value)}/>
-
+                
                 <label for="description">Mileage
                 </label>
                 <input type='text' className="border-2 border-emerald-700 mb-5" name= 'mileage' onChange={ (e) => setMileage(e.target.value)}/>
+                
+                <fieldset className='flex border-2 border-emerald-600 gap-2 p-1'>
+                    <legend>Select Gearbox</legend>
+                    <label for="description">Gearbox
+                    </label>
+                    <input type='radio' checked className="border-2 border-emerald-700 " name= 'gearbox' onChange={ (e) => setGearBox(e.target.value)}/>
+                    
+                    <label for="description">No Gearbox
+                    </label>
+                    <input type='radio' className="border-2 border-emerald-700 " name= 'gearbox' onChange={ (e) => setGearBox(e.target.value)}/>
 
-                <label for="description">BestDeal
-                </label>
-                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'bestDeal' onChange={ (e) => setBestDeal(e.target.value)}/>
+                </fieldset>
 
+                <fieldset className='flex border-2 border-emerald-600 gap-2 p-1'>
+                    <legend>Is it a BestDeal? </legend>
+                    <label for="description">BeastDeal
+                    </label>
+                    <input type='radio' checked className="border-2 border-emerald-700 " name= 'gearbox' onChange={ (e) => setBestDeal(e.target.value)}/>
+                    
+                    <label for="description">Normal
+                    </label>
+                    <input type='radio' className="border-2 border-emerald-700 " name= 'gearbox' onChange={ (e) => setBestDeal(e.target.value)}/>
+
+                </fieldset>
+
+
+        
 
             </div>
 
@@ -155,7 +174,7 @@ const Dashboard = () => {
             <input type='textarea' className=" border-2 border-emerald-700 md:mb-5" name= 'description' onChange={ (e) => setDescription(e.target.value)}/>
 
 
-            <button type='submit' className='bg-emerald-500 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2'> Send</button>
+            <button type='submit' className='bg-emerald-900 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2'> Send</button>
 
         </section>
 
