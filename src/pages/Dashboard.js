@@ -103,10 +103,15 @@ const Dashboard = () => {
 
         <section className='w-2/3 border-black border-4'> 
 
-                {selected === "New Post" && 
+            {selected === "New Post" && 
 
-                <form className='flex  flex-wrap justify-center mt-10 rounded' onSubmit={handleNewCar} >
-        <h1 className='text-3xl text-center mb-5'> Upload New Car</h1>
+                <form className='flex  relative flex-wrap justify-center mt-10 rounded' onSubmit={handleNewCar} >
+                    <h1 className='text-3xl text-center mb-5'> Upload New Car</h1>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 absolute top-2  md:top-0 right-2 md:right-11" onClick={(e) => setSelected("")}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+
 
         <section  className='flex flex-wrap justify-center w-screen mx-32' >
             <div className='w-2/4 flex flex-col px-5'> 
