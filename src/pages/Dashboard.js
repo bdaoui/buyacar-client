@@ -72,17 +72,17 @@ const Dashboard = () => {
     Admin Dashboard
     <div className='flex'>
 
-        <section className='w-1/2 border-black border-4'>
+        <section className='w-1/3 border-black border-4'>
             
             <div className='flex justify-center text-center'>
                 <h1>Car List</h1>
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" /></svg>
             </div>
 
-            <div>
+            <div className='p-5'>
                 {cars.map(car => {
-                    return<div key={car._id}>
-                        <img src={car.image} alt={car.make+" "+car.model} />
+                    return<div key={car._id} className='flex p-1 border-b-4 border-emerald-900'>
+                        <img src={car.image} alt={car.make+" "+car.model} className="w-15 h-10"/>
                         <h2>{car.make}</h2>
                         <h2>{car.model}</h2>
                         <h2>{car.price}</h2>
@@ -95,7 +95,7 @@ const Dashboard = () => {
 
         </section>
 
-        <section className='w-1/2 border-black border-4'> 
+        <section className='w-2/3 border-black border-4'> 
         </section>
 
     </div>
