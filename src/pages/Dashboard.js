@@ -94,18 +94,18 @@ const Dashboard = () => {
 
   return (
     <div className="h-screen">
-      <h1 className="text-center p-5 text-2xl text-emerald-800 font-bold">
+      <h1 className="text-center p-5 text-2xl text-emerald-500 font-bold">
         Admin Dashboard
       </h1>
 
-      <div className="flex h-5/6">
+      <div className="flex h-screen">
         <aside
-          className={`w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen lg:h-full border-black border-2 px-4 overflow-y-scroll ${visible} md:flex`}
+          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen lg:h-full border-black border-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
         >
           <div className="flex justify-center text-center pt-5 gap-6">
-            <h1 className="font-bold text-emerald-900 text-lg">Car List</h1>
+            <h1 className="font-bold text-emerald-500 text-xl">Car List</h1>
             <svg
-              className="w-6 h-6 cursor-pointer fill-emerald-900"
+              className="w-6 h-6 cursor-pointer fill-emerald-500 mt-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,7 @@ const Dashboard = () => {
                   key={car._id}
                   className="py-2 lg:p-4 border-b-2 border-emerald-500 flex "
                 >
-                  <section className="w-fit h-fit pr-5">
+                  <section className="w-2/4 pr-5">
                     <img
                       src={car.image}
                       alt={car.make + " " + car.model}
@@ -146,9 +146,9 @@ const Dashboard = () => {
         </aside>
 
         <section
-          className={`border-black border-4  m-auto md:m-0 ${
+          className={`border-black border-2  m-auto md:m-0 ${
             visible === "hidden" ? "flex" : "hidden"
-          } w-4/6 md:flex justify-center `}
+          } w-5/6 md:w-4/6 md:flex justify-center `}
         >
           {selected === "New Post" && (
             <form
@@ -218,7 +218,7 @@ const Dashboard = () => {
                   />
                 </div>
 
-                <div className="w-2/4 flex flex-col">
+                <div className="md:w-2/4 flex flex-col px-5">
                   <label for="description">Mileage</label>
                   <input
                     type="text"
@@ -249,7 +249,7 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-emerald-600 gap-2 p-3">
                     <legend>Is it a BestDeal? </legend>
-                    <label for="description">BeastDeal</label>
+                    <label for="description">BestDeal</label>
                     <input
                       type="radio"
                       checked
@@ -270,10 +270,11 @@ const Dashboard = () => {
                   <div className="flex flex-col  mt-6 justify-center">
                     <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  ">
                       <option selected> Number of Doors</option>
-                      <option>1</option>
                       <option>2</option>
                       <option>3</option>
                       <option>4</option>
+                      <option>5</option>
+
                     </select>
 
                     <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 ">
@@ -285,6 +286,7 @@ const Dashboard = () => {
                       <option>5</option>
                       <option>6</option>
                       <option>7</option>
+                      <option>8</option>
                     </select>
                   </div>
                 </div>
@@ -295,12 +297,12 @@ const Dashboard = () => {
                 <div class="flex justify-center items-center w-full mb-5">
                   <label
                     for="dropzone-file"
-                    class="flex flex-col justify-center items-center w-1/2 h-32 bg-emerald-500/20 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
+                    class="flex flex-col justify-center items-center w-3/4 h-32 bg-emerald-500/20 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
                   >
                     <div class="flex flex-col justify-center items-center pt-5 pb-6">
                       <svg
                         aria-hidden="true"
-                        class="mb-3 w-10 h-10 text-gray-400"
+                        class="mb-3 w-4 h-4 md:w-10 md:h-10 text-gray-400"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -313,7 +315,7 @@ const Dashboard = () => {
                           d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                         ></path>
                       </svg>
-                      <p class="mb-2 text-sm text-gray-500">
+                      <p class="mb-2 text-xs md:text-sm text-gray-500">
                         <span class="font-semibold">Click to upload</span> or
                         drag and drop
                       </p>
