@@ -44,7 +44,7 @@ const Dashboard = () => {
 
     const data = new FormData();
     data.append("price", price);
-    data.append("image", e.target.image.files);
+    data.append("image", image);
     data.append("make", make);
     data.append("model", model);
     data.append("bestDeal", bestDeal);
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
     const data = new FormData();
     data.append("price", price);
-    data.append("image", e.target.image.files);
+    data.append("image", image);
     data.append("make", make);
     data.append("model", model);
     data.append("bestDeal", bestDeal);
@@ -110,7 +110,7 @@ const Dashboard = () => {
 
     const data = new FormData()
     data.append("price", price);
-    data.append("image", e.target.image.files);
+    data.append("image", image);
     data.append("make", make);
     data.append("model", model);
     data.append("bestDeal", bestDeal);
@@ -126,7 +126,7 @@ const Dashboard = () => {
 
   } 
 
-  console.log(doors)
+  console.log(image)
 
 
 
@@ -382,7 +382,7 @@ const Dashboard = () => {
                         SVG, PNG, JPG or JPEG
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" multiple class="hidden" />
+                    <input id="dropzone-file" type="file" multiple class="hidden" onChange={ e => setImage(e.target.files)} />
                   </label>
                 </div>
               </section>
