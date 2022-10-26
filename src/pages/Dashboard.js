@@ -80,7 +80,7 @@ const Dashboard = () => {
             
             <div className='flex justify-center text-center pt-5 gap-6'>
                 <h1 className='font-bold text-emerald-900 text-lg'>Car List</h1>
-                <svg className="w-6 h-6 fill-emerald-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={(e) => setSelected("New Post")}>
+                <svg className="w-6 h-6 cursor-pointer fill-emerald-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={(e) => setSelected("New Post")}>
                     <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
                 </svg>
             </div>
@@ -108,7 +108,7 @@ const Dashboard = () => {
                 <form className='flex  relative flex-wrap justify-center mt-10 rounded' onSubmit={handleNewCar} >
                     <h1 className='text-3xl text-center mb-5'> Upload New Car</h1>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 absolute top-2  md:top-0 right-2 md:right-11" onClick={(e) => setSelected("")}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 cursor-pointer absolute top-2  md:top-0 right-2 md:right-11" onClick={(e) => setSelected("")} >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
 
