@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const server = "http://localhost:5005";
@@ -107,10 +108,12 @@ const Dashboard = () => {
           <div className="p-1 lg:p-5 lg:0-2 flex flex-col">
             {cars.map((car) => {
               return (
+               
                 <div
                   key={car._id}
                   className="py-2 lg:p-4 border-b-2 border-emerald-500 flex "
                 >
+                
                 <section className="w-fit h-fit pr-5">
                   <img
                     src={car.image}
@@ -124,6 +127,7 @@ const Dashboard = () => {
                   <h4>car color</h4>
                   <h4>car transmission</h4>
                 </section>
+                
                 </div>
               );
             })}
@@ -207,32 +211,6 @@ const Dashboard = () => {
                 onChange={(e) => setColor(e.target.value)}
                 />
 
-                <label for="model">Fuel</label>
-                <input
-                type="text"
-                className="border-2 border-emerald-700 mx-2 mb-5"
-                name="fuel"
-                onChange={(e) => setFuel(e.target.value)}
-                />
-            </div>
-
-            <div className="w-full flex flex-col lg:flex-row mx-auto px-5">
-                <label for="Name">Seats</label>
-                <input
-                type="text"
-                className="border-2 border-emerald-700 mx-2 mb-5"
-                name="seats"
-                onChange={(e) => setSeats(e.target.value)}
-                />
-                
-                <label for="Name">Doors</label>
-                <input
-                type="text"
-                className="border-2 border-emerald-700 mx-2 mb-5"
-                name="doors"
-                onChange={(e) => setDoors(e.target.value)}
-                />
-
                 <label for="model">Body</label>
                 <input
                 type="text"
@@ -240,6 +218,39 @@ const Dashboard = () => {
                 name="body"
                 onChange={(e) => setBody(e.target.value)}
                 />
+               
+            </div>
+
+            <div className="w-full flex flex-col lg:flex-row mx-auto px-5">
+                <label for="seats">Seats</label>
+                <select name="seats" id="seats">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+                
+                <label for="seats">Doors</label>
+                <select name="doors" id="doors">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <label for="fuel">Fuel</label>
+                <select name="fuel" id="fuel">
+                    <option value="petrol">Petrol</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="electric">Electric</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+
             </div>
 
             <div className="w-full flex flex-col mx-auto px-5 py-2">
