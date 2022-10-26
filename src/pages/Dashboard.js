@@ -290,7 +290,7 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-emerald-600 gap-2 p-3 my-2">
                     <legend>Select transmission</legend>
-                    <label for="description">transmission</label>
+                    <label for="description">Automatic</label>
                     <input
                       type="radio"
                       checked
@@ -299,7 +299,7 @@ const Dashboard = () => {
                       onChange={(e) => setTransmission(e.target.value)}
                     />
 
-                    <label for="description">No transmission</label>
+                    <label for="description">Manual</label>
                     <input
                       type="radio"
                       className="border-2 border-emerald-700 "
@@ -310,7 +310,7 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-emerald-600 gap-2 p-3">
                     <legend>Is it a BestDeal? </legend>
-                    <label for="description">BestDeal</label>
+                    <label for="description">Deal</label>
                     <input
                       type="radio"
                       checked
@@ -319,7 +319,7 @@ const Dashboard = () => {
                       onChange={(e) => setBestDeal(e.target.value)}
                     />
 
-                    <label for="description">Normal</label>
+                    <label for="description">No Deal</label>
                     <input
                       type="radio"
                       className="border-2 border-emerald-700 "
