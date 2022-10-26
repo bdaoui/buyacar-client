@@ -123,6 +123,8 @@ const Dashboard = () => {
 
   } 
 
+  console.log(doors)
+
 
 
   return (
@@ -293,7 +295,7 @@ const Dashboard = () => {
                       type="radio"
                       checked
                       className="border-2 border-emerald-700 "
-                      name="transmission"
+                      name="bestDeal"
                       onChange={(e) => setBestDeal(e.target.value)}
                     />
 
@@ -301,31 +303,31 @@ const Dashboard = () => {
                     <input
                       type="radio"
                       className="border-2 border-emerald-700 "
-                      name="transmission"
+                      name="bestDeal"
                       onChange={(e) => setBestDeal(e.target.value)}
                     />
                   </fieldset>
 
                   <div className="flex flex-col  mt-6 justify-center">
-                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  ">
+                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
                       <option selected> Number of Doors</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option value='2'>2</option>
+                      <option value='3'>3</option>
+                      <option value='4'>4</option>
+                      <option value='5'>5</option>
 
                     </select>
 
-                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 ">
+                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
                       <option selected> Number of Seats</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
                     </select>
                   </div>
                 </div>
