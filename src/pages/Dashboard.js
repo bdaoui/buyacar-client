@@ -83,32 +83,54 @@ const Dashboard = () => {
         
     <div className='flex h-5/6'>
 
-        <section className='w-1/3 border-black border-4 hidden '>
-            
-            <div className='flex justify-center text-center pt-5 gap-6'>
-                <h1 className='font-bold text-emerald-900 text-lg'>Car List</h1>
-                <svg className="w-6 h-6 cursor-pointer fill-emerald-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={(e) => setSelected("New Post")}>
-                    <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
-                </svg>
-            </div>
+        <aside className="w-5/6 mx-auto lg:m-0 lg:w-1/3 h-screen lg:h-full border-black border-2 px-4 overflow-y-scroll hidden md:flex">
+          <div className="flex justify-center text-center pt-5 gap-6">
+            <h1 className="font-bold text-emerald-900 text-lg">Car List</h1>
+            <svg
+              className="w-6 h-6 cursor-pointer fill-emerald-900"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={(e) => setSelected("New Post")}
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
 
-            <div className='p-5'>
-                {cars.map(car => {
-                    return<div key={car._id} className='flex p-1 border-b-4 border-emerald-900'>
-                        <img src={car.image} alt={car.make+" "+car.model} className="w-15 h-10"/>
-                        <h2>{car.make}</h2>
-                        <h2>{car.model}</h2>
-                        <h2>{car.price}</h2>
+          <div className="p-1 lg:p-5 lg:0-2 flex flex-col">
+            {cars.map((car) => {
+              return (
 
-                    </div>
-                })
+                <div
+                  key={car._id}
+                  className="py-2 lg:p-4 border-b-2 border-emerald-500 flex "
+                >
 
-                }
-            </div>
+                <section className="w-fit h-fit pr-5">
+                  <img
+                    src={car.image}
+                    alt={car.make + " " + car.model}
+                    className="w-fit h-fit"
+                  />
+                </section>
+                <section className="flex flex-col py-1">
+                  <h2>car make and name</h2>
+                  <h4>€ price</h4>
+                  <h4>car color</h4>
+                  <h4>car transmission</h4>
+                </section>
 
-        </section>
+                </div>
+              );
+            })}
+          </div>
+        </aside>
 
-        <section className='w-2/3 border-black border-4 overflow-scroll'> 
+        <section className='w-2/3 border-black border-4 overflow-scroll m-auto md:m-0'> 
 
             {selected === "New Post" && 
 
@@ -178,8 +200,8 @@ const Dashboard = () => {
 
                 </fieldset>
 
-                <div className='flex flex-col md:flex-row mt-6 justify-center gap-10'>
-                    <select className='flex border-2 border-emerald-600 gap-2 mr-2  '>
+                <div className='flex flex-col xl:flex-row mt-6 justify-center'>
+                    <select className='flex border-2 border-emerald-600 gap-2 mb-6 mr-2  '>
                         <option selected> Number of Doors</option>
                         <option>1</option>
                         <option>2</option>
@@ -188,7 +210,7 @@ const Dashboard = () => {
         
                     </select>
 
-                    <select className='flex border-2 border-emerald-600 gap-2 mr-2'>
+                    <select className='flex border-2 border-emerald-600 gap-2 mr-2 mb-6 '>
                         <option selected> Number of Seats</option>
                         <option>1</option>
                         <option>2</option>
