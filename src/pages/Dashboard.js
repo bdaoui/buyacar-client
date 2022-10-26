@@ -92,6 +92,10 @@ const Dashboard = () => {
     setVisible("flex");
   };
 
+  const handleOpenCar = (e) => {
+    //open car edit which is literally car form with pre populated fields and a row showing all images maybe carousel
+  } 
+
   return (
     <div className="h-screen">
       <h1 className="text-center p-5 text-2xl text-emerald-500 font-bold">
@@ -126,18 +130,24 @@ const Dashboard = () => {
                   key={car._id}
                   className="py-2 lg:p-4 border-b-2 border-emerald-500 flex "
                 >
-                  <section className="w-2/4 pr-5">
+                  <section className="w-3/6">
                     <img
                       src={car.image}
                       alt={car.make + " " + car.model}
                       className="w-fit h-fit"
                     />
                   </section>
-                  <section className="flex flex-col py-1">
-                    <h2>car make and name</h2>
-                    <h4>€ price</h4>
-                    <h4>car color</h4>
-                    <h4>car transmission</h4>
+                  <section className="w-2/6 flex flex-col pl-5 py-1 text-xs md:text-sm lg:text-base">
+                    <h2>Volkswagen</h2>
+                    <h2>Golf</h2>
+                    <h4>€10,000</h4>
+                    <h4>Navy</h4>
+                    <h4>Auto</h4>
+                  </section>
+                  <section className="w-1/6">
+                  <svg onClick={(e) => handleOpenCar()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-10 mt-10">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                  </svg>
                   </section>
                 </div>
               );
@@ -320,10 +330,10 @@ const Dashboard = () => {
                         drag and drop
                       </p>
                       <p class="text-xs text-gray-500">
-                        SVG, PNG, JPG or GIF (MAX. 800x400px)
+                        SVG, PNG, JPG or JPEG
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" class="hidden" />
+                    <input id="dropzone-file" type="file" multiple class="hidden" />
                   </label>
                 </div>
               </section>
