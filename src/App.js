@@ -7,6 +7,7 @@ import Landing from './pages/Landing'
 import Info from './pages/Info'
 import Login from './pages/Login'
 import Cars from './pages/Cars'
+import Dashboard from './pages/Dashboard'
 
 const App = () => {
   return (
@@ -20,7 +21,10 @@ const App = () => {
           <Route path="/:id" element={<CarDetails />} />
           <Route path="/info" element={<Info />} />
           <Route path="/admin/login" element={<Login />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+       
        </Routes>
+
     <div className='fixed bottom-0 w-full'>
       <Footer />
     </div>

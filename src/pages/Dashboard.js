@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 const Dashboard = () => {
-    const server = ""
+    const server = "http://localhost:5005"
+
     const [cars, setCars] = useState([])
     const [refresh, setRefresh] = useState(false)
 
@@ -63,15 +64,27 @@ const Dashboard = () => {
             .then(response => console.log(response))
             .catch(err => console.log(err))
 
-
+        setRefresh(!refresh)
     }
 
   return (
     <div>
     Admin Dashboard
+    <div className='flex'>
 
-    <section></section>
-    <section></section>
+        <section className='w-1/2 border-black border-4'>
+            
+            <div className='flex justify-center text-center'>
+                <h1>Car List</h1>
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" /></svg>
+            </div>
+
+        </section>
+
+        <section className='w-1/2 border-black border-4'> 
+        </section>
+
+    </div>
     
     </div>
   )
