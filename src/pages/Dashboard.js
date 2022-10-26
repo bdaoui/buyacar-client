@@ -82,6 +82,9 @@ const [visible, setVisible] = useState("flex")
       setRefresh(!refresh);
     };
 
+
+    // Show and Hide based on vector click (+ and x)
+
     const handleShowNewPostForm = (e) => {
         setSelected("New Post")
         setVisible("hidden")
@@ -104,7 +107,7 @@ const [visible, setVisible] = useState("flex")
         </h1>
 
         <div className="flex h-5/6">
-          <aside className={`w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen lg:h-full border-black border-2 px-4 overflow-y-scroll ${visible}`}>
+          <aside className={`w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen lg:h-full border-black border-2 px-4 overflow-y-scroll ${visible} md:flex`}>
             <div className="flex justify-center text-center pt-5 gap-6">
               <h1 className="font-bold text-emerald-900 text-lg">Car List</h1>
               <svg
@@ -148,7 +151,7 @@ const [visible, setVisible] = useState("flex")
             </div>
           </aside>
 
-          <section className="md:w-2/3 border-black border-4 overflow-scroll m-auto md:m-0">
+          <section className={`md:w-2/3 border-black border-4 overflow-scroll m-auto md:m-0 ${visible === "hidden" ? "flex" : "hidden"} md:flex` }>
             {selected === "New Post" && (
               <form
                 className="flex  relative flex-wrap justify-center mt-10 rounded"
@@ -163,7 +166,7 @@ const [visible, setVisible] = useState("flex")
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-6 h-6 cursor-pointer absolute top-2  md:top-0 right-2 md:right-11"
-                  onClick={(e) => handleShowNewPostForm()}
+                  onClick={(e) => handleCloseSecondSection()}
                 >
                   <path
                     strokeLinecap="round"
