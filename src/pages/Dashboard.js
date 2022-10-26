@@ -20,11 +20,9 @@ const Dashboard = () => {
   const [seats, setSeats] = useState("");
   const [doors, setDoors] = useState("");
   const [body, setBody] = useState("");
-
   const [bestDeal, setBestDeal] = useState("");
-
   const [image, setImage] = useState("");
-  const [gearBox, setGearBox] = useState("");
+  const [transmission, setTransmission] = useState("");
   const [description, setDescription] = useState("");
 
   const [visible, setVisible] = useState("flex");
@@ -49,10 +47,14 @@ const Dashboard = () => {
     data.append("make", make);
     data.append("model", model);
     data.append("bestDeal", bestDeal);
-    data.append("gearBox", gearBox);
+    data.append("transmission", transmission);
     data.append("description", description);
-    data.append("body", body);
+    data.append("mileage", mileage);
+    data.append("seats", seats);
+    data.append("doors", doors);
     data.append("fuel", fuel);
+    data.append("color", color);
+    data.append("body", body);
 
     axios
       .post(`${server}/api/cars`, data)
@@ -69,8 +71,14 @@ const Dashboard = () => {
     data.append("make", make);
     data.append("model", model);
     data.append("bestDeal", bestDeal);
-    data.append("gearBox", gearBox);
+    data.append("transmission", transmission);
     data.append("description", description);
+    data.append("mileage", mileage);
+    data.append("seats", seats);
+    data.append("doors", doors);
+    data.append("fuel", fuel);
+    data.append("color", color);
+    data.append("body", body);
 
     axios
       .put("{server}/api/cars", data)
@@ -94,7 +102,28 @@ const Dashboard = () => {
 
   const handleOpenCar = (e) => {
     //open car edit which is literally car form with pre populated fields and a row showing all images maybe carousel
+
+    e.preventDefault()
+
+    const data = new FormData()
+    data.append("price", price);
+    data.append("image", e.target.image.files);
+    data.append("make", make);
+    data.append("model", model);
+    data.append("bestDeal", bestDeal);
+    data.append("transmission", transmission);
+    data.append("description", description); 
+    data.append("mileage", mileage);
+    data.append("seats", seats);
+    data.append("doors", doors);
+    data.append("fuel", fuel);
+    data.append("color", color);
+    data.append("body", body);
+
+
   } 
+
+
 
   return (
     <div className="h-screen">
@@ -238,22 +267,22 @@ const Dashboard = () => {
                   />
 
                   <fieldset className="flex border-2 border-emerald-600 gap-2 p-3 my-2">
-                    <legend>Select Gearbox</legend>
-                    <label for="description">Gearbox</label>
+                    <legend>Select transmission</legend>
+                    <label for="description">transmission</label>
                     <input
                       type="radio"
                       checked
                       className="border-2 border-emerald-700 "
-                      name="gearbox"
-                      onChange={(e) => setGearBox(e.target.value)}
+                      name="transmission"
+                      onChange={(e) => setTransmission(e.target.value)}
                     />
 
-                    <label for="description">No Gearbox</label>
+                    <label for="description">No transmission</label>
                     <input
                       type="radio"
                       className="border-2 border-emerald-700 "
-                      name="gearbox"
-                      onChange={(e) => setGearBox(e.target.value)}
+                      name="transmission"
+                      onChange={(e) => setTransmission(e.target.value)}
                     />
                   </fieldset>
 
@@ -264,7 +293,7 @@ const Dashboard = () => {
                       type="radio"
                       checked
                       className="border-2 border-emerald-700 "
-                      name="gearbox"
+                      name="transmission"
                       onChange={(e) => setBestDeal(e.target.value)}
                     />
 
@@ -272,7 +301,7 @@ const Dashboard = () => {
                     <input
                       type="radio"
                       className="border-2 border-emerald-700 "
-                      name="gearbox"
+                      name="transmission"
                       onChange={(e) => setBestDeal(e.target.value)}
                     />
                   </fieldset>
@@ -300,9 +329,7 @@ const Dashboard = () => {
                     </select>
                   </div>
                 </div>
-                {/* <button className="bg-emerald-800">
-                            <input type="file" multiple name="image" className="hidden " />
-                        </button> */}
+            
 
                 <div class="flex justify-center items-center w-full mb-5">
                   <label
