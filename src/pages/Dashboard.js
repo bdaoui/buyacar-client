@@ -8,6 +8,8 @@ const Dashboard = () => {
   const [refresh, setRefresh] = useState(false);
 
   const [selected, setSelected] = useState("");
+  const [selectedId, setSelectedId] = useState("");
+  const [selectedCar, setSelectedCar] = useState("");
 
   // Post States
 
@@ -100,9 +102,20 @@ const Dashboard = () => {
   };
 
   // Show and Hide based on vector click (+ and x)
+  // Handle New Car and Edit visibility
 
-  const handleShowNewPostForm = (e) => {
-    setSelected("New Post");
+  const handleShowAside = (e, choice, id) => {
+    
+    choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
+    choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
+    
+    setSelectedId(id)
+
+    const chosenCar = cars.filter(car => car._id === id)
+    setSelectedCar(chosenCar)
+    
+
+
     setVisible("hidden");
   };
 
@@ -115,6 +128,9 @@ const Dashboard = () => {
     //open car edit which is literally car form with pre populated fields and a row showing all images maybe carousel
 
     e.preventDefault()
+
+
+
 
     const data = new FormData()
     data.append("price", price);
@@ -135,7 +151,6 @@ const Dashboard = () => {
   } 
 
 
-  console.log(cars)
 
   return (
     <div className="h-screen">
@@ -154,7 +169,7 @@ const Dashboard = () => {
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
-              onClick={(e) => handleShowNewPostForm()}
+              onClick={(e) => handleShowAside(e, "New Post")}
             >
               <path
                 fillRule="evenodd"
@@ -189,7 +204,7 @@ const Dashboard = () => {
                     <h4>{car.transmission}</h4>
                   </section>
                   <section className="w-1/6">
-                  <svg onClick={(e) => handleOpenCar()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-10 mt-10">
+                  <svg onClick={(e) => handleShowAside(e, "Edit", car._id)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-10 mt-10 cursor-pointer">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                   </svg>
                   </section>
@@ -237,6 +252,225 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="price"
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
+
+                  <label for="make">Make</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="make"
+                    onChange={(e) => setMake(e.target.value)}
+                  />
+
+                  <label for="model">Model</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="model"
+                    onChange={(e) => setModel(e.target.value)}
+                  />
+
+
+                  <label for="fuel">Fuel</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="fuel"
+                    onChange={(e) => setFuel(e.target.value)}
+                  />
+
+                  <label for="color">Color</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="color"
+                    onChange={(e) => setColor(e.target.value)}
+                  />
+
+                  <label for="body">Body</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="body"
+                    onChange={(e) => setBody(e.target.value)}
+                  />
+                </div>
+
+                <div className="md:w-2/4 flex flex-col px-5">
+                  <label for="description">Engine Size</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="engine"
+                    onChange={(e) => setEngine(e.target.value)}
+                  />
+
+                  <label for="description">Mileage</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="mileage"
+                    onChange={(e) => setMileage(e.target.value)}
+                  />
+
+                  <fieldset className="flex border-2 border-emerald-600 gap-2 p-3 my-2">
+                    <legend>Select transmission</legend>
+                    <label for="description" value="automatic">Automatic</label>
+                    <input
+                      type="radio"
+                      checked
+                      className="border-2 border-emerald-700 "
+                      name="transmission"
+                      onChange={(e) => setTransmission(true)}
+                    />
+
+                    <label for="description" value="manual">Manual</label>
+                    <input
+                      type="radio"
+                      className="border-2 border-emerald-700 "
+                      name="transmission"
+                      onChange={(e) => setTransmission(false)}
+                    />
+                  </fieldset>
+
+                  <fieldset className="flex border-2 border-emerald-600 gap-2 p-3">
+                    <legend>Is it a BestDeal? </legend>
+                    <label for="description">Deal</label>
+                    <input
+                      type="radio"
+                      checked
+                      className="border-2 border-emerald-700 "
+                      name="bestDeal"
+                      onChange={(e) => setBestDeal(true)}
+                    />
+
+                    <label for="description">No Deal</label>
+                    <input
+                      type="radio"
+                      className="border-2 border-emerald-700 "
+                      name="bestDeal"
+                      onChange={(e) => setBestDeal(false)}
+                    />
+                  </fieldset>
+
+                  <div className="flex flex-col  mt-6 justify-center">
+                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
+                      <option defaultValue> Number of Doors</option>
+                      <option value='2'>2</option>
+                      <option value='3'>3</option>
+                      <option value='4'>4</option>
+                      <option value='5'>5</option>
+
+                    </select>
+
+                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
+                      <option defaultValue> Number of Seats</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                    </select>
+                  </div>
+                </div>
+            
+
+                <div className="flex justify-center items-center w-full mb-5">
+                  <label
+                    for="dropzone-file"
+                    className="flex flex-col justify-center items-center w-3/4 h-32 bg-emerald-500/20 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
+                  >
+                    <div className="flex flex-col justify-center items-center pt-5 pb-6">
+                      <svg
+                        aria-hidden="true"
+                        className="mb-3 w-4 h-4 md:w-10 md:h-10 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                        ></path>
+                      </svg>
+                      <p className="mb-2 text-xs md:text-sm text-gray-500">
+                        <span className="font-semibold">Click to upload</span> or
+                        drag and drop
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        SVG, PNG, JPG or JPEG
+                      </p>
+                    </div>
+                    <input id="dropzone-file" type="file" name="image" multiple className="hidden"  onChange={ (e) => setImage(e.target.files)}
+/>
+                  </label>
+                </div>
+              </section>
+
+              <section className=" flex flex-col w-2/3">
+                <label for="description">Description</label>
+                <input
+                  type="textarea"
+                  className=" border-2 border-emerald-700 md:mb-5"
+                  name="description"
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+
+                <button
+                  type="submit"
+                  className="bg-emerald-900 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
+                >
+                  {" "}
+                  Send
+                </button>
+              </section>
+            </form>
+          )}
+
+
+            {/* Edit Section */}
+
+          {selected === "Edit" && (
+            <form
+              className="flex  relative flex-wrap justify-center mt-10 rounded"
+              onSubmit={handleNewCar}
+              enctype="multipart/form-data"
+            >
+              <div className="w-full">
+                <h1 className="text-3xl text-center mb-5"> Edit Car</h1>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 cursor-pointer absolute top-2  md:top-0 right-2 md:right-11"
+                  onClick={(e) => handleCloseSecondSection()}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+
+              <section className="flex flex-wrap justify-center w-fit">
+                <div className="md:w-2/4 flex flex-col px-5">
+                  <label for="Name">Price</label>
+                  <input
+                    type="text"
+                    className="border-2 border-emerald-700 mb-5"
+                    name="price"
+                    value={selectedCar[0].price}
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
