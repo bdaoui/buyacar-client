@@ -596,7 +596,14 @@ const Dashboard = () => {
                     </select>
                   </div>
                 </div>
-            
+
+
+                <div>
+                        {selectedCar.map( car => {
+                        return <img src={car.image} alt={car.model+" "+car.make}  className="w-fit h-fit" />
+                        })
+                        }
+                </div>
 
                 <div className="flex justify-center items-center w-full mb-5">
                   <label
