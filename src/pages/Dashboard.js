@@ -20,9 +20,9 @@ const Dashboard = () => {
   const [seats, setSeats] = useState("");
   const [doors, setDoors] = useState("");
   const [body, setBody] = useState("");
-  const [bestDeal, setBestDeal] = useState("");
+  const [bestDeal, setBestDeal] = useState(false);
   const [image, setImage] = useState("");
-  const [transmission, setTransmission] = useState("");
+  const [transmission, setTransmission] = useState(false);
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
 
@@ -43,7 +43,6 @@ const Dashboard = () => {
     e.preventDefault();
 
     const data = new FormData();
-  
     data.append("image", image);
     data.append("price", price);
     data.append("make", make);
@@ -60,7 +59,7 @@ const Dashboard = () => {
     data.append("engine", engine);
 
     axios
-      .post(`${server}/api/cars`, data, {headers: {"Content-type": "multipart/form-data"}})
+      .post(`${server}/api/cars`, data)
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
@@ -126,11 +125,10 @@ const Dashboard = () => {
 
 
   } 
-  const handleImageInput = (e) => {
-    const files = Array.from(e.target.files)
-    console.log(e.target.files, 'filesh')
-    setImage(files)
-  }
+  // const handleImage = (e) => {
+  //   const files = Array.from(e.target.files)
+  //   setImage(files)
+  // }
   console.log(image)
 
 
@@ -203,6 +201,7 @@ const Dashboard = () => {
             <form
               className="flex  relative flex-wrap justify-center mt-10 rounded"
               onSubmit={handleNewCar}
+              enctype="multipart/form-data"
             >
               <div className="w-full">
                 <h1 className="text-3xl text-center mb-5"> Upload New Car</h1>
@@ -295,21 +294,21 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-emerald-600 gap-2 p-3 my-2">
                     <legend>Select transmission</legend>
-                    <label for="description">Automatic</label>
+                    <label for="description" value="automatic">Automatic</label>
                     <input
                       type="radio"
                       checked
                       className="border-2 border-emerald-700 "
                       name="transmission"
-                      onChange={(e) => setTransmission(e.target.value)}
+                      onChange={(e) => setTransmission(true)}
                     />
 
-                    <label for="description">Manual</label>
+                    <label for="description" value="manual">Manual</label>
                     <input
                       type="radio"
                       className="border-2 border-emerald-700 "
                       name="transmission"
-                      onChange={(e) => setTransmission(e.target.value)}
+                      onChange={(e) => setTransmission(false)}
                     />
                   </fieldset>
 
@@ -321,7 +320,7 @@ const Dashboard = () => {
                       checked
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
-                      onChange={(e) => setBestDeal(e.target.value)}
+                      onChange={(e) => setBestDeal(true)}
                     />
 
                     <label for="description">No Deal</label>
@@ -329,7 +328,7 @@ const Dashboard = () => {
                       type="radio"
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
-                      onChange={(e) => setBestDeal(e.target.value)}
+                      onChange={(e) => setBestDeal(false)}
                     />
                   </fieldset>
 
@@ -387,7 +386,7 @@ const Dashboard = () => {
                         SVG, PNG, JPG or JPEG
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" multiple className="hidden" onChange={(e) => handleImageInput(e)} />
+                    <input id="dropzone-file" type="file" name="image" multiple className="hidden" onChange={(e) => setImage(e.target.files)} />
                   </label>
                 </div>
               </section>
