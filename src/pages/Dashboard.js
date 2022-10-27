@@ -21,29 +21,37 @@ const Dashboard = () => {
   const [doors, setDoors] = useState("");
   const [body, setBody] = useState("");
   const [bestDeal, setBestDeal] = useState(false);
-  const [image, setImage] = useState("");
   const [transmission, setTransmission] = useState(false);
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
-
+  const [image, setImage] = useState("");
+  
   const [visible, setVisible] = useState("flex");
 
   // Retreive Data
-
+  
   useEffect(() => {
-    axios
+      axios
       .get(`${server}/api/cars`)
       .then((response) => setCars(response.data))
       .catch((err) => console.log(err));
-  }, [refresh]);
+    }, [refresh]);
+    
+    // Handle New Car  Post
+    
+    
+    
+    const handleNewCar = (e) => {
+        e.preventDefault();
+        
+        console.log(image)
 
-  // Handle New Car  Post
-
-  const handleNewCar = (e) => {
-    e.preventDefault();
 
     const data = new FormData();
-    data.append("image", image);
+    
+    Array.from(image).forEach(i => {
+         data.append("image", i)
+    })
     data.append("price", price);
     data.append("make", make);
     data.append("model", model);
@@ -125,11 +133,7 @@ const Dashboard = () => {
 
 
   } 
-  // const handleImage = (e) => {
-  //   const files = Array.from(e.target.files)
-  //   setImage(files)
-  // }
-  console.log(image)
+
 
 
 
@@ -386,7 +390,8 @@ const Dashboard = () => {
                         SVG, PNG, JPG or JPEG
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" name="image" multiple className="hidden" onChange={(e) => setImage(e.target.files)} />
+                    <input id="dropzone-file" type="file" name="image" multiple className="hidden"  onChange={ (e) => setImage(e.target.files)}
+/>
                   </label>
                 </div>
               </section>

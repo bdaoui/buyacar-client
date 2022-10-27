@@ -5,57 +5,6 @@ import { Link } from 'react-router-dom'
 
 const Cars = () => {
 
-    // const data = [ 
-    //     {
-    //       image: "https://m.atcdn.co.uk/a/media/w800h600/0ca14354a2d340dcb1a989ba871ec80d.jpg",
-    //       name: "Peugeot 308 SW",
-    //       price: "24,746",
-    //       id: 1
-    //     },
-    //     {
-    //       image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
-    //       name: "Peugeot 2008  ",
-    //       price: "24,746",
-    //       id: 2
-    //     },
-    //     {
-    //       image: "https://m.atcdn.co.uk/ect/media/w1224/130edbc6b0684515b22cf423d2f88693.jpg",
-    //       name: "Volvo XC40 Rechargeugeot 308 SW",
-    //       price: "24,746",
-    //       id: 3
-    //     },
-    //     {
-    //       image: "https://m.atcdn.co.uk/ect/media/w1224/3520ca655e03439a8b6a3e109f96b4af.jpg",
-    //       name: "Renault Clio",
-    //       price: "24,746",
-    //       id: 4
-    //     },
-    //     {
-    //       image: "https://m.atcdn.co.uk/a/media/w800h600/0ca14354a2d340dcb1a989ba871ec80d.jpg",
-    //       name: "Mercedes-Benz GLA",
-    //       price: "24,746",
-    //       id: 5
-    //     },
-    //     {
-    //       image: "https://m.atcdn.co.uk/ect/media/w1224/09cc253defdd49079596830eb120d196.jpg",
-    //       name: "Toyota Corolla",
-    //       price: "24,746",
-    //       id: 6
-    //     },
-    //     {
-    //       image: "https://m.atcdn.co.uk/ect/media/w1224/6bd0cbcbc1e74b3781d3e355b211cdc9.jpg",
-    //       name: "Mazda CX-30",
-    //       price: "24,746",
-    //       id: 7
-    //     },
-    //     {
-    //       image: "https://m.atcdn.co.uk/ect/media/w1224/675691b21d5a41e8b7240cd1692c1b4e.jpg",
-    //       name: "Tesla Model Y",
-    //       price: "24,746",
-    //       id: 8
-    //     }
-        
-    //   ]
 
     const server = "http://localhost:5005"
 
@@ -165,59 +114,7 @@ const Cars = () => {
                  
       </div>
 
-    {
-        <form className='flex  flex-wrap justify-center mt-10 rounded' onSubmit={handleCarRequest} >
-        <h1 className='text-3xl text-center mb-5'> Upload New Car</h1>
-
-        <section  className='flex flex-wrap justify-center w-screen mx-32' >
-            <div className='w-2/4 flex flex-col px-5'> 
-            
-                <label for="Name">Price
-                </label>
-                <input type='text' className='border-2 border-emerald-700 mb-5' name="price"  onChange={ (e) => setPrice(e.target.value)}/>
-
-
-                <label for="model">Model
-                </label>
-                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'model' onChange={ (e) => setModel(e.target.value)}/>
-           
-                <label for="image" className='w-3/4 '>Image
-                <input type='file' multiple name="image" />     
-                </label>
-                
-            </div>
-
-            <div className='w-2/4 flex flex-col'>
-                <label for="description">Gearbox
-                </label>
-                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'gearbox' onChange={ (e) => setGearBox(e.target.value)}/>
-
-                <label for="description">Mileage
-                </label>
-                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'mileage' onChange={ (e) => setMileage(e.target.value)}/>
-
-                <label for="description">BestDeal
-                </label>
-                <input type='text' className="border-2 border-emerald-700 mb-5" name= 'bestDeal' onChange={ (e) => setBestDeal(e.target.value)}/>
-
-
-            </div>
-
-        </section>
-
-        <section  className=' flex flex-col w-screen mx-32 px-5'>
-            <label for="description">Description
-            </label>
-            <input type='textarea' className=" border-2 border-emerald-700 md:mb-5" name= 'description' onChange={ (e) => setDescription(e.target.value)}/>
-
-
-            <button type='submit' className='bg-emerald-500 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2'> Send</button>
-
-        </section>
-
-        </form>
-
-     }
+ 
 
     
     </div>
