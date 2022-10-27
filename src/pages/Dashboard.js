@@ -43,8 +43,9 @@ const Dashboard = () => {
     e.preventDefault();
 
     const data = new FormData();
-    data.append("price", price);
+  
     data.append("image", image);
+    data.append("price", price);
     data.append("make", make);
     data.append("model", model);
     data.append("bestDeal", bestDeal);
@@ -59,7 +60,7 @@ const Dashboard = () => {
     data.append("engine", engine);
 
     axios
-      .post(`${server}/api/cars`, data)
+      .post(`${server}/api/cars`, data, {headers: {"Content-type": "multipart/form-data"}})
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
@@ -125,7 +126,11 @@ const Dashboard = () => {
 
 
   } 
-
+  const handleImageInput = (e) => {
+    const files = Array.from(e.target.files)
+    console.log(e.target.files, 'filesh')
+    setImage(files)
+  }
   console.log(image)
 
 
@@ -330,7 +335,7 @@ const Dashboard = () => {
 
                   <div className="flex flex-col  mt-6 justify-center">
                     <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
-                      <option selected> Number of Doors</option>
+                      <option defaultValue> Number of Doors</option>
                       <option value='2'>2</option>
                       <option value='3'>3</option>
                       <option value='4'>4</option>
@@ -339,7 +344,7 @@ const Dashboard = () => {
                     </select>
 
                     <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
-                      <option selected> Number of Seats</option>
+                      <option defaultValue> Number of Seats</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -353,36 +358,36 @@ const Dashboard = () => {
                 </div>
             
 
-                <div class="flex justify-center items-center w-full mb-5">
+                <div className="flex justify-center items-center w-full mb-5">
                   <label
                     for="dropzone-file"
-                    class="flex flex-col justify-center items-center w-3/4 h-32 bg-emerald-500/20 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
+                    className="flex flex-col justify-center items-center w-3/4 h-32 bg-emerald-500/20 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
                   >
-                    <div class="flex flex-col justify-center items-center pt-5 pb-6">
+                    <div className="flex flex-col justify-center items-center pt-5 pb-6">
                       <svg
                         aria-hidden="true"
-                        class="mb-3 w-4 h-4 md:w-10 md:h-10 text-gray-400"
+                        className="mb-3 w-4 h-4 md:w-10 md:h-10 text-gray-400"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                         ></path>
                       </svg>
-                      <p class="mb-2 text-xs md:text-sm text-gray-500">
-                        <span class="font-semibold">Click to upload</span> or
+                      <p className="mb-2 text-xs md:text-sm text-gray-500">
+                        <span className="font-semibold">Click to upload</span> or
                         drag and drop
                       </p>
-                      <p class="text-xs text-gray-500">
+                      <p className="text-xs text-gray-500">
                         SVG, PNG, JPG or JPEG
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" multiple class="hidden" onChange={ e => setImage(e.target.files)} />
+                    <input id="dropzone-file" type="file" multiple className="hidden" onChange={(e) => handleImageInput(e)} />
                   </label>
                 </div>
               </section>
