@@ -164,6 +164,8 @@ const Dashboard = () => {
             </svg>
           </div>
 
+
+
           <div className="p-1 lg:p-5 lg:0-2 flex flex-col">
             {cars.map((car) => {
               return (
@@ -173,17 +175,18 @@ const Dashboard = () => {
                 >
                   <section className="w-3/6">
                     <img
-                      src={car.image[0].filename}
+                      src={car.image[0]}
                       alt={car.make + " " + car.model}
                       className="w-fit h-fit"
                     />
+
                   </section>
                   <section className="w-2/6 flex flex-col pl-5 py-1 text-xs md:text-sm lg:text-base">
-                    <h2>Volkswagen</h2>
-                    <h2>Golf</h2>
-                    <h4>€10,000</h4>
-                    <h4>Navy</h4>
-                    <h4>Auto</h4>
+                    <h2>{car.make} </h2>
+                    <h2>{car.model}</h2>
+                    <h4>{"€"+car.price}</h4>
+                    <h4>{car.color}</h4>
+                    <h4>{car.transmission}</h4>
                   </section>
                   <section className="w-1/6">
                   <svg onClick={(e) => handleOpenCar()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-10 mt-10">
