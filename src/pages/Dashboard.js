@@ -135,7 +135,7 @@ const Dashboard = () => {
   } 
 
 
-
+  console.log(cars)
 
   return (
     <div className="h-screen">
@@ -173,7 +173,7 @@ const Dashboard = () => {
                 >
                   <section className="w-3/6">
                     <img
-                      src={car.image}
+                      src={car.image[0].filename}
                       alt={car.make + " " + car.model}
                       className="w-fit h-fit"
                     />

@@ -93,7 +93,7 @@ const Cars = () => {
 
               <div className="bg-emerald-500 rounded-lg border border-gray-200 shadow-2xl">
                   <Link to="">
-                      <img className="rounded-t-lg" src={car.image} alt={car.name} />
+                      <img className="rounded-t-lg" src={car.image[0]} alt={car.name} />
                   </Link>
                   <div className="p-5 text-center">                      
                       <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.name}</h5>
