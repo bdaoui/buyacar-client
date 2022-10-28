@@ -23,8 +23,8 @@ const Dashboard = () => {
   const [seats, setSeats] = useState("");
   const [doors, setDoors] = useState("");
   const [body, setBody] = useState("");
-  const [bestDeal, setBestDeal] = useState(false);
-  const [transmission, setTransmission] = useState(false);
+  const [bestDeal, setBestDeal] = useState("");
+  const [transmission, setTransmission] = useState("");
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
@@ -130,35 +130,7 @@ const Dashboard = () => {
 
 
 
-
-
-  const handleOpenCar = (e) => {
-    //open car edit which is literally car form with pre populated fields and a row showing all images maybe carousel
-
-    e.preventDefault()
-
-
-
-
-    const data = new FormData()
-    data.append("price", price);
-    data.append("image", image);
-    data.append("make", make);
-    data.append("model", model);
-    data.append("bestDeal", bestDeal);
-    data.append("transmission", transmission);
-    data.append("description", description); 
-    data.append("mileage", mileage);
-    data.append("seats", seats);
-    data.append("doors", doors);
-    data.append("fuel", fuel);
-    data.append("color", color);
-    data.append("body", body);
-
-
-  } 
-
-
+  console.log(selectedCar[0])
 
 
   return (
@@ -307,7 +279,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label for="description">Engine Size</label>
+                  <label for="engine">Engine Size</label>
                   <input
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
@@ -315,7 +287,7 @@ const Dashboard = () => {
                     onChange={(e) => setEngine(e.target.value)}
                   />
 
-                  <label for="description">Mileage</label>
+                  <label for="mileage">Mileage</label>
                   <input
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
@@ -325,41 +297,46 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-emerald-600 gap-2 p-3 my-2">
                     <legend>Select transmission</legend>
-                    <label for="description" value="automatic">Automatic</label>
+                    <label for="transmission" >Automatic</label>
                     <input
-                      type="radio"
+                        type="radio"
+                        value="automatic"
                       checked
                       className="border-2 border-emerald-700 "
                       name="transmission"
-                      onChange={(e) => setTransmission(true)}
+                      onChange={(e) => setTransmission("automatic")}
                     />
 
-                    <label for="description" value="manual">Manual</label>
+                    <label for="transmission" >Manual</label>
                     <input
                       type="radio"
+                      value="manual"
                       className="border-2 border-emerald-700 "
                       name="transmission"
-                      onChange={(e) => setTransmission(false)}
+                      onChange={(e) => setTransmission("manual")}
                     />
+
                   </fieldset>
 
                   <fieldset className="flex border-2 border-emerald-600 gap-2 p-3">
                     <legend>Is it a BestDeal? </legend>
-                    <label for="description">Deal</label>
+                    <label for="bestDeal">Deal</label>
                     <input
                       type="radio"
                       checked
+                      value="yes"
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
-                      onChange={(e) => setBestDeal(true)}
+                      onChange={(e) => setBestDeal("yes")}
                     />
 
-                    <label for="description">No Deal</label>
+                    <label for="bestDeal">No Deal</label>
                     <input
                       type="radio"
+                      value="no"
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
-                      onChange={(e) => setBestDeal(false)}
+                      onChange={(e) => setBestDeal("no")}
                     />
                   </fieldset>
 
@@ -555,20 +532,20 @@ const Dashboard = () => {
                     <label for="description" value="automatic">Automatic</label>
                     <input
                       type="radio"
-                      defaultChecked={selectedCar[0]?.transmission === false}
+                      defaultChecked={selectedCar[0]?.transmission === "automatic"}
                       className="border-2 border-emerald-700 "
                       name="transmission"
                       defaultValue
-                      onChange={(e) => setTransmission(true)}
+                      onChange={(e) => setTransmission("automatic")}
                     />
 
                     <label for="description" value="manual">Manual</label>
                     <input
                       type="radio"
-                      defaultChecked={selectedCar[0]?.transmission === true }
+                      defaultChecked={selectedCar[0]?.transmission === "manual" }
                       className="border-2 border-emerald-700 "
                       name="transmission"
-                      onChange={(e) => setTransmission(false)}
+                      onChange={(e) => setTransmission("manual")}
                     />
                   </fieldset>
 
@@ -577,20 +554,20 @@ const Dashboard = () => {
                     <label for="description">Deal</label>
                     <input
                       type="radio"
-                      defaultChecked={selectedCar[0]?.transmission === true }
+                      defaultChecked={selectedCar[0]?.bestDeal === "yes" }
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
-                      onChange={(e) => setBestDeal(true)}
+                      onChange={(e) => setBestDeal("yes")}
                     />
 
                     <label for="description">No Deal</label>
                     <input
                       type="radio"
-                      defaultChecked={selectedCar[0]?.transmission === false}
+                      defaultChecked={selectedCar[0]?.bestDeal === "no"}
 
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
-                      onChange={(e) => setBestDeal(false)}
+                      onChange={(e) => setBestDeal("no")}
                     />
                   </fieldset>
 
@@ -668,6 +645,7 @@ const Dashboard = () => {
               <section className=" flex flex-col w-2/3">
                 <label for="description">Description</label>
                 <input
+                defaultValue={selectedCar[0].description}
                   type="textarea"
                   className=" border-2 border-emerald-700 md:mb-5"
                   name="description"
