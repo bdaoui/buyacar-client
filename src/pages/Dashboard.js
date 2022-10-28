@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [selected, setSelected] = useState("");
   const [selectedId, setSelectedId] = useState("");
   const [selectedCar, setSelectedCar] = useState("");
+  const [selectedCarImage, setSelectedCarImage] = useState("");
 
   // Post States
 
@@ -40,9 +41,7 @@ const Dashboard = () => {
     }, [refresh]);
     
     // Handle New Car  Post
-    
-    
-    
+ 
     const handleNewCar = (e) => {
         e.preventDefault();
         
@@ -74,10 +73,17 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   };
 
-  const handleCarEdit = (e) => {
+
+   // Edit Specific Car
+
+  const handleCarEdit = (e, id) => {
     e.preventDefault();
 
+    console.log(id)
     const data = new FormData();
+    Array.from(image).forEach(i => {
+        data.append("image", i)
+   })
     data.append("price", price);
     data.append("image", image);
     data.append("make", make);
@@ -94,7 +100,7 @@ const Dashboard = () => {
     data.append("engine", engine);
 
     axios
-      .put("{server}/api/cars", data)
+      .put(`${server}/api/${id}`, data)
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
 
@@ -113,8 +119,6 @@ const Dashboard = () => {
 
     const chosenCar = cars.filter(car => car._id === id)
     setSelectedCar(chosenCar)
-    
-
 
     setVisible("hidden");
   };
@@ -123,6 +127,10 @@ const Dashboard = () => {
     setSelected("");
     setVisible("flex");
   };
+
+
+
+
 
   const handleOpenCar = (e) => {
     //open car edit which is literally car form with pre populated fields and a row showing all images maybe carousel
@@ -149,6 +157,7 @@ const Dashboard = () => {
 
 
   } 
+
 
 
 
@@ -440,7 +449,7 @@ const Dashboard = () => {
           {selected === "Edit" && (
             <form
               className="flex  relative flex-wrap justify-center mt-10 rounded"
-              onSubmit={handleNewCar}
+              onSubmit={ e => handleCarEdit(e, selectedId)}
               enctype="multipart/form-data"
             >
               <div className="w-full">
@@ -470,7 +479,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="price"
-                    value={selectedCar[0].price}
+                    defaultValue={selectedCar[0]?.price}
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
@@ -479,6 +488,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="make"
+                    defaultValue={selectedCar[0]?.make}
                     onChange={(e) => setMake(e.target.value)}
                   />
 
@@ -487,6 +497,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="model"
+                    defaultValue={selectedCar[0]?.model}
                     onChange={(e) => setModel(e.target.value)}
                   />
 
@@ -496,6 +507,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="fuel"
+                    defaultValue={selectedCar[0]?.fuel}
                     onChange={(e) => setFuel(e.target.value)}
                   />
 
@@ -504,6 +516,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="color"
+                    defaultValue={selectedCar[0]?.color}
                     onChange={(e) => setColor(e.target.value)}
                   />
 
@@ -512,6 +525,8 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="body"
+                    defaultValue={selectedCar[0]?.body}
+
                     onChange={(e) => setBody(e.target.value)}
                   />
                 </div>
@@ -522,6 +537,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="engine"
+                    defaultValue={selectedCar[0]?.engine}
                     onChange={(e) => setEngine(e.target.value)}
                   />
 
@@ -530,6 +546,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="mileage"
+                    defaultValue={selectedCar[0]?.mileage}
                     onChange={(e) => setMileage(e.target.value)}
                   />
 
@@ -538,15 +555,17 @@ const Dashboard = () => {
                     <label for="description" value="automatic">Automatic</label>
                     <input
                       type="radio"
-                      checked
+                      defaultChecked={selectedCar[0]?.transmission === false}
                       className="border-2 border-emerald-700 "
                       name="transmission"
+                      defaultValue
                       onChange={(e) => setTransmission(true)}
                     />
 
                     <label for="description" value="manual">Manual</label>
                     <input
                       type="radio"
+                      defaultChecked={selectedCar[0]?.transmission === true }
                       className="border-2 border-emerald-700 "
                       name="transmission"
                       onChange={(e) => setTransmission(false)}
@@ -558,7 +577,7 @@ const Dashboard = () => {
                     <label for="description">Deal</label>
                     <input
                       type="radio"
-                      checked
+                      defaultChecked={selectedCar[0]?.transmission === true }
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
                       onChange={(e) => setBestDeal(true)}
@@ -567,6 +586,8 @@ const Dashboard = () => {
                     <label for="description">No Deal</label>
                     <input
                       type="radio"
+                      defaultChecked={selectedCar[0]?.transmission === false}
+
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
                       onChange={(e) => setBestDeal(false)}
@@ -574,8 +595,10 @@ const Dashboard = () => {
                   </fieldset>
 
                   <div className="flex flex-col  mt-6 justify-center">
-                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
-                      <option defaultValue> Number of Doors</option>
+                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  onChange ={ (e) => setDoors( e.target.value) } 
+                     defaultValue={selectedCar[0].doors}
+                     > 
+                      <option > Number of Doors</option>
                       <option value='2'>2</option>
                       <option value='3'>3</option>
                       <option value='4'>4</option>
@@ -583,8 +606,10 @@ const Dashboard = () => {
 
                     </select>
 
-                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
-                      <option defaultValue> Number of Seats</option>
+                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " onChange ={ (e) => setSeats( e.target.value)}
+                    defaultValue={selectedCar[0].doors}
+                    >
+                      <option > Number of Seats</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -598,9 +623,9 @@ const Dashboard = () => {
                 </div>
 
 
-                <div>
-                        {selectedCar.map( car => {
-                        return <img src={car.image} alt={car.model+" "+car.make}  className="w-fit h-fit" />
+                <div className="w-full flex flex-col md:flex-row  justify-center ">
+                        {selectedCar[0].image.map( (image, index) => {
+                        return <img key={index} src={image} alt={selectedCar.model+" "+selectedCar.make}  className="p-2 w-fit h-20 m-auto md:m-1" />
                         })
                         }
                 </div>
