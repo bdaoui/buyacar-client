@@ -75,12 +75,12 @@ const Cars = () => {
 
           <div className='flex justify-center text-white font-medium text-lg md:text-2xl'>
         
-        <label for="price" className='mr-16'>Price
+        <label htmlFor="price" className='mr-16'>Price
             <input type="range" name="price" min="0" max="20000" step="500" className='ml-5' onChange={ (e) => handleSelection(e, "price") }/>
             <h2 className='text-center underline text-middle'>{selectedPrice}</h2>
         </label> 
 
-        <label for="milage">Mileage 
+        <label htmlFor="milage">Mileage 
             <input type="range"  name="mileage" min="0" max="200000" step="10000"  className='ml-5' onChange={ (e) => handleSelection(e, "mileage")}/>
             <h2 className='text-center underline text-middle'>{selectedMileage}</h2>
 
@@ -92,7 +92,7 @@ const Cars = () => {
             return <div key={car._id} className="p-10 w-full ">
 
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
-                  <Link to="">
+                  <Link to={`/${car._id}`}>
                       <img className="rounded-t-lg" src={car.image[0]} alt={car.name} />
                   </Link>
                   <div className="p-5 text-center">                      
@@ -103,9 +103,9 @@ const Cars = () => {
                       <h5 className="text-xs md:text-base font-bold tracking-tight text-white">car description</h5>            
                       <h5 className="text-xs md:text-base font-bold tracking-tight text-white">car mileage</h5> 
                       <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description}</p>
-                      <Link to='' className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold">
+                      <Link to={`/${car._id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold">
                           See more
-                          <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                       </Link>
                   </div>
               </div>

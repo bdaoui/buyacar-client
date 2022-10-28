@@ -220,7 +220,7 @@ const Dashboard = () => {
             <form
               className="flex  relative flex-wrap justify-center mt-10 rounded"
               onSubmit={handleNewCar}
-              enctype="multipart/form-data"
+              encType="multipart/form-data"
             >
               <div className="w-full">
                 <h1 className="text-3xl text-center mb-5 text-gold"> Upload New Car</h1>
@@ -244,7 +244,7 @@ const Dashboard = () => {
 
               <section className="flex flex-wrap justify-center w-fit">
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label for="Name" className="text-white">Price</label>
+                  <label htmlFor="Name" className="text-white">Price</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -252,7 +252,7 @@ const Dashboard = () => {
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
-                  <label for="make" className="text-white">Make</label>
+                  <label htmlFor="make" className="text-white">Make</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -260,7 +260,7 @@ const Dashboard = () => {
                     onChange={(e) => setMake(e.target.value)}
                   />
 
-                  <label for="model" className="text-white">Model</label>
+                  <label htmlFor="model" className="text-white">Model</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -268,7 +268,7 @@ const Dashboard = () => {
                     onChange={(e) => setModel(e.target.value)}
                   />
 
-                  <label for="fuel" className="text-white">Fuel</label>
+                  <label htmlFor="fuel" className="text-white">Fuel</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -276,7 +276,7 @@ const Dashboard = () => {
                     onChange={(e) => setFuel(e.target.value)}
                   />
 
-                  <label for="color" className="text-white">Color</label>
+                  <label htmlFor="color" className="text-white">Color</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -284,7 +284,7 @@ const Dashboard = () => {
                     onChange={(e) => setColor(e.target.value)}
                   />
 
-                  <label for="body" className="text-white">Body</label>
+                  <label htmlFor="body" className="text-white">Body</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -294,7 +294,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label for="engine" className="text-white">Engine Size</label>
+                  <label htmlFor="engine" className="text-white">Engine Size</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -302,7 +302,7 @@ const Dashboard = () => {
                     onChange={(e) => setEngine(e.target.value)}
                   />
 
-                  <label for="mileage" className="text-white">Mileage</label>
+                  <label htmlFor="mileage" className="text-white">Mileage</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -312,7 +312,7 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
                     <legend className="text-white">Select transmission</legend>
-                    <label for="transmission" className="text-white">Automatic</label>
+                    <label htmlFor="transmission" className="text-white">Automatic</label>
                     <input
                       type="radio"
                       value="automatic"
@@ -322,7 +322,7 @@ const Dashboard = () => {
                       onChange={(e) => setTransmission("automatic")}
                     />
 
-                    <label for="transmission" className="text-white">Manual</label>
+                    <label htmlFor="transmission" className="text-white">Manual</label>
                     <input
                       type="radio"
                       value="manual"
@@ -334,7 +334,7 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3">
                     <legend className="text-white">Is it a BestDeal? </legend>
-                    <label for="bestDeal" className="text-white">No</label>
+                    <label htmlFor="bestDeal" className="text-white">No</label>
                     <input
                       type="radio"
                       checked
@@ -344,7 +344,7 @@ const Dashboard = () => {
                       onChange={(e) => setBestDeal("no")}
                     />
 
-                    <label for="bestDeal" className="text-white">Yes</label>
+                    <label htmlFor="bestDeal" className="text-white">Yes</label>
                     <input
                       type="radio"
                       value="yes"
@@ -387,7 +387,7 @@ const Dashboard = () => {
 
                 <div className="flex justify-center items-center w-full mb-5">
                   <label
-                    for="dropzone-file"
+                    htmlFor="dropzone-file"
                     className="flex flex-col justify-center items-center w-3/4 h-32 bg-gray-300 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
                   >
                     <div className="flex flex-col justify-center items-center pt-5 pb-6">
@@ -427,7 +427,7 @@ const Dashboard = () => {
               </section>
 
               <section className=" flex flex-col w-2/3">
-                <label for="description" className="text-white">Description</label>
+                <label htmlFor="description" className="text-white">Description</label>
                 <input
                   type="textarea"
                   className=" border-2 border-gold md:mb-5"
@@ -452,7 +452,7 @@ const Dashboard = () => {
             <form
               className="flex  relative flex-wrap justify-center mt-10 rounded"
               onSubmit={(e) => handleCarEdit(e, selectedId)}
-              enctype="multipart/form-data"
+              encType="multipart/form-data"
             >
               <div className="w-full">
                 <h1 className="text-3xl text-center mb-5 text-gold"> Edit Car</h1>
@@ -491,7 +491,7 @@ const Dashboard = () => {
 
               <section className="flex flex-wrap justify-center w-fit">
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label for="Name" className="text-white">Price</label>
+                  <label htmlFor="Name" className="text-white">Price</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -500,7 +500,7 @@ const Dashboard = () => {
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
-                  <label for="make" className="text-white">Make</label>
+                  <label htmlFor="make" className="text-white">Make</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -509,7 +509,7 @@ const Dashboard = () => {
                     onChange={(e) => setMake(e.target.value)}
                   />
 
-                  <label for="model" className="text-white">Model</label>
+                  <label htmlFor="model" className="text-white">Model</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -518,7 +518,7 @@ const Dashboard = () => {
                     onChange={(e) => setModel(e.target.value)}
                   />
 
-                  <label for="fuel" className="text-white">Fuel</label>
+                  <label htmlFor="fuel" className="text-white">Fuel</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -527,7 +527,7 @@ const Dashboard = () => {
                     onChange={(e) => setFuel(e.target.value)}
                   />
 
-                  <label for="color" className="text-white">Color</label>
+                  <label htmlFor="color" className="text-white">Color</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -536,7 +536,7 @@ const Dashboard = () => {
                     onChange={(e) => setColor(e.target.value)}
                   />
 
-                  <label for="body" className="text-white">Body</label>
+                  <label htmlFor="body" className="text-white">Body</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -547,7 +547,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label for="description" className="text-white">Engine Size</label>
+                  <label htmlFor="description" className="text-white">Engine Size</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -556,7 +556,7 @@ const Dashboard = () => {
                     onChange={(e) => setEngine(e.target.value)}
                   />
 
-                  <label for="description" className="text-white">Mileage</label>
+                  <label htmlFor="description" className="text-white">Mileage</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -567,7 +567,7 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
                     <legend className="text-white">Select transmission</legend>
-                    <label for="description" value="automatic" className="text-white">
+                    <label htmlFor="description" value="automatic" className="text-white">
                       Automatic
                     </label>
                     <input
@@ -581,7 +581,7 @@ const Dashboard = () => {
                       onChange={(e) => setTransmission("automatic")}
                     />
 
-                    <label for="description" value="manual" className="text-white">
+                    <label htmlFor="description" value="manual" className="text-white">
                       Manual
                     </label>
                     <input
@@ -595,7 +595,7 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3">
                     <legend className="text-white">Is it a BestDeal? </legend>
-                    <label for="description" className="text-white">No</label>
+                    <label htmlFor="description" className="text-white">No</label>
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.bestDeal === "no"}
@@ -604,7 +604,7 @@ const Dashboard = () => {
                       onChange={(e) => setBestDeal("no")}
                     />
 
-                    <label for="description" className="text-white">Yes</label>
+                    <label htmlFor="description" className="text-white">Yes</label>
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.bestDeal === "yes"}
@@ -660,7 +660,7 @@ const Dashboard = () => {
 
                 <div className="flex justify-center items-center w-full mb-5">
                   <label
-                    for="dropzone-file"
+                    htmlFor="dropzone-file"
                     className="flex flex-col justify-center items-center w-3/4 h-32 bg-gray-300 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
                   >
                     <div className="flex flex-col justify-center items-center pt-5 pb-6">
@@ -700,7 +700,7 @@ const Dashboard = () => {
               </section>
 
               <section className=" flex flex-col w-2/3">
-                <label for="description" className="text-white">Description</label>
+                <label htmlFor="description" className="text-white">Description</label>
                 <input
                   defaultValue={selectedCar[0].description}
                   type="textarea"

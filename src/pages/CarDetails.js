@@ -22,12 +22,42 @@ const CarDetails = () => {
   
 
   return (
-    <div>
+    <div className='text-white h-full w-full'>
+      <header className='flex justify-center my-20 font-bold text-gold text-2xl md:text-4xl'>
+        View our {car?.make}{" "}{car?.model}
+      </header>
+
+      <section className='flex flex-col lg:flex-row w-screen h-full'>
       
-      <img src={car.image} alt={car.make} className='w-10 h-10' />
-      <h1>{car.make}</h1>
-      <h2>{car.model}</h2>
-      <h3>{car.description}</h3>
+          <div className='w-full lg:w-2/4'>  
+            {/* <img src={car?.image[0]} alt={car?.make} className='flex justify-center mx-auto mb-10 md:mb-20 px-10' /> */}
+          </div>
+
+          <div className='w-full lg:w-2/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-20'>
+            <section className='flex flex-col gap-y-5 lg:gap-y-10 text-center lg:text-left'>
+              <p>Make: <span className='italic text-gold'>{car?.make}</span></p>
+              <p>Model: <span className='italic text-gold'>{car?.model}</span></p>
+              <p>€ <span className='italic text-gold'>{car?.price}</span></p>
+              <p>Mileage: <span className='italic text-gold'>{car?.mileage}</span></p>
+              <p>Color: <span className='italic text-gold'>{car?.color}</span></p>
+              <p>Fuel type: <span className='italic text-gold'>{car?.fuel}</span></p>
+            </section>
+
+            <section className='flex flex-col gap-y-5 lg:gap-y-10 text-center lg:text-left'>
+              <p>Transmission: <span className='italic text-gold'>{car?.transmission}</span></p>
+              <p>Engine Size: <span className='italic text-gold'>{car?.engine}L</span></p>
+              <p>Doors: <span className='italic text-gold'>{car?.doors}</span></p>
+              <p>Seats: <span className='italic text-gold'>{car?.seats}</span></p>
+            </section>
+
+            <section className='flex flex-col h-full gap-y-5 lg:gap-y-10 text-center mx-20 lg:text-left'>
+              Description: <span className='italic text-gold'>{car?.description}</span>
+            </section>
+
+          </div> 
+           
+        
+      </section>
    </div>
   )
 }
