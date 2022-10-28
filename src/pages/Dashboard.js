@@ -28,31 +28,30 @@ const Dashboard = () => {
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
-  
+
   const [visible, setVisible] = useState("flex");
 
   // Retreive Data
-  
+
   useEffect(() => {
-      axios
+    axios
       .get(`${server}/api/cars`)
       .then((response) => setCars(response.data))
       .catch((err) => console.log(err));
-    }, [refresh]);
-    
-    // Handle New Car  Post
- 
-    const handleNewCar = (e) => {
-        e.preventDefault();
-        
-        console.log(image)
+  }, [refresh]);
 
+  // Handle New Car  Post
+
+  const handleNewCar = (e) => {
+    e.preventDefault();
+
+    console.log(image);
 
     const data = new FormData();
-    
-    Array.from(image).forEach(i => {
-         data.append("image", i)
-    })
+
+    Array.from(image).forEach((i) => {
+      data.append("image", i);
+    });
     data.append("price", price);
     data.append("make", make);
     data.append("model", model);
@@ -73,17 +72,16 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   };
 
-
-   // Edit Specific Car
+  // Edit Specific Car
 
   const handleCarEdit = (e, id) => {
     e.preventDefault();
 
-    console.log(id)
+    console.log(id);
     const data = new FormData();
-    Array.from(image).forEach(i => {
-        data.append("image", i)
-   })
+    Array.from(image).forEach((i) => {
+      data.append("image", i);
+    });
     data.append("price", price);
     data.append("image", image);
     data.append("make", make);
@@ -111,14 +109,13 @@ const Dashboard = () => {
   // Handle New Car and Edit visibility
 
   const handleShowAside = (e, choice, id) => {
-    
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
-    
-    setSelectedId(id)
 
-    const chosenCar = cars.filter(car => car._id === id)
-    setSelectedCar(chosenCar)
+    setSelectedId(id);
+
+    const chosenCar = cars.filter((car) => car._id === id);
+    setSelectedCar(chosenCar);
 
     setVisible("hidden");
   };
@@ -128,9 +125,13 @@ const Dashboard = () => {
     setVisible("flex");
   };
 
+  const handleDelete = () => {
+    axios
+    .delete(`${server}/api/${selectedId}`)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
 
-
-  console.log(selectedCar[0])
 
 
   return (
@@ -160,8 +161,6 @@ const Dashboard = () => {
             </svg>
           </div>
 
-
-
           <div className="p-1 lg:p-5 lg:0-2 flex flex-col text-white">
             {cars.map((car) => {
               return (
@@ -175,19 +174,30 @@ const Dashboard = () => {
                       alt={car.make + " " + car.model}
                       className="w-fit h-fit"
                     />
-
                   </section>
                   <section className="w-2/6 flex flex-col pl-5 py-1 text-xs md:text-sm lg:text-base">
                     <h2>{car.make} </h2>
                     <h2>{car.model}</h2>
-                    <h4>{"€"+car.price}</h4>
+                    <h4>{"€" + car.price}</h4>
                     <h4>{car.color}</h4>
                     <h4>{car.transmission}</h4>
                   </section>
                   <section className="w-1/6">
-                  <svg onClick={(e) => handleShowAside(e, "Edit", car._id)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-10 mt-10 cursor-pointer">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                  </svg>
+                    <svg
+                      onClick={(e) => handleShowAside(e, "Edit", car._id)}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-4 h-4 ml-10 mt-10 cursor-pointer"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                      />
+                    </svg>
                   </section>
                 </div>
               );
@@ -252,7 +262,6 @@ const Dashboard = () => {
                     onChange={(e) => setModel(e.target.value)}
                   />
 
-
                   <label for="fuel">Fuel</label>
                   <input
                     type="text"
@@ -297,17 +306,17 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
                     <legend>Select transmission</legend>
-                    <label for="transmission" >Automatic</label>
+                    <label for="transmission">Automatic</label>
                     <input
-                        type="radio"
-                        value="automatic"
+                      type="radio"
+                      value="automatic"
                       checked
                       className="border-2 border-gold "
                       name="transmission"
                       onChange={(e) => setTransmission("automatic")}
                     />
 
-                    <label for="transmission" >Manual</label>
+                    <label for="transmission">Manual</label>
                     <input
                       type="radio"
                       value="manual"
@@ -315,7 +324,6 @@ const Dashboard = () => {
                       name="transmission"
                       onChange={(e) => setTransmission("manual")}
                     />
-
                   </fieldset>
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3">
@@ -341,16 +349,23 @@ const Dashboard = () => {
                   </fieldset>
 
                   <div className="flex flex-col  mt-6 justify-center">
-                    <select className="flex border-2 border-gold gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
+                    <select
+                      className="flex border-2 border-gold gap-2 mb-6 mr-2  "
+                      value={doors}
+                      onChange={(e) => setDoors(e.target.value)}
+                    >
                       <option defaultValue> Number of Doors</option>
-                      <option value='2'>2</option>
-                      <option value='3'>3</option>
-                      <option value='4'>4</option>
-                      <option value='5'>5</option>
-
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
                     </select>
 
-                    <select className="flex border-2 border-gold gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
+                    <select
+                      className="flex border-2 border-gold gap-2 mr-2 mb-6 "
+                      value={seats}
+                      onChange={(e) => setSeats(e.target.value)}
+                    >
                       <option defaultValue> Number of Seats</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -363,7 +378,6 @@ const Dashboard = () => {
                     </select>
                   </div>
                 </div>
-            
 
                 <div className="flex justify-center items-center w-full mb-5">
                   <label
@@ -387,15 +401,21 @@ const Dashboard = () => {
                         ></path>
                       </svg>
                       <p className="mb-2 text-xs md:text-sm text-gray-500">
-                        <span className="font-semibold">Click to upload</span> or
-                        drag and drop
+                        <span className="font-semibold">Click to upload</span>{" "}
+                        or drag and drop
                       </p>
                       <p className="text-xs text-gray-500">
                         SVG, PNG, JPG or JPEG
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" name="image" multiple className="hidden"  onChange={ (e) => setImage(e.target.files)}
-/>
+                    <input
+                      id="dropzone-file"
+                      type="file"
+                      name="image"
+                      multiple
+                      className="hidden"
+                      onChange={(e) => setImage(e.target.files)}
+                    />
                   </label>
                 </div>
               </section>
@@ -420,13 +440,12 @@ const Dashboard = () => {
             </form>
           )}
 
-
-            {/* Edit Section */}
+          {/* Edit Section */}
 
           {selected === "Edit" && (
             <form
               className="flex  relative flex-wrap justify-center mt-10 rounded"
-              onSubmit={ e => handleCarEdit(e, selectedId)}
+              onSubmit={(e) => handleCarEdit(e, selectedId)}
               enctype="multipart/form-data"
             >
               <div className="w-full">
@@ -445,6 +464,21 @@ const Dashboard = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6 cursor-pointer absolute top-2  md:top-0 left-2 md:left-11"
+                  onClick={(e) => handleDelete()}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
                   />
                 </svg>
               </div>
@@ -478,7 +512,6 @@ const Dashboard = () => {
                     onChange={(e) => setModel(e.target.value)}
                   />
 
-
                   <label for="fuel">Fuel</label>
                   <input
                     type="text"
@@ -503,7 +536,6 @@ const Dashboard = () => {
                     className="border-2 border-gold mb-5"
                     name="body"
                     defaultValue={selectedCar[0]?.body}
-
                     onChange={(e) => setBody(e.target.value)}
                   />
                 </div>
@@ -529,20 +561,26 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
                     <legend>Select transmission</legend>
-                    <label for="description" value="automatic">Automatic</label>
+                    <label for="description" value="automatic">
+                      Automatic
+                    </label>
                     <input
                       type="radio"
-                      defaultChecked={selectedCar[0]?.transmission === "automatic"}
+                      defaultChecked={
+                        selectedCar[0]?.transmission === "automatic"
+                      }
                       className="border-2 border-gold "
                       name="transmission"
                       defaultValue
                       onChange={(e) => setTransmission("automatic")}
                     />
 
-                    <label for="description" value="manual">Manual</label>
+                    <label for="description" value="manual">
+                      Manual
+                    </label>
                     <input
                       type="radio"
-                      defaultChecked={selectedCar[0]?.transmission === "manual" }
+                      defaultChecked={selectedCar[0]?.transmission === "manual"}
                       className="border-2 border-gold "
                       name="transmission"
                       onChange={(e) => setTransmission("manual")}
@@ -554,7 +592,7 @@ const Dashboard = () => {
                     <label for="description">Deal</label>
                     <input
                       type="radio"
-                      defaultChecked={selectedCar[0]?.bestDeal === "yes" }
+                      defaultChecked={selectedCar[0]?.bestDeal === "yes"}
                       className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("yes")}
@@ -564,7 +602,6 @@ const Dashboard = () => {
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.bestDeal === "no"}
-
                       className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("no")}
@@ -572,21 +609,24 @@ const Dashboard = () => {
                   </fieldset>
 
                   <div className="flex flex-col  mt-6 justify-center">
-                    <select className="flex border-2 border-gold gap-2 mb-6 mr-2  "  onChange ={ (e) => setDoors( e.target.value) } 
-                     defaultValue={selectedCar[0].doors}
-                     > 
-                      <option > Number of Doors</option>
-                      <option value='2'>2</option>
-                      <option value='3'>3</option>
-                      <option value='4'>4</option>
-                      <option value='5'>5</option>
-
+                    <select
+                      className="flex border-2 border-gold gap-2 mb-6 mr-2  "
+                      onChange={(e) => setDoors(e.target.value)}
+                      defaultValue={selectedCar[0].doors}
+                    >
+                      <option> Number of Doors</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
                     </select>
 
-                    <select className="flex border-2 border-gold gap-2 mr-2 mb-6 " onChange ={ (e) => setSeats( e.target.value)}
-                    defaultValue={selectedCar[0].doors}
+                    <select
+                      className="flex border-2 border-gold gap-2 mr-2 mb-6 "
+                      onChange={(e) => setSeats(e.target.value)}
+                      defaultValue={selectedCar[0].doors}
                     >
-                      <option > Number of Seats</option>
+                      <option> Number of Seats</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -599,12 +639,17 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-
                 <div className="w-full flex flex-col md:flex-row  justify-center ">
-                        {selectedCar[0].image.map( (image, index) => {
-                        return <img key={index} src={image} alt={selectedCar.model+" "+selectedCar.make}  className="p-2 w-fit h-20 m-auto md:m-1" />
-                        })
-                        }
+                  {selectedCar[0].image.map((image, index) => {
+                    return (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={selectedCar.model + " " + selectedCar.make}
+                        className="p-2 w-fit h-20 m-auto md:m-1"
+                      />
+                    );
+                  })}
                 </div>
 
                 <div className="flex justify-center items-center w-full mb-5">
@@ -629,15 +674,21 @@ const Dashboard = () => {
                         ></path>
                       </svg>
                       <p className="mb-2 text-xs md:text-sm text-gray-500">
-                        <span className="font-semibold">Click to upload</span> or
-                        drag and drop
+                        <span className="font-semibold">Click to upload</span>{" "}
+                        or drag and drop
                       </p>
                       <p className="text-xs text-gray-500">
                         SVG, PNG, JPG or JPEG
                       </p>
                     </div>
-                    <input id="dropzone-file" type="file" name="image" multiple className="hidden"  onChange={ (e) => setImage(e.target.files)}
-/>
+                    <input
+                      id="dropzone-file"
+                      type="file"
+                      name="image"
+                      multiple
+                      className="hidden"
+                      onChange={(e) => setImage(e.target.files)}
+                    />
                   </label>
                 </div>
               </section>
@@ -645,7 +696,7 @@ const Dashboard = () => {
               <section className=" flex flex-col w-2/3">
                 <label for="description">Description</label>
                 <input
-                defaultValue={selectedCar[0].description}
+                  defaultValue={selectedCar[0].description}
                   type="textarea"
                   className=" border-2 border-gold md:mb-5"
                   name="description"
