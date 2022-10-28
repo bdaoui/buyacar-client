@@ -619,9 +619,9 @@ const Dashboard = () => {
                 </div>
 
 
-                <div className="flex flex-col md:flex-row">
+                <div className="w-full flex flex-col md:flex-row  justify-center ">
                         {selectedCar[0].image.map( (image, index) => {
-                        return <img key={index} src={image} alt={selectedCar.model+" "+selectedCar.make}  className="p-2 w-fit h-20" />
+                        return <img key={index} src={image} alt={selectedCar.model+" "+selectedCar.make}  className="p-2 w-fit h-20 m-auto md:m-1" />
                         })
                         }
                 </div>
