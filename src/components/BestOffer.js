@@ -105,11 +105,11 @@ const BestOffer = () => {
 
   return (
 
-    <div className='w-3/4 bg-emerald-500 my-10 py-10 rounded-lg text-white flex flex-col m-auto h-fit drop-shadow-2xl '>
+    <div className='w-3/4 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto h-fit drop-shadow-2xl '>
        
-       <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4'>---BEST OFFERS---</header>
+       <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold '>---BEST OFFERS---</header>
 
-        <section className='text-center rounded-xl bg-emerald-700 my-4 md:my-10 w-2/4 m-auto drop-shadow-xl'>
+        <section className='text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl'>
             <h1 className='text-base md:text-2xl'>{bestOffer[bestOfferIndex].name}</h1>
             <h1 className='text-base md:text-xl'>€ {bestOffer[bestOfferIndex].price}</h1>
         </section>
@@ -117,12 +117,12 @@ const BestOffer = () => {
             <section className='flex'>
 
                     <button onClick={ (e) => previousBestOffer()} className="pr-2" >
-                        <svg aria-hidden="true" className="w-5 h-5 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" ></path></svg>    
+                        <svg aria-hidden="true" className="w-5 h-5 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" ></path></svg>    
                     </button>
             <img src={bestOffer[bestOfferIndex].image} alt={bestOffer[bestOfferIndex].name} className='object-scale-down h-52 w-3/4 md:w-full md:h-96 m-auto drop-shadow-2xl rounded-xl' />
 
                     <button onClick={ (e) => nextBestOffer()} className="pl-2">
-                        <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" ></path></svg>
+                        <svg aria-hidden="true" className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" ></path></svg>
                     </button>
             </section>
 
