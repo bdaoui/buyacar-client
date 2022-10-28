@@ -139,9 +139,9 @@ const Dashboard = () => {
         Admin Dashboard
       </h1>
 
-      <div className="flex h-screen">
+      <div className="flex">
         <aside
-          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen lg:h-full border-black border-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
+          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen border-black border-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
         >
           <div className="flex justify-center text-center pt-5 gap-6">
             <h1 className="font-bold text-gold text-xl">Car List</h1>
