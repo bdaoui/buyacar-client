@@ -73,10 +73,17 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   };
 
+
+   // Edit Specific Car
+
   const handleCarEdit = (e) => {
     e.preventDefault();
 
+
     const data = new FormData();
+    Array.from(image).forEach(i => {
+        data.append("image", i)
+   })
     data.append("price", price);
     data.append("image", image);
     data.append("make", make);
@@ -93,7 +100,7 @@ const Dashboard = () => {
     data.append("engine", engine);
 
     axios
-      .put("{server}/api/cars", data)
+      .put(`${server}/api/cars`, data)
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
 
@@ -146,6 +153,7 @@ const Dashboard = () => {
 
 
   } 
+
 
 
 
@@ -437,7 +445,7 @@ const Dashboard = () => {
           {selected === "Edit" && (
             <form
               className="flex  relative flex-wrap justify-center mt-10 rounded"
-              onSubmit={handleNewCar}
+              onSubmit={handleCarEdit}
               enctype="multipart/form-data"
             >
               <div className="w-full">
@@ -543,7 +551,7 @@ const Dashboard = () => {
                     <label for="description" value="automatic">Automatic</label>
                     <input
                       type="radio"
-                      checked={selectedCar[0]?.transmission === "false"}
+                      defaultChecked={selectedCar[0]?.transmission === false}
                       className="border-2 border-emerald-700 "
                       name="transmission"
                       defaultValue
@@ -553,7 +561,7 @@ const Dashboard = () => {
                     <label for="description" value="manual">Manual</label>
                     <input
                       type="radio"
-                      checked={selectedCar[0]?.transmission === "true"}
+                      defaultChecked={selectedCar[0]?.transmission === true }
                       className="border-2 border-emerald-700 "
                       name="transmission"
                       onChange={(e) => setTransmission(false)}
@@ -565,7 +573,7 @@ const Dashboard = () => {
                     <label for="description">Deal</label>
                     <input
                       type="radio"
-                      checked
+                      defaultChecked={selectedCar[0]?.transmission === true }
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
                       onChange={(e) => setBestDeal(true)}
@@ -574,6 +582,8 @@ const Dashboard = () => {
                     <label for="description">No Deal</label>
                     <input
                       type="radio"
+                      defaultChecked={selectedCar[0]?.transmission === false}
+
                       className="border-2 border-emerald-700 "
                       name="bestDeal"
                       onChange={(e) => setBestDeal(false)}
@@ -581,8 +591,10 @@ const Dashboard = () => {
                   </fieldset>
 
                   <div className="flex flex-col  mt-6 justify-center">
-                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
-                      <option defaultValue> Number of Doors</option>
+                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  onChange ={ (e) => setDoors( e.target.value) } 
+                     defaultValue={selectedCar[0].doors}
+                     > 
+                      <option > Number of Doors</option>
                       <option value='2'>2</option>
                       <option value='3'>3</option>
                       <option value='4'>4</option>
@@ -590,8 +602,10 @@ const Dashboard = () => {
 
                     </select>
 
-                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
-                      <option defaultValue> Number of Seats</option>
+                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " onChange ={ (e) => setSeats( e.target.value)}
+                    defaultValue={selectedCar[0].doors}
+                    >
+                      <option > Number of Seats</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
