@@ -28,14 +28,14 @@ const Login = () => {
   return (
     <div className="flex h-[calc(100vh-115px)] items-center justify-center">
       <div className="w-full max-w-md space-y-8">
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-black">
+          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gold">
             Admin Access
           </h2>
         
         <form method="post" className="mt-8 space-y-6" onSubmit={handleSubmit} >
           <div className="-space-y-px rounded-md shadow-sm px-50 md:px-0">
             <div>
-              <label for="identifier" className="sr-only">
+              <label htmlFor="identifier" className="sr-only">
                 Identifier
               </label>
               <input
@@ -50,7 +50,7 @@ const Login = () => {
               />
             </div>
             <div>
-              <label for="password" className="sr-only">
+              <label htmlFor="password" className="sr-only">
                 Password
               </label>
               <input
@@ -69,11 +69,11 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="group relative flex w-3/4 md:w-full left-1/2 -translate-x-2/4 md:left-0 md:-translate-x-0 justify-center rounded-2xl border border-transparent bg-emerald-500 py-2 px-4 text-sm font-medium text-white hover:bg-emerald-800 "
+              className="group relative flex w-3/4 md:w-full left-1/2 -translate-x-2/4 md:left-0 md:-translate-x-0 justify-center rounded-2xl border border-transparent bg-gold py-2 px-4 text-sm font-medium text-white hover:bg-emerald-500 "
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg
-                  className="h-5 w-5 text-black group-hover:text-pink"
+                  className="h-5 w-5 text-black group-hover:text-gold"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -86,7 +86,7 @@ const Login = () => {
                   />
                 </svg>
               </span>
-              Sign in
+              SIGN IN
             </button>
           </div>
         </form>
