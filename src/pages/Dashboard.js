@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [selected, setSelected] = useState("");
   const [selectedId, setSelectedId] = useState("");
   const [selectedCar, setSelectedCar] = useState("");
+  const [selectedCarImage, setSelectedCarImage] = useState("");
 
   // Post States
 
@@ -112,6 +113,7 @@ const Dashboard = () => {
     setSelectedId(id)
 
     const chosenCar = cars.filter(car => car._id === id)
+    console.log(chosenCar)
     setSelectedCar(chosenCar)
     
 
@@ -150,6 +152,7 @@ const Dashboard = () => {
 
   } 
 
+  console.log("outside ", selectedCar.image)
 
 
   return (
@@ -598,9 +601,9 @@ const Dashboard = () => {
                 </div>
 
 
-                <div>
-                        {selectedCar.map( car => {
-                        return <img src={car.image} alt={car.model+" "+car.make}  className="w-fit h-fit" />
+                <div className="flex flex-col md:flex-row">
+                        {selectedCar[0].image.map( (image, index) => {
+                        return <img key={index} src={image} alt={selectedCar.model+" "+selectedCar.make}  className="p-2 w-fit h-20" />
                         })
                         }
                 </div>
