@@ -76,10 +76,10 @@ const Dashboard = () => {
 
    // Edit Specific Car
 
-  const handleCarEdit = (e) => {
+  const handleCarEdit = (e, id) => {
     e.preventDefault();
 
-
+    console.log(id)
     const data = new FormData();
     Array.from(image).forEach(i => {
         data.append("image", i)
@@ -100,7 +100,7 @@ const Dashboard = () => {
     data.append("engine", engine);
 
     axios
-      .put(`${server}/api/cars`, data)
+      .put(`${server}/api/${id}`, data)
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
 
@@ -127,6 +127,10 @@ const Dashboard = () => {
     setSelected("");
     setVisible("flex");
   };
+
+
+
+
 
   const handleOpenCar = (e) => {
     //open car edit which is literally car form with pre populated fields and a row showing all images maybe carousel
@@ -445,7 +449,7 @@ const Dashboard = () => {
           {selected === "Edit" && (
             <form
               className="flex  relative flex-wrap justify-center mt-10 rounded"
-              onSubmit={handleCarEdit}
+              onSubmit={ e => handleCarEdit(e, selectedId)}
               enctype="multipart/form-data"
             >
               <div className="w-full">
