@@ -5,7 +5,7 @@ import axios from 'axios';
 const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState({})
-  // const [refresh, setRefresh] = useState(false)
+  //const [refresh, setRefresh] = useState(false)
 
   useEffect(() => {
     axios
@@ -30,7 +30,11 @@ const CarDetails = () => {
       <section className='flex flex-col lg:flex-row w-screen h-full'>
       
           <div className='w-full lg:w-2/4'>  
-            {/* <img src={car?.image[0]} alt={car?.make} className='flex justify-center mx-auto mb-10 md:mb-20 px-10' /> */}
+          {car?.image?.map((i) => {
+            <div id={i._id}>
+            <img src={i?.image} alt={i?.make} className='flex justify-center mx-auto mb-10 md:mb-20 px-10' />
+            </div>
+          })}
           </div>
 
           <div className='w-full lg:w-2/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-20'>
