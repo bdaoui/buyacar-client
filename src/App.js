@@ -11,7 +11,7 @@ import Dashboard from './pages/Dashboard'
 
 const App = () => {
   return (
-    <div className='h-screen'>
+    <div className='h-full bg-black/90'>
     <div>
         <Navbar />
     </div>

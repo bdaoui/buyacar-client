@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="p-0 h-16 md:h-10 bg-emerald-500 text-sm md:text-base flex flex-col md:flex-row items-center md:justify-between md:p-6">
-        <span className="text-sm text-white sm:text-center hidden md:block">© 2022 <Link to="/" className="hover:underline">Buy A Car</Link>. All Rights Reserved.
+    <footer className="p-0 h-16 md:h-10 bg-black text-sm md:text-base flex flex-col md:flex-row items-center md:justify-between md:p-6">
+        <span className="text-sm text-white sm:text-center hidden md:block">© 2022 <Link to="/" className="hover:underline">P&P Exclusive Cars</Link>. All Rights Reserved.
         </span>
         <ul className="flex flex-wrap items-center mt-3 text-lg text-white sm:mt-0">
             <li>

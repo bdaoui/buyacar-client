@@ -134,8 +134,8 @@ const Dashboard = () => {
 
 
   return (
-    <div className="h-screen">
-      <h1 className="text-center p-5 text-2xl text-emerald-500 font-bold">
+    <div className="h-full">
+      <h1 className="text-center p-5 text-2xl text-gold font-bold">
         Admin Dashboard
       </h1>
 
@@ -144,9 +144,9 @@ const Dashboard = () => {
           className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen lg:h-full border-black border-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
         >
           <div className="flex justify-center text-center pt-5 gap-6">
-            <h1 className="font-bold text-emerald-500 text-xl">Car List</h1>
+            <h1 className="font-bold text-gold text-xl">Car List</h1>
             <svg
-              className="w-6 h-6 cursor-pointer fill-emerald-500 mt-1"
+              className="w-6 h-6 cursor-pointer fill-gold mt-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -162,12 +162,12 @@ const Dashboard = () => {
 
 
 
-          <div className="p-1 lg:p-5 lg:0-2 flex flex-col">
+          <div className="p-1 lg:p-5 lg:0-2 flex flex-col text-white">
             {cars.map((car) => {
               return (
                 <div
                   key={car._id}
-                  className="py-2 lg:p-4 border-b-2 border-emerald-500 flex "
+                  className="py-2 lg:p-4 border-b-2 border-black/90 flex "
                 >
                   <section className="w-3/6">
                     <img
@@ -196,7 +196,7 @@ const Dashboard = () => {
         </aside>
 
         <section
-          className={`border-black border-2  m-auto md:m-0 ${
+          className={`border-black border-2 m-auto md:m-0 text-white ${
             visible === "hidden" ? "flex" : "hidden"
           } w-5/6 md:w-4/6 md:flex justify-center `}
         >
@@ -231,7 +231,7 @@ const Dashboard = () => {
                   <label for="Name">Price</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="price"
                     onChange={(e) => setPrice(e.target.value)}
                   />
@@ -239,7 +239,7 @@ const Dashboard = () => {
                   <label for="make">Make</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="make"
                     onChange={(e) => setMake(e.target.value)}
                   />
@@ -247,7 +247,7 @@ const Dashboard = () => {
                   <label for="model">Model</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="model"
                     onChange={(e) => setModel(e.target.value)}
                   />
@@ -256,7 +256,7 @@ const Dashboard = () => {
                   <label for="fuel">Fuel</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="fuel"
                     onChange={(e) => setFuel(e.target.value)}
                   />
@@ -264,7 +264,7 @@ const Dashboard = () => {
                   <label for="color">Color</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="color"
                     onChange={(e) => setColor(e.target.value)}
                   />
@@ -272,7 +272,7 @@ const Dashboard = () => {
                   <label for="body">Body</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="body"
                     onChange={(e) => setBody(e.target.value)}
                   />
@@ -282,7 +282,7 @@ const Dashboard = () => {
                   <label for="engine">Engine Size</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="engine"
                     onChange={(e) => setEngine(e.target.value)}
                   />
@@ -290,19 +290,19 @@ const Dashboard = () => {
                   <label for="mileage">Mileage</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="mileage"
                     onChange={(e) => setMileage(e.target.value)}
                   />
 
-                  <fieldset className="flex border-2 border-emerald-600 gap-2 p-3 my-2">
+                  <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
                     <legend>Select transmission</legend>
                     <label for="transmission" >Automatic</label>
                     <input
                         type="radio"
                         value="automatic"
                       checked
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="transmission"
                       onChange={(e) => setTransmission("automatic")}
                     />
@@ -311,21 +311,21 @@ const Dashboard = () => {
                     <input
                       type="radio"
                       value="manual"
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="transmission"
                       onChange={(e) => setTransmission("manual")}
                     />
 
                   </fieldset>
 
-                  <fieldset className="flex border-2 border-emerald-600 gap-2 p-3">
+                  <fieldset className="flex border-2 border-gold gap-2 p-3">
                     <legend>Is it a BestDeal? </legend>
                     <label for="bestDeal">Deal</label>
                     <input
                       type="radio"
                       checked
                       value="yes"
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("yes")}
                     />
@@ -334,14 +334,14 @@ const Dashboard = () => {
                     <input
                       type="radio"
                       value="no"
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("no")}
                     />
                   </fieldset>
 
                   <div className="flex flex-col  mt-6 justify-center">
-                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
+                    <select className="flex border-2 border-gold gap-2 mb-6 mr-2  "  value={doors} onChange ={ (e) => setDoors( e.target.value) }> 
                       <option defaultValue> Number of Doors</option>
                       <option value='2'>2</option>
                       <option value='3'>3</option>
@@ -350,7 +350,7 @@ const Dashboard = () => {
 
                     </select>
 
-                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
+                    <select className="flex border-2 border-gold gap-2 mr-2 mb-6 " value={seats} onChange ={ (e) => setSeats( e.target.value)}>
                       <option defaultValue> Number of Seats</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -368,7 +368,7 @@ const Dashboard = () => {
                 <div className="flex justify-center items-center w-full mb-5">
                   <label
                     for="dropzone-file"
-                    className="flex flex-col justify-center items-center w-3/4 h-32 bg-emerald-500/20 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
+                    className="flex flex-col justify-center items-center w-3/4 h-32 bg-gray-300 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
                   >
                     <div className="flex flex-col justify-center items-center pt-5 pb-6">
                       <svg
@@ -404,14 +404,14 @@ const Dashboard = () => {
                 <label for="description">Description</label>
                 <input
                   type="textarea"
-                  className=" border-2 border-emerald-700 md:mb-5"
+                  className=" border-2 border-gold md:mb-5"
                   name="description"
                   onChange={(e) => setDescription(e.target.value)}
                 />
 
                 <button
                   type="submit"
-                  className="bg-emerald-900 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
+                  className="bg-gold hover:bg-gold/70  rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
                 >
                   {" "}
                   Send
@@ -454,7 +454,7 @@ const Dashboard = () => {
                   <label for="Name">Price</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="price"
                     defaultValue={selectedCar[0]?.price}
                     onChange={(e) => setPrice(e.target.value)}
@@ -463,7 +463,7 @@ const Dashboard = () => {
                   <label for="make">Make</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="make"
                     defaultValue={selectedCar[0]?.make}
                     onChange={(e) => setMake(e.target.value)}
@@ -472,7 +472,7 @@ const Dashboard = () => {
                   <label for="model">Model</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="model"
                     defaultValue={selectedCar[0]?.model}
                     onChange={(e) => setModel(e.target.value)}
@@ -482,7 +482,7 @@ const Dashboard = () => {
                   <label for="fuel">Fuel</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="fuel"
                     defaultValue={selectedCar[0]?.fuel}
                     onChange={(e) => setFuel(e.target.value)}
@@ -491,7 +491,7 @@ const Dashboard = () => {
                   <label for="color">Color</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="color"
                     defaultValue={selectedCar[0]?.color}
                     onChange={(e) => setColor(e.target.value)}
@@ -500,7 +500,7 @@ const Dashboard = () => {
                   <label for="body">Body</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="body"
                     defaultValue={selectedCar[0]?.body}
 
@@ -512,7 +512,7 @@ const Dashboard = () => {
                   <label for="description">Engine Size</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="engine"
                     defaultValue={selectedCar[0]?.engine}
                     onChange={(e) => setEngine(e.target.value)}
@@ -521,19 +521,19 @@ const Dashboard = () => {
                   <label for="description">Mileage</label>
                   <input
                     type="text"
-                    className="border-2 border-emerald-700 mb-5"
+                    className="border-2 border-gold mb-5"
                     name="mileage"
                     defaultValue={selectedCar[0]?.mileage}
                     onChange={(e) => setMileage(e.target.value)}
                   />
 
-                  <fieldset className="flex border-2 border-emerald-600 gap-2 p-3 my-2">
+                  <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
                     <legend>Select transmission</legend>
                     <label for="description" value="automatic">Automatic</label>
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.transmission === "automatic"}
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="transmission"
                       defaultValue
                       onChange={(e) => setTransmission("automatic")}
@@ -543,19 +543,19 @@ const Dashboard = () => {
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.transmission === "manual" }
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="transmission"
                       onChange={(e) => setTransmission("manual")}
                     />
                   </fieldset>
 
-                  <fieldset className="flex border-2 border-emerald-600 gap-2 p-3">
+                  <fieldset className="flex border-2 border-gold gap-2 p-3">
                     <legend>Is it a BestDeal? </legend>
                     <label for="description">Deal</label>
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.bestDeal === "yes" }
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("yes")}
                     />
@@ -565,14 +565,14 @@ const Dashboard = () => {
                       type="radio"
                       defaultChecked={selectedCar[0]?.bestDeal === "no"}
 
-                      className="border-2 border-emerald-700 "
+                      className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("no")}
                     />
                   </fieldset>
 
                   <div className="flex flex-col  mt-6 justify-center">
-                    <select className="flex border-2 border-emerald-600 gap-2 mb-6 mr-2  "  onChange ={ (e) => setDoors( e.target.value) } 
+                    <select className="flex border-2 border-gold gap-2 mb-6 mr-2  "  onChange ={ (e) => setDoors( e.target.value) } 
                      defaultValue={selectedCar[0].doors}
                      > 
                       <option > Number of Doors</option>
@@ -583,7 +583,7 @@ const Dashboard = () => {
 
                     </select>
 
-                    <select className="flex border-2 border-emerald-600 gap-2 mr-2 mb-6 " onChange ={ (e) => setSeats( e.target.value)}
+                    <select className="flex border-2 border-gold gap-2 mr-2 mb-6 " onChange ={ (e) => setSeats( e.target.value)}
                     defaultValue={selectedCar[0].doors}
                     >
                       <option > Number of Seats</option>
@@ -610,7 +610,7 @@ const Dashboard = () => {
                 <div className="flex justify-center items-center w-full mb-5">
                   <label
                     for="dropzone-file"
-                    className="flex flex-col justify-center items-center w-3/4 h-32 bg-emerald-500/20 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
+                    className="flex flex-col justify-center items-center w-3/4 h-32 bg-gray-300 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
                   >
                     <div className="flex flex-col justify-center items-center pt-5 pb-6">
                       <svg
@@ -647,14 +647,14 @@ const Dashboard = () => {
                 <input
                 defaultValue={selectedCar[0].description}
                   type="textarea"
-                  className=" border-2 border-emerald-700 md:mb-5"
+                  className=" border-2 border-gold md:mb-5"
                   name="description"
                   onChange={(e) => setDescription(e.target.value)}
                 />
 
                 <button
                   type="submit"
-                  className="bg-emerald-900 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
+                  className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
                 >
                   {" "}
                   Send

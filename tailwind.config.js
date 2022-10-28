@@ -6,8 +6,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'car': "url('../src/assets/bg_car.jpg')",
+        'car': "url('../src/assets/p_pVF.png')",
       },
+    colors: {
+      gold : "#d4af37"
+    },
     },
   },
   plugins: [],
