@@ -41,9 +41,7 @@ const Dashboard = () => {
     }, [refresh]);
     
     // Handle New Car  Post
-    
-    
-    
+ 
     const handleNewCar = (e) => {
         e.preventDefault();
         
@@ -113,10 +111,7 @@ const Dashboard = () => {
     setSelectedId(id)
 
     const chosenCar = cars.filter(car => car._id === id)
-    console.log(chosenCar)
     setSelectedCar(chosenCar)
-    
-
 
     setVisible("hidden");
   };
@@ -152,7 +147,6 @@ const Dashboard = () => {
 
   } 
 
-  console.log("outside ", selectedCar.image)
 
 
   return (
@@ -473,7 +467,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="price"
-                    value={selectedCar[0].price}
+                    defaultValue={selectedCar[0]?.price}
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
@@ -482,6 +476,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="make"
+                    defaultValue={selectedCar[0]?.make}
                     onChange={(e) => setMake(e.target.value)}
                   />
 
@@ -490,6 +485,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="model"
+                    defaultValue={selectedCar[0]?.model}
                     onChange={(e) => setModel(e.target.value)}
                   />
 
@@ -499,6 +495,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="fuel"
+                    defaultValue={selectedCar[0]?.fuel}
                     onChange={(e) => setFuel(e.target.value)}
                   />
 
@@ -507,6 +504,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="color"
+                    defaultValue={selectedCar[0]?.color}
                     onChange={(e) => setColor(e.target.value)}
                   />
 
@@ -515,6 +513,8 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="body"
+                    defaultValue={selectedCar[0]?.body}
+
                     onChange={(e) => setBody(e.target.value)}
                   />
                 </div>
@@ -525,6 +525,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="engine"
+                    defaultValue={selectedCar[0]?.engine}
                     onChange={(e) => setEngine(e.target.value)}
                   />
 
@@ -533,6 +534,7 @@ const Dashboard = () => {
                     type="text"
                     className="border-2 border-emerald-700 mb-5"
                     name="mileage"
+                    defaultValue={selectedCar[0]?.mileage}
                     onChange={(e) => setMileage(e.target.value)}
                   />
 
@@ -541,15 +543,17 @@ const Dashboard = () => {
                     <label for="description" value="automatic">Automatic</label>
                     <input
                       type="radio"
-                      checked
+                      checked={selectedCar[0]?.transmission === "false"}
                       className="border-2 border-emerald-700 "
                       name="transmission"
+                      defaultValue
                       onChange={(e) => setTransmission(true)}
                     />
 
                     <label for="description" value="manual">Manual</label>
                     <input
                       type="radio"
+                      checked={selectedCar[0]?.transmission === "true"}
                       className="border-2 border-emerald-700 "
                       name="transmission"
                       onChange={(e) => setTransmission(false)}
