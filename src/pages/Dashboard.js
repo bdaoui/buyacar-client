@@ -23,8 +23,8 @@ const Dashboard = () => {
   const [seats, setSeats] = useState("");
   const [doors, setDoors] = useState("");
   const [body, setBody] = useState("");
-  const [bestDeal, setBestDeal] = useState("");
-  const [transmission, setTransmission] = useState("");
+  const [bestDeal, setBestDeal] = useState("no");
+  const [transmission, setTransmission] = useState("automatic");
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
@@ -210,7 +210,7 @@ const Dashboard = () => {
             })}
           </div>
         </aside>
-
+{/* New Form */}
         <section
           className={`border-black border-2 m-auto md:m-0 text-black ${
             visible === "hidden" ? "flex" : "hidden"
@@ -334,23 +334,23 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3">
                     <legend className="text-white">Is it a BestDeal? </legend>
-                    <label for="bestDeal" className="text-white">Deal</label>
+                    <label for="bestDeal" className="text-white">No</label>
                     <input
                       type="radio"
                       checked
-                      value="yes"
-                      className="border-2 border-gold "
-                      name="bestDeal"
-                      onChange={(e) => setBestDeal("yes")}
-                    />
-
-                    <label for="bestDeal" className="text-white">No Deal</label>
-                    <input
-                      type="radio"
                       value="no"
                       className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("no")}
+                    />
+
+                    <label for="bestDeal" className="text-white">Yes</label>
+                    <input
+                      type="radio"
+                      value="yes"
+                      className="border-2 border-gold "
+                      name="bestDeal"
+                      onChange={(e) => setBestDeal("yes")}
                     />
                   </fieldset>
 
@@ -595,22 +595,22 @@ const Dashboard = () => {
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3">
                     <legend className="text-white">Is it a BestDeal? </legend>
-                    <label for="description" className="text-white">Deal</label>
-                    <input
-                      type="radio"
-                      defaultChecked={selectedCar[0]?.bestDeal === "yes"}
-                      className="border-2 border-gold "
-                      name="bestDeal"
-                      onChange={(e) => setBestDeal("yes")}
-                    />
-
-                    <label for="description" className="text-white">No Deal</label>
+                    <label for="description" className="text-white">No</label>
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.bestDeal === "no"}
                       className="border-2 border-gold "
                       name="bestDeal"
                       onChange={(e) => setBestDeal("no")}
+                    />
+
+                    <label for="description" className="text-white">Yes</label>
+                    <input
+                      type="radio"
+                      defaultChecked={selectedCar[0]?.bestDeal === "yes"}
+                      className="border-2 border-gold "
+                      name="bestDeal"
+                      onChange={(e) => setBestDeal("yes")}
                     />
                   </fieldset>
 
