@@ -19,7 +19,6 @@ const CarDetails = () => {
   }, []);
 
 
-  
 
   return (
     <div className='text-white h-full w-full'>
@@ -30,9 +29,10 @@ const CarDetails = () => {
       <section className='flex flex-col lg:flex-row w-screen h-full'>
       
           <div className='w-full lg:w-2/4'>  
-          {car?.image?.map((i) => {
-            <div id={i._id}>
-            <img src={i?.image} alt={i?.make} className='flex justify-center mx-auto mb-10 md:mb-20 px-10' />
+          
+          {car?.image?.map((i, index) => {
+            return <div key={index}>
+            <img src={i} alt={i?.make} className='flex justify-center mx-auto mb-10 md:mb-20 px-10' />
             </div>
           })}
           </div>
