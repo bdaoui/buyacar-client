@@ -35,7 +35,7 @@ const Login = () => {
         <form method="post" className="mt-8 space-y-6" onSubmit={handleSubmit} >
           <div className="-space-y-px rounded-md shadow-sm px-50 md:px-0">
             <div>
-              <label for="identifier" className="sr-only">
+              <label htmlFor="identifier" className="sr-only">
                 Identifier
               </label>
               <input
@@ -50,7 +50,7 @@ const Login = () => {
               />
             </div>
             <div>
-              <label for="password" className="sr-only">
+              <label htmlFor="password" className="sr-only">
                 Password
               </label>
               <input

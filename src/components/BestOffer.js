@@ -117,12 +117,12 @@ const BestOffer = () => {
             <section className='flex'>
 
                     <button onClick={ (e) => previousBestOffer()} className="pr-2" >
-                        <svg aria-hidden="true" className="w-5 h-5 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" ></path></svg>    
+                        <svg aria-hidden="true" className="w-5 h-5 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" ></path></svg>    
                     </button>
             <img src={bestOffer[bestOfferIndex].image} alt={bestOffer[bestOfferIndex].name} className='object-scale-down h-52 w-3/4 md:w-full md:h-96 m-auto drop-shadow-2xl rounded-xl' />
 
                     <button onClick={ (e) => nextBestOffer()} className="pl-2">
-                        <svg aria-hidden="true" className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" ></path></svg>
+                        <svg aria-hidden="true" className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" ></path></svg>
                     </button>
             </section>
 
