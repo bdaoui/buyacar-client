@@ -10,6 +10,10 @@ const BestOffer = () => {
         name: "Peugeot 308 SW",
         price: "24,746",
         description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
+        year: "2020",
+        transmission: "Automatique",
+        fuel: "Diesel",
+        mileage: "500000",
         id: 1
       },
       {
@@ -24,6 +28,10 @@ const BestOffer = () => {
             name: "Peugeot 308 SW",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 1
           },
           {
@@ -105,7 +113,6 @@ const BestOffer = () => {
 
         <section className='text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl'>
             <h1 className='text-base md:text-2xl'>{bestOffer[bestOfferIndex].name}</h1>
-            <h1 className='text-base md:text-xl'>€ {bestOffer[bestOfferIndex].price}</h1>
         </section>
 
             <section className='flex'>
@@ -118,6 +125,36 @@ const BestOffer = () => {
                     <button onClick={ (e) => nextBestOffer()} className="pl-2">
                         <svg aria-hidden="true" className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" ></path></svg>
                     </button>
+            </section>
+            
+            <section className='flex flex-col justify-center mt-5 gap-2'>
+            <h1 className='text-base md:text-xl text-center'>€ {bestOffer[bestOfferIndex].price} </h1>
+            
+            <div className='flex justify-center mt-5 gap-2'>
+              
+              <section className='p-2 border-r-white border-r-2 flex flex-col'>
+              <h1 className='text-base font-light md:text-xl text-gold'>Année </h1>
+              <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].year} </h1>
+              </section>
+
+              <section className='p-2 border-r-white border-r-2'>
+              <h1 className='text-base md:text-xl font-light text-gold'>Kilométrage </h1>
+              <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].mileage} </h1>
+              </section>
+
+              <section className='p-2 border-r-white border-r-2'>
+              <h1 className='text-base md:text-xl font-light text-gold'>Carburant  </h1>
+              <h1 className='text-base md:text-xl'> {bestOffer[bestOfferIndex].fuel} </h1>
+              </section>
+
+              <section className='p-2 border-r-white border-r-2'>
+              <h1 className='text-base md:text-xl font-light text-gold'>Boite de Vitesse </h1>
+              <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].transmission} </h1>
+              </section>
+
+            </div>
+      
+
             </section>
 
             <p className="text-sm md:text-lg p-10">{bestOffer[bestOfferIndex].description}</p>

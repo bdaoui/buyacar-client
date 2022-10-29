@@ -37,7 +37,7 @@ const CarDetails = () => {
   return (
     <div className='text-white h-full w-full'>
       <header className='flex justify-center my-20 font-bold text-gold text-2xl md:text-4xl'>
-        View our {car?.make}{" "}{car?.model}
+         {car?.make}{" "}{car?.model}
       </header>
 
       <section className='flex flex-col lg:flex-row w-screen h-full'>
