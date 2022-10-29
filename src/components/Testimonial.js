@@ -1,4 +1,5 @@
 import React , {useState, useEffect} from 'react'
+import axios from "axios"
 
 const Testimonial = () => {
     const [testimonialIndex, setTestimonialIndex] = useState(0)
@@ -32,6 +33,16 @@ const Testimonial = () => {
     },
 
 ])
+
+const server = "http://localhost:5005";
+
+
+useEffect(() => {
+    
+    axios.get(`${server}/api/testimonial`)
+        .then(response => setTestimonial(response.data))
+        .catch(err => console.log(err) )
+}, [])
     
 
 
