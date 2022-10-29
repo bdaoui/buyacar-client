@@ -79,7 +79,7 @@ const Landing = () => {
                   <Link to={`/${car.id}`}>
                       <img className="rounded-t-lg" src={car.image[0]} alt={car.name} />
                   </Link>
-                  <div className="p-5"> 
+                  <div className="p-3"> 
 
 
 
@@ -88,24 +88,25 @@ const Landing = () => {
                       </section>
                       
                       <section className='flex flex-col justify-center mb-2 gap-2'>
-                        <h1 className='text-base  text-center text-white'>€ {car.price} </h1>
+                        <h1 className='text-sm  text-center text-white'>€ {car.price} </h1>
                         
                         <div className='flex justify-center mt-5 gap-2'>
                         
                         <section className='p-2 border-r-white border-r-2 flex flex-col'>
-                        <h1 className='text-base font-light  text-white'>Année </h1>
-                        <h1 className='text-base  text-white'>{car.year} </h1>
+                        <h1 className='text-sm font-light  text-white'>Année </h1>
+                        <h1 className='text-sm  text-white'>{car.year} </h1>
                         </section>
 
                         <section className='p-2 border-r-white border-r-2'>
-                        <h1 className='text-base  font-light text-white'>Kilométrage </h1>
-                        <h1 className='text-base  text-white'>{car.mileage} </h1>
+                        <h1 className='text-sm  font-light text-white'>Kilométrage </h1>
+                        <h1 className='text-sm  text-white'>{car.mileage} </h1>
                         </section>
 
                         <section className='p-2 border-r-white border-r-2'>
-                        <h1 className='text-base  font-light text-white'>Carburant  </h1>
-                        <h1 className='text-base  text-white'> {car.fuel} </h1>
+                        <h1 className='text-sm  font-light text-white'>Carburant  </h1>
+                        <h1 className='text-sm  text-white'> {car.fuel} </h1>
                         </section>
+                       
 
                    
 
