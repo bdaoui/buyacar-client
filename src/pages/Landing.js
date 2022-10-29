@@ -58,7 +58,6 @@ const Landing = () => {
     <>
       <Header /> 
       <BestOffer /> 
-      <Testimonial />
       {/* <Contact /> */}
       
 
@@ -92,6 +91,7 @@ const Landing = () => {
           <Link to="/cars" className=" w-full py-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"> PLUS D'OFFRES</Link>
        
       </div>
+      <Testimonial />
     </>
   )
 }

@@ -37,12 +37,12 @@ const Testimonial = () => {
 const server = "http://localhost:5005";
 
 
-useEffect(() => {
+// useEffect(() => {
 
-    axios.get(`${server}/api/testimonial`)
-        .then(response => setTestimonial(response.data))
-        .catch(err => console.log(err) )
-}, [])
+//     axios.get(`${server}/api/testimonial`)
+//         .then(response => setTestimonial(response.data))
+//         .catch(err => console.log(err) )
+// }, [])
     
 
 
@@ -64,11 +64,11 @@ useEffect(() => {
 
 
   return (
-    <div className='text-white h-screen mt-60' id="temoniage">
+    <div className='flex flex-col text-white h-screen justify-center items-center' id="temoniage">
 
     <h1 className='text-lg md:text-4xl text-center font-bold text-gold mb-10' >Témoignages </h1>
     
-    <section className='flex flex-row md:w-1/2 m-auto'>
+    <section className='flex flex-row md:w-1/2 '>
 
     
     <svg aria-hidden="true" className="w-5 h-5 text-gold  w-1/6  my-auto cursor-pointer " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" onClick={ (e) => previousTestimonial()}>
