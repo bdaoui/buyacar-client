@@ -143,7 +143,7 @@ const Dashboard = () => {
   return (
     <div className="h-full">
       <h1 className="text-center p-5 text-2xl text-gold font-bold">
-        Admin Dashboard
+        Tableau de Bord
       </h1>
 
       <div className="flex">
@@ -151,7 +151,7 @@ const Dashboard = () => {
           className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen border-black border-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
         >
           <div className="flex justify-center text-center pt-5 gap-6">
-            <h1 className="font-bold text-gold text-xl">Car List</h1>
+            <h1 className="font-bold text-gold text-xl">Catalogue</h1>
             <svg
               className="w-6 h-6 cursor-pointer fill-gold mt-1"
               fill="currentColor"
@@ -223,7 +223,7 @@ const Dashboard = () => {
               encType="multipart/form-data"
             >
               <div className="w-full">
-                <h1 className="text-3xl text-center mb-5 text-gold"> Upload New Car</h1>
+                <h1 className="text-3xl text-center mb-5 text-gold"> Ajouter une Nouvelle Voiture</h1>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -244,7 +244,7 @@ const Dashboard = () => {
 
               <section className="flex flex-wrap justify-center w-fit">
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label htmlFor="Name" className="text-white">Price</label>
+                  <label htmlFor="Name" className="text-white">Prix</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -252,7 +252,7 @@ const Dashboard = () => {
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
-                  <label htmlFor="make" className="text-white">Make</label>
+                  <label htmlFor="make" className="text-white">Marque</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -260,7 +260,7 @@ const Dashboard = () => {
                     onChange={(e) => setMake(e.target.value)}
                   />
 
-                  <label htmlFor="model" className="text-white">Model</label>
+                  <label htmlFor="model" className="text-white">Modèle</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -268,7 +268,7 @@ const Dashboard = () => {
                     onChange={(e) => setModel(e.target.value)}
                   />
 
-                  <label htmlFor="fuel" className="text-white">Fuel</label>
+                  <label htmlFor="fuel" className="text-white">Carburant</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -276,7 +276,7 @@ const Dashboard = () => {
                     onChange={(e) => setFuel(e.target.value)}
                   />
 
-                  <label htmlFor="color" className="text-white">Color</label>
+                  <label htmlFor="color" className="text-white">Couleur</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -284,7 +284,7 @@ const Dashboard = () => {
                     onChange={(e) => setColor(e.target.value)}
                   />
 
-                  <label htmlFor="body" className="text-white">Body</label>
+                  <label htmlFor="body" className="text-white">Type de Véhicule</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -294,7 +294,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label htmlFor="engine" className="text-white">Engine Size</label>
+                  <label htmlFor="engine" className="text-white">Moteur</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -302,7 +302,7 @@ const Dashboard = () => {
                     onChange={(e) => setEngine(e.target.value)}
                   />
 
-                  <label htmlFor="mileage" className="text-white">Mileage</label>
+                  <label htmlFor="mileage" className="text-white">Kilométrage</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -311,8 +311,8 @@ const Dashboard = () => {
                   />
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
-                    <legend className="text-white">Select transmission</legend>
-                    <label htmlFor="transmission" className="text-white">Automatic</label>
+                    <legend className="text-white">Choisir Type Boîte de vitesse</legend>
+                    <label htmlFor="transmission" className="text-white">Automatique</label>
                     <input
                       type="radio"
                       value="automatic"
@@ -322,7 +322,7 @@ const Dashboard = () => {
                       onChange={(e) => setTransmission("automatic")}
                     />
 
-                    <label htmlFor="transmission" className="text-white">Manual</label>
+                    <label htmlFor="transmission" className="text-white">Manuel</label>
                     <input
                       type="radio"
                       value="manual"
@@ -333,7 +333,7 @@ const Dashboard = () => {
                   </fieldset>
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3">
-                    <legend className="text-white">Is it a BestDeal? </legend>
+                    <legend className="text-white">Bon Plan? </legend>
                     <label htmlFor="bestDeal" className="text-white">No</label>
                     <input
                       type="radio"
@@ -344,7 +344,7 @@ const Dashboard = () => {
                       onChange={(e) => setBestDeal("no")}
                     />
 
-                    <label htmlFor="bestDeal" className="text-white">Yes</label>
+                    <label htmlFor="bestDeal" className="text-white">Oui</label>
                     <input
                       type="radio"
                       value="yes"
@@ -360,7 +360,7 @@ const Dashboard = () => {
                       value={doors}
                       onChange={(e) => setDoors(e.target.value)}
                     >
-                      <option defaultValue> Number of Doors</option>
+                      <option defaultValue> Nombre de Portes</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
@@ -372,7 +372,7 @@ const Dashboard = () => {
                       value={seats}
                       onChange={(e) => setSeats(e.target.value)}
                     >
-                      <option defaultValue> Number of Seats</option>
+                      <option defaultValue> Nombre de Place(s)</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -407,8 +407,8 @@ const Dashboard = () => {
                         ></path>
                       </svg>
                       <p className="mb-2 text-xs md:text-sm text-gray-500">
-                        <span className="font-semibold">Click to upload</span>{" "}
-                        or drag and drop
+                        <span className="font-semibold">Click Pour Adjouter Image(s)</span>{" "}
+                        ou glisser et déposer
                       </p>
                       <p className="text-xs text-gray-500">
                         SVG, PNG, JPG or JPEG
@@ -440,7 +440,7 @@ const Dashboard = () => {
                   className="bg-gold hover:bg-gold/70  rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
                 >
                   {" "}
-                  Send
+                  Envoyer
                 </button>
               </section>
             </form>
@@ -455,7 +455,7 @@ const Dashboard = () => {
               encType="multipart/form-data"
             >
               <div className="w-full">
-                <h1 className="text-3xl text-center mb-5 text-gold"> Edit Car</h1>
+                <h1 className="text-3xl text-center mb-5 text-gold"> Editer la Fiche Voiture</h1>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -491,7 +491,7 @@ const Dashboard = () => {
 
               <section className="flex flex-wrap justify-center w-fit">
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label htmlFor="Name" className="text-white">Price</label>
+                  <label htmlFor="Name" className="text-white">Prix</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -500,7 +500,7 @@ const Dashboard = () => {
                     onChange={(e) => setPrice(e.target.value)}
                   />
 
-                  <label htmlFor="make" className="text-white">Make</label>
+                  <label htmlFor="make" className="text-white">Marque</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -509,7 +509,7 @@ const Dashboard = () => {
                     onChange={(e) => setMake(e.target.value)}
                   />
 
-                  <label htmlFor="model" className="text-white">Model</label>
+                  <label htmlFor="model" className="text-white">Modèle</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -518,7 +518,7 @@ const Dashboard = () => {
                     onChange={(e) => setModel(e.target.value)}
                   />
 
-                  <label htmlFor="fuel" className="text-white">Fuel</label>
+                  <label htmlFor="fuel" className="text-white">Carburant</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -527,7 +527,7 @@ const Dashboard = () => {
                     onChange={(e) => setFuel(e.target.value)}
                   />
 
-                  <label htmlFor="color" className="text-white">Color</label>
+                  <label htmlFor="color" className="text-white">Couleur</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -536,7 +536,7 @@ const Dashboard = () => {
                     onChange={(e) => setColor(e.target.value)}
                   />
 
-                  <label htmlFor="body" className="text-white">Body</label>
+                  <label htmlFor="body" className="text-white">Type de Véhicule</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -547,7 +547,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="md:w-2/4 flex flex-col px-5">
-                  <label htmlFor="description" className="text-white">Engine Size</label>
+                  <label htmlFor="description" className="text-white">Moteur</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -556,7 +556,7 @@ const Dashboard = () => {
                     onChange={(e) => setEngine(e.target.value)}
                   />
 
-                  <label htmlFor="description" className="text-white">Mileage</label>
+                  <label htmlFor="description" className="text-white">Kilométrage</label>
                   <input
                     type="text"
                     className="border-2 border-gold mb-5"
@@ -566,9 +566,9 @@ const Dashboard = () => {
                   />
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
-                    <legend className="text-white">Select transmission</legend>
+                    <legend className="text-white">Choisir Type Boîte de vitesse</legend>
                     <label htmlFor="description" value="automatic" className="text-white">
-                      Automatic
+                    Automatique
                     </label>
                     <input
                       type="radio"
@@ -582,7 +582,7 @@ const Dashboard = () => {
                     />
 
                     <label htmlFor="description" value="manual" className="text-white">
-                      Manual
+                    Manuel
                     </label>
                     <input
                       type="radio"
@@ -594,7 +594,7 @@ const Dashboard = () => {
                   </fieldset>
 
                   <fieldset className="flex border-2 border-gold gap-2 p-3">
-                    <legend className="text-white">Is it a BestDeal? </legend>
+                    <legend className="text-white">Bon Plan? </legend>
                     <label htmlFor="description" className="text-white">No</label>
                     <input
                       type="radio"
@@ -604,7 +604,7 @@ const Dashboard = () => {
                       onChange={(e) => setBestDeal("no")}
                     />
 
-                    <label htmlFor="description" className="text-white">Yes</label>
+                    <label htmlFor="description" className="text-white">Oui</label>
                     <input
                       type="radio"
                       defaultChecked={selectedCar[0]?.bestDeal === "yes"}
@@ -620,7 +620,7 @@ const Dashboard = () => {
                       onChange={(e) => setDoors(e.target.value)}
                       defaultValue={selectedCar[0].doors}
                     >
-                      <option> Number of Doors</option>
+                      <option> Nombre de Portes</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
@@ -632,7 +632,7 @@ const Dashboard = () => {
                       onChange={(e) => setSeats(e.target.value)}
                       defaultValue={selectedCar[0].doors}
                     >
-                      <option> Number of Seats</option>
+                      <option> Nombre de Place(s)</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -680,8 +680,8 @@ const Dashboard = () => {
                         ></path>
                       </svg>
                       <p className="mb-2 text-xs md:text-sm text-gray-500">
-                        <span className="font-semibold">Click to upload</span>{" "}
-                        or drag and drop
+                        <span className="font-semibold">Click Pour Adjouter Image(s)</span>{" "}
+                        ou glisser et déposer
                       </p>
                       <p className="text-xs text-gray-500">
                         SVG, PNG, JPG or JPEG
@@ -714,7 +714,7 @@ const Dashboard = () => {
                   className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
                 >
                   {" "}
-                  Send
+                  Envoyer
                 </button>
               </section>
             </form>
