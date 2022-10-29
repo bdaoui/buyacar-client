@@ -44,7 +44,6 @@ const Landing = () => {
     
   // ]
 
-  console.log(cars)
   //Main page at '/'. User should see header with welcome etc then straight away a filter dropdown with car makes. 
   //Below this will have all the cars rendered and changable by filter
   //Each car should also have a ynamc contact form which prefills the car the user is selected on and thier name, number, email and message if they wish
@@ -67,7 +66,7 @@ const Landing = () => {
       {/* <Contact /> */}
       
 
-      <div id="carGallery" className='flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-10' >
+      <div id="carGallery" className='flex flex-col lg:flex-row justify-center md:w-3/4 xl:w-2/4 m-auto md:flex-wrap p-10' >
         <header className='w-full'>
           <h1 className='text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold'>--- Autres Offres---</h1>
         </header>
@@ -77,7 +76,7 @@ const Landing = () => {
 
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
                   <Link to={`/${car.id}`}>
-                      <img className="rounded-t-lg" src={car.image[0]} alt={car.name} />
+                      <img className="rounded-t-lg lg:max-h-40 overflow-hidden lg:w-full m-auto" src={car.image[0]} alt={car.name} />
                   </Link>
                   <div className="p-3"> 
 
@@ -116,7 +115,7 @@ const Landing = () => {
                               
 
                       <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description.substr(0,80)+"..."}</p>
-                      <Link to={`/${car.id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-white rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
+                      <Link to={`/${car._id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-white rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
                           voir plus
                           <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                       </Link>

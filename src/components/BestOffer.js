@@ -21,6 +21,10 @@ const BestOffer = () => {
         name: "Peugeot 308 SW",
         price: "24,746",
         description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
+        year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
         id: 2
       },
         {
@@ -39,6 +43,10 @@ const BestOffer = () => {
             name: "Peugeot 2008  ",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 2
           },
           {
@@ -46,6 +54,10 @@ const BestOffer = () => {
             name: "Volvo XC40 Rechargeugeot 308 SW",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 3
           },
           {
@@ -53,6 +65,10 @@ const BestOffer = () => {
             name: "Renault Clio",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 4
           },
           {
@@ -60,6 +76,10 @@ const BestOffer = () => {
             name: "Mercedes-Benz GLA",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 5
           },
           {
@@ -67,6 +87,10 @@ const BestOffer = () => {
             name: "Toyota Corolla",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 6
           },
           {
@@ -74,6 +98,10 @@ const BestOffer = () => {
             name: "Mazda CX-30",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 7
           },
           {
@@ -81,6 +109,10 @@ const BestOffer = () => {
             name: "Tesla Model Y",
             description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
             price: "24,746",
+            year: "1900",
+            mileage: "20000000",
+            fuel: "Diesel",
+            transmission: "Automatique",
             id: 8
           }]
 
@@ -130,25 +162,26 @@ const BestOffer = () => {
             <section className='flex flex-col justify-center mt-5 gap-2'>
             <h1 className='text-base md:text-xl text-center'>€ {bestOffer[bestOfferIndex].price} </h1>
             
-            <div className='flex justify-center mt-5 gap-2'>
+            <div className='flex flex-col md:flex-row justify-center mt-5 gap-2'>
               
-              <section className='p-2 border-r-white border-r-2 flex flex-col'>
+              <section className='p-2 md:border-r-white md:border-r-2 flex flex-col text-center'>
               <h1 className='text-base font-light md:text-xl text-gold'>Année </h1>
               <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].year} </h1>
               </section>
 
-              <section className='p-2 border-r-white border-r-2'>
+              <section className='p-2 md:border-r-white md:border-r-2 text-center'>
               <h1 className='text-base md:text-xl font-light text-gold'>Kilométrage </h1>
               <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].mileage} </h1>
               </section>
 
-              <section className='p-2 border-r-white border-r-2'>
+              <section className='p-2 md:border-r-white md:border-r-2 text-center'>
               <h1 className='text-base md:text-xl font-light text-gold'>Carburant  </h1>
               <h1 className='text-base md:text-xl'> {bestOffer[bestOfferIndex].fuel} </h1>
               </section>
 
-              <section className='p-2'>
-              <h1 className='text-base md:text-xl font-light text-gold'>Boite de Vitesse </h1>
+              <section className='p-2 text-center'>
+              <h1 className='text-base md:text-xl font-light text-gold '>Boite de Vitesse </h1>
+              
               <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].transmission} </h1>
               </section>
 
