@@ -64,7 +64,7 @@ const Landing = () => {
 
       <div id="carGallery" className='flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-10' >
         <header className='w-full'>
-          <h1 className='text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold'>---Other Offers---</h1>
+          <h1 className='text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold'>--- Autres Offres---</h1>
         </header>
           {cars.map((car) => {
             console.log(car.id)
@@ -81,7 +81,7 @@ const Landing = () => {
 
                       <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description}</p>
                       <Link to={`/${car.id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-white rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300">
-                          See more
+                          voir plus
                           <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                       </Link>
                   </div>
@@ -89,7 +89,7 @@ const Landing = () => {
             </div>
           })}
           
-          <Link to="/cars" className=" w-full py-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold">MORE OFFERS</Link>
+          <Link to="/cars" className=" w-full py-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"> PLUS D'OFFRES</Link>
        
       </div>
     </>

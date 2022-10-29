@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const BestOffer = () => {
 
@@ -100,7 +101,7 @@ const BestOffer = () => {
 
     <div className='w-3/4 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto h-fit drop-shadow-2xl '>
        
-       <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold '>---BEST OFFERS---</header>
+       <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold '>--- Bons Plans ---</header>
 
         <section className='text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl'>
             <h1 className='text-base md:text-2xl'>{bestOffer[bestOfferIndex].name}</h1>
@@ -121,6 +122,10 @@ const BestOffer = () => {
 
             <p className="text-sm md:text-lg p-10">{bestOffer[bestOfferIndex].description}</p>
 
+            <Link to={`http://localhost:5005/api/${bestOfferIndex}`} className='text-center'>
+              <button className='bg-gold p-3 px-5 rounded-lg'>VOIR PLUS</button>
+            </Link>
+        
     </div>
 
 

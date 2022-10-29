@@ -39,16 +39,16 @@ const CarDetails = () => {
 
           <div className='w-full lg:w-2/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-20'>
             <section className='flex flex-col gap-y-5 lg:gap-y-10 text-center lg:text-left'>
-              <p>Make: <span className='italic text-gold'>{car?.make}</span></p>
-              <p>Model: <span className='italic text-gold'>{car?.model}</span></p>
+              <p>Marque: <span className='italic text-gold'>{car?.make}</span></p>
+              <p>Modèle: <span className='italic text-gold'>{car?.model}</span></p>
               <p>€ <span className='italic text-gold'>{car?.price}</span></p>
-              <p>Mileage: <span className='italic text-gold'>{car?.mileage}</span></p>
-              <p>Color: <span className='italic text-gold'>{car?.color}</span></p>
-              <p>Fuel type: <span className='italic text-gold'>{car?.fuel}</span></p>
+              <p>Kilométrage: <span className='italic text-gold'>{car?.mileage}</span></p>
+              <p>Couleurs: <span className='italic text-gold'>{car?.color}</span></p>
+              <p>Carburant: <span className='italic text-gold'>{car?.fuel}</span></p>
             </section>
 
             <section className='flex flex-col gap-y-5 lg:gap-y-10 text-center lg:text-left'>
-              <p>Transmission: <span className='italic text-gold'>{car?.transmission}</span></p>
+              <p>Boîte de vitesse: <span className='italic text-gold'>{car?.transmission}</span></p>
               <p>Engine Size: <span className='italic text-gold'>{car?.engine}L</span></p>
               <p>Doors: <span className='italic text-gold'>{car?.doors}</span></p>
               <p>Seats: <span className='italic text-gold'>{car?.seats}</span></p>

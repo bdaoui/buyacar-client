@@ -71,16 +71,16 @@ const Cars = () => {
 
     <div id="carGallery" className='flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-10' >
         <header className='w-full'>
-        <h1 className='text-lg md:text-4xl text-center m-auto font-bold py-4 mb-5 text-gold'>---Available Cars---</h1>
+        <h1 className='text-lg md:text-4xl text-center m-auto font-bold py-4 mb-5 text-gold'>--- Catalogue Complet ---</h1>
 
           <div className='flex justify-center text-white font-medium text-lg md:text-2xl'>
         
-        <label htmlFor="price" className='mr-16'>Price
+        <label htmlFor="price" className='mr-16'>Prix
             <input type="range" name="price" min="0" max="20000" step="500" className='ml-5' onChange={ (e) => handleSelection(e, "price") }/>
             <h2 className='text-center underline text-middle'>{selectedPrice}</h2>
         </label> 
 
-        <label htmlFor="milage">Mileage 
+        <label htmlFor="milage">Kilométrage  
             <input type="range"  name="mileage" min="0" max="200000" step="10000"  className='ml-5' onChange={ (e) => handleSelection(e, "mileage")}/>
             <h2 className='text-center underline text-middle'>{selectedMileage}</h2>
 
@@ -95,18 +95,25 @@ const Cars = () => {
                   <Link to={`/${car._id}`}>
                       <img className="rounded-t-lg" src={car.image[0]} alt={car.name} />
                   </Link>
-                  <div className="p-5 text-center">                      
-                      <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.name}</h5>
-                      <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">car model</h5>      
-                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>    
-                      <h5 className="text-xs md:text-sm font-bold tracking-tight text-white">{car.transmission}</h5>   
-                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">car description</h5>            
-                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">car mileage</h5> 
-                      <p className="mb-3 text-sm md:text-basefont-normal text-white">{car.description}</p>
+                  <div className="p-5 ">                      
+                      
+                      <section className='flex flex-row justify-around'>
+                        <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.make + " " + car.model}</h5>      
+                      </section>
+                      
+                      
+                      
+                      
+                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">{car.description}</h5>            
+                        
+                      <section className='flex justify-center'>    
+                        <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>    
+                      </section>
                       <Link to={`/${car._id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold">
                           See more
-                          <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                          <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                       </Link>
+                        
                   </div>
               </div>
             </div>
