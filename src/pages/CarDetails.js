@@ -5,6 +5,7 @@ import axios from 'axios';
 const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState({})
+  const [imageIndex, setImageIndex] = useState(0)
   //const [refresh, setRefresh] = useState(false)
 
   useEffect(() => {
@@ -18,24 +19,20 @@ const CarDetails = () => {
       // eslint-disable-next-line
   }, []);
 
-
-  const [ImageIndex, setImageIndex] = useState(0)
-
-
-
   const nextImage = () => {
-    const endArray = car.length;
-    const next = ImageIndex+1 === endArray ? 0 : ImageIndex+1;
+    const endArray = car.image.length;
+    const next = imageIndex+1 === endArray ? 0 : imageIndex+1;
     setImageIndex(next)
     
   }
   
   const previousImage = () => {
-    const endArray = car.length;
-    const prev = ImageIndex <= 0 ? endArray-1 : ImageIndex-1;
-    console.log(prev, endArray,ImageIndex )
+    const endArray = car.image.length;
+    const prev = imageIndex <= 0 ? endArray-1 : imageIndex-1;
+    console.log(prev, endArray,imageIndex )
     setImageIndex(prev)
   }
+
 
   return (
     <div className='text-white h-full w-full'>
@@ -46,19 +43,26 @@ const CarDetails = () => {
       <section className='flex flex-col lg:flex-row w-screen h-full'>
       
           <div className='w-full lg:w-2/4'>  
-          <button onClick={ (e) => previousImage()} className="pr-2" >
-                        <svg aria-hidden="true" className="w-5 h-5 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" ></path></svg>    
-          </button>
-          {car?.image?.map((i, index) => {
-            return <div key={index}>
-            
-            <img src={i} alt={i?.make} className='flex justify-center mx-auto mb-10 md:mb-20 px-10' />
-            </div>
-          })}
+          {car.image &&
 
-          <button onClick={ (e) => nextImage()} className="pl-2">
-                        <svg aria-hidden="true" className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" ></path></svg>
-          </button>
+          <div key={car._id}>  
+            <img src={car?.image[imageIndex]} alt={car?.make} className='flex justify-center mx-auto mb-10 md:mb-20 px-10' />
+          </div>
+
+          }
+          <div className='flex justify-center mb-10'>
+
+            <button onClick={ (e) => previousImage()} className="pr-2" >
+                          <svg aria-hidden="true" className="w-5 h-5 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" ></path></svg>    
+            </button>
+
+
+            <button onClick={ (e) => nextImage()} className="pl-2">
+                          <svg aria-hidden="true" className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" ></path></svg>
+            </button>
+
+          </div>
+
           </div>
 
           <div className='w-full lg:w-3/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-10'>
