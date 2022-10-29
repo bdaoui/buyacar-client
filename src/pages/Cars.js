@@ -91,25 +91,51 @@ const Cars = () => {
           {cars.map((car) => {
             return <div key={car._id} className="p-10 w-full ">
 
-              <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
+              <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white ">
                   <Link to={`/${car._id}`}>
                       <img className="rounded-t-lg" src={car.image[0]} alt={car.name} />
                   </Link>
                   <div className="p-5 ">                      
                       
-                      <section className='flex flex-row justify-around'>
+                      <section className='flex flex-row justify-around  '>
                         <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">{car.make + " " + car.model}</h5>      
                       </section>
                       
-                      
-                      
-                      
-                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white">{car.description}</h5>            
+                      <section className='flex flex-col justify-center mt-5 gap-2'>
+                        <h1 className='text-base md:text-xl text-center'>€ {car.price} </h1>
                         
-                      <section className='flex justify-center'>    
-                        <h5 className="text-xs md:text-base font-bold tracking-tight text-white">€ {car.price}</h5>    
-                      </section>
-                      <Link to={`/${car._id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold">
+                        <div className='flex justify-center mt-5 gap-2'>
+                        
+                        <section className='p-2 border-r-white border-r-2 flex flex-col'>
+                        <h1 className='text-base font-light md:text-xl text-gold'>Année </h1>
+                        <h1 className='text-base md:text-xl'>{car.year} </h1>
+                        </section>
+
+                        <section className='p-2 border-r-white border-r-2'>
+                        <h1 className='text-base md:text-xl font-light text-gold'>Kilométrage </h1>
+                        <h1 className='text-base md:text-xl'>{car.mileage} </h1>
+                        </section>
+
+                        <section className='p-2 border-r-white border-r-2'>
+                        <h1 className='text-base md:text-xl font-light text-gold'>Carburant  </h1>
+                        <h1 className='text-base md:text-xl'> {car.fuel} </h1>
+                        </section>
+
+                        <section className='p-2'>
+                        <h1 className='text-base md:text-xl font-light text-gold'>Boite de Vitesse </h1>
+                        <h1 className='text-base md:text-xl'>{car.transmission} </h1>
+                        </section>
+
+                        </div>
+
+                    </section>
+                      
+                      
+                      
+                      <h5 className="text-xs md:text-base font-bold tracking-tight text-white mt-8">{car.description}</h5>            
+                        
+                   
+                      <Link to={`/${car._id}`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold">
                           See more
                           <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                       </Link>

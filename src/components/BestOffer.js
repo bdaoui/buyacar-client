@@ -9,7 +9,7 @@ const BestOffer = () => {
         image: "https://m.atcdn.co.uk/a/media/w800h600/0ca14354a2d340dcb1a989ba871ec80d.jpg",
         name: "Peugeot 308 SW",
         price: "24,746",
-        description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
+        description: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at   ",
         year: "2020",
         transmission: "Automatique",
         fuel: "Diesel",
@@ -107,7 +107,7 @@ const BestOffer = () => {
 
   return (
 
-    <div className='w-3/4 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto h-fit drop-shadow-2xl ' >
+    <div className='w-4/6 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto  drop-shadow-2xl ' >
        
        <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold ' id="bonPlans">--- Bons Plans ---</header>
 
@@ -118,12 +118,12 @@ const BestOffer = () => {
             <section className='flex'>
 
                     <button onClick={ (e) => previousBestOffer()} className="pr-2" >
-                        <svg aria-hidden="true" className="w-5 h-5 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" ></path></svg>    
+                        <svg aria-hidden="true" className="w-5 h-5 md:w-10 md:h-10 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" ></path></svg>    
                     </button>
-            <img src={bestOffer[bestOfferIndex].image} alt={bestOffer[bestOfferIndex].name} className='object-scale-down h-52 w-3/4 md:w-full md:h-96 m-auto drop-shadow-2xl rounded-xl' />
+            <img src={bestOffer[bestOfferIndex].image} alt={bestOffer[bestOfferIndex].name} className='object-scale-down h-52 w-3/4 lg:w-fit md:h-96 m-auto drop-shadow-2xl rounded-xl' />
 
                     <button onClick={ (e) => nextBestOffer()} className="pl-2">
-                        <svg aria-hidden="true" className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" ></path></svg>
+                        <svg aria-hidden="true" className="w-5 h-5 md:w-10 md:h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" ></path></svg>
                     </button>
             </section>
             
@@ -147,7 +147,7 @@ const BestOffer = () => {
               <h1 className='text-base md:text-xl'> {bestOffer[bestOfferIndex].fuel} </h1>
               </section>
 
-              <section className='p-2 border-r-white border-r-2'>
+              <section className='p-2'>
               <h1 className='text-base md:text-xl font-light text-gold'>Boite de Vitesse </h1>
               <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].transmission} </h1>
               </section>
@@ -157,7 +157,7 @@ const BestOffer = () => {
 
             </section>
 
-            <p className="text-sm md:text-lg p-10">{bestOffer[bestOfferIndex].description}</p>
+            <p className="text-sm md:text-lg p-10 xl:px-72">{bestOffer[bestOfferIndex].description}</p>
 
             <Link to={`http://localhost:5005/api/${bestOfferIndex}`} className='text-center'>
               <button className='bg-gold p-3 px-5 rounded-lg'>VOIR PLUS</button>

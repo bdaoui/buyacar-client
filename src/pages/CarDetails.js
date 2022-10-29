@@ -83,8 +83,8 @@ const CarDetails = () => {
               <p>Année-modèle: <span className='italic text-gold'>{car?.seats}</span></p>
             </section>
 
-            <section className='flex md:w-2/4 flex-col h-full gap-y-5 lg:gap-y-10 text-center mx-20 lg:text-left'>
-              Description: <span className='italic text-gold'>{car?.description}</span>
+            <section className='flex md:w-2/4 flex-col h-full gap-y-5 lg:gap-y-10 text-center mx-20 lg:text-left '>
+              Description: <span className='italic text-gold '>{car?.description}</span>
             </section>
 
           </div> 
