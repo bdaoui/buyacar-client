@@ -99,9 +99,9 @@ const BestOffer = () => {
 
   return (
 
-    <div className='w-3/4 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto h-fit drop-shadow-2xl '>
+    <div className='w-3/4 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto h-fit drop-shadow-2xl ' >
        
-       <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold '>--- Bons Plans ---</header>
+       <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold ' id="bonPlans">--- Bons Plans ---</header>
 
         <section className='text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl'>
             <h1 className='text-base md:text-2xl'>{bestOffer[bestOfferIndex].name}</h1>

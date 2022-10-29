@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/p_pVF.png'
+import { NavHashLink } from 'react-router-hash-link';
 
 const Navbar = () => {
 
@@ -36,11 +37,29 @@ const Navbar = () => {
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
+                <NavHashLink
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  smooth to="/#bonPlans"
+                >
+                  <span className="ml-2">Bons Plans</span>
+                </NavHashLink>
+
+              </li>
+              <li className="nav-item">
+                <NavHashLink
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  smooth to="/#temoniage"
+                >
+                  <span className="ml-2">Témoignages</span>
+                </NavHashLink>
+
+              </li>
+              <li className="nav-item">
                 <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                   to="/cars"
                 >
-                  <span className="ml-2">All Cars</span>
+                  <span className="ml-2">Catalogue</span>
                 </Link>
               </li>
               <li className="nav-item">

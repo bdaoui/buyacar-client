@@ -38,7 +38,7 @@ const server = "http://localhost:5005";
 
 
 useEffect(() => {
-    
+
     axios.get(`${server}/api/testimonial`)
         .then(response => setTestimonial(response.data))
         .catch(err => console.log(err) )
@@ -64,9 +64,9 @@ useEffect(() => {
 
 
   return (
-    <div className='text-white h-screen mt-60'>
+    <div className='text-white h-screen mt-60' id="temoniage">
 
-    <h1 className='text-lg md:text-4xl text-center font-bold text-gold mb-10'>Témoignages </h1>
+    <h1 className='text-lg md:text-4xl text-center font-bold text-gold mb-10' >Témoignages </h1>
     
     <section className='flex flex-row md:w-1/2 m-auto'>
 
