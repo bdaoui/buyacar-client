@@ -11,45 +11,6 @@ const Landing = () => {
   const [cars, setCars] = useState([]);
   const server = "http://localhost:5005";
 
-  // const data = [
-  //   {
-  //     image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
-  //     name: "Peugeot 308 SW",
-  //     price: "24,746",
-  //     transmission: "auto",
-  //     id: 1
-  //   },
-  //   {
-  //     image: "https://m.atcdn.co.uk/ect/media/w1224/b7656c050a5843d2a3ced6f7b80632bc.jpg",
-  //     name: "Peugeot 2008  ",
-  //     price: "24,746",
-  //     transmission: "manual",
-  //     id: 2
-  //   },
-  //   {
-  //     image: "https://m.atcdn.co.uk/ect/media/w1224/130edbc6b0684515b22cf423d2f88693.jpg",
-  //     name: "Volvo XC40 ",
-  //     price: "24,746",
-  //     transmission: "manual",
-  //     id: 3
-  //   },
-  //   {
-  //     image: "https://m.atcdn.co.uk/ect/media/w1224/3520ca655e03439a8b6a3e109f96b4af.jpg",
-  //     name: "Renault Clio",
-  //     price: "24,746",
-  //     transmission: "auto",
-  //     id: 4
-  //   }
-
-  // ]
-
-  //Main page at '/'. User should see header with welcome etc then straight away a filter dropdown with car makes.
-  //Below this will have all the cars rendered and changable by filter
-  //Each car should also have a ynamc contact form which prefills the car the user is selected on and thier name, number, email and message if they wish
-  //used random json generator to try to map some stuff but couldnt get it to work
-
-  // A good filter function would, be a button to decide the display size of the gallery. Like how large the image of the cars need to be
-
   useEffect(() => {
     axios
       .get(`${server}/api/cars`)
@@ -61,7 +22,6 @@ const Landing = () => {
     <>
       <Header />
       <BestOffer />
-      {/* <Contact /> */}
 
       <div
         id="carGallery"
@@ -73,11 +33,11 @@ const Landing = () => {
           </h1>
         </header>
         {cars.map((car) => {
-          console.log(car.id);
+          console.log(car._id);
           return (
             <div key={car.id} className="p-10 lg:w-2/4 ">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
-                <Link to={`/${car.id}`}>
+                <Link to={`/${car._id}`}>
                   <img
                     className="rounded-t-lg lg:max-h-40 overflow-hidden lg:w-full m-auto"
                     src={car.image[0]}
