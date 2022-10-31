@@ -18,18 +18,18 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
   const [year, setYear] = useState("")
-
+  const [imageIndex, setImageIndex] = useState(0);
 
   const server = "http://localhost:5005";
 
   let filteredCar = cars.filter(car => car._id === selectedId)
-  const [imageIndex, setImageIndex] = useState(0);
+ 
 
 // Edit Specific Car
   const handleCarEdit = (e, id) => {
     e.preventDefault();
     const data = new FormData();
-    Array.from(image).forEach((i) => { data.append("image", i) });
+    Array?.from(image)?.forEach((i) => { data.append("image", i) });
     data.append("price", price);
     data.append("image", image);
     data.append("make", make);
@@ -50,6 +50,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
       .put(`${server}/api/${id}`, data)
       .then((response) => {
         setRefresh(!refresh);
+        setImageIndex(imageIndex === 0 ? imageIndex+1 : imageIndex)
         console.log(response);
       })
       .catch((err) => console.log(err));
@@ -69,10 +70,12 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
 //single image delete
   const handleImageDelete = (e, image) => {
     e.preventDefault();
+    
     axios
       .put(`${server}/api/${selectedId}/image`, image)
       .then((res) => {
         setRefresh(!refresh);
+        setImageIndex(imageIndex === 0 ? imageIndex+1 : imageIndex)
         console.log(res);
       })
       .catch((err) => console.log(err));
@@ -81,13 +84,15 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
 
   // Slider
 
-  const nextImage = () => {
+  const nextImage = (e) => {
+    e.preventDefault()
     const endArray = filteredCar[0].image.length;
-    const next = imageIndex + 1 === endArray ? 0 : imageIndex + 1;
+    const next = imageIndex + 1 >= endArray ? 0 : imageIndex + 1;
     setImageIndex(next);
   };
 
-  const previousImage = () => {
+  const previousImage = (e) => {
+    e.preventDefault()
     const endArray = filteredCar[0].image.length;
     const prev = imageIndex <= 0 ? endArray - 1 : imageIndex - 1;
     console.log(prev, endArray, imageIndex);
@@ -333,38 +338,18 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
               </select>
           </div>
 
-          <div className="w-full flex flex-col md:flex-row  justify-center ">
+          <div className="w-full md:w-2/4 flex flex-col md:flex-row justify-center">
+            <div className="relative">
           
-                <div className="relative my-2 px-24  md:px-0 ">
-
-
-
-
-            {filteredCar[0].image && (
+            {filteredCar[0].image[imageIndex] && (
                 <section className="flex">
 
                  <img
                     src={filteredCar[0]?.image[imageIndex]}
                     alt={filteredCar.model + " " + filteredCar.make}
-                    className=" w-full md:w-fit h-28 m-auto md:m-1"
+                    className=" w-fit h-40 md:h-60 m-auto md:m-1"
                   />
-                
-                { filteredCar[0].image.length > 0 &&
-
-                    <img
-                    src={filteredCar[0]?.image[imageIndex+1 > filteredCar[0]?.image.length ? 0 : imageIndex+1 ]}
-                    alt={filteredCar.model + " " + filteredCar.make}
-                    className=" w-full md:w-fit h-28 m-auto md:m-1"
-                     />
-                }
-
-                { filteredCar[0].image.length > 1 &&
-                <img
-                    src={filteredCar[0]?.image[imageIndex+2 > filteredCar[0]?.image.length ? 1 : imageIndex+2  ]}
-                    alt={filteredCar.model + " " + filteredCar.make}
-                    className=" w-full md:w-fit h-28 m-auto md:m-1"
-                    />
-                }
+      
                 </section>
                 
                       )}
@@ -375,8 +360,8 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
                     viewBox="0 0 24 24"
                     strokeWidth="2.5"
                     stroke="currentColor"
-                    className="w-5 h-5   cursor-pointer absolute top-0 md:top-1 left-24 md:left-1  bg-white text-red-900"
-                    onClick={(e) => handleImageDelete(e, image)}
+                    className="w-5 h-5 cursor-pointer absolute top-0 md:top-1 left-16 md:left-1  bg-white text-red-900"
+                    onClick={(e) => handleImageDelete(e, filteredCar[0]?.image[imageIndex])}
                   >
                     <path
                       strokeLinecap="round"
@@ -386,7 +371,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
                   </svg>
 
             <section className="flex justify-center p-5">
-                <button onClick={(e) => previousImage()} className="pr-2">
+                <button onClick={(e) => previousImage(e)} className="pr-2">
               <svg
                 aria-hidden="true"
                 className="w-5 h-5 text-gold "
@@ -403,8 +388,12 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
                 ></path>
               </svg>
             </button>
+                  
+                  
+                  <p className="text-white">{imageIndex+1} / {filteredCar[0].image.length}</p>
 
-                  <button onClick={(e) => nextImage()} className="pl-2">
+
+                  <button onClick={(e) => nextImage(e)} className="pl-2">
               <svg
                 aria-hidden="true"
                 className="w-5 h-5 text-gold"
@@ -423,9 +412,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
 
             </button>
             </section>
-
-
-                </div>
+</div>
           </div>
 
           <div className="flex justify-center items-center w-full md:w-2/4 mb-5">
