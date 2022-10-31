@@ -337,23 +337,8 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
           
                 <div className="relative my-2 px-24  md:px-0 ">
 
-                <button onClick={(e) => previousImage()} className="pr-2">
-              <svg
-                aria-hidden="true"
-                className="w-5 h-5 text-gold "
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
-              </svg>
-            </button>
+
+
 
             {filteredCar[0].image && (
                 <section className="flex">
@@ -400,7 +385,24 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
                     />
                   </svg>
 
-
+            <section className="flex justify-center p-5">
+                <button onClick={(e) => previousImage()} className="pr-2">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gold "
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
 
                   <button onClick={(e) => nextImage()} className="pl-2">
               <svg
@@ -418,7 +420,11 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
                   d="M9 5l7 7-7 7"
                 ></path>
               </svg>
+
             </button>
+            </section>
+
+
                 </div>
           </div>
 
