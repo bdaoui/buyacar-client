@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const EditCarPost = ({
-  selectedId,
-  selectedCar,
-  handleCloseSecondSection,
-  refresh,
-  setRefresh,
-}) => {
+const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh, cars }) => {
+
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
   const [price, setPrice] = useState("");
@@ -25,16 +20,13 @@ const EditCarPost = ({
 
   const server = "http://localhost:5005";
 
-  // Edit Specific Car
+  let filteredCar = cars.filter(car => car._id === selectedId)
 
+// Edit Specific Car
   const handleCarEdit = (e, id) => {
     e.preventDefault();
-
-    console.log(id);
     const data = new FormData();
-    Array.from(image).forEach((i) => {
-      data.append("image", i);
-    });
+    Array.from(image).forEach((i) => { data.append("image", i) });
     data.append("price", price);
     data.append("image", image);
     data.append("make", make);
@@ -57,13 +49,11 @@ const EditCarPost = ({
         console.log(response);
       })
       .catch((err) => console.log(err));
-  };
+  };  
 
-  // Delete Specific Car
-
+// Delete Specific Car
   const handleDelete = (e) => {
     e.preventDefault();
-
     axios
       .delete(`${server}/api/${selectedId}`)
       .then((res) => {
@@ -72,10 +62,9 @@ const EditCarPost = ({
       })
       .catch((err) => console.log(err));
   };
-
+//single image delete
   const handleImageDelete = (e, image) => {
     e.preventDefault();
-
     axios
       .put(`${server}/api/${selectedId}/image`, image)
       .then((res) => {
@@ -84,7 +73,7 @@ const EditCarPost = ({
       })
       .catch((err) => console.log(err));
   };
-
+  
   return (
     <div>
       <form
@@ -139,7 +128,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="price"
-              defaultValue={selectedCar[0]?.price}
+              defaultValue={filteredCar[0]?.price}
               onChange={(e) => setPrice(e.target.value)}
             />
 
@@ -150,7 +139,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="make"
-              defaultValue={selectedCar[0]?.make}
+              defaultValue={filteredCar[0]?.make}
               onChange={(e) => setMake(e.target.value)}
             />
 
@@ -161,7 +150,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="model"
-              defaultValue={selectedCar[0]?.model}
+              defaultValue={filteredCar[0]?.model}
               onChange={(e) => setModel(e.target.value)}
             />
 
@@ -172,7 +161,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="fuel"
-              defaultValue={selectedCar[0]?.fuel}
+              defaultValue={filteredCar[0]?.fuel}
               onChange={(e) => setFuel(e.target.value)}
             />
 
@@ -183,7 +172,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="color"
-              defaultValue={selectedCar[0]?.color}
+              defaultValue={filteredCar[0]?.color}
               onChange={(e) => setColor(e.target.value)}
             />
 
@@ -194,7 +183,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="body"
-              defaultValue={selectedCar[0]?.body}
+              defaultValue={filteredCar[0]?.body}
               onChange={(e) => setBody(e.target.value)}
             />
           </div>
@@ -207,7 +196,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="engine"
-              defaultValue={selectedCar[0]?.engine}
+              defaultValue={filteredCar[0]?.engine}
               onChange={(e) => setEngine(e.target.value)}
             />
 
@@ -218,7 +207,7 @@ const EditCarPost = ({
               type="text"
               className="border-2 border-gold mb-5"
               name="mileage"
-              defaultValue={selectedCar[0]?.mileage}
+              defaultValue={filteredCar[0]?.mileage}
               onChange={(e) => setMileage(e.target.value)}
             />
 
@@ -235,7 +224,7 @@ const EditCarPost = ({
               </label>
               <input
                 type="radio"
-                defaultChecked={selectedCar[0]?.transmission === "automatic"}
+                defaultChecked={filteredCar[0]?.transmission === "automatic"}
                 className="border-2 border-gold "
                 name="transmission"
                 defaultValue
@@ -251,7 +240,7 @@ const EditCarPost = ({
               </label>
               <input
                 type="radio"
-                defaultChecked={selectedCar[0]?.transmission === "manual"}
+                defaultChecked={filteredCar[0]?.transmission === "manual"}
                 className="border-2 border-gold "
                 name="transmission"
                 onChange={(e) => setTransmission("manual")}
@@ -265,7 +254,7 @@ const EditCarPost = ({
               </label>
               <input
                 type="radio"
-                defaultChecked={selectedCar[0]?.bestDeal === "no"}
+                defaultChecked={filteredCar[0]?.bestDeal === "no"}
                 className="border-2 border-gold "
                 name="bestDeal"
                 onChange={(e) => setBestDeal("no")}
@@ -276,7 +265,7 @@ const EditCarPost = ({
               </label>
               <input
                 type="radio"
-                defaultChecked={selectedCar[0]?.bestDeal === "yes"}
+                defaultChecked={filteredCar[0]?.bestDeal === "yes"}
                 className="border-2 border-gold "
                 name="bestDeal"
                 onChange={(e) => setBestDeal("yes")}
@@ -287,7 +276,7 @@ const EditCarPost = ({
               <select
                 className="flex border-2 border-gold gap-2 mb-6 mr-2  "
                 onChange={(e) => setDoors(e.target.value)}
-                defaultValue={selectedCar[0].doors}
+                defaultValue={filteredCar[0]?.doors}
               >
                 <option> Nombre de Portes</option>
                 <option value="2">2</option>
@@ -299,7 +288,7 @@ const EditCarPost = ({
               <select
                 className="flex border-2 border-gold gap-2 mr-2 mb-6 "
                 onChange={(e) => setSeats(e.target.value)}
-                defaultValue={selectedCar[0].doors}
+                defaultValue={filteredCar[0]?.seats}
               >
                 <option> Nombre de Place(s)</option>
                 <option value="1">1</option>
@@ -315,13 +304,13 @@ const EditCarPost = ({
           </div>
 
           <div className="w-full flex flex-col md:flex-row  justify-center ">
-            {selectedCar[0].image.map((image, index) => {
+            {filteredCar[0]?.image.map((image, index) => {
               return (
                 <div className="relative my-2 px-24  md:px-0 ">
                   <img
                     key={index}
                     src={image}
-                    alt={selectedCar.model + " " + selectedCar.make}
+                    alt={filteredCar.model + " " + filteredCar.make}
                     className=" w-full md:w-fit h-28 m-auto md:m-1"
                   />
                   <svg
@@ -390,7 +379,7 @@ const EditCarPost = ({
             Description
           </label>
           <input
-            defaultValue={selectedCar[0].description}
+            defaultValue={filteredCar[0]?.description}
             type="textarea"
             className=" border-2 border-gold md:mb-5"
             name="description"
