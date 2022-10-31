@@ -14,7 +14,6 @@ const Dashboard = () => {
   const [selectedId, setSelectedId] = useState("");
   const [selectedCar, setSelectedCar] = useState("");
 
-
   const [visible, setVisible] = useState("flex");
 
   // Retreive Data
@@ -26,34 +25,28 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   }, [refresh]);
 
- 
-  
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
 
-  const handleShowAside =  async (e, choice, id) => {
+  const handleShowAside = async (e, choice, id) => {
     // Reset Default Value
-    await setSelected("")
+    await setSelected("");
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
 
     setSelectedId(id);
 
-    const chosenCar =   cars.filter((car) => car._id === id);
+    const chosenCar = cars.filter((car) => car._id === id);
     setSelectedCar(chosenCar);
 
-     setVisible("hidden");
-
-
+    setVisible("hidden");
   };
 
   const handleCloseSecondSection = (e) => {
     setSelected("");
     setVisible("flex");
   };
-
-
 
   return (
     <div className="h-full">
@@ -125,21 +118,30 @@ const Dashboard = () => {
             })}
           </div>
         </aside>
-          
+
         <section
           className={`border-black border-2 m-auto md:m-0 text-black ${
             visible === "hidden" ? "flex" : "hidden"
           } w-5/6 md:w-4/6 md:flex justify-center `}
         >
-                  {selected === "New Post" && (
-
-          <NewCarPost handleCloseSecondSection={handleCloseSecondSection} refresh={refresh} setRefresh={setRefresh}/>
+          {selected === "New Post" && (
+            <NewCarPost
+              handleCloseSecondSection={handleCloseSecondSection}
+              refresh={refresh}
+              setRefresh={setRefresh}
+            />
           )}
 
           {/* Edit Section */}
 
           {selected === "Edit" && (
-            <EditCarPost handleCloseSecondSection={handleCloseSecondSection} selectedId={selectedId} selectedCar={selectedCar} refresh={refresh} setRefresh={setRefresh}/>
+            <EditCarPost
+              handleCloseSecondSection={handleCloseSecondSection}
+              selectedId={selectedId}
+              selectedCar={selectedCar}
+              refresh={refresh}
+              setRefresh={setRefresh}
+            />
           )}
         </section>
       </div>
