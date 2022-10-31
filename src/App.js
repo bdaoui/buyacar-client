@@ -24,7 +24,6 @@ const App = () => {
           <Route path="/admin/dashboard" element={<Dashboard />} />
           </Route>
        </Routes>
-
    
     </div>
   )

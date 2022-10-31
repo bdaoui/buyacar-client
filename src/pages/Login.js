@@ -1,38 +1,39 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from "react";
 import axios from "axios";
 // import {AuthContext} from "../context/auth.context"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [identifier, setIdentifier] = useState("")
-    const [password, setPassword] = useState("")
-    // const { setToken, authenticateUser } = useContext(AuthContext);
-    const navigate = useNavigate()
-    
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-    
-         axios.post("http://localhost:5005/admin/login", {identifier, password})
-            .then(response => {
-                console.log("JWT token", response.data.authToken);
-                // setToken(response.data.authToken);
-                // authenticateUser()
-             })
-             .then(response => {
-              console.log(response)
-              navigate("/admin/dashboard")})
-             .catch(err => console.log(err))
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  // const { setToken, authenticateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("http://localhost:5005/admin/login", { identifier, password })
+      .then((response) => {
+        console.log("JWT token", response.data.authToken);
+        // setToken(response.data.authToken);
+        // authenticateUser()
+      })
+      .then((response) => {
+        console.log(response);
+        navigate("/admin/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="flex h-[calc(100vh-115px)] items-center justify-center">
       <div className="w-full max-w-md space-y-8">
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gold">
-            Admin Access
-          </h2>
-        
-        <form method="post" className="mt-8 space-y-6" onSubmit={handleSubmit} >
+        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gold">
+          Admin Access
+        </h2>
+
+        <form method="post" className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="-space-y-px rounded-md shadow-sm px-50 md:px-0">
             <div>
               <label htmlFor="identifier" className="sr-only">
