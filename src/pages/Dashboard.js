@@ -57,13 +57,13 @@ const Dashboard = () => {
 
       <div className="flex">
         <aside
-          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-screen border-black border-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
+          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
         >
           <DashboardSidebar handleShowAside={handleShowAside} cars={cars}/> 
         </aside>
 
         <section
-          className={`border-black border-2 m-auto md:m-0 text-black ${
+          className={`border-black border-t-2 m-auto md:m-0 text-black ${
             visible === "hidden" ? "flex" : "hidden"
           } w-5/6 md:w-4/6 md:flex justify-center `}
         >
