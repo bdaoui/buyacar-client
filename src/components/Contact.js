@@ -1,15 +1,14 @@
-import React from 'react'
+import React from "react";
 
 const Contact = () => {
-
   return (
     <div>
-        <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 my-12 bg-white border-2 border-pink rounded">
+      <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 my-12 bg-white border-2 border-pink rounded">
         <p className="text-3xl font-bold leading-7 text-center text-black m-5">
           Enquire
         </p>
         {/* onSubmit={handleContact} */}
-        <form action="post"  >
+        <form action="post">
           <div className="md:flex items-center mt-12 ">
             <div className="w-full md:w-1/2 flex flex-col">
               <label className="font-semibold leading-none text-black ">
@@ -65,7 +64,7 @@ const Contact = () => {
               </label>
               <input
                 disabled
-                value ='current car auto placeholder'
+                value="current car auto placeholder"
                 type="text"
                 className="leading-none text-black p-3 focus:outline-none focus:border-blue-700 mt-4 bg-white rounded border-2 border-pink"
               />
@@ -97,9 +96,9 @@ const Contact = () => {
             } */}
           </div>
         </form>
-        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
