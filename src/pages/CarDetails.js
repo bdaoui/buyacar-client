@@ -32,6 +32,7 @@ const CarDetails = () => {
     setImageIndex(prev);
   };
 
+  console.log(car)
   return (
     <div className="text-white h-full w-full">
       <header className="flex justify-center my-20 font-bold text-gold text-2xl md:text-4xl">
