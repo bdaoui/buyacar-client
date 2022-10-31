@@ -59,7 +59,10 @@ const EditCarPost = ({selectedId, selectedCar, handleCloseSecondSection, refresh
 
   // Delete Specific Car
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.preventDefault()
+
+
     axios
     .delete(`${server}/api/${selectedId}`)
     .then(res => {
@@ -68,10 +71,11 @@ const EditCarPost = ({selectedId, selectedCar, handleCloseSecondSection, refresh
     .catch(err => console.log(err))
   }
 
- const handleImageDelete = (image) => {
+ const handleImageDelete = (e, image) => {
+    e.preventDefault()
 
     axios
-        .post(`${server}/api/${selectedId}/${image}`)
+        .put(`${server}/api/${selectedId}/image`, image)
         .then(res => {
         setRefresh(!refresh)
         console.log(res)})
@@ -112,7 +116,7 @@ const EditCarPost = ({selectedId, selectedCar, handleCloseSecondSection, refresh
                   strokeWidth="1.5"
                   stroke="currentColor"
                   className="w-6 h-6 cursor-pointer absolute top-2  md:top-0 left-2 md:left-11 text-gold"
-                  onClick={(e) => handleDelete()}
+                  onClick={(e) => handleDelete(e)}
                 >
                   <path
                     strokeLinecap="round"
@@ -296,7 +300,7 @@ const EditCarPost = ({selectedId, selectedCar, handleCloseSecondSection, refresh
                             strokeWidth="2.5"
                             stroke="currentColor"
                             className="w-5 h-5   cursor-pointer absolute top-0 md:top-1 left-24 md:left-1  bg-white text-red-900"
-                            onClick={(e) => handleImageDelete(image)}
+                            onClick={(e) => handleImageDelete(e, image)}
                             >
                             <path
                                 strokeLinecap="round"
