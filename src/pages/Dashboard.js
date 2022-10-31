@@ -31,23 +31,27 @@ const Dashboard = () => {
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
 
-  const handleShowAside = (e, choice, id) => {
+  const handleShowAside =  async (e, choice, id) => {
+    // Reset Default Value
+    await setSelected("")
+
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
 
     setSelectedId(id);
 
-    const chosenCar = cars.filter((car) => car._id === id);
+    const chosenCar =   cars.filter((car) => car._id === id);
     setSelectedCar(chosenCar);
 
-    setVisible("hidden");
+     setVisible("hidden");
+
+
   };
 
   const handleCloseSecondSection = (e) => {
     setSelected("");
     setVisible("flex");
   };
-
 
 
 
