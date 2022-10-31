@@ -64,7 +64,7 @@ const Testimonial = () => {
       <section className="flex flex-row md:w-1/2 ">
         <svg
           aria-hidden="true"
-          className="w-5 h-5 text-gold  w-1/6  my-auto cursor-pointer "
+          className="w-5 h-5 text-gold  md:w-1/6  my-auto cursor-pointer "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -101,7 +101,7 @@ const Testimonial = () => {
 
         <svg
           aria-hidden="true"
-          className="w-5 h-5 text-gold my-auto  w-1/6 cursor-pointer  "
+          className="w-5 h-5 text-gold my-auto  md:w-1/6 cursor-pointer  "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

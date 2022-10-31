@@ -111,7 +111,7 @@ const Landing = () => {
                         <h1 className="text-sm  text-white">{car.mileage} </h1>
                       </section>
 
-                      <section className="p-2 border-r-white border-r-2">
+                      <section className="p-2">
                         <h1 className="text-sm  font-light text-white">
                           Carburant{" "}
                         </h1>
