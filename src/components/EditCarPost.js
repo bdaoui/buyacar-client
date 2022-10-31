@@ -23,6 +23,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
   const server = "http://localhost:5005";
 
   let filteredCar = cars.filter(car => car._id === selectedId)
+  const [imageIndex, setImageIndex] = useState(0);
 
 // Edit Specific Car
   const handleCarEdit = (e, id) => {
@@ -76,6 +77,23 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
       })
       .catch((err) => console.log(err));
   };
+
+
+  // Slider
+
+  const nextImage = () => {
+    const endArray = filteredCar[0].image.length;
+    const next = imageIndex + 1 === endArray ? 0 : imageIndex + 1;
+    setImageIndex(next);
+  };
+
+  const previousImage = () => {
+    const endArray = filteredCar[0].image.length;
+    const prev = imageIndex <= 0 ? endArray - 1 : imageIndex - 1;
+    console.log(prev, endArray, imageIndex);
+    setImageIndex(prev);
+  };
+
   
   return (
     <div>
@@ -316,15 +334,56 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
           </div>
 
           <div className="w-full flex flex-col md:flex-row  justify-center ">
-            {filteredCar[0]?.image.map((image, index) => {
-              return (
+          
                 <div className="relative my-2 px-24  md:px-0 ">
-                  <img
-                    key={index}
-                    src={image}
+
+                <button onClick={(e) => previousImage()} className="pr-2">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gold "
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
+
+            {filteredCar[0].image && (
+                <section className="flex">
+
+                 <img
+                    src={filteredCar[0]?.image[imageIndex]}
                     alt={filteredCar.model + " " + filteredCar.make}
                     className=" w-full md:w-fit h-28 m-auto md:m-1"
                   />
+                
+                { filteredCar[0].image.length > 0 &&
+
+                    <img
+                    src={filteredCar[0]?.image[imageIndex+1 > filteredCar[0]?.image.length ? 0 : imageIndex+1 ]}
+                    alt={filteredCar.model + " " + filteredCar.make}
+                    className=" w-full md:w-fit h-28 m-auto md:m-1"
+                     />
+                }
+
+                { filteredCar[0].image.length > 1 &&
+                <img
+                    src={filteredCar[0]?.image[imageIndex+2 > filteredCar[0]?.image.length ? 1 : imageIndex+2  ]}
+                    alt={filteredCar.model + " " + filteredCar.make}
+                    className=" w-full md:w-fit h-28 m-auto md:m-1"
+                    />
+                }
+                </section>
+                
+                      )}
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -340,9 +399,27 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
                       d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
                     />
                   </svg>
+
+
+
+                  <button onClick={(e) => nextImage()} className="pl-2">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gold"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
                 </div>
-              );
-            })}
           </div>
 
           <div className="flex justify-center items-center w-full md:w-2/4 mb-5">
