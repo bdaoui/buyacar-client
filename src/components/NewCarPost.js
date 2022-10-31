@@ -74,7 +74,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
   return (
     <div>
       <form
-        className="flex  relative flex-wrap justify-center mt-10 rounded"
+        className="flex relative flex-wrap justify-center mt-10 rounded"
         onSubmit={handleNewCar}
         encType="multipart/form-data"
       >
@@ -324,8 +324,8 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
           <label htmlFor="description" className="text-white">
             Description
           </label>
-          <input
-            type="textarea"
+          <textarea
+            type="text"
             className=" border-2 border-gold md:mb-5 h-20"
             name="description"
             onChange={(e) => setDescription(e.target.value)}

@@ -17,6 +17,8 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
+  const [year, setYear] = useState("")
+
 
   const server = "http://localhost:5005";
 
@@ -41,6 +43,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
     data.append("color", color);
     data.append("body", body);
     data.append("engine", engine);
+    data.append("year", year);
 
     axios
       .put(`${server}/api/${id}`, data)
@@ -77,7 +80,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
   return (
     <div>
       <form
-        className="flex  relative flex-wrap justify-center mt-10 rounded"
+        className="flex relative flex-wrap justify-center mt-10 rounded"
         onSubmit={(e) => handleCarEdit(e, selectedId)}
         encType="multipart/form-data"
       >
@@ -119,8 +122,8 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
           </svg>
         </div>
 
-        <section className="flex flex-wrap justify-center w-fit">
-          <div className="md:w-2/4 flex flex-col px-5">
+        <section className="flex flex-wrap justify-center w-full">
+          <div className="w-full md:w-2/4 flex flex-col px-5 mb-5">
             <label htmlFor="Name" className="text-white">
               Prix
             </label>
@@ -186,9 +189,21 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
               defaultValue={filteredCar[0]?.body}
               onChange={(e) => setBody(e.target.value)}
             />
+
+            <select
+                className="flex border-2 border-gold my-4 "
+                defaultValue={filteredCar[0]?.doors}
+                onChange={(e) => setDoors(e.target.value)}
+              >
+                <option defaultValue> Nombre de Portes</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
           </div>
 
-          <div className="md:w-2/4 flex flex-col px-5">
+          <div className="w-full md:w-2/4 flex flex-col px-5 mb-5">
             <label htmlFor="description" className="text-white">
               Moteur
             </label>
@@ -209,6 +224,17 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
               name="mileage"
               defaultValue={filteredCar[0]?.mileage}
               onChange={(e) => setMileage(e.target.value)}
+            />
+
+            <label htmlFor="year" className="text-white">
+              Anneé
+            </label>
+            <input
+              type="text"
+              className="border-2 border-gold mb-5"
+              name="year"
+              defaultValue={filteredCar[0]?.year}
+              onChange={(e) => setYear(e.target.value)}
             />
 
             <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
@@ -272,21 +298,8 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
               />
             </fieldset>
 
-            <div className="flex flex-col  mt-6 justify-center">
-              <select
-                className="flex border-2 border-gold gap-2 mb-6 mr-2  "
-                onChange={(e) => setDoors(e.target.value)}
-                defaultValue={filteredCar[0]?.doors}
-              >
-                <option> Nombre de Portes</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-
-              <select
-                className="flex border-2 border-gold gap-2 mr-2 mb-6 "
+            <select
+                className="flex border-2 border-gold gap-2 my-4"
                 onChange={(e) => setSeats(e.target.value)}
                 defaultValue={filteredCar[0]?.seats}
               >
@@ -300,7 +313,6 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
                 <option value="7">7</option>
                 <option value="8">8</option>
               </select>
-            </div>
           </div>
 
           <div className="w-full flex flex-col md:flex-row  justify-center ">
@@ -333,7 +345,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
             })}
           </div>
 
-          <div className="flex justify-center items-center w-full mb-5">
+          <div className="flex justify-center items-center w-full md:w-2/4 mb-5">
             <label
               htmlFor="dropzone-file"
               className="flex flex-col justify-center items-center w-3/4 h-32 bg-gray-300 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
@@ -374,14 +386,14 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
           </div>
         </section>
 
-        <section className=" flex flex-col w-2/3">
+        <section className=" flex flex-col w-full px-5 md:w-2/4">
           <label htmlFor="description" className="text-white">
             Description
           </label>
-          <input
+          <textarea
             defaultValue={filteredCar[0]?.description}
-            type="textarea"
-            className=" border-2 border-gold md:mb-5"
+            type="text"
+            className=" border-2 border-gold md:mb-5 h-20"
             name="description"
             onChange={(e) => setDescription(e.target.value)}
           />
