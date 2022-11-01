@@ -7,7 +7,7 @@ const Header = () => {
       <div className=" w-full h-1/4 md:h-full">
         <img src={bg} alt="logo" className="mt-20" />
         <div className="flex flex-col justify-center w-full md:w-2/4 m-auto h-screen text-center text-white">
-          <div className="backdrop-blur-sm rounded-2xl bg-emerald/50 h-2/4 flex flex-col justify-center">
+          <div className="rounded-2xl p-2 h-2/4 flex flex-col justify-center">
             <h1 className="p-2 text-xl lg:text-5xl font-bold">
               Welcome to P&P Exclusive Cars
             </h1>

@@ -7,6 +7,7 @@ const CarDetails = () => {
   const [car, setCar] = useState({});
   const [imageIndex, setImageIndex] = useState(0);
   //const [refresh, setRefresh] = useState(false)
+  console.log(car)
 
   useEffect(() => {
     axios
@@ -54,7 +55,7 @@ const CarDetails = () => {
             <button onClick={(e) => previousImage()} className="pr-2">
               <svg
                 aria-hidden="true"
-                className="w-5 h-5 text-gold "
+                className="w-6 h-6 text-gold "
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -68,11 +69,14 @@ const CarDetails = () => {
                 ></path>
               </svg>
             </button>
+            <p className="text-white text-lg">
+                  {imageIndex + 1} / {car?.image?.length}
+                </p>
 
             <button onClick={(e) => nextImage()} className="pl-2">
               <svg
                 aria-hidden="true"
-                className="w-5 h-5 text-gold"
+                className="w-6 h-6 text-gold"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
