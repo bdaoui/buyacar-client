@@ -54,7 +54,7 @@ const Testimonial = () => {
 
   return (
     <div
-      className="flex flex-col text-white h-screen justify-center items-center"
+      className="flex flex-col text-white h-screen justify-center items-center mx-8 md:mx-0"
       id="temoniage"
     >
       <h1 className="text-lg md:text-4xl text-center font-bold text-gold mb-10">
@@ -64,7 +64,7 @@ const Testimonial = () => {
       <section className="flex flex-row md:w-1/2 ">
         <svg
           aria-hidden="true"
-          className="w-5 h-5 text-gold  md:w-1/6  my-auto cursor-pointer "
+          className="w-8 h-8 text-gold  md:w-1/6  my-auto cursor-pointer "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -101,7 +101,7 @@ const Testimonial = () => {
 
         <svg
           aria-hidden="true"
-          className="w-5 h-5 text-gold my-auto  md:w-1/6 cursor-pointer  "
+          className="w-8 h-8 text-gold my-auto  md:w-1/6 cursor-pointer  "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

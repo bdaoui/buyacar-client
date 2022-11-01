@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh, cars }) => {
-
+const EditCarPost = ({
+  selectedId,
+  handleCloseSecondSection,
+  refresh,
+  setRefresh,
+  cars,
+}) => {
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
   const [price, setPrice] = useState("");
@@ -17,19 +22,20 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
-  const [year, setYear] = useState("")
+  const [year, setYear] = useState("");
   const [imageIndex, setImageIndex] = useState(0);
 
   const server = "http://localhost:5005";
 
-  let filteredCar = cars.filter(car => car._id === selectedId)
- 
+  let filteredCar = cars.filter((car) => car._id === selectedId);
 
-// Edit Specific Car
+  // Edit Specific Car
   const handleCarEdit = (e, id) => {
     e.preventDefault();
     const data = new FormData();
-    Array?.from(image)?.forEach((i) => { data.append("image", i) });
+    Array?.from(image)?.forEach((i) => {
+      data.append("image", i);
+    });
     data.append("price", price);
     data.append("image", image);
     data.append("make", make);
@@ -50,13 +56,13 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
       .put(`${server}/api/${id}`, data)
       .then((response) => {
         setRefresh(!refresh);
-        setImageIndex(imageIndex === 0 ? imageIndex+1 : imageIndex)
+        setImageIndex(imageIndex === 0 ? imageIndex + 1 : imageIndex);
         console.log(response);
       })
       .catch((err) => console.log(err));
-  };  
+  };
 
-// Delete Specific Car
+  // Delete Specific Car
   const handleDelete = (e) => {
     e.preventDefault();
     axios
@@ -67,39 +73,57 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
       })
       .catch((err) => console.log(err));
   };
-//single image delete
+  //single image delete
   const handleImageDelete = (e, image) => {
     e.preventDefault();
-    
+
     axios
       .put(`${server}/api/${selectedId}/image`, image)
       .then((res) => {
         setRefresh(!refresh);
-        setImageIndex(imageIndex === 0 ? imageIndex+1 : imageIndex)
+        // setImageIndex(imageIndex === 0 ? imageIndex+1 : imageIndex)
         console.log(res);
+        if (imageIndex <= 0) {
+          setImageIndex(1);
+        } else if (imageIndex > filteredCar[0].image.length) {
+          setImageIndex(filteredCar[0].image.length);
+        } else if (imageIndex === filteredCar[0].image.length) {
+          setImageIndex(filteredCar[0].image.length - 1);
+        } else if (filteredCar[0].image.length === 1) {
+          setImageIndex(1);
+        }
       })
       .catch((err) => console.log(err));
   };
 
+  const handleAllImageDelete = (e) => {
+    e.preventDefault()
+    axios
+      .put(`${server}/api/${selectedId}/all`)
+      .then((res) => {
+        setRefresh(!refresh);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }
 
   // Slider
 
   const nextImage = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const endArray = filteredCar[0].image.length;
     const next = imageIndex + 1 >= endArray ? 0 : imageIndex + 1;
     setImageIndex(next);
   };
 
   const previousImage = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const endArray = filteredCar[0].image.length;
     const prev = imageIndex <= 0 ? endArray - 1 : imageIndex - 1;
     console.log(prev, endArray, imageIndex);
     setImageIndex(prev);
   };
 
-  
   return (
     <div>
       <form
@@ -214,15 +238,15 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
             />
 
             <select
-                className="flex border-2 border-gold my-4 "
-                defaultValue={filteredCar[0]?.doors}
-                onChange={(e) => setDoors(e.target.value)}
-              >
-                <option defaultValue> Nombre de Portes</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+              className="flex border-2 border-gold my-4 "
+              defaultValue={filteredCar[0]?.doors}
+              onChange={(e) => setDoors(e.target.value)}
+            >
+              <option defaultValue> Nombre de Portes</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
           </div>
 
@@ -322,97 +346,116 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
             </fieldset>
 
             <select
-                className="flex border-2 border-gold gap-2 my-4"
-                onChange={(e) => setSeats(e.target.value)}
-                defaultValue={filteredCar[0]?.seats}
-              >
-                <option> Nombre de Place(s)</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-              </select>
+              className="flex border-2 border-gold gap-2 my-4"
+              onChange={(e) => setSeats(e.target.value)}
+              defaultValue={filteredCar[0]?.seats}
+            >
+              <option> Nombre de Place(s)</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
           </div>
 
           <div className="w-full md:w-2/4 flex flex-col md:flex-row justify-center">
             <div className="relative">
-          
-            {filteredCar[0].image[imageIndex] && (
+              {filteredCar[0].image[imageIndex] && (
                 <section className="flex">
-
-                 <img
+                  <img
                     src={filteredCar[0]?.image[imageIndex]}
                     alt={filteredCar.model + " " + filteredCar.make}
                     className=" w-fit h-40 md:h-60 m-auto md:m-1"
                   />
-      
                 </section>
-                
-                      )}
+              )}
 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="2.5"
+                stroke="currentColor"
+                className="w-5 h-5 cursor-pointer absolute top-0 md:top-1 left-16 md:left-1  bg-white text-red-900"
+                onClick={(e) =>
+                  handleImageDelete(e, filteredCar[0]?.image[imageIndex])
+                }
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                />
+              </svg>
+
+              <section className="flex justify-center p-5">
+                <button onClick={(e) => previousImage(e)} className="pr-2">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    className="w-5 h-5 text-gold "
                     fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2.5"
                     stroke="currentColor"
-                    className="w-5 h-5 cursor-pointer absolute top-0 md:top-1 left-16 md:left-1  bg-white text-red-900"
-                    onClick={(e) => handleImageDelete(e, filteredCar[0]?.image[imageIndex])}
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                    />
+                      strokeWidth="2"
+                      d="M15 19l-7-7 7-7"
+                    ></path>
                   </svg>
+                </button>
 
-            <section className="flex justify-center p-5">
-                <button onClick={(e) => previousImage(e)} className="pr-2">
+                <p className="text-white">
+                  {imageIndex + 1} / {filteredCar[0].image.length}
+                </p>
+
+                <button onClick={(e) => nextImage(e)} className="pl-2">
+                  <svg
+                    aria-hidden="true"
+                    className="w-5 h-5 text-gold"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </button>
+              
+              </section>
+
+              <section className="flex justify-center mb-3">
               <svg
-                aria-hidden="true"
-                className="w-5 h-5 text-gold "
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-7 mr-1 cursor-pointer  right-28 text-red-800"
+                onClick={(e) =>
+                  handleAllImageDelete(e)
+                }
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                />
               </svg>
-            </button>
-                  
-                  
-                  <p className="text-white">{imageIndex+1} / {filteredCar[0].image.length}</p>
-
-
-                  <button onClick={(e) => nextImage(e)} className="pl-2">
-              <svg
-                aria-hidden="true"
-                className="w-5 h-5 text-gold"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-
-            </button>
-            </section>
-</div>
+              <p className="text-gold  right-4 font-semibold text-lg cursor-pointer"  onClick={(e) =>handleAllImageDelete(e)}>DELETE ALL</p>
+              </section>
+            </div>
           </div>
 
           <div className="flex justify-center items-center w-full md:w-2/4 mb-5">
