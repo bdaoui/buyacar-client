@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/p_pVF.png";
 import { NavHashLink } from "react-router-hash-link";
+import { AuthContext } from "../context/auth.context";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const { logOutUser, isLoggedIn } = useContext(AuthContext);
 
   return (
     <>
@@ -80,6 +82,14 @@ const Navbar = () => {
                   <span className="ml-2">Info</span>
                 </Link>
               </li>
+              {isLoggedIn && 
+              <li className="nav-item">
+                <span onClick={logOutUser}
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2">
+                  Logout
+                </span>
+              </li>
+              }
             </ul>
           </div>
         </div>
