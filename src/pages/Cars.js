@@ -84,10 +84,11 @@ const Cars = () => {
     axios.post(`${server}/api/cars`, data).then((response) => setRefresh(true));
   };
 
+  
+  const reset = () =>{
 
-  console.log("cars ", cars)
-  console.log("filtered cars ", filteredCars)
-
+    setFilteredCars(cars)
+  }
 
   return (
     <div>
@@ -105,7 +106,13 @@ const Cars = () => {
 
       <section className="flex">
 
-        <Filter setSelectedMileage={setSelectedMileage} selectedMileage={selectedMileage} setSelectedPrice={setSelectedPrice} selectedPrice={selectedPrice} />
+        <Filter 
+        setSelectedMileage={setSelectedMileage} 
+        selectedMileage={selectedMileage} 
+        setSelectedPrice={setSelectedPrice} 
+        selectedPrice={selectedPrice}
+        reset={reset}
+        />
       </section>
 
         { filteredCars.length === 0  && 
