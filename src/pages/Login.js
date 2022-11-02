@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-// import {AuthContext} from "../context/auth.context"
+import {AuthContext} from "../context/auth.context"
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
-  // const { setToken, authenticateUser } = useContext(AuthContext);
+  const { storeToken, authenticateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -16,8 +16,8 @@ const Login = () => {
       .post("http://localhost:5005/admin/login", { identifier, password })
       .then((response) => {
         console.log("JWT token", response.data.authToken);
-        // setToken(response.data.authToken);
-        // authenticateUser()
+        storeToken(response.data.authToken);
+        authenticateUser()
       })
       .then((response) => {
         console.log(response);
