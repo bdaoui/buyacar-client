@@ -119,33 +119,33 @@ const Cars = () => {
                       € {car.price}{" "}
                     </h1>
 
-                    <div className="flex justify-center mt-5 gap-2">
-                      <section className="p-2 border-r-white border-r-2 flex flex-col">
-                        <h1 className="text-base font-light md:text-xl text-gold">
+                    <div className="flex flex-col lg:flex-row justify-center mt-5 gap-2">
+                      <section className="p-2 md:border-r-white md:border-r-2 flex flex-col">
+                        <h1 className="text-sm font-light md:text-base text-gold">
                           Année{" "}
                         </h1>
-                        <h1 className="text-base md:text-xl">{car.year} </h1>
+                        <h1 className="text-sm md:text-base">{car.year} </h1>
                       </section>
 
-                      <section className="p-2 border-r-white border-r-2">
-                        <h1 className="text-base md:text-xl font-light text-gold">
+                      <section className="p-2 md:border-r-white md:border-r-2">
+                        <h1 className="text-sm md:text-base font-light text-gold">
                           Kilométrage{" "}
                         </h1>
-                        <h1 className="text-base md:text-xl">{car.mileage} </h1>
+                        <h1 className="text-sm md:text-base">{car.mileage} </h1>
                       </section>
 
-                      <section className="p-2 border-r-white border-r-2">
-                        <h1 className="text-base md:text-xl font-light text-gold">
+                      <section className="p-2 md:border-r-white md:border-r-2">
+                        <h1 className="text-sm md:text-base font-light text-gold">
                           Carburant{" "}
                         </h1>
-                        <h1 className="text-base md:text-xl"> {car.fuel} </h1>
+                        <h1 className="text-sm md:text-base"> {car.fuel} </h1>
                       </section>
 
                       <section className="p-2">
-                        <h1 className="text-base md:text-xl font-light text-gold">
+                        <h1 className="text-sm md:text-base font-light text-gold">
                           Boite de Vitesse{" "}
                         </h1>
-                        <h1 className="text-base md:text-xl">
+                        <h1 className="text-sm md:text-base">
                           {car.transmission}{" "}
                         </h1>
                       </section>
