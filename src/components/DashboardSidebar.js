@@ -1,9 +1,39 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const DashboardSidebar = ({handleShowAside, cars}) => {
+const DashboardSidebar = ({handleShowAside, cars, showTestimonial}) => {
+  const [testimonial, setTestimonial] = useState([
+    {
+      body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
+      author: "Jeff Bezos",
+      image: "",
+      _id: 0,
+    },
+    {
+      body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
+      author: "Wolfgang Amadeus Mozart",
+      image: "",
+      _id: 1,
+    },
+    {
+      body: "maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
+      author: "Napoleon Bonaparte",
+      image: "",
+      _id: 2,
+    },
+    {
+      body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
+      author: "Harry Potter",
+      image: "",
+      _id: 3,
+    },
+  ]);
   return (
     <>
-    <div className="flex justify-center text-center pt-5 gap-6">
+
+    {showTestimonial === "Cars" &&
+    <div>
+
+    <div className="flex justify-center text-center pt-5 gap-6 ">
             <h1 className="font-bold text-gold text-xl">Catalogue</h1>
             <svg
               className="w-6 h-6 cursor-pointer fill-gold mt-1"
@@ -20,7 +50,7 @@ const DashboardSidebar = ({handleShowAside, cars}) => {
             </svg>
           </div>
 
-          <div className="p-1 lg:p-5 lg:0-2 flex flex-col text-white">
+          <div className="p-1 lg:p-5 lg:0-2 flex flex-col text-white ">
             {cars.map((car) => {
               return (
                 <div
@@ -62,6 +92,77 @@ const DashboardSidebar = ({handleShowAside, cars}) => {
               );
             })}
           </div>
+    </div>
+    }
+
+
+
+
+
+          {showTestimonial === "Testimonial" && 
+            <div>
+
+
+            <div className='flex gap-2 justify-center mt-5'>
+
+            <h1 className="font-bold text-gold text-xl ">Temoniages</h1>
+            <svg
+              className="w-6 h-6 cursor-pointer fill-gold mt-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={(e) => handleShowAside(e, "New Testimonial Post")}
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+
+            </div>
+
+            {
+              testimonial.map(item => {
+                return <div
+                    key={item._id}
+                    className="py-2 lg:p-4 border-b-2 border-black/90 flex flex-col text-white gap-2 md:gap-5"
+                  >
+                    <section className='flex justify-between items-center'>
+                      <h1>{item.author}</h1>
+
+                      <svg
+                        onClick={(e) => handleShowAside(e, "Edit Testimonial", item._id)}
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-4 h-4  cursor-pointer text-gold"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                        />
+                      </svg>
+
+                    </section>
+                    <section><p>{item.body.substring(0,280) +"..."}</p></section>
+
+                  </div>
+              }
+              )
+
+            }
+
+
+            </div>
+          }
+
+
+
+
           </>
   )
 }

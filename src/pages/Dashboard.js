@@ -16,6 +16,9 @@ const Dashboard = () => {
   const [selectedCar, setSelectedCar] = useState("");
 
   const [visible, setVisible] = useState("flex");
+  
+  
+  const [showTestimonial, setShowTestimonial] = useState("Cars");
 
   // Retreive Data
 
@@ -55,11 +58,20 @@ const Dashboard = () => {
         Tableau de Bord
       </h1>
 
+
+      <h2 className=" text-2xl text-gold font-bold">Voitures</h2>
+      <h2 className=" text-2xl text-gold font-bold">Temoniages & Contact</h2>
+
       <div className="flex">
         <aside
           className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
         >
-          <DashboardSidebar handleShowAside={handleShowAside} cars={cars}/> 
+          <DashboardSidebar 
+          handleShowAside={handleShowAside} 
+          cars={cars}
+          showTestimonial ={showTestimonial}
+
+          /> 
         </aside>
 
         <section
