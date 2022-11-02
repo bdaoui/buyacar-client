@@ -11,13 +11,12 @@ const CarDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/${id}`)
+      .get(`http://localhost:5005/api/car/${id}`)
       .then((res) => {
         console.log(res);
         setCar(res.data);
       })
       .catch((err) => console.log(err));
-    // eslint-disable-next-line
   }, []);
 
   const nextImage = () => {

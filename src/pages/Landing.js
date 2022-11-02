@@ -25,7 +25,7 @@ const Landing = () => {
 
       <div
         id="carGallery"
-        className="flex flex-col lg:flex-row justify-center md:w-3/4 xl:w-2/4 m-auto md:flex-wrap p-10"
+        className="flex flex-col lg:flex-row justify-center md:w-3/4 xl:w-2/4 m-auto md:flex-wrap p-10 "
       >
         <header className="w-full">
           <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
@@ -35,11 +35,11 @@ const Landing = () => {
         {cars.map((car) => {
           console.log(car._id);
           return (
-            <div key={car.id} className="p-10 lg:w-2/4 ">
+            <div key={car.id} className="p-10 lg:w-2/4">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
                 <Link to={`/${car._id}`}>
                   <img
-                    className="rounded-t-lg lg:max-h-40 overflow-hidden lg:w-full m-auto"
+                    className="rounded-t-lg lg:max-h-50 overflow-hidden lg:w-full m-auto"
                     src={car.image[0]}
                     alt={car.name}
                   />
