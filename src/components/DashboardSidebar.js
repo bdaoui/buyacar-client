@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const DashboardSidebar = ({handleShowAside, cars, showTestimonial}) => {
+const DashboardSidebar = ({handleShowAside, cars, contentAside}) => {
   const [testimonial, setTestimonial] = useState([
     {
       body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
@@ -30,7 +30,7 @@ const DashboardSidebar = ({handleShowAside, cars, showTestimonial}) => {
   return (
     <>
 
-    {showTestimonial === "Cars" &&
+    {contentAside === "Cars" &&
     <div>
 
     <div className="flex justify-center text-center pt-5 gap-6 ">
@@ -99,7 +99,7 @@ const DashboardSidebar = ({handleShowAside, cars, showTestimonial}) => {
 
 
 
-          {showTestimonial === "Testimonial" && 
+          {contentAside === "Testimonial" && 
             <div>
 
 

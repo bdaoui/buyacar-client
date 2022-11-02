@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [visible, setVisible] = useState("flex");
   
   
-  const [showTestimonial, setShowTestimonial] = useState("Cars");
+  const [contentAside, setContentAside] = useState("Cars");
 
   // Retreive Data
 
@@ -52,6 +52,8 @@ const Dashboard = () => {
     setVisible("flex");
   };
 
+
+
   return (
     <div className="h-full">
       <h1 className="text-center p-5 text-2xl text-gold font-bold">
@@ -59,8 +61,8 @@ const Dashboard = () => {
       </h1>
 
 
-      <h2 className=" text-2xl text-gold font-bold">Voitures</h2>
-      <h2 className=" text-2xl text-gold font-bold">Temoniages & Contact</h2>
+      <h2 className=" text-2xl text-gold font-bold cursor-pointer" onClick={e => setContentAside("Cars")}>Voitures</h2>
+      <h2 className=" text-2xl text-gold font-bold cursor-pointer" onClick={e => setContentAside("Testimonial")}>Temoniages & Contact</h2>
 
       <div className="flex">
         <aside
@@ -69,7 +71,7 @@ const Dashboard = () => {
           <DashboardSidebar 
           handleShowAside={handleShowAside} 
           cars={cars}
-          showTestimonial ={showTestimonial}
+          contentAside ={contentAside}
 
           /> 
         </aside>
