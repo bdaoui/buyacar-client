@@ -5,12 +5,14 @@ import EditCarPost from "../components/EditCarPost";
 import DashboardSidebar from "../components/DashboardSidebar";
 import EditTestimonial from "../components/EditTestimonial";
 import NewTestimonialPost from "../components/NewTestimonialPost";
+import EditContact from "../components/EditContact";
 
 const Dashboard = () => {
   const server = "http://localhost:5005";
 
   const [cars, setCars] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
+  const [contact, setContact] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
   const [selected, setSelected] = useState("");
@@ -24,7 +26,6 @@ const Dashboard = () => {
   const [contentAside, setContentAside] = useState("Cars");
 
   // Retreive Data
-
   useEffect(() => {
     axios
       .get(`${server}/api/cars`)
@@ -39,6 +40,12 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   }, [refresh]);
 
+  useEffect(() => {
+    axios
+      .get(`${server}/api/contact`)
+      .then((response) => setContact(response.data))
+      .catch((err) => console.log(err));
+  }, [refresh]);
 
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
@@ -47,29 +54,14 @@ const Dashboard = () => {
     // Reset Default Value
     await setSelected("");
 
-
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
     choice === "New Testimonial" ? setSelected("New Testimonial") : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
     choice === "Edit Testimonial" ? setSelected("Edit Testimonial") : setVisible("hidden");
-    
+    choice === "Edit Contact" ? setSelected("Edit Contact") : setVisible("hidden");
 
+    
     setSelectedId(id);
-
-
-    // let chosenItem; 
-    
-    // if(choice === "Edit"){
-    //   chosenItem = cars.filter((car) => car._id === id)
-
-    // }
-
-    // else if (choice === "Edit Testimonial"){
-    //   chosenItem = testimonials.filter((testimonial) => testimonial._id === id)
-    // }
-    
-    // setSelectedItem(chosenItem);
-
     setVisible("hidden");
   };
 
@@ -88,6 +80,7 @@ const Dashboard = () => {
       <section className="flex gap-5 justify-center md:justify-start m-2">
         <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Cars")}>Voitures</h2>
         <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Testimonial")}>Temoniages</h2>
+        <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Messages")}>Contactez</h2>
 
       </section>
 
@@ -99,6 +92,7 @@ const Dashboard = () => {
           handleShowAside={handleShowAside} 
           cars={cars}
           testimonials={testimonials}
+          contact={contact}
           contentAside ={contentAside}
 
           /> 
@@ -146,9 +140,17 @@ const Dashboard = () => {
               testimonials={testimonials}
               
             />
-          )
+          )}
 
-          }
+          {selected === "Edit Contact" && (
+            <EditContact
+              handleCloseSecondSection={handleCloseSecondSection}
+              refresh={refresh}
+              setRefresh={setRefresh}
+              selectedId={selectedId}
+              contact={contact}
+            />
+          )}
 
         </section>
       </div>
