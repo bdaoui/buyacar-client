@@ -8,11 +8,10 @@ const EditTestimonial = ({testimonials, selectedId, handleCloseSecondSection, re
     const server = "http://localhost:5005";
 
 //Edit a testiomonial
-//logic but not applicable as no object ID. Need to create first
     const handleTestimonialEdit = (e, id) => {
       e.preventDefault()
       axios
-        .put(`${server}/api/testimonial/${id}`, body, author )
+        .put(`${server}/api/testimonial/${id}`, {body, author} )
         .then((response) => {
           setRefresh(!refresh);
           console.log(response);
@@ -31,6 +30,8 @@ const EditTestimonial = ({testimonials, selectedId, handleCloseSecondSection, re
       })
       .catch((err) => console.log(err));
     };
+
+    const chosenTestimonial = testimonials.filter(testimonial => testimonial._id === selectedId)
 
   return (
     <div className='p-10 flex flex-col w-full h-screen'>
@@ -80,9 +81,9 @@ const EditTestimonial = ({testimonials, selectedId, handleCloseSecondSection, re
         onSubmit={(e) => handleTestimonialEdit(e, selectedId)} 
         >
         <label for="author" className='text-gold text-lg mb-5'>Author</label>
-        <input className="p-5" type="text" defaultValue={testimonials[selectedId].author} onChange={e => setAuthor(e.target.value)} name="author" />
+        <input className="p-5" type="text" defaultValue={chosenTestimonial[0]?.author} onChange={e => setAuthor(e.target.value)} name="author" />
         <label for="body" className='text-gold text-lg my-5' >Message</label>
-        <textarea className='h-full md:h-80 p-5' type="text" defaultValue={testimonials[selectedId].body} onChange={e => setBody(e.target.value)} name="body"/>
+        <textarea className='h-full md:h-80 p-5' type="text" defaultValue={chosenTestimonial[0]?.body} onChange={e => setBody(e.target.value)} name="body"/>
 
       
         <button

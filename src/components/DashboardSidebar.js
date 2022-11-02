@@ -1,36 +1,9 @@
 import React, {useState} from 'react'
 
 const DashboardSidebar = ({handleShowAside, cars, testimonials, contentAside}) => {
-  // const [testimonial, setTestimonial] = useState([
-  //   {
-  //     body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-  //     author: "Jeff Bezos",
-  //     image: "",
-  //     _id: 0,
-  //   },
-  //   {
-  //     body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-  //     author: "Wolfgang Amadeus Mozart",
-  //     image: "",
-  //     _id: 1,
-  //   },
-  //   {
-  //     body: "maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-  //     author: "Napoleon Bonaparte",
-  //     image: "",
-  //     _id: 2,
-  //   },
-  //   {
-  //     body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-  //     author: "Harry Potter",
-  //     image: "",
-  //     _id: 3,
-  //   },
-  // ]);
-
 
   return (
-    <>
+    <div className='h-screen'>
 
     {contentAside === "Cars" &&
     <div>
@@ -150,7 +123,7 @@ const DashboardSidebar = ({handleShowAside, cars, testimonials, contentAside}) =
                       </svg>
 
                     </section>
-                    <section><p>{item.body.substring(0,280) +"..."}</p></section>
+                    <section><p>{item?.body?.substring(0,3)+"..."}</p></section>
 
                   </div>
               }
@@ -165,7 +138,7 @@ const DashboardSidebar = ({handleShowAside, cars, testimonials, contentAside}) =
 
 
 
-          </>
+          </div>
   )
 }
 
