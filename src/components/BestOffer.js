@@ -147,7 +147,7 @@ const BestOffer = () => {
             <h1 className='text-base md:text-2xl'>{bestOffer[bestOfferIndex].name}</h1>
         </section>
 
-            <section className='flex'>
+            <section className='flex md:px-28'>
 
                     <button onClick={ (e) => previousBestOffer()} className="pr-2" >
                         <svg aria-hidden="true" className="w-5 h-5 md:w-10 md:h-10 text-gold " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" ></path></svg>    
