@@ -362,8 +362,36 @@ const EditCarPost = ({
             </select>
           </div>
 
-          <div className="w-full md:w-2/4 flex flex-col md:flex-row justify-center">
-            <div className="relative">
+          <div className="w-full md:w-2/4 flex flex-col md:flex-row justify-center flex-wrap">
+            
+            
+              <section className="flex justify-center mb-3 text-center w-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-7 mr-1 cursor-pointer  right-28 text-red-800"
+                onClick={(e) =>
+                  handleAllImageDelete(e)
+                }
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                />
+              </svg>
+              <p className="text-gold  right-4 font-semibold text-lg cursor-pointer"  onClick={(e) =>handleAllImageDelete(e)}>DELETE ALL</p>
+              </section>
+            
+            
+            
+            
+            
+            
+            <div className="relative ">
               {filteredCar[0].image[imageIndex] && (
                 <section className="flex">
                   <img
@@ -435,26 +463,6 @@ const EditCarPost = ({
               
               </section>
 
-              <section className="flex justify-center mb-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-7 mr-1 cursor-pointer  right-28 text-red-800"
-                onClick={(e) =>
-                  handleAllImageDelete(e)
-                }
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                />
-              </svg>
-              <p className="text-gold  right-4 font-semibold text-lg cursor-pointer"  onClick={(e) =>handleAllImageDelete(e)}>DELETE ALL</p>
-              </section>
             </div>
           </div>
 
