@@ -2,7 +2,7 @@ import React from "react";
 
 const Info = () => {
   return (
-    <div className="flex flex-col h-100vh text-white">
+    <div className="flex flex-col h-full text-white">
       <div className="w-7/12 text-left mx-auto text-sm leading-6">
         <h1 className="py-6 text-2xl text-gold font-semibold">Info page</h1>
         <h2 className="font-semibold text-gold">P&P Exclusive Cars</h2>
@@ -35,7 +35,7 @@ const Info = () => {
         </p>
 
         <h2 className="pt-10 font-semibold text-gold">Google Analytics</h2>
-        <p className="pb-10">
+        <p className="pb-10 mb-10">
           Diese Website benutzt Google Analytics, einen Webanalysedienst der
           Google Inc. („Google“). Google Analytics verwendet sog. „Cookies“,
           Textdateien, die auf Ihrem Computer gespeichert werden und die eine
