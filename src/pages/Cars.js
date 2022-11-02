@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Filter from "../components/Filter";
 
 const Cars = () => {
   const server = "http://localhost:5005";
 
   const [cars, setCars] = useState([]);
 
+
+  // Filter
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [selectedMileage, setSelectedMileage] = useState(0);
 
@@ -28,12 +31,46 @@ const Cars = () => {
       .catch((err) => console.log(err));
   }, [refresh]);
 
-  const handleSelection = (e, check) => {
-    console.log(check);
-    check === "mileage"
-      ? setSelectedMileage(e.target.value)
-      : setSelectedPrice(e.target.value);
-  };
+
+
+  useEffect(() => {
+
+    // let checkMileage = selectedMileage? cars.filter(car => car.mileage <= selectedMileage) : [];
+    // let checkPrice = selectedPrice?  cars.filter(car => car.price <= selectedPrice) : [];
+
+    // let concatArray = checkMileage?.concat(checkPrice)
+    
+    
+    let searchQuery = {};
+
+    if(selectedMileage){
+      searchQuery.mileage = selectedMileage
+    }
+    
+    if(selectedPrice){
+      searchQuery.price = selectedPrice
+    }
+
+
+    
+    let filtered = cars.filter(car => {
+      return car.mileage <= searchQuery.mileage || car.price <= searchQuery.price
+    })
+
+    console.log(filtered)
+    
+    // let filtered;
+
+    // concatArray?.forEach(item => { 
+    //  filtered = concatArray?.filter(car => 
+    //   item._id !== car._id 
+    //   )
+    // })
+
+
+
+  },[selectedPrice, selectedMileage])
+
 
   const handleCarRequest = (e) => {
     e.preventDefault();
@@ -62,41 +99,12 @@ const Cars = () => {
             --- Catalogue Complet ---
           </h1>
 
-          <div className="flex justify-center text-white font-medium text-lg md:text-2xl">
-            <label htmlFor="price" className="mr-16">
-              Prix
-              <input
-                type="range"
-                name="price"
-                min="0"
-                max="20000"
-                step="500"
-                className="ml-5"
-                onChange={(e) => handleSelection(e, "price")}
-              />
-              <h2 className="text-center underline text-middle">
-                {selectedPrice}
-              </h2>
-            </label>
-
-            <label htmlFor="milage">
-              Kilométrage
-              <input
-                type="range"
-                name="mileage"
-                min="0"
-                max="200000"
-                step="10000"
-                className="ml-5"
-                onChange={(e) => handleSelection(e, "mileage")}
-              />
-              <h2 className="text-center underline text-middle">
-                {selectedMileage}
-              </h2>
-            </label>
-          </div>
+          
         </header>
-        {cars.map((car) => {
+
+        <Filter setSelectedMileage={setSelectedMileage} selectedMileage={selectedMileage} setSelectedPrice={setSelectedPrice} selectedPrice={selectedPrice} />
+
+        {cars?.map((car) => {
           return (
             <div key={car._id} className="p-10 w-full ">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white ">
