@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import "./bestOffer.css"
 const BestOffer = () => {
 
     const data =  [
@@ -139,7 +139,7 @@ const BestOffer = () => {
 
   return (
 
-    <div className='w-4/6 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto  drop-shadow-2xl ' >
+    <div className='w-4/6 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto  drop-shadow-2xl ' id="bestOffer" >
        
        <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold ' id="bonPlans">--- Bons Plans ---</header>
 

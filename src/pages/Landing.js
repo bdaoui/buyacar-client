@@ -39,7 +39,7 @@ const Landing = () => {
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
                 <Link to={`/${car._id}`}>
                   <img
-                    className="rounded-t-lg lg:max-h-50 overflow-hidden lg:w-full m-auto"
+                    className="rounded-t-lg w-full h-[200px] overflow-hidden lg:w-full m-auto"
                     src={car.image[0]}
                     alt={car.name}
                   />
@@ -80,7 +80,7 @@ const Landing = () => {
                     </div>
                   </section>
 
-                  <p className="mb-3 text-sm md:text-basefont-normal text-white">
+                  <p className="mb-3 text-sm md:text-basefont-normal text-white h-10">
                     {car.description.substr(0, 80) + "..."}
                   </p>
                   <Link
