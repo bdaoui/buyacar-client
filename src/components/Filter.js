@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage}) => {
 
   const handleSelection = (e, check) => {
-    console.log(check);
     check === "mileage"
       ? setSelectedMileage(e.target.value)
       : setSelectedPrice(e.target.value);

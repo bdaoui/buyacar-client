@@ -7,7 +7,7 @@ const Cars = () => {
   const server = "http://localhost:5005";
 
   const [cars, setCars] = useState([]);
-
+  const [filteredCars, setFilteredCars] = useState([...cars])
 
   // Filter
   const [selectedPrice, setSelectedPrice] = useState(0);
@@ -34,13 +34,6 @@ const Cars = () => {
 
 
   useEffect(() => {
-
-    // let checkMileage = selectedMileage? cars.filter(car => car.mileage <= selectedMileage) : [];
-    // let checkPrice = selectedPrice?  cars.filter(car => car.price <= selectedPrice) : [];
-
-    // let concatArray = checkMileage?.concat(checkPrice)
-    
-    
     let searchQuery = {};
 
     if(selectedMileage){
@@ -48,28 +41,31 @@ const Cars = () => {
     }
     
     if(selectedPrice){
-      searchQuery.price = selectedPrice
+      searchQuery.price = Number(selectedPrice) 
+
     }
 
 
-    
-    let filtered = cars.filter(car => {
-      return car.mileage <= searchQuery.mileage || car.price <= searchQuery.price
+    const spreadCar = [...cars]
+
+    let filtered = spreadCar.filter(car =>{
+
+      if(searchQuery.price < car.price ) return false
+
+      if(searchQuery.mileage < car.mileage) return false
+
+
+      return car 
+
+
+
     })
 
-    console.log(filtered)
-    
-    // let filtered;
 
-    // concatArray?.forEach(item => { 
-    //  filtered = concatArray?.filter(car => 
-    //   item._id !== car._id 
-    //   )
-    // })
+   setFilteredCars(filtered)
 
 
-
-  },[selectedPrice, selectedMileage])
+  },[selectedPrice, selectedMileage, cars])
 
 
   const handleCarRequest = (e) => {
@@ -88,6 +84,11 @@ const Cars = () => {
     axios.post(`${server}/api/cars`, data).then((response) => setRefresh(true));
   };
 
+
+  console.log("cars ", cars)
+  console.log("filtered cars ", filteredCars)
+
+
   return (
     <div>
       <div
@@ -102,9 +103,22 @@ const Cars = () => {
           
         </header>
 
-        <Filter setSelectedMileage={setSelectedMileage} selectedMileage={selectedMileage} setSelectedPrice={setSelectedPrice} selectedPrice={selectedPrice} />
+      <section className="flex">
 
-        {cars?.map((car) => {
+        <Filter setSelectedMileage={setSelectedMileage} selectedMileage={selectedMileage} setSelectedPrice={setSelectedPrice} selectedPrice={selectedPrice} />
+      </section>
+
+        { filteredCars.length === 0  && 
+
+        <section className="h-screen w-full mt-10 text-3xl ">
+          <h1 className="underline text-center text-red-900 translate-y-40">Aucune Voiture Selectioneé</h1>
+
+        </section>
+
+        }
+
+
+        {filteredCars?.map((car) => {
           return (
             <div key={car._id} className="p-10 w-full ">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white ">
