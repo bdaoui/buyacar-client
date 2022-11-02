@@ -20,7 +20,7 @@ const Login = () => {
         authenticateUser()
       })
       .then((response) => {
-        console.log(response);
+        console.log("Logged in");
         navigate("/admin/dashboard");
       })
       .catch((err) => console.log(err));
