@@ -6,6 +6,7 @@ import BestOffer from "../components/BestOffer.js";
 import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 import axios from "axios";
+import ContactForm from "../components/ContactForm";
 
 const Landing = () => {
   const [cars, setCars] = useState([]);
@@ -33,9 +34,8 @@ const Landing = () => {
           </h1>
         </header>
         {cars.map((car) => {
-          console.log(car._id);
           return (
-            <div key={car.id} className="p-10 lg:w-2/4">
+            <div key={car._id} className="p-10 lg:w-2/4">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
                 <Link to={`/${car._id}`}>
                   <img
@@ -117,6 +117,7 @@ const Landing = () => {
         </Link>
       </div>
       <Testimonial />
+      <ContactForm />
     </>
   );
 };
