@@ -27,6 +27,8 @@ const DashboardSidebar = ({handleShowAside, cars, contentAside}) => {
       _id: 3,
     },
   ]);
+
+
   return (
     <>
 
@@ -132,7 +134,7 @@ const DashboardSidebar = ({handleShowAside, cars, contentAside}) => {
                       <h1>{item.author}</h1>
 
                       <svg
-                        onClick={(e) => handleShowAside(e, "Edit Testimonial", item._id)}
+                        onClick={(e) => handleShowAside(e, "Edit Testimonial", item?._id)}
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
