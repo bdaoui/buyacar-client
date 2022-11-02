@@ -4,38 +4,13 @@ import NewCarPost from "../components/NewCarPost";
 import EditCarPost from "../components/EditCarPost";
 import DashboardSidebar from "../components/DashboardSidebar";
 import EditTestimonial from "../components/EditTestimonial";
+import NewTestimonialPost from "../components/NewTestimonialPost";
 
 const Dashboard = () => {
   const server = "http://localhost:5005";
 
   const [cars, setCars] = useState([]);
-  const [testimonials, setTestimonials] = useState([
-    {
-      body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-      author: "Jeff Bezos",
-      image: "",
-      _id: 0,
-    },
-    {
-      body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-      author: "Wolfgang Amadeus Mozart",
-      image: "",
-      _id: 1,
-    },
-    {
-      body: "maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-      author: "Napoleon Bonaparte",
-      image: "",
-      _id: 2,
-    },
-    {
-      body: "fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque",
-      author: "Harry Potter",
-      image: "",
-      _id: 3,
-    },
-
-  ]);
+  const [testimonials, setTestimonials] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
   const [selected, setSelected] = useState("");
@@ -57,6 +32,13 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   }, [refresh]);
 
+  useEffect(() => {
+    axios
+      .get(`${server}/api/testimonial`)
+      .then((response) => setTestimonials(response.data))
+      .catch((err) => console.log(err));
+  }, [refresh]);
+
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
 
@@ -66,10 +48,10 @@ const Dashboard = () => {
 
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
+    choice === "New Testimonial" ? setSelected("New Testimonial") : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
     choice === "Edit Testimonial" ? setSelected("Edit Testimonial") : setVisible("hidden");
     
-
 
     setSelectedId(id);
 
@@ -115,6 +97,7 @@ const Dashboard = () => {
           <DashboardSidebar 
           handleShowAside={handleShowAside} 
           cars={cars}
+          testimonials={testimonials}
           contentAside ={contentAside}
 
           /> 
@@ -127,6 +110,14 @@ const Dashboard = () => {
         >
           {selected === "New Post" && (
             <NewCarPost
+              handleCloseSecondSection={handleCloseSecondSection}
+              refresh={refresh}
+              setRefresh={setRefresh}
+            />
+          )}
+
+          {selected === "New Testimonial" && (
+            <NewTestimonialPost
               handleCloseSecondSection={handleCloseSecondSection}
               refresh={refresh}
               setRefresh={setRefresh}
