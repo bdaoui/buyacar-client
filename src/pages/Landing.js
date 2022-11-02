@@ -20,7 +20,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <Header />
       <BestOffer />
 
@@ -118,7 +118,7 @@ const Landing = () => {
       </div>
       <Testimonial />
       <ContactForm />
-    </>
+    </div>
   );
 };
 
