@@ -13,7 +13,9 @@ const DashboardSidebar = ({
   return (
     <div className="h-screen">
       {contentAside === "Cars" && (
-        <CarSidebarDashboard handleShowAside={handleShowAside} cars={cars} />
+        <CarSidebarDashboard 
+          handleShowAside={handleShowAside} 
+          cars={cars} />
       )}
 
       {contentAside === "Testimonial" && (
