@@ -138,7 +138,7 @@ const BestOffer = () => {
 
   return (
 
-    <div className='w-5/6 md:w-4/6 bg-black my-10 py-10 rounded-lg text-white flex flex-col m-auto  drop-shadow-2xl ' id="bestOffer" >
+    <div className='w-full bg-black my-10 py-10 rounded-lg text-white flex flex-col drop-shadow-2xl ' id="bestOffer" >
        
        <header className='text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold ' id="bonPlans">--- Bons Plans ---</header>
 
@@ -163,25 +163,25 @@ const BestOffer = () => {
             
             <div className='flex flex-col md:flex-row justify-center mt-5 gap-2'>
               
-              <section className='p-2 md:border-r-white md:border-r-2 flex flex-col text-center'>
-              <h1 className='text-base font-light md:text-xl text-gold'>Année </h1>
-              <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].year} </h1>
+              <section className='md:p-2 md:border-r-white md:border-r-2 flex flex-col text-center'>
+              <h1 className='text-sm font-light md:text-xl text-gold'>Année </h1>
+              <h1 className='text-sm md:text-xl'>{bestOffer[bestOfferIndex].year} </h1>
               </section>
 
-              <section className='p-2 md:border-r-white md:border-r-2 text-center'>
-              <h1 className='text-base md:text-xl font-light text-gold'>Kilométrage </h1>
-              <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].mileage} </h1>
+              <section className='md:p-2 md:border-r-white md:border-r-2 text-center'>
+              <h1 className='text-sm md:text-xl font-light text-gold'>Kilométrage </h1>
+              <h1 className='text-sm md:text-xl'>{bestOffer[bestOfferIndex].mileage} </h1>
               </section>
 
-              <section className='p-2 md:border-r-white md:border-r-2 text-center'>
-              <h1 className='text-base md:text-xl font-light text-gold'>Carburant  </h1>
-              <h1 className='text-base md:text-xl'> {bestOffer[bestOfferIndex].fuel} </h1>
+              <section className='md:p-2 md:border-r-white md:border-r-2 text-center'>
+              <h1 className='text-sm md:text-xl font-light text-gold'>Carburant  </h1>
+              <h1 className='text-sm md:text-xl'> {bestOffer[bestOfferIndex].fuel} </h1>
               </section>
 
-              <section className='p-2 text-center'>
-              <h1 className='text-base md:text-xl font-light text-gold '>Boite de Vitesse </h1>
+              <section className='md:p-2 text-center'>
+              <h1 className='text-sm md:text-xl font-light text-gold '>Boite de Vitesse </h1>
               
-              <h1 className='text-base md:text-xl'>{bestOffer[bestOfferIndex].transmission} </h1>
+              <h1 className='text-sm md:text-xl'>{bestOffer[bestOfferIndex].transmission} </h1>
               </section>
 
             </div>
