@@ -18,23 +18,25 @@ const Cars = () => {
   const [selectedTransmission, setSelectedTransmission] = useState("");
   const [selectedFuel, setSelectedFuel] = useState("")
 
-
-
+  
+  
   const [refresh, setRefresh] = useState(false);
-
+  
   useEffect(() => {
     axios
-      .get(`${server}/api/cars`)
-      .then((response) => setCars(response.data))
-      .catch((err) => console.log(err));
-
+    .get(`${server}/api/cars`)
+    .then((response) => {
+    setFilteredCars(response.data)
+    setCars(response.data)} )
+    .catch((err) => console.log(err));
+    
   }, [refresh]);
-
-
-
+  
+  
+  
   useEffect(() => {
     let searchQuery = {};
-
+    
     if(selectedMileage){
       searchQuery.mileage = selectedMileage
     }
@@ -43,7 +45,6 @@ const Cars = () => {
       searchQuery.price = Number(selectedPrice) 
 
     }
-
     
     const spreadCar = [...cars]
 
@@ -59,34 +60,48 @@ const Cars = () => {
 
     })
 
+    
     // Filter by Fuel Type
-
+    
     let secondFiltered = filtered.filter(car => {
-
+      
       if(car.fuel !== selectedFuel) return false
       
-      return filtered
-
+      return car
+      
     })
-
+    
+    
     // Filter By Transmission Type
-
-    let thirdFilter = secondFiltered.filter(car =>{
-
+    
+    let thirdFiltered = secondFiltered.filter(car =>{
+      
       if(car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
       
-      return secondFiltered
+      return car
     } )
 
+    
+    
+    
+    if(thirdFiltered ){
+      setFilteredCars(thirdFiltered)
+    } 
+    else if(secondFiltered){
+      setFilteredCars(secondFiltered)
 
-    console.log("this is the second filter " , secondFiltered)
-    console.log("this is the third filter " , thirdFilter)
+    }
+    else {
+      setFilteredCars(filtered)
 
+    }
 
-   setFilteredCars(thirdFilter ? thirdFilter : cars)
+    
+    console.log('1 ', filtered)
+    console.log('2 ', secondFiltered)
+    console.log('3 ', thirdFiltered)
 
-
-  },[selectedPrice, selectedMileage, selectedFuel, selectedTransmission, cars])
+  },[selectedPrice, selectedMileage, selectedFuel, selectedTransmission])
 
 
 
