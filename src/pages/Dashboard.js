@@ -80,7 +80,7 @@ const Dashboard = () => {
       <section className="flex gap-5 justify-center md:justify-start m-2">
         <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Cars")}>Voitures</h2>
         <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Testimonial")}>Temoniages</h2>
-        <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Messages")}>Contactez</h2>
+        <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Messages")}>Contactes</h2>
 
       </section>
 

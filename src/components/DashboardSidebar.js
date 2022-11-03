@@ -141,7 +141,7 @@ const DashboardSidebar = ({handleShowAside, cars, testimonials, contact, content
 
             <div className='flex gap-2 justify-center mt-5'>
 
-            <h1 className="font-bold text-gold text-xl ">Contactez</h1>
+            <h1 className="font-bold text-gold text-xl ">Contactes</h1>
 
             </div>
 
