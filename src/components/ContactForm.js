@@ -40,7 +40,7 @@ const ContactForm = () => {
    };
 
   return (
-    <div className="py-40  px-20 h-fit"  >
+    <div className="py-40  px-10 h-fit"  >
        <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
         ---Contactez moi---
       </h1>

@@ -2,20 +2,16 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const EditContact = ({contact, selectedId, handleCloseSecondSection, refresh, setRefresh}) => {
+
     const server = "http://localhost:5005";
     const chosenMessage = contact.filter(message => message._id === selectedId)
     const [enabled, setEnabled] = useState(chosenMessage[0].status)
-console.log(chosenMessage[0])
-   
-    console.log('en', enabled)
 
     const handleEdit = async (e) => {
-        e.preventDefault()
-        setEnabled(!enabled)
-        console.log('inside', enabled)
-
-        await axios
-        .put(`${server}/api/contact/${chosenMessage[0]._id}`)
+      setEnabled(!enabled)
+      
+       await axios
+        .put(`${server}/api/contact/${chosenMessage[0]._id}`, enabled ? 'unread' : 'read' )
         .then((response) => {
           console.log(response)
           setRefresh(!refresh)
@@ -31,9 +27,12 @@ console.log(chosenMessage[0])
         .delete(`${server}/api/contact/${chosenMessage[0]._id}`)
         .then((response) => {
           console.log(response)
+          setRefresh(!refresh)
         })
         .catch((err) => console.log(err));
     }
+
+    console.log(enabled, 'message state')
 
   return (
     <div className='flex flex-col text-gold w-full text-base md:text-lg lg:text-xl p-10'>
