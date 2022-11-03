@@ -159,10 +159,10 @@ const DashboardSidebar = ({handleShowAside, cars, testimonials, contact, content
                       <h1 className='text-gold font-medium'>Subject: <span className='text-white'>{item?.subject}</span></h1>
 
                     </section>
-                      {item.status === "unread" && 
+                      {item.status === false && 
                       <div className="rounded-full h-3 w-3 mt-10 bg-red-600"></div>
                       }
-                       {item.status === "red" && 
+                       {item.status === true && 
                       <div className="rounded-full h-3 w-3 mt-10 bg-green-600"></div>
                       }
                 
