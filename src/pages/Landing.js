@@ -87,7 +87,7 @@ const Landing = () => {
         </header>
         {cars.map((car) => {
           return (
-            <div key={car._id} className="p-10 lg:w-2/4">
+            <div key={car._id} className="p-16 md:p-10 lg:w-2/4">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
                 <Link to={`/${car._id}`}>
                   <img
