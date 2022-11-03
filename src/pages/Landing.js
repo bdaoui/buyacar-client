@@ -78,7 +78,7 @@ const Landing = () => {
 
       <div
         id="carGallery"
-        className="flex flex-col lg:flex-row justify-center md:w-3/4 xl:w-2/4 m-auto md:flex-wrap md:p-10 "
+        className="flex flex-col lg:flex-row justify-center md:w-5/6 lg:w-2/4 m-auto md:flex-wrap md:p-10 "
       >
         <header className="w-full">
           <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
@@ -87,11 +87,11 @@ const Landing = () => {
         </header>
         {cars.map((car) => {
           return (
-            <div key={car._id} className="p-10 lg:w-2/4">
+            <div key={car._id} className="p-5 md:px-6 lg:w-2/4">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
                 <Link to={`/${car._id}`}>
                   <img
-                    className="rounded-t-lg w-full h-[200px] overflow-hidden lg:w-full m-auto"
+                    className="rounded-t-lg w-full h-[200px] md:h-[325px] overflow-hidden  m-auto"
                     src={car.image[0]}
                     alt={car.name}
                   />
@@ -162,7 +162,7 @@ const Landing = () => {
 
         <Link
           to="/cars"
-          className=" w-full py-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+          className=" w-2/4 md:w-full mx-auto py-2 my-5 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
         >
           {" "}
           PLUS D'OFFRES

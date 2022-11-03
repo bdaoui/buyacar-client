@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const EditCarPost = ({
-  selectedId,
-  handleCloseSecondSection,
-  refresh,
-  setRefresh,
-  cars,
-}) => {
+const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh, cars}) => {
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
   const [price, setPrice] = useState("");
@@ -24,12 +18,13 @@ const EditCarPost = ({
   const [image, setImage] = useState("");
   const [year, setYear] = useState("");
   const [imageIndex, setImageIndex] = useState(0);
+  const [validateSending, setValidateSending] = useState("");
 
   const server = "http://localhost:5005";
 
   let filteredCar = cars.filter((car) => car._id === selectedId);
 
-  // Edit Specific Car
+// Edit Specific Car
   const handleCarEdit = (e, id) => {
     e.preventDefault();
     const data = new FormData();
@@ -57,12 +52,15 @@ const EditCarPost = ({
       .then((response) => {
         setRefresh(!refresh);
         setImageIndex(imageIndex === 0 ? imageIndex + 1 : imageIndex);
-        console.log(response);
+        setValidateSending(response.data);
       })
       .catch((err) => console.log(err));
+    return setInterval(() => {
+      return setValidateSending("");
+    }, 4000);
   };
 
-  // Delete Specific Car
+// Delete Specific Car
   const handleDelete = (e) => {
     e.preventDefault();
     axios
@@ -73,16 +71,16 @@ const EditCarPost = ({
       })
       .catch((err) => console.log(err));
   };
-  //single image delete
+
+//Delete Single Image 
   const handleImageDelete = (e, image) => {
     e.preventDefault();
 
     axios
       .put(`${server}/api/${selectedId}/image`, image)
-      .then((res) => {
+      .then((response) => {
         setRefresh(!refresh);
-        // setImageIndex(imageIndex === 0 ? imageIndex+1 : imageIndex)
-        console.log(res);
+        setValidateSending(response.data);
         if (imageIndex <= 0) {
           setImageIndex(1);
         } else if (imageIndex > filteredCar[0].image.length) {
@@ -94,18 +92,26 @@ const EditCarPost = ({
         }
       })
       .catch((err) => console.log(err));
+
+      return setInterval(() => {
+        return setValidateSending("");
+      }, 4000);
   };
 
   const handleAllImageDelete = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     axios
       .put(`${server}/api/${selectedId}/all`)
-      .then((res) => {
+      .then((response) => {
         setRefresh(!refresh);
-        console.log(res);
+        setValidateSending(response.data);
       })
       .catch((err) => console.log(err));
-  }
+
+      return setInterval(() => {
+        return setValidateSending("");
+      }, 4000);
+  };
 
   // Slider
 
@@ -125,201 +131,208 @@ const EditCarPost = ({
   };
 
   return (
-    <div>
+    <div className="p-10 flex flex-col w-full h-full">
+      <header className="w-full">
+        <h1 className="text-3xl text-center mb-5 text-gold">
+          Editer la Fiche Voiture
+        </h1>
+      </header>
+
+      <section className="flex justify-between">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6 cursor-pointer text-gold"
+          onClick={(e) => handleCloseSecondSection()}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="w-6 h-6 cursor-pointer text-gold"
+          onClick={(e) => handleDelete(e)}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+          />
+        </svg>
+      </section>
+
       <form
-        className="flex relative flex-wrap justify-center mt-10 rounded"
+        className="mt-10"
         onSubmit={(e) => handleCarEdit(e, selectedId)}
         encType="multipart/form-data"
       >
-        <div className="w-full">
-          <h1 className="text-3xl text-center mb-5 text-gold">
-            {" "}
-            Editer la Fiche Voiture
-          </h1>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 cursor-pointer absolute top-2  md:top-0 right-2 md:right-11 text-gold"
-            onClick={(e) => handleCloseSecondSection()}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6 cursor-pointer absolute top-2  md:top-0 left-2 md:left-11 text-gold"
-            onClick={(e) => handleDelete(e)}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-            />
-          </svg>
-        </div>
-
-        <section className="flex flex-wrap justify-center w-full">
-          <div className="w-full md:w-2/4 flex flex-col px-5 mb-5">
-            <label htmlFor="Name" className="text-white">
-              Prix
-            </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="price"
-              defaultValue={filteredCar[0]?.price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-
-            <label htmlFor="make" className="text-white">
+        <div className="w-full flex flex-col">
+          <section className="flex flex-col md:flex-row justify-center text-right md:text-center my-1">
+            <label htmlFor="make" className="text-gold py-2">
               Marque
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black w-60"
+                name="make"
+                defaultValue={filteredCar[0]?.make}
+                onChange={(e) => setMake(e.target.value)}
+              />
             </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="make"
-              defaultValue={filteredCar[0]?.make}
-              onChange={(e) => setMake(e.target.value)}
-            />
 
-            <label htmlFor="model" className="text-white">
+            <label htmlFor="model" className="text-gold py-2 md:ml-4">
               Modèle
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black  w-60"
+                name="model"
+                defaultValue={filteredCar[0]?.model}
+                onChange={(e) => setModel(e.target.value)}
+              />
             </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="model"
-              defaultValue={filteredCar[0]?.model}
-              onChange={(e) => setModel(e.target.value)}
-            />
 
-            <label htmlFor="fuel" className="text-white">
-              Carburant
+            <label htmlFor="Name" className="text-gold py-2 md:ml-4">
+              Prix
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black  w-60"
+                name="price"
+                defaultValue={filteredCar[0]?.price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
             </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="fuel"
-              defaultValue={filteredCar[0]?.fuel}
-              onChange={(e) => setFuel(e.target.value)}
-            />
+          </section>
 
-            <label htmlFor="color" className="text-white">
-              Couleur
-            </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="color"
-              defaultValue={filteredCar[0]?.color}
-              onChange={(e) => setColor(e.target.value)}
-            />
-
-            <label htmlFor="body" className="text-white">
-              Type de Véhicule
-            </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="body"
-              defaultValue={filteredCar[0]?.body}
-              onChange={(e) => setBody(e.target.value)}
-            />
-
-            <select
-              className="flex border-2 border-gold my-4 "
-              defaultValue={filteredCar[0]?.doors}
-              onChange={(e) => setDoors(e.target.value)}
-            >
-              <option defaultValue> Nombre de Portes</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-
-          <div className="w-full md:w-2/4 flex flex-col px-5 mb-5">
-            <label htmlFor="description" className="text-white">
+          <section className="flex flex-col md:flex-row justify-center text-right">
+            <label htmlFor="engine" className="text-gold py-2">
               Moteur
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black w-60"
+                name="engine"
+                defaultValue={filteredCar[0]?.engine}
+                onChange={(e) => setEngine(e.target.value)}
+              />
             </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="engine"
-              defaultValue={filteredCar[0]?.engine}
-              onChange={(e) => setEngine(e.target.value)}
-            />
 
-            <label htmlFor="description" className="text-white">
+            <label htmlFor="fuel" className="text-gold py-2 md:ml-4">
+              Carburant
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black  w-60"
+                name="fuel"
+                defaultValue={filteredCar[0]?.fuel}
+                onChange={(e) => setFuel(e.target.value)}
+              />
+            </label>
+
+            <label htmlFor="color" className="text-gold py-2 md:ml-4">
+              Couleur
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black  w-60"
+                name="color"
+                defaultValue={filteredCar[0]?.color}
+                onChange={(e) => setColor(e.target.value)}
+              />
+            </label>
+          </section>
+
+          <section className="flex flex-col md:flex-row justify-center text-right md:text-center my-1">
+            <label htmlFor="body" className="text-gold py-2">
+              Type de Véhicule
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black w-50 md:w-60"
+                name="body"
+                defaultValue={filteredCar[0]?.body}
+                onChange={(e) => setBody(e.target.value)}
+              />
+            </label>
+
+            <label htmlFor="mileage" className="text-gold py-2 md:ml-4">
               Kilométrage
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black w-56 md:w-60"
+                name="mileage"
+                defaultValue={filteredCar[0]?.mileage}
+                onChange={(e) => setMileage(e.target.value)}
+              />
             </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="mileage"
-              defaultValue={filteredCar[0]?.mileage}
-              onChange={(e) => setMileage(e.target.value)}
-            />
 
-            <label htmlFor="year" className="text-white">
+            <label htmlFor="year" className="text-gold py-2 md:ml-4">
               Anneé
+              <input
+                type="text"
+                className="border-2 border-gold ml-2 text-black  w-60"
+                name="year"
+                defaultValue={filteredCar[0]?.year}
+                onChange={(e) => setYear(e.target.value)}
+              />
             </label>
-            <input
-              type="text"
-              className="border-2 border-gold mb-5"
-              name="year"
-              defaultValue={filteredCar[0]?.year}
-              onChange={(e) => setYear(e.target.value)}
-            />
+          </section>
 
-            <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
-              <legend className="text-white">
-                Choisir Type Boîte de vitesse
-              </legend>
-              <label
-                htmlFor="description"
-                value="automatic"
-                className="text-white"
+          <section className="flex flex-col md:flex-row justify-center text-right md:text-center my-1">
+            <label htmlFor="doors" className="text-gold py-2 md:ml-4 px-4">
+              Nombre de Portes
+              <select
+                className="border-2 border-gold ml-2 text-black"
+                defaultValue={filteredCar[0]?.doors}
+                onChange={(e) => setDoors(e.target.value)}
               >
-                Automatique
-              </label>
-              <input
-                type="radio"
-                defaultChecked={filteredCar[0]?.transmission === "automatic"}
-                className="border-2 border-gold "
-                name="transmission"
-                defaultValue
-                onChange={(e) => setTransmission("automatic")}
-              />
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </label>
 
-              <label
-                htmlFor="description"
-                value="manual"
-                className="text-white"
+            <label htmlFor="seats" className="text-gold py-2 md:ml-4 px-4">
+              Nombre de Place(s)
+              <select
+                className="border-2 border-gold ml-2 text-black"
+                onChange={(e) => setSeats(e.target.value)}
+                defaultValue={filteredCar[0]?.seats}
               >
-                Manuel
-              </label>
-              <input
-                type="radio"
-                defaultChecked={filteredCar[0]?.transmission === "manual"}
-                className="border-2 border-gold "
-                name="transmission"
-                onChange={(e) => setTransmission("manual")}
-              />
-            </fieldset>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </label>
 
+            <label
+              htmlFor="transmission"
+              className="text-gold py-2 md:ml-4 px-4"
+            >
+              Choisir La Transmission
+              <select
+                className="border-2 border-gold ml-2 text-black"
+                defaultValue={filteredCar[0]?.transmission}
+                onChange={(e) => setTransmission(e.target.value)}
+              >
+                <option value="automatic">Automatique</option>
+                <option value="manual">Manuel</option>
+                <option value="sequential">Séquentielle</option>
+              </select>
+            </label>
+          </section>
+
+          <section className="flex flex-col md:flex-row justify-center">
             <fieldset className="flex border-2 border-gold gap-2 p-3">
               <legend className="text-white">Bon Plan? </legend>
               <label htmlFor="description" className="text-white">
@@ -344,38 +357,30 @@ const EditCarPost = ({
                 onChange={(e) => setBestDeal("yes")}
               />
             </fieldset>
+          </section>
+          <section className=" flex flex-col w-full justify-center text-center mx-auto p-5 md:w-2/4">
+            <label htmlFor="description" className="text-white">
+              Description
+              <textarea
+                defaultValue={filteredCar[0]?.description}
+                type="text"
+                className=" border-2 border-gold md:mb-5 w-full h-20 text-black"
+                name="description"
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </label>
+          </section>
 
-            <select
-              className="flex border-2 border-gold gap-2 my-4"
-              onChange={(e) => setSeats(e.target.value)}
-              defaultValue={filteredCar[0]?.seats}
-            >
-              <option> Nombre de Place(s)</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-            </select>
-          </div>
-
-          <div className="w-full md:w-2/4 flex flex-col md:flex-row justify-center flex-wrap">
-            
-            
-              <section className="flex justify-center mb-3 text-center w-full">
+          <div className="w-full flex flex-col md:flex-row justify-center flex-wrap">
+            <section className="flex justify-center my-3 text-center w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-7 mr-1 cursor-pointer  right-28 text-red-800"
-                onClick={(e) =>
-                  handleAllImageDelete(e)
-                }
+                class="w-6 h-8 mr-1 cursor-pointer  right-28 text-red-800"
+                onClick={(e) => handleAllImageDelete(e)}
               >
                 <path
                   stroke-linecap="round"
@@ -383,21 +388,21 @@ const EditCarPost = ({
                   d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
                 />
               </svg>
-              <p className="text-gold  right-4 font-semibold text-lg cursor-pointer"  onClick={(e) =>handleAllImageDelete(e)}>DELETE ALL</p>
-              </section>
-            
-            
-            
-            
-            
-            
-            <div className="relative ">
+              <p
+                className="text-gold  right-4 font-semibold text-lg cursor-pointer"
+                onClick={(e) => handleAllImageDelete(e)}
+              >
+                SUPPRIMER TOUTES LES PHOTOS
+              </p>
+            </section>
+
+            <div className="relative">
               {filteredCar[0].image[imageIndex] && (
                 <section className="flex">
                   <img
                     src={filteredCar[0]?.image[imageIndex]}
                     alt={filteredCar.model + " " + filteredCar.make}
-                    className=" w-fit h-40 md:h-60 m-auto md:m-1"
+                    className="max-h-96 m-auto md:m-1"
                   />
                 </section>
               )}
@@ -408,7 +413,7 @@ const EditCarPost = ({
                 viewBox="0 0 24 24"
                 strokeWidth="2.5"
                 stroke="currentColor"
-                className="w-5 h-5 cursor-pointer absolute top-0 md:top-1 left-16 md:left-1  bg-white text-red-900"
+                className="w-5 h-5 cursor-pointer absolute top-0 md:top-1 left-2 md:left-1  bg-white text-red-900"
                 onClick={(e) =>
                   handleImageDelete(e, filteredCar[0]?.image[imageIndex])
                 }
@@ -460,13 +465,11 @@ const EditCarPost = ({
                     ></path>
                   </svg>
                 </button>
-              
               </section>
-
             </div>
           </div>
 
-          <div className="flex justify-center items-center w-full md:w-2/4 mb-5">
+          <div className="flex justify-center items-center w-full mb-5">
             <label
               htmlFor="dropzone-file"
               className="flex flex-col justify-center items-center w-3/4 h-32 bg-gray-300 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
@@ -505,28 +508,14 @@ const EditCarPost = ({
               />
             </label>
           </div>
-        </section>
-
-        <section className=" flex flex-col w-full px-5 md:w-2/4">
-          <label htmlFor="description" className="text-white">
-            Description
-          </label>
-          <textarea
-            defaultValue={filteredCar[0]?.description}
-            type="text"
-            className=" border-2 border-gold md:mb-5 h-20"
-            name="description"
-            onChange={(e) => setDescription(e.target.value)}
-          />
 
           <button
             type="submit"
             className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
           >
-            {" "}
-            Envoyer
+            {validateSending || "Envoyer"}
           </button>
-        </section>
+        </div>
       </form>
     </div>
   );
