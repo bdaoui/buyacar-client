@@ -64,6 +64,10 @@ const Cars = () => {
       if(searchQuery.price < car.price ) return false
 
       if(searchQuery.mileage < car.mileage) return false
+      
+      if(searchQuery.fuel !== car.fuel) return false
+      
+      if(searchQuery.transmission !== car.transmission) return false
 
 
       return car 

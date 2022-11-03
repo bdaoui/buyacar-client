@@ -52,9 +52,9 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               onChange={(e) => setSelectedTransmission(e.target.value)}
 
             >
-            <option value={0} >Manuelle</option>
-            <option value={1} >Automatique</option>
-            <option value={2} >Séquentielle</option>
+            <option value={"Manuelle"} >Manuelle</option>
+            <option value={"Automatique"} >Automatique</option>
+            <option value={"Séquentielle"} >Séquentielle</option>
             </select>
             </label>
          
@@ -65,11 +65,11 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               onChange={(e) => setSelectedFuel(e.target.value)}
 
             >
-            <option value={0} >Essence</option>
-            <option value={1} >Gazole</option>
-            <option value={2} >Hybride</option>
-            <option value={3} >Electrique</option>
-            <option value={4} >Autres</option>
+            <option value={"Essence"} >Essence</option>
+            <option value={"Gazole"} >Gazole</option>
+            <option value={"Hybride"} >Hybride</option>
+            <option value={"Electrique"} >Electrique</option>
+            <option value={"Autres"} >Autres</option>
             </select>
             </label>
 
