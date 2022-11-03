@@ -73,20 +73,20 @@ const Dashboard = () => {
 
   return (
     <div className="h-full">
-      <h1 className="text-center p-5 text-2xl text-gold font-bold">
+      <h1 className="text-center p-5 text-base md:text-lg lg:text-xl  text-gold font-bold">
         Tableau de Bord
       </h1>
 
       <section className="flex gap-5 justify-center md:justify-start m-2">
-        <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Cars")}>Voitures</h2>
-        <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Testimonial")}>Temoniages</h2>
-        <h2 className=" text-2xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Messages")}>Contactes</h2>
+        <h2 className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Cars")}>Voitures</h2>
+        <h2 className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Testimonial")}>Temoniages</h2>
+        <h2 className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Messages")}>Contactez</h2>
 
       </section>
 
       <div className="flex">
         <aside
-          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 px-4 overflow-y-scroll ${visible} md:flex flex-col`}
+          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 px-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
         >
           <DashboardSidebar 
           handleShowAside={handleShowAside} 

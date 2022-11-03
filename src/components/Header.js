@@ -4,7 +4,7 @@ import bg from "../assets/p_pVF.png";
 const Header = () => {
   return (
     <div className="h-full">
-      <div className=" w-full h-1/4 md:h-full">
+      <div className=" w-full h-1/4 md:h-full px-3">
         <img src={bg} alt="logo" className="mt-20" />
         <div className="flex flex-col justify-center w-full md:w-2/4 m-auto h-screen text-center text-white">
           <div className="rounded-2xl p-2 h-2/4 flex flex-col justify-center">

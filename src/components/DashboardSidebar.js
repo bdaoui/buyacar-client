@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 const DashboardSidebar = ({handleShowAside, cars, testimonials, contact, contentAside}) => {
 
@@ -151,13 +151,21 @@ const DashboardSidebar = ({handleShowAside, cars, testimonials, contact, content
                     key={item._id}
                     className="py-2 lg:p-4 border-b-2 border-black/90 flex text-white gap-2 md:gap-5 justify-between"
                   >
+                
                     <section className='flex flex-col'>
-                      <h1 className='text-gold font-medium'>Name: <span className='text-white'>{item.name} {item.lastName}</span></h1>
-                      <h1 className='text-gold font-medium'>Email: <span className='text-white'>{item.email}</span></h1>
-                      <h1 className='text-gold font-medium'>Phone: <span className='text-white'>{item.phone}</span></h1>
-                      <h1 className='text-gold font-medium'>Subject: <span className='text-white'>{item.subject}</span></h1>
-                    </section>
+                      <h1 className='text-gold font-medium'>Name: <span className='text-white'>{item?.name} {item?.lastName}</span></h1>
+                      <h1 className='text-gold font-medium'>Email: <span className='text-white'>{item?.email}</span></h1>
+                      <h1 className='text-gold font-medium'>Phone: <span className='text-white'>{item?.phone}</span></h1>
+                      <h1 className='text-gold font-medium'>Subject: <span className='text-white'>{item?.subject}</span></h1>
 
+                    </section>
+                      {item.status === false && 
+                      <div className="rounded-full h-3 w-3 mt-10 bg-red-600"></div>
+                      }
+                       {item.status === true && 
+                      <div className="rounded-full h-3 w-3 mt-10 bg-green-600"></div>
+                      }
+                
 
                       <svg
                         onClick={(e) => handleShowAside(e, "Edit Contact", item?._id)}
