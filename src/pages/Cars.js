@@ -13,7 +13,10 @@ const Cars = () => {
   // Filter
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [selectedMileage, setSelectedMileage] = useState(0);
+  const [selectedTransmission, setSelectedTransmission] = useState(0);
+  const [selectedFuel, setSelectedFuel] = useState(0)
 
+  // what are these making? 
   const [make, setMake] = useState("");
   const [price, setPrice] = useState("");
   const [model, setModel] = useState("");
@@ -46,6 +49,13 @@ const Cars = () => {
 
     }
 
+    if(selectedFuel){
+      searchQuery.fuel = selectedFuel
+    }
+
+    if(selectedFuel){
+      searchQuery.transmission = selectedTransmission
+    }
 
     const spreadCar = [...cars]
 
@@ -66,7 +76,7 @@ const Cars = () => {
    setFilteredCars(filtered)
 
 
-  },[selectedPrice, selectedMileage, cars])
+  },[selectedPrice, selectedMileage, selectedFuel, selectedTransmission, cars])
 
 
   const handleCarRequest = (e) => {
@@ -155,7 +165,12 @@ const Cars = () => {
         selectedMileage={selectedMileage} 
         setSelectedPrice={setSelectedPrice} 
         selectedPrice={selectedPrice}
+        selectedFuel={selectedFuel}
+        setSelectedFuel={setSelectedFuel}
+        selectedTransmission={selectedTransmission}
+        setSelectedTransmission={setSelectedTransmission}
         reset={reset}
+
         />
       </section>
 
