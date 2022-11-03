@@ -85,7 +85,7 @@ const Navbar = () => {
               {isLoggedIn && 
               <li className="nav-item">
                 <span onClick={logOutUser}
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2">
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2 cursor-pointer">
                   Logout
                 </span>
               </li>
