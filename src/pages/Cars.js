@@ -13,18 +13,12 @@ const Cars = () => {
   // Filter
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [selectedMileage, setSelectedMileage] = useState(0);
-  const [selectedTransmission, setSelectedTransmission] = useState(0);
-  const [selectedFuel, setSelectedFuel] = useState(0)
 
-  // what are these making? 
-  const [make, setMake] = useState("");
-  const [price, setPrice] = useState("");
-  const [model, setModel] = useState("");
-  const [bestDeal, setBestDeal] = useState("");
-  const [mileage, setMileage] = useState("");
-  const [image, setImage] = useState("");
-  const [gearBox, setGearBox] = useState("");
-  const [description, setDescription] = useState("");
+
+  const [selectedTransmission, setSelectedTransmission] = useState("");
+  const [selectedFuel, setSelectedFuel] = useState("")
+
+
 
   const [refresh, setRefresh] = useState(false);
 
@@ -33,6 +27,7 @@ const Cars = () => {
       .get(`${server}/api/cars`)
       .then((response) => setCars(response.data))
       .catch((err) => console.log(err));
+
   }, [refresh]);
 
 
@@ -49,55 +44,52 @@ const Cars = () => {
 
     }
 
-    if(selectedFuel){
-      searchQuery.fuel = selectedFuel
-    }
-
-    if(selectedFuel){
-      searchQuery.transmission = selectedTransmission
-    }
-
+    
     const spreadCar = [...cars]
 
+    // Filter by Mileage && PRice
+    
     let filtered = spreadCar.filter(car =>{
-
+      
       if(searchQuery.price < car.price ) return false
-
       if(searchQuery.mileage < car.mileage) return false
-      
-      if(searchQuery.fuel !== car.fuel) return false
-      
-      if(searchQuery.transmission !== car.transmission) return false
-
 
       return car 
 
 
+    })
+
+    // Filter by Fuel Type
+
+    let secondFiltered = filtered.filter(car => {
+
+      if(car.fuel !== selectedFuel) return false
+      
+      return filtered
 
     })
 
+    // Filter By Transmission Type
 
-   setFilteredCars(filtered)
+    let thirdFilter = secondFiltered.filter(car =>{
+
+      if(car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
+      
+      return secondFiltered
+    } )
+
+
+    console.log("this is the second filter " , secondFiltered)
+    console.log("this is the third filter " , thirdFilter)
+
+
+   setFilteredCars(thirdFilter ? thirdFilter : cars)
 
 
   },[selectedPrice, selectedMileage, selectedFuel, selectedTransmission, cars])
 
 
-  const handleCarRequest = (e) => {
-    e.preventDefault();
 
-    console.log("I am trying to get it sent with ", price, image, description);
-    const data = new FormData();
-    data.append("price", price);
-    data.append("image", e.target.image.files);
-    data.append("make", make);
-    data.append("model", model);
-    data.append("bestDeal", bestDeal);
-    data.append("gearBox", gearBox);
-    data.append("description", description);
-
-    axios.post(`${server}/api/cars`, data).then((response) => setRefresh(true));
-  };
 
   
   const reset = () =>{

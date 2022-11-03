@@ -45,26 +45,28 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               </h2>
             </label>
 
-            <label form='transmisson'> Boite à Vitesse
+            <label htmlFor='transmisson'> Boite à Vitesse
             <select  
               value={selectedTransmission}
               className='text-black'
               onChange={(e) => setSelectedTransmission(e.target.value)}
 
             >
-            <option value={"Manuelle"} >Manuelle</option>
+            <option value={"Choose"} >Choose</option>
+            <option value={"Manuel"} >Manuel</option>
             <option value={"Automatique"} >Automatique</option>
             <option value={"Séquentielle"} >Séquentielle</option>
             </select>
             </label>
          
-            <label form='fuel'> Carburant
+            <label htmlFor='fuel'> Carburant
             <select  
               value={selectedFuel}
               className='text-black'
               onChange={(e) => setSelectedFuel(e.target.value)}
 
             >
+            <option value={"Choose"} >Choose</option>
             <option value={"Essence"} >Essence</option>
             <option value={"Gazole"} >Gazole</option>
             <option value={"Hybride"} >Hybride</option>
