@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
-
 const ContactForm = () => {
-
-
   // states for Contact Form
 
   const [contactName, setContactName] = useState("");
@@ -14,7 +11,7 @@ const ContactForm = () => {
   const [contactSubject, setContactSubject] = useState("");
   const [contactMessage, setContactMessage] = useState("");
 
-  const [validateSending, setValidateSending] = useState("")
+  const [validateSending, setValidateSending] = useState("");
 
   const handleContact = (e) => {
     e.preventDefault();
@@ -31,22 +28,24 @@ const ContactForm = () => {
     axios
       .post("http://localhost:5005/api/contact", fileContact)
       .then((response) => {
-        console.log(response.data)
-        setValidateSending(response.data)})
+        console.log(response.data);
+        setValidateSending(response.data);
+      })
       .catch((err) => console.log(err));
 
-
-    return setInterval(() => {return setValidateSending("")}, 6000)
-   };
+    return setInterval(() => {
+      return setValidateSending("");
+    }, 6000);
+  };
 
   return (
-    <div className="py-40  px-10 h-fit"  >
-       <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
+    <div className="py-40  px-10 h-fit">
+      <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
         ---Contactez moi---
       </h1>
 
       <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 my-12 bg-black border-2 border-gold rounded-3xl">
-        <form action="" onSubmit={handleContact} >
+        <form action="" onSubmit={handleContact}>
           <div className="md:flex items-center mt-12 ">
             <div className="w-full md:w-1/2 flex flex-col">
               <label className="font-semibold leading-none text-gold ">
@@ -123,13 +122,12 @@ const ContactForm = () => {
           </div>
 
           <div className="flex items-center align-center justify-center w-full">
-          <button
-            type="submit"
-            className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-10 m-auto text-white py-2"
+            <button
+              type="submit"
+              className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-10 m-auto text-white py-2"
             >
-            {validateSending || "Envoyer"}
-          </button>
-          
+              {validateSending || "Envoyer"}
+            </button>
           </div>
         </form>
       </div>

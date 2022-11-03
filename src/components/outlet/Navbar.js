@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/p_pVF.png";
+import logo from "../../assets/p_pVF.png";
 import { NavHashLink } from "react-router-hash-link";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../../context/auth.context";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);

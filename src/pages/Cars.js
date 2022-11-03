@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Filter from "../components/Filter";
+import Filter from "../components/cars/Filter";
 import { HashLink } from "react-router-hash-link";
 
 const Cars = () => {
   const server = "http://localhost:5005";
 
   const [cars, setCars] = useState([]);
-  const [filteredCars, setFilteredCars] = useState([...cars])
+  const [filteredCars, setFilteredCars] = useState([...cars]);
 
   // Filter
   const [selectedPrice, setSelectedPrice] = useState(0);
@@ -32,42 +32,29 @@ const Cars = () => {
       .catch((err) => console.log(err));
   }, [refresh]);
 
-
-
   useEffect(() => {
     let searchQuery = {};
 
-    if(selectedMileage){
-      searchQuery.mileage = selectedMileage
-    }
-    
-    if(selectedPrice){
-      searchQuery.price = Number(selectedPrice) 
-
+    if (selectedMileage) {
+      searchQuery.mileage = selectedMileage;
     }
 
+    if (selectedPrice) {
+      searchQuery.price = Number(selectedPrice);
+    }
 
-    const spreadCar = [...cars]
+    const spreadCar = [...cars];
 
-    let filtered = spreadCar.filter(car =>{
+    let filtered = spreadCar.filter((car) => {
+      if (searchQuery.price < car.price) return false;
 
-      if(searchQuery.price < car.price ) return false
+      if (searchQuery.mileage < car.mileage) return false;
 
-      if(searchQuery.mileage < car.mileage) return false
+      return car;
+    });
 
-
-      return car 
-
-
-
-    })
-
-
-   setFilteredCars(filtered)
-
-
-  },[selectedPrice, selectedMileage, cars])
-
+    setFilteredCars(filtered);
+  }, [selectedPrice, selectedMileage, cars]);
 
   const handleCarRequest = (e) => {
     e.preventDefault();
@@ -85,19 +72,16 @@ const Cars = () => {
     axios.post(`${server}/api/cars`, data).then((response) => setRefresh(true));
   };
 
-  
-  const reset = () =>{
-
-    setFilteredCars(cars)
-  }
-
+  const reset = () => {
+    setFilteredCars(cars);
+  };
 
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const listenToScroll = () => {
@@ -114,27 +98,24 @@ const Cars = () => {
 
   return (
     <div>
-
-
-{isVisible && (
-      <HashLink smooth to="/cars#top">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-          stroke="currentColor"
-          className="w-8 h-8 mb-1 md:mb-0 md:w-10 md:h-10 bottom-16 right-1 md:bottom-10 md:right-1 lg:bottom-20 lg:right-10 fixed text-gold"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      </HashLink>
-    )}
-
+      {isVisible && (
+        <HashLink smooth to="/cars#top">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-8 h-8 mb-1 md:mb-0 md:w-10 md:h-10 bottom-16 right-1 md:bottom-10 md:right-1 lg:bottom-20 lg:right-10 fixed text-gold"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </HashLink>
+      )}
 
       <div
         id="carGallery"
@@ -144,30 +125,25 @@ const Cars = () => {
           <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 mb-5 text-gold">
             --- Catalogue Complet ---
           </h1>
-
-          
         </header>
 
-      <section className="flex">
-
-        <Filter 
-        setSelectedMileage={setSelectedMileage} 
-        selectedMileage={selectedMileage} 
-        setSelectedPrice={setSelectedPrice} 
-        selectedPrice={selectedPrice}
-        reset={reset}
-        />
-      </section>
-
-        { filteredCars.length === 0  && 
-
-        <section className="h-screen w-full mt-10 text-3xl ">
-          <h1 className="underline text-center text-red-900 translate-y-40">Aucune Voiture Selectioneé</h1>
-
+        <section className="flex">
+          <Filter
+            setSelectedMileage={setSelectedMileage}
+            selectedMileage={selectedMileage}
+            setSelectedPrice={setSelectedPrice}
+            selectedPrice={selectedPrice}
+            reset={reset}
+          />
         </section>
 
-        }
-
+        {filteredCars.length === 0 && (
+          <section className="h-screen w-full mt-10 text-3xl ">
+            <h1 className="underline text-center text-red-900 translate-y-40">
+              Aucune Voiture Selectioneé
+            </h1>
+          </section>
+        )}
 
         {filteredCars?.map((car) => {
           return (

@@ -3,7 +3,13 @@ import axios from "axios";
 import EditCarPostLG from "./EditCarPostLG";
 import EditCarPostSM from "./EditCarPostSM";
 
-const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh, cars}) => {
+const EditCarPost = ({
+  selectedId,
+  handleCloseSecondSection,
+  refresh,
+  setRefresh,
+  cars,
+}) => {
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
   const [price, setPrice] = useState("");
@@ -26,7 +32,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
 
   let filteredCar = cars.filter((car) => car._id === selectedId);
 
-// Edit Specific Car
+  // Edit Specific Car
   const handleCarEdit = (e, id) => {
     e.preventDefault();
     const data = new FormData();
@@ -62,7 +68,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
     }, 4000);
   };
 
-// Delete Specific Car
+  // Delete Specific Car
   const handleDelete = (e) => {
     e.preventDefault();
     axios
@@ -74,7 +80,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
       .catch((err) => console.log(err));
   };
 
-//Delete Single Image 
+  //Delete Single Image
   const handleImageDelete = (e, image) => {
     e.preventDefault();
 
@@ -95,9 +101,9 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
       })
       .catch((err) => console.log(err));
 
-      return setInterval(() => {
-        return setValidateSending("");
-      }, 4000);
+    return setInterval(() => {
+      return setValidateSending("");
+    }, 4000);
   };
 
   const handleAllImageDelete = (e) => {
@@ -109,21 +115,18 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
         setValidateSending(response.data);
       })
       .catch((err) => console.log(err));
-
-      return setInterval(() => {
-        return setValidateSending("");
-      }, 4000);
+    return setInterval(() => {
+      return setValidateSending("");
+    }, 4000);
   };
 
   // Slider
-
   const nextImage = (e) => {
     e.preventDefault();
     const endArray = filteredCar[0].image.length;
     const next = imageIndex + 1 >= endArray ? 0 : imageIndex + 1;
     setImageIndex(next);
   };
-
   const previousImage = (e) => {
     e.preventDefault();
     const endArray = filteredCar[0].image.length;
@@ -133,7 +136,7 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
   };
 
   return (
-    <div className="p-10 flex flex-col w-full h-full">
+    <div className="p-4 md:p-10 flex flex-col w-full h-full">
       <header className="w-full">
         <h1 className="text-3xl text-center mb-5 text-gold">
           Editer la Fiche Voiture
@@ -174,21 +177,61 @@ const EditCarPost = ({selectedId, handleCloseSecondSection, refresh, setRefresh,
       </section>
 
       <section className="hidden md:block">
-        
+        <EditCarPostLG
+          handleCarEdit={handleCarEdit}
+          selectedId={selectedId}
+          filteredCar={filteredCar}
+          setPrice={setPrice}
+          setMake={setMake}
+          setFuel={setFuel}
+          setColor={setColor}
+          setBody={setBody}
+          setDoors={setDoors}
+          setEngine={setEngine}
+          setMileage={setMileage}
+          setYear={setYear}
+          setTransmission={setTransmission}
+          setBestDeal={setBestDeal}
+          setSeats={setSeats}
+          handleAllImageDelete={handleAllImageDelete}
+          imageIndex={imageIndex}
+          handleImageDelete={handleImageDelete}
+          previousImage={previousImage}
+          nextImage={nextImage}
+          setImage={setImage}
+          setDescription={setDescription}
+          setModel={setModel}
+          validateSending={validateSending}
+        />
+      </section>
 
-    <EditCarPostLG handleCarEdit={handleCarEdit} selectedId={selectedId} filteredCar={filteredCar} setPrice={setPrice} setMake={setMake} setFuel={setFuel} setColor={setColor} setBody={setBody} setDoors={setDoors}
-    setEngine={setEngine} setMileage={setMileage} setYear={setYear} setTransmission={setTransmission} setBestDeal={setBestDeal} setSeats={setSeats} handleAllImageDelete={handleAllImageDelete} imageIndex={imageIndex}
-    handleImageDelete={handleImageDelete} previousImage={previousImage} nextImage={nextImage} setImage={setImage} setDescription={setDescription} setModel={setModel} validateSending={validateSending}/>
-
-    </section>
-    
-<section className="md:hidden">
-
-    <EditCarPostSM handleCarEdit={handleCarEdit} selectedId={selectedId} filteredCar={filteredCar} setPrice={setPrice} setMake={setMake} setFuel={setFuel} setColor={setColor} setBody={setBody} setDoors={setDoors}
-    setEngine={setEngine} setMileage={setMileage} setYear={setYear} setTransmission={setTransmission} setBestDeal={setBestDeal} setSeats={setSeats} handleAllImageDelete={handleAllImageDelete} imageIndex={imageIndex}
-    handleImageDelete={handleImageDelete} previousImage={previousImage} nextImage={nextImage} setImage={setImage} setDescription={setDescription} setModel={setModel}  />
-    </section>
-      
+      <section className="md:hidden">
+        <EditCarPostSM
+          handleCarEdit={handleCarEdit}
+          selectedId={selectedId}
+          filteredCar={filteredCar}
+          setPrice={setPrice}
+          setMake={setMake}
+          setFuel={setFuel}
+          setColor={setColor}
+          setBody={setBody}
+          setDoors={setDoors}
+          setEngine={setEngine}
+          setMileage={setMileage}
+          setYear={setYear}
+          setTransmission={setTransmission}
+          setBestDeal={setBestDeal}
+          setSeats={setSeats}
+          handleAllImageDelete={handleAllImageDelete}
+          imageIndex={imageIndex}
+          handleImageDelete={handleImageDelete}
+          previousImage={previousImage}
+          nextImage={nextImage}
+          setImage={setImage}
+          setDescription={setDescription}
+          setModel={setModel}
+        />
+      </section>
     </div>
   );
 };

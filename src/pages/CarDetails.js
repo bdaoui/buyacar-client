@@ -6,8 +6,6 @@ const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState({});
   const [imageIndex, setImageIndex] = useState(0);
-  //const [refresh, setRefresh] = useState(false)
-  console.log(car)
 
   useEffect(() => {
     axios
@@ -32,7 +30,7 @@ const CarDetails = () => {
     setImageIndex(prev);
   };
 
-  console.log(car)
+  console.log(car);
   return (
     <div className="text-white h-full w-full">
       <header className="flex justify-center my-20 font-bold text-gold text-2xl md:text-4xl">
@@ -69,8 +67,8 @@ const CarDetails = () => {
               </svg>
             </button>
             <p className="text-white text-lg">
-                  {imageIndex + 1} / {car?.image?.length}
-                </p>
+              {imageIndex + 1} / {car?.image?.length}
+            </p>
 
             <button onClick={(e) => nextImage()} className="pl-2">
               <svg

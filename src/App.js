@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Route, Routes} from 'react-router-dom'
 import CarDetails from './pages/CarDetails'
 import Landing from './pages/Landing'
@@ -6,14 +6,13 @@ import Info from './pages/Info'
 import Login from './pages/Login'
 import Cars from './pages/Cars'
 import Dashboard from './pages/Dashboard'
-import OutletComponent from './components/OutletComponent'
+import OutletComponent from './components/outlet/OutletComponent'
 
 const App = () => {
 
 
   return (
     <div className='App h-100vh bg-black/90'>
- 
   
        <Routes>
           <Route element={<OutletComponent />}>
