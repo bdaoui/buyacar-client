@@ -138,7 +138,7 @@ const Cars = () => {
 
       <div
         id="carGallery"
-        className="flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-10"
+        className="flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-1 md:p-10"
       >
         <header className="w-full">
           <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 mb-5 text-gold">

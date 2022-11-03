@@ -12,8 +12,8 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
 
   return (
     <div>
-    <div className="flex justify-center text-white font-medium text-lg md:text-2xl">
-            <label htmlFor="price" className="mr-16">
+    <div className="flex flex-col md:flex-row justify-center text-white font-medium text-base md:text-2xl">
+            <label htmlFor="price" className="md:mr-16">
               Prix
               <input
                 type="range"
