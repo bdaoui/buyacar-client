@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import NewCarPost from "../components/NewCarPost";
-import EditCarPost from "../components/EditCarPost";
-import DashboardSidebar from "../components/DashboardSidebar";
-import EditTestimonial from "../components/EditTestimonial";
-import NewTestimonialPost from "../components/NewTestimonialPost";
-import EditContact from "../components/EditContact";
+import NewCarPost from "../components/dashboard/main/NewCarPost";
+import NewTestimonialPost from "../components/dashboard/main/NewTestimonialPost";
+import EditCarPost from "../components/dashboard/main/EditCarPost";
+import EditTestimonial from "../components/dashboard/main/EditTestimonial";
+import EditContact from "../components/dashboard/main/EditContact";
+import DashboardSidebar from "../components/dashboard/sidebar/DashboardSidebar";
 
 const Dashboard = () => {
   const server = "http://localhost:5005";
@@ -14,15 +14,9 @@ const Dashboard = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [contact, setContact] = useState([]);
   const [refresh, setRefresh] = useState(false);
-
   const [selected, setSelected] = useState("");
-
   const [selectedId, setSelectedId] = useState("");
-  const [selectedItem, setSelectedItem] = useState("");
-
   const [visible, setVisible] = useState("flex");
-  
-  
   const [contentAside, setContentAside] = useState("Cars");
 
   // Retreive Data
@@ -49,18 +43,22 @@ const Dashboard = () => {
 
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
-
   const handleShowAside = async (e, choice, id) => {
     // Reset Default Value
     await setSelected("");
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
-    choice === "New Testimonial" ? setSelected("New Testimonial") : setVisible("hidden");
+    choice === "New Testimonial"
+      ? setSelected("New Testimonial")
+      : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
-    choice === "Edit Testimonial" ? setSelected("Edit Testimonial") : setVisible("hidden");
-    choice === "Edit Contact" ? setSelected("Edit Contact") : setVisible("hidden");
+    choice === "Edit Testimonial"
+      ? setSelected("Edit Testimonial")
+      : setVisible("hidden");
+    choice === "Edit Contact"
+      ? setSelected("Edit Contact")
+      : setVisible("hidden");
 
-    
     setSelectedId(id);
     setVisible("hidden");
   };
@@ -70,7 +68,6 @@ const Dashboard = () => {
     setVisible("flex");
   };
 
-
   return (
     <div className="h-full">
       <h1 className="text-center p-5 text-base md:text-lg lg:text-xl  text-gold font-bold">
@@ -78,31 +75,45 @@ const Dashboard = () => {
       </h1>
 
       <section className="flex gap-5 justify-center md:justify-start m-2">
-        <h2 className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Cars")}>Voitures</h2>
-        <h2 className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Testimonial")}>Temoniages</h2>
-        <h2 className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg" onClick={e => setContentAside("Messages")}>Contactez</h2>
-
+        <h2
+          className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Cars")}
+        >
+          Voitures
+        </h2>
+        <h2
+          className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Testimonial")}
+        >
+          Temoniages
+        </h2>
+        <h2
+          className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Messages")}
+        >
+          Contactez
+        </h2>
       </section>
 
       <div className="flex">
         <aside
-          className={`w-5/6 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 px-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
+          className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 md:px-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
         >
-          <DashboardSidebar 
-          handleShowAside={handleShowAside} 
-          cars={cars}
-          testimonials={testimonials}
-          contact={contact}
-          contentAside ={contentAside}
-
-          /> 
+          <DashboardSidebar
+            handleShowAside={handleShowAside}
+            cars={cars}
+            testimonials={testimonials}
+            contact={contact}
+            contentAside={contentAside}
+          />
         </aside>
 
         <section
           className={`border-black border-t-2 m-auto md:m-0 text-black ${
             visible === "hidden" ? "flex" : "hidden"
-          } w-5/6 md:w-4/6 md:flex justify-center `}
+          } md:w-4/6 md:flex justify-center `}
         >
+          
           {selected === "New Post" && (
             <NewCarPost
               handleCloseSecondSection={handleCloseSecondSection}
@@ -132,13 +143,12 @@ const Dashboard = () => {
           )}
 
           {selected === "Edit Testimonial" && (
-            <EditTestimonial 
+            <EditTestimonial
               handleCloseSecondSection={handleCloseSecondSection}
               refresh={refresh}
               setRefresh={setRefresh}
               selectedId={selectedId}
               testimonials={testimonials}
-              
             />
           )}
 

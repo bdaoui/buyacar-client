@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import {AuthContext} from "../context/auth.context"
+import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -17,7 +17,7 @@ const Login = () => {
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
-        authenticateUser()
+        authenticateUser();
       })
       .then((response) => {
         console.log("Logged in");

@@ -18,7 +18,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
-  const [year, setYear] = useState("")
+  const [year, setYear] = useState("");
 
   // Handle New Car  Post
 
@@ -51,21 +51,21 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
       .post(`${server}/api/cars`, data)
       .then((response) => {
         setRefresh(!refresh);
-        setMake("")
-        setModel("")
-        setPrice("")
-        setMileage("")
-        setColor("")
-        setFuel("")
-        setSeats("")
-        setDoors("")
-        setBody("")
-        setBestDeal("no")
-        setTransmission("automatic")
-        setDescription("")
-        setEngine("")
-        setImage("")
-        setYear("")
+        setMake("");
+        setModel("");
+        setPrice("");
+        setMileage("");
+        setColor("");
+        setFuel("");
+        setSeats("");
+        setDoors("");
+        setBody("");
+        setBestDeal("no");
+        setTransmission("automatic");
+        setDescription("");
+        setEngine("");
+        setImage("");
+        setYear("");
         console.log(response);
       })
       .catch((err) => console.log(err));
@@ -103,7 +103,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
 
         <section className="flex flex-wrap justify-center w-full">
           <div className="w-full md:w-2/4 flex flex-col px-5 mb-5">
-            <label htmlFor="Name" className="text-white">
+            <label htmlFor="Name" className="text-gold">
               Prix
             </label>
             <input
@@ -113,7 +113,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setPrice(e.target.value)}
             />
 
-            <label htmlFor="make" className="text-white">
+            <label htmlFor="make" className="text-gold">
               Marque
             </label>
             <input
@@ -123,7 +123,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setMake(e.target.value)}
             />
 
-            <label htmlFor="model" className="text-white">
+            <label htmlFor="model" className="text-gold">
               Modèle
             </label>
             <input
@@ -133,7 +133,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setModel(e.target.value)}
             />
 
-            <label htmlFor="fuel" className="text-white">
+            <label htmlFor="fuel" className="text-gold">
               Carburant
             </label>
             <input
@@ -143,7 +143,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setFuel(e.target.value)}
             />
 
-            <label htmlFor="color" className="text-white">
+            <label htmlFor="color" className="text-gold">
               Couleur
             </label>
             <input
@@ -153,7 +153,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setColor(e.target.value)}
             />
 
-            <label htmlFor="body" className="text-white">
+            <label htmlFor="body" className="text-gold">
               Type de Véhicule
             </label>
             <input
@@ -163,22 +163,21 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setBody(e.target.value)}
             />
 
-             <select
-                className="flex border-2 border-gold my-4 "
-                value={doors}
-                onChange={(e) => setDoors(e.target.value)}
-              >
-                <option defaultValue> Nombre de Portes</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-
+            <select
+              className="flex border-2 border-gold my-4 "
+              value={doors}
+              onChange={(e) => setDoors(e.target.value)}
+            >
+              <option defaultValue> Nombre de Portes</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
           </div>
 
           <div className="w-full md:w-2/4 flex flex-col px-5 mb-5">
-            <label htmlFor="engine" className="text-white">
+            <label htmlFor="engine" className="text-gold">
               Moteur
             </label>
             <input
@@ -188,7 +187,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setEngine(e.target.value)}
             />
 
-            <label htmlFor="mileage" className="text-white">
+            <label htmlFor="mileage" className="text-gold">
               Kilométrage
             </label>
             <input
@@ -198,7 +197,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               onChange={(e) => setMileage(e.target.value)}
             />
 
-            <label htmlFor="year" className="text-white">
+            <label htmlFor="year" className="text-gold">
               Anneé
             </label>
             <input
@@ -209,10 +208,10 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
             />
 
             <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
-              <legend className="text-white">
+              <legend className="text-gold">
                 Choisir Type Boîte de vitesse
               </legend>
-              <label htmlFor="transmission" className="text-white">
+              <label htmlFor="transmission" className="text-gold">
                 Automatique
               </label>
               <input
@@ -220,10 +219,10 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
                 value="automatic"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission('automatic')}
+                onChange={(e) => setTransmission("automatic")}
               />
 
-              <label htmlFor="transmission" className="text-white">
+              <label htmlFor="transmission" className="text-gold">
                 Manuel
               </label>
               <input
@@ -231,13 +230,24 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
                 value="manual"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission('manual')}
+                onChange={(e) => setTransmission("manual")}
+              />
+
+              <label htmlFor="transmission" className="text-gold">
+                Séquentielle
+              </label>
+              <input
+                type="radio"
+                value="sequential"
+                className="border-2 border-gold "
+                name="transmission"
+                onChange={(e) => setTransmission("sequential")}
               />
             </fieldset>
 
             <fieldset className="flex border-2 border-gold gap-2 p-3">
-              <legend className="text-white">Bon Plan? </legend>
-              <label htmlFor="bestDeal" className="text-white">
+              <legend className="text-gold">Bon Plan? </legend>
+              <label htmlFor="bestDeal" className="text-gold">
                 No
               </label>
               <input
@@ -248,7 +258,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
                 onChange={(e) => setBestDeal("no")}
               />
 
-              <label htmlFor="bestDeal" className="text-white">
+              <label htmlFor="bestDeal" className="text-gold">
                 Oui
               </label>
               <input
@@ -261,23 +271,21 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
             </fieldset>
 
             <select
-                className="flex border-2 border-gold my-4"
-                value={seats}
-                onChange={(e) => setSeats(e.target.value)}
-              >
-                <option defaultValue> Nombre de Place(s)</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-              </select>
-          </div> 
-
-        
+              className="flex border-2 border-gold my-4"
+              value={seats}
+              onChange={(e) => setSeats(e.target.value)}
+            >
+              <option defaultValue> Nombre de Place(s)</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
 
           <div className="flex justify-center items-center w-full md:w-2/4 mb-5">
             <label
@@ -321,7 +329,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
         </section>
 
         <section className=" flex flex-col w-full px-5 md:w-2/4">
-          <label htmlFor="description" className="text-white">
+          <label htmlFor="description" className="text-gold">
             Description
           </label>
           <textarea
@@ -333,7 +341,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
 
           <button
             type="submit"
-            className="bg-gold hover:bg-gold/70  rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
+            className="bg-gold hover:bg-gold/70  rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-gold py-2"
           >
             {" "}
             Envoyer
