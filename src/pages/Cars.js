@@ -14,67 +14,104 @@ const Cars = () => {
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [selectedMileage, setSelectedMileage] = useState(0);
 
-  const [make, setMake] = useState("");
-  const [price, setPrice] = useState("");
-  const [model, setModel] = useState("");
-  const [bestDeal, setBestDeal] = useState("");
-  const [mileage, setMileage] = useState("");
-  const [image, setImage] = useState("");
-  const [gearBox, setGearBox] = useState("");
-  const [description, setDescription] = useState("");
 
+  const [selectedTransmission, setSelectedTransmission] = useState("");
+  const [selectedFuel, setSelectedFuel] = useState("")
+
+  
+  
   const [refresh, setRefresh] = useState(false);
-
+  
   useEffect(() => {
     axios
-      .get(`${server}/api/cars`)
-      .then((response) => setCars(response.data))
-      .catch((err) => console.log(err));
+    .get(`${server}/api/cars`)
+    .then((response) => {
+    setFilteredCars(response.data)
+    setCars(response.data)} )
+    .catch((err) => console.log(err));
+    
   }, [refresh]);
-
+  
+  
+  
   useEffect(() => {
     let searchQuery = {};
+    
+    if(selectedMileage){
+      searchQuery.mileage = selectedMileage
+    }
+    
+    if(selectedPrice){
+      searchQuery.price = Number(selectedPrice) 
 
-    if (selectedMileage) {
-      searchQuery.mileage = selectedMileage;
+    }
+    
+    const spreadCar = [...cars]
+
+    // Filter by Mileage && PRice
+    
+    let filtered = spreadCar.filter(car =>{
+      
+      if(searchQuery.price < car.price ) return false
+      if(searchQuery.mileage < car.mileage) return false
+
+      return car 
+
+
+    })
+
+    
+    // Filter by Fuel Type
+    
+    let secondFiltered = filtered.filter(car => {
+      
+      if(car.fuel !== selectedFuel) return false
+      
+      return car
+      
+    })
+    
+    
+    // Filter By Transmission Type
+    
+    let thirdFiltered = secondFiltered.filter(car =>{
+      
+      if(car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
+      
+      return car
+    } )
+
+    
+    
+    
+    if(thirdFiltered ){
+      setFilteredCars(thirdFiltered)
+    } 
+    else if(secondFiltered){
+      setFilteredCars(secondFiltered)
+
+    }
+    else {
+      setFilteredCars(filtered)
+
     }
 
-    if (selectedPrice) {
-      searchQuery.price = Number(selectedPrice);
-    }
+    
+    console.log('1 ', filtered)
+    console.log('2 ', secondFiltered)
+    console.log('3 ', thirdFiltered)
 
-    const spreadCar = [...cars];
+  },[selectedPrice, selectedMileage, selectedFuel, selectedTransmission])
 
-    let filtered = spreadCar.filter((car) => {
-      if (searchQuery.price < car.price) return false;
 
-      if (searchQuery.mileage < car.mileage) return false;
 
-      return car;
-    });
 
-    setFilteredCars(filtered);
-  }, [selectedPrice, selectedMileage, cars]);
+  
+  const reset = () =>{
 
-  const handleCarRequest = (e) => {
-    e.preventDefault();
+    setFilteredCars(cars)
+  }
 
-    console.log("I am trying to get it sent with ", price, image, description);
-    const data = new FormData();
-    data.append("price", price);
-    data.append("image", e.target.image.files);
-    data.append("make", make);
-    data.append("model", model);
-    data.append("bestDeal", bestDeal);
-    data.append("gearBox", gearBox);
-    data.append("description", description);
-
-    axios.post(`${server}/api/cars`, data).then((response) => setRefresh(true));
-  };
-
-  const reset = () => {
-    setFilteredCars(cars);
-  };
 
   const [isVisible, setIsVisible] = useState(true);
 
@@ -127,23 +164,31 @@ const Cars = () => {
           </h1>
         </header>
 
-        <section className="flex">
-          <Filter
-            setSelectedMileage={setSelectedMileage}
-            selectedMileage={selectedMileage}
-            setSelectedPrice={setSelectedPrice}
-            selectedPrice={selectedPrice}
-            reset={reset}
-          />
+      <section className="flex">
+
+        <Filter 
+        setSelectedMileage={setSelectedMileage} 
+        selectedMileage={selectedMileage} 
+        setSelectedPrice={setSelectedPrice} 
+        selectedPrice={selectedPrice}
+        selectedFuel={selectedFuel}
+        setSelectedFuel={setSelectedFuel}
+        selectedTransmission={selectedTransmission}
+        setSelectedTransmission={setSelectedTransmission}
+        reset={reset}
+
+        />
+      </section>
+
+        { filteredCars.length === 0  && 
+
+        <section className="h-screen w-full mt-10 text-3xl ">
+          <h1 className="underline text-center text-red-900 translate-y-40">Aucune Voiture Selectioneé</h1>
+
         </section>
 
-        {filteredCars.length === 0 && (
-          <section className="h-screen w-full mt-10 text-3xl ">
-            <h1 className="underline text-center text-red-900 translate-y-40">
-              Aucune Voiture Selectioneé
-            </h1>
-          </section>
-        )}
+        }
+
 
         {filteredCars?.map((car) => {
           return (
