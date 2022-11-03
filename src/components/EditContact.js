@@ -1,17 +1,38 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 
 const EditContact = ({contact, selectedId, handleCloseSecondSection, refresh, setRefresh}) => {
-    const [enabled, setEnabled] = useState(false)
+    const server = "http://localhost:5005";
     const chosenMessage = contact.filter(message => message._id === selectedId)
+    const [enabled, setEnabled] = useState(chosenMessage[0].status)
+console.log(chosenMessage[0])
+   
+    console.log('en', enabled)
 
-
-    const handleEdit = (e) => {
+    const handleEdit = async (e) => {
         e.preventDefault()
         setEnabled(!enabled)
-    }
+        console.log('inside', enabled)
+
+        await axios
+        .put(`${server}/api/contact/${chosenMessage[0]._id}`)
+        .then((response) => {
+          console.log(response)
+          setRefresh(!refresh)
+        })
+        .catch((err) => console.log(err))
+        
+    };
+  
 
      const handleDelete = (e) => {
         e.preventDefault()
+        axios
+        .delete(`${server}/api/contact/${chosenMessage[0]._id}`)
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((err) => console.log(err));
     }
 
   return (
@@ -32,7 +53,7 @@ const EditContact = ({contact, selectedId, handleCloseSecondSection, refresh, se
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
-          <label class="inline-flex relative items-center mr-5 cursor-pointer">
+          <label className="inline-flex relative items-center mr-5 cursor-pointer">
          
                     <input
                         type="checkbox"
@@ -80,7 +101,7 @@ const EditContact = ({contact, selectedId, handleCloseSecondSection, refresh, se
            
         </section>
 
-        <main className='flex flex-col mx-auto p-4'>
+        <main className='flex flex-col flex-wrap mx-auto p-4'>
             <p className='py-4'>Subject: <span className='text-white'>{chosenMessage[0].subject}</span></p>
             <p className='text-white'>{chosenMessage[0].message}</p>
         </main>
