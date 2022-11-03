@@ -97,7 +97,7 @@ const Dashboard = () => {
 
       <div className="flex">
         <aside
-          className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 md:px-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
+          className={`w-full px-1 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 h-full border-black border-t-2 md:pr-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
         >
           <DashboardSidebar
             handleShowAside={handleShowAside}
