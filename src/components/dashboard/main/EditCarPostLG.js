@@ -147,7 +147,7 @@ const EditCarPostLG = ({
             onChange={(e) => setYear(e.target.value)}
           />
 
-          <fieldset className="flex border-2 border-gold gap-2 p-3 my-2">
+          <fieldset className="flex md:flex-col border-2 border-gold gap-2 p-3 my-2">
             <legend className="text-white">
               Choisir Type Boîte de vitesse
             </legend>
@@ -157,26 +157,26 @@ const EditCarPostLG = ({
               className="text-white"
             >
               Automatique
-            </label>
             <input
               type="radio"
               defaultChecked={filteredCar[0]?.transmission === "automatic"}
-              className="border-2 border-gold "
+              className="border-2 border-gold ml-2 "
               name="transmission"
               defaultValue
               onChange={(e) => setTransmission("automatic")}
-            />
+              />
+              </label>
 
             <label htmlFor="description" value="manual" className="text-white">
               Manuel
-            </label>
             <input
               type="radio"
               defaultChecked={filteredCar[0]?.transmission === "manual"}
-              className="border-2 border-gold "
+              className="border-2 border-gold ml-2 "
               name="transmission"
               onChange={(e) => setTransmission("manual")}
-            />
+              />
+              </label>
 
             <label
               htmlFor="description"
@@ -184,14 +184,14 @@ const EditCarPostLG = ({
               className="text-white"
             >
               Séquentielle
-            </label>
             <input
               type="radio"
               defaultChecked={filteredCar[0]?.transmission === "sequential"}
-              className="border-2 border-gold "
+              className="border-2 border-gold ml-2 "
               name="transmission"
               onChange={(e) => setTransmission("sequential")}
-            />
+              />
+              </label>
           </fieldset>
 
           <fieldset className="flex border-2 border-gold gap-2 p-3">
@@ -235,6 +235,18 @@ const EditCarPostLG = ({
             <option value="8">8</option>
           </select>
         </div>
+      <section className=" flex flex-col w-full px-5 ">
+        <label htmlFor="description" className="text-white">
+          Description
+        </label>
+        <textarea
+          defaultValue={filteredCar[0]?.description}
+          type="text"
+          className=" border-2 border-gold md:mb-5 h-20"
+          name="description"
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </section>
 
         <div className="w-full flex flex-col md:flex-row justify-center flex-wrap">
           <section className="flex justify-center mb-3 text-center w-full">
@@ -334,7 +346,7 @@ const EditCarPostLG = ({
           </div>
         </div>
 
-        <div className="flex justify-center items-center w-full md:w-2/4 mb-5">
+        <div className="flex justify-center items-center w-full md:w-3/4 mb-5">
           <label
             htmlFor="dropzone-file"
             className="flex flex-col justify-center items-center w-3/4 h-32 bg-gray-300 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer p-8"
@@ -342,7 +354,7 @@ const EditCarPostLG = ({
             <div className="flex flex-col justify-center items-center pt-5 pb-6">
               <svg
                 aria-hidden="true"
-                className="mb-3 w-4 h-4 md:w-10 md:h-10 text-gray-400"
+                className="mb-3 w-4 h-4 md:w-6 md:h-6 lg:w-10 lg:h-10 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -355,7 +367,7 @@ const EditCarPostLG = ({
                   d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                 ></path>
               </svg>
-              <p className="mb-2 text-xs md:text-sm text-gray-500">
+              <p className="mb-2 text-xs  text-gray-500">
                 <span className="font-semibold">
                   Click Pour Adjouter Image(s)
                 </span>{" "}
@@ -375,17 +387,6 @@ const EditCarPostLG = ({
         </div>
       </section>
 
-      <section className=" flex flex-col w-full px-5 md:w-2/4">
-        <label htmlFor="description" className="text-white">
-          Description
-        </label>
-        <textarea
-          defaultValue={filteredCar[0]?.description}
-          type="text"
-          className=" border-2 border-gold md:mb-5 h-20"
-          name="description"
-          onChange={(e) => setDescription(e.target.value)}
-        />
 
         <button
           type="submit"
@@ -393,7 +394,6 @@ const EditCarPostLG = ({
         >
           {validateSending || "Envoyer"}
         </button>
-      </section>
     </form>
   );
 };
