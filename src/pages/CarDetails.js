@@ -14,7 +14,6 @@ const CarDetails = () => {
     axios
       .get(`http://localhost:5005/car/${id}`)
       .then((res) => {
-        console.log(res);
         setCar(res.data);
       })
       .catch((err) => console.log(err));
@@ -29,11 +28,9 @@ const CarDetails = () => {
   const previousImage = () => {
     const endArray = car.image.length;
     const prev = imageIndex <= 0 ? endArray - 1 : imageIndex - 1;
-    console.log(prev, endArray, imageIndex);
     setImageIndex(prev);
   };
 
-  console.log(car);
   return (
     <div className="text-white w-full">
       <header className="flex w-full justify-center my-10 font-bold text-gold text-2xl md:text-4xl ">

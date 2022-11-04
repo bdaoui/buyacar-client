@@ -14,10 +14,16 @@ const ContactSingleCar = ({car}) => {
   const [validateSending, setValidateSending] = useState("");
   
   let messageCar = `${car.make} ${car.model}`
+
+  useEffect(() => {
+    setContactSubject(messageCar)
+  }, [])
+  
+
+  console.log(contactSubject)
+
   const handleContact = (e) => {
       e.preventDefault();
-      
-      setContactSubject(messageCar)
       
       const fileContact = {
           contactName,
