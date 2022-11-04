@@ -22,7 +22,7 @@ const Dashboard = () => {
   // Retreive Data
   useEffect(() => {
     axios
-      .get(`${server}/cars`)
+      .get(`${server}/car`)
       .then((response) => setCars(response.data))
       .catch((err) => console.log(err));
   }, [refresh]);
