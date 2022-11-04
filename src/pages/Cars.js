@@ -33,30 +33,66 @@ const Cars = () => {
   }, [refresh]);
   
   
-      const handlePrice =  () => {       
-        const filteredByPrice =  [...cars].filter(car => {
-         console.log("car price " ,car.price)
-         console.log("selected price " , selectedPrice)
-         return  selectedPrice > car.price 
+      const handlePrice =  (data) => {        
+       if(selectedPrice <= 0) return data  
+        console.log(data)
+        return data.filter(car => {
+         return  Number(selectedPrice) > car.price 
+        } )
+      
+      }
+  
+      const handleMileage =  (data) => {       
+
+        if(selectedMileage <= 0) return data
+
+        return data.filter(car => {
+         return  Number(selectedMileage) > car.mileage 
         } )
 
-        console.log(filteredByPrice)
-
-        return filteredByPrice
-      
       }
   
   
 
 
   const handleFilter = async (e) => {
-    const filteredByPrice = handlePrice()
-    const filteredbyMileage = []
-    const filteredbyFuel = []
-    const filteredbyTransmission = []
+
+    let filtering = new Promise((resolve, reject) => {
+      setFilteredCars(cars)
+      resolve(cars)
+    
+    })
+    .then(response => handlePrice( response))
+    .then(response => handleMileage(response) )
+    .then(response => setFilteredCars(response))
+    .catch(err => console.log(err))
 
 
-    setFilteredCars(filteredByPrice)
+
+    
+
+
+
+    // let firstArray = filteredByPrice.concat(filteredbyMileage)
+    // let firstResult = []
+
+    // const unique = firstArray.filter(element => {
+    //   const isDuplicate = firstResult.includes(element._id);
+
+    //   if (!isDuplicate) {
+    //     firstResult.push(element._id);
+
+    //   return true;
+    //   }
+
+    //   return false;
+    // });
+ 
+
+    // console.log(unique)
+    
+
+    // setFilteredCars(unique)
 
 
 
@@ -180,29 +216,32 @@ const Cars = () => {
   }
 
 
-  const [isVisible, setIsVisible] = useState(true);
+  // const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", listenToScroll);
+  //   return () => window.removeEventListener("scroll", listenToScroll);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
-  const listenToScroll = () => {
-    let hideTill = 200;
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
+  // const listenToScroll = () => {
+  //   let hideTill = 200;
+  //   const winScroll =
+  //     document.body.scrollTop || document.documentElement.scrollTop;
 
-    if (winScroll > hideTill) {
-      isVisible && setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+  //   if (winScroll > hideTill) {
+  //     isVisible && setIsVisible(true);
+  //   } else {
+  //     setIsVisible(false);
+  //   }
+  // };
+
+
+
 
   return (
     <div>
-      {isVisible && (
+      {/* {isVisible && (
         <HashLink smooth to="/cars#top">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +258,7 @@ const Cars = () => {
             />
           </svg>
         </HashLink>
-      )}
+      )} */}
 
       <div
         id="carGallery"
@@ -249,7 +288,7 @@ const Cars = () => {
         />
       </section>
 
-        { filteredCars.length === 0  && 
+        { filteredCars?.length === 0  && 
 
         <section className="h-screen w-full mt-10 text-3xl ">
           <h1 className="underline text-center text-red-900 translate-y-40">Aucune Voiture Selectioneé</h1>

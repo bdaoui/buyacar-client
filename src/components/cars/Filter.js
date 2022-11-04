@@ -31,7 +31,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               </h2>
             </label>
 
-            <label htmlFor="milage">
+            <label htmlFor="mileage">
               Kilométrage
               <input
                 type="range"
@@ -40,7 +40,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
                 max="250000"
                 step="10000"
                 className="ml-5"
-                onChange={(e) => setSelectedMileage(e.target.value)}
+                onChange={(e) => setSelectedMileage( e.target.value)}
                 value={selectedMileage}
 
               />
