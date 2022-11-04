@@ -16,6 +16,7 @@ const Cars = () => {
   const [selectedMileage, setSelectedMileage] = useState(0);
   const [selectedTransmission, setSelectedTransmission] = useState("");
   const [selectedFuel, setSelectedFuel] = useState("")
+  const [selectedMake, setSelectedMake] = useState("")
 
   const [validateSending, setValidateSending] = useState("")
   
@@ -62,13 +63,19 @@ const Cars = () => {
           return selectedFuel.toLowerCase()  === car.fuel.toLowerCase() 
          })
       }
+     
+     
+      const handleMake = (data) => {
+        if(selectedMake.toLowerCase() === "choose" || !selectedMake) return data
+        return data.filter(car =>{
+          return selectedMake.toLowerCase()  === car.make.toLowerCase() 
+         })
+      }
       
-
-  
 
 
   const handleFilter =  (e) => {
-    
+
     let filtering = new Promise((resolve, reject) => {
       setFilteredCars(cars)
       resolve(cars)
@@ -78,136 +85,9 @@ const Cars = () => {
     .then(response => handleMileage(response) )
     .then(response => handleTransmission(response))
     .then(response => handleFuel(response))
+    .then(response => handleMake(response))
     .then(response => setFilteredCars(response))
     .catch(err => console.log(err))
-
-
-
-    
-
-
-
-    // let firstArray = filteredByPrice.concat(filteredbyMileage)
-    // let firstResult = []
-
-    // const unique = firstArray.filter(element => {
-    //   const isDuplicate = firstResult.includes(element._id);
-
-    //   if (!isDuplicate) {
-    //     firstResult.push(element._id);
-
-    //   return true;
-    //   }
-
-    //   return false;
-    // });
- 
-
-    // console.log(unique)
-    
-
-    // setFilteredCars(unique)
-
-
-
-
-
-
-
-
-    // e.preventDefault()
-
-    // let searchQuery = {};
-    
-    // if(selectedMileage){
-    //   searchQuery.mileage = selectedMileage
-    // }
-    
-    // if(selectedPrice){
-    //   searchQuery.price = Number(selectedPrice) 
-
-    // }
-    
-
-
-    // const spreadCar = [...cars]
-
-    // Filter by Mileage && PRice
-    // let filtered = spreadCar.filter(car =>{
-      
-      // if(car.fuel.toLowerCase()  !== "choose"  
-      // && car.fuel.toLowerCase() !== selectedFuel.toLowerCase()) return false  
-      
-      // if(car.transmission.toLowerCase() !== "choose"  
-      // && car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
-      
-      // if(searchQuery.price < car.price ) return false
-      // if(searchQuery.mileage < car.mileage) return false
-      
-
-
-    //  if(car.fuel.toLowerCase()  !== "choose" 
-    //  && car.fuel.toLowerCase() !== selectedFuel.toLowerCase() ){
-    //   return false
-    //  }
-
-    //  else if(car.transmission.toLowerCase() !== "choose"  
-    //  && car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()){
-    //   return false
-    //  }
-
-    //  else if(searchQuery.price < car.price){
-    //   return false
-    //  }
-
-    //  else if(searchQuery.mileage < car.mileage){
-    //   return false
-    //  }
-    //  else return car
-      
-
-    // })
-
-    // console.log(filtered)
-    // setFilteredCars(filtered)
-    
-    // // Filter by Fuel Type
-    
-    // let secondFiltered = filtered.filter(car => {
-    //   return car
-      
-    // })
-    
-    
-    // // Filter By Transmission Type
-    // let thirdFiltered = secondFiltered.filter(car =>{
-    //   return car
-    // } )
-
-    
-    
-    // if(thirdFiltered ){
-    //   setFilteredCars(thirdFiltered)
-    // } 
-    // else if(secondFiltered){
-    //   setFilteredCars(secondFiltered)
-
-    // }
-    // else {
-    //   setFilteredCars(filtered)
-
-    // }
-
-    
-    // console.log('1 ', filtered)
-    // console.log('2 ', secondFiltered)
-    // console.log('3 ', thirdFiltered)
-
-
-    // Validation of Sent Message
-
-    // await setValidateSending("Recherche en Cours");
-    // await setInterval( () => setValidateSending(""), 2000);
 
   }
 
@@ -230,32 +110,49 @@ const Cars = () => {
   }
 
 
-  // const [isVisible, setIsVisible] = useState(true);
+  // Take out List of Makes
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", listenToScroll);
-  //   return () => window.removeEventListener("scroll", listenToScroll);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  const uniqueMakes = ["Choose"]
 
-  // const listenToScroll = () => {
-  //   let hideTill = 200;
-  //   const winScroll =
-  //     document.body.scrollTop || document.documentElement.scrollTop;
+  cars.filter( car => {
+    const isDuplicate = uniqueMakes.includes(car.make);
 
-  //   if (winScroll > hideTill) {
-  //     isVisible && setIsVisible(true);
-  //   } else {
-  //     setIsVisible(false);
-  //   }
-  // };
+    if(!isDuplicate) {
+      uniqueMakes.push(car.make)
+
+    }
+
+   })
+  
+
+  // Arrow Pointer
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const listenToScroll = () => {
+    let hideTill = 200;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (winScroll > hideTill) {
+      isVisible && setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
 
 
 
 
   return (
     <div>
-      {/* {isVisible && (
+      {isVisible && (
         <HashLink smooth to="/cars#top">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -272,7 +169,7 @@ const Cars = () => {
             />
           </svg>
         </HashLink>
-      )} */}
+      )}
 
       <div
         id="carGallery"
@@ -299,6 +196,10 @@ const Cars = () => {
         handleFilter={handleFilter}
         validateSending={validateSending}
         handlePrice={handlePrice}
+
+        selectedMake={selectedMake}
+        setSelectedMake={setSelectedMake}
+        uniqueMakes={uniqueMakes}
         />
       </section>
 

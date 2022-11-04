@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel, handleFilter,  reset, validateSending, handlePrice}) => {
+const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel, handleFilter,  reset, validateSending, uniqueMakes, setSelectedMake, selectedMake}) => {
 
 
 
@@ -44,12 +44,12 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               </h2>
             </label>
 
-            <label htmlFor='transmisson'> Boite à Vitesse
+            <label htmlFor='transmission'> Boite à Vitesse
             <select  
               value={selectedTransmission}
               className='text-black'
               onChange={(e) => setSelectedTransmission(e.target.value)}
-
+              name="transmission"
             >
             <option value={"Choose"} >Choose</option>
             <option value={"Manuel"} >Manuel</option>
@@ -64,7 +64,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               value={selectedFuel}
               className='text-black'
               onChange={(e) => setSelectedFuel(e.target.value)}
-
+              name="fuel"
             >
             <option value={"Choose"} >Choose</option>
             <option value={"Essence"} >Essence</option>
@@ -72,6 +72,22 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
             <option value={"Hybride"} >Hybride</option>
             <option value={"Electrique"} >Electrique</option>
             <option value={"Autres"} >Autres</option>
+            </select>
+            </label>
+          
+            <label htmlFor='make'> Marque
+
+            <select  
+              value={selectedMake}
+              className='text-black'
+              onChange={(e) => setSelectedMake(e.target.value)}
+              name="make"
+            >
+            {uniqueMakes.map( make => 
+              <option key={make} value={make}>{make}</option>
+            )
+            }
+            
             </select>
             </label>
 
