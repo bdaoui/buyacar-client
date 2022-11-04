@@ -19,24 +19,24 @@ const Dashboard = () => {
   const [visible, setVisible] = useState("flex");
   const [contentAside, setContentAside] = useState("Cars");
 
-  // Retreive Data
+  // Retreive All Data
   useEffect(() => {
     axios
-      .get(`${server}/api/cars`)
+      .get(`${server}/car`)
       .then((response) => setCars(response.data))
       .catch((err) => console.log(err));
   }, [refresh]);
 
   useEffect(() => {
     axios
-      .get(`${server}/api/testimonial`)
+      .get(`${server}/testimonial`)
       .then((response) => setTestimonials(response.data))
       .catch((err) => console.log(err));
   }, [refresh]);
 
   useEffect(() => {
     axios
-      .get(`${server}/api/contact`)
+      .get(`${server}/contact`)
       .then((response) => setContact(response.data))
       .catch((err) => console.log(err));
   }, [refresh]);

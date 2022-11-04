@@ -17,7 +17,7 @@ const EditContact = ({
 
     await axios
       .put(
-        `${server}/api/contact/${chosenMessage[0]._id}`,
+        `${server}/contact/${chosenMessage[0]._id}`,
         enabled ? "unread" : "read"
       )
       .then((response) => {
@@ -30,7 +30,7 @@ const EditContact = ({
   const handleDelete = (e) => {
     e.preventDefault();
     axios
-      .delete(`${server}/api/contact/${chosenMessage[0]._id}`)
+      .delete(`${server}/contact/${chosenMessage[0]._id}`)
       .then((response) => {
         console.log(response);
         setRefresh(!refresh);

@@ -10,7 +10,7 @@ const NewTestimonialPost = ({ handleCloseSecondSection, refresh, setRefresh }) =
   const handleNewTestimonial = (e) => {
     e.preventDefault()
     axios
-      .post(`${server}/api/testimonial`, {body, author})
+      .post(`${server}/testimonial`, {body, author})
       .then((response) => {
         console.log(response)
         setRefresh(!refresh)

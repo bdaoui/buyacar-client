@@ -16,7 +16,7 @@ const EditTestimonial = ({
   const handleTestimonialEdit = (e, id) => {
     e.preventDefault();
     axios
-      .put(`${server}/api/testimonial/${id}`, { body, author })
+      .put(`${server}/testimonial/${id}`, { body, author })
       .then((response) => {
         setRefresh(!refresh);
         console.log(response);
@@ -28,7 +28,7 @@ const EditTestimonial = ({
   const handleDelete = (e) => {
     e.preventDefault();
     axios
-      .delete(`${server}/api/testimonial/${selectedId}`)
+      .delete(`${server}/testimonial/${selectedId}`)
       .then((res) => {
         setRefresh(!refresh);
         console.log(res);

@@ -14,7 +14,7 @@ const Landing = () => {
 
   useEffect(() => {
     axios
-      .get(`${server}/api/cars`)
+      .get(`${server}/car`)
       .then((response) => setCars(response.data))
       .catch((err) => console.log(err));
   }, []);

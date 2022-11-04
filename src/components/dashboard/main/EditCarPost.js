@@ -56,7 +56,7 @@ const EditCarPost = ({
     data.append("year", year);
 
     axios
-      .put(`${server}/api/${id}`, data)
+      .put(`${server}/car/${id}`, data)
       .then((response) => {
         setRefresh(!refresh);
         setImageIndex(imageIndex === 0 ? imageIndex + 1 : imageIndex);
@@ -72,7 +72,7 @@ const EditCarPost = ({
   const handleDelete = (e) => {
     e.preventDefault();
     axios
-      .delete(`${server}/api/${selectedId}`)
+      .delete(`${server}/car/${selectedId}`)
       .then((res) => {
         setRefresh(!refresh);
         console.log(res);
@@ -85,7 +85,7 @@ const EditCarPost = ({
     e.preventDefault();
 
     axios
-      .put(`${server}/api/${selectedId}/image`, image)
+      .put(`${server}/car/${selectedId}/image`, image)
       .then((response) => {
         setRefresh(!refresh);
         setValidateSending(response.data);
@@ -109,7 +109,7 @@ const EditCarPost = ({
   const handleAllImageDelete = (e) => {
     e.preventDefault();
     axios
-      .put(`${server}/api/${selectedId}/all`)
+      .put(`${server}/car/${selectedId}/all`)
       .then((response) => {
         setRefresh(!refresh);
         setValidateSending(response.data);
