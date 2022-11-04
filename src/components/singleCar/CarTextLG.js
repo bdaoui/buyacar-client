@@ -6,12 +6,13 @@ import {RiGasStationFill} from 'react-icons/ri'
 import {GiGearStickPattern, GiCarDoor, GiCarSeat} from 'react-icons/gi'
 import {TbEngine} from 'react-icons/tb'
 import {CgQuote} from 'react-icons/cg'
+import ContactSingleCar from './ContactSingleCar'
 
 
 const CarTextLG = ({car}) => {
   return (
     <>
-    <div className="w-full text-xs md:text-xl flex">
+    <div className="w-full text-base flex pb-20">
           
        
     <section className="flex flex-col w-1/2 gap-y-2 md:gap-y-5">
@@ -68,13 +69,15 @@ const CarTextLG = ({car}) => {
       
 
     </section>
-  </div>
-<section className="flex flex-col w-full py-5 pb-20">
- <CgQuote className="mt-3 text-5xl ml-5"/>
+<section className="flex flex-col w-full ">
+ <CgQuote className="text-5xl"/>
     <p className="text-xs md:text-base px-10">
       <span className="italic text-gold ">{car?.description}</span></p>
 
       </section>
+  </div>
+
+  <ContactSingleCar car={car} />
   </>
   )
 }
