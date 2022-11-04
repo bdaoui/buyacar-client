@@ -8,29 +8,27 @@ const ContactSingleCar = ({car}) => {
   const [contactLastName, setContactLastName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [contactSubject, setContactSubject] = useState("");
+  // const [contactSubject, setContactSubject] = useState("");
   const [contactMessage, setContactMessage] = useState("");
   
   const [validateSending, setValidateSending] = useState("");
   
   let messageCar = `${car.make} ${car.model}`
 
-  useEffect(() => {
-    setContactSubject(messageCar)
-  }, [])
+
   
 
-  console.log(contactSubject)
+  console.log(messageCar)
 
   const handleContact = (e) => {
       e.preventDefault();
       
       const fileContact = {
-          contactName,
+      contactName,
       contactLastName,
       contactEmail,
       contactPhone,
-      contactSubject,
+      messageCar,
       contactMessage,
     };
     
