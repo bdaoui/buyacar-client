@@ -24,7 +24,7 @@ const Cars = () => {
   
   useEffect(() => {
     axios
-    .get(`${server}/api/cars`)
+    .get(`${server}/cars`)
     .then((response) => {
     setFilteredCars(response.data)
     setCars(response.data)} )

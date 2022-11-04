@@ -22,21 +22,21 @@ const Dashboard = () => {
   // Retreive Data
   useEffect(() => {
     axios
-      .get(`${server}/api/cars`)
+      .get(`${server}/cars`)
       .then((response) => setCars(response.data))
       .catch((err) => console.log(err));
   }, [refresh]);
 
   useEffect(() => {
     axios
-      .get(`${server}/api/testimonial`)
+      .get(`${server}/testimonial`)
       .then((response) => setTestimonials(response.data))
       .catch((err) => console.log(err));
   }, [refresh]);
 
   useEffect(() => {
     axios
-      .get(`${server}/api/contact`)
+      .get(`${server}/contact`)
       .then((response) => setContact(response.data))
       .catch((err) => console.log(err));
   }, [refresh]);

@@ -9,7 +9,7 @@ const CarDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/api/car/${id}`)
+      .get(`http://localhost:5005/car/${id}`)
       .then((res) => {
         console.log(res);
         setCar(res.data);

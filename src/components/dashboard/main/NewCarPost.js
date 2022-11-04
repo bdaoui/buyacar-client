@@ -48,7 +48,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
     data.append("year", year);
 
     axios
-      .post(`${server}/api/cars`, data)
+      .post(`${server}/car`, data)
       .then((response) => {
         setRefresh(!refresh);
         setMake("");
