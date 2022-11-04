@@ -230,32 +230,32 @@ const Cars = () => {
   }
 
 
-  // const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", listenToScroll);
-  //   return () => window.removeEventListener("scroll", listenToScroll);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // const listenToScroll = () => {
-  //   let hideTill = 200;
-  //   const winScroll =
-  //     document.body.scrollTop || document.documentElement.scrollTop;
+  const listenToScroll = () => {
+    let hideTill = 200;
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
 
-  //   if (winScroll > hideTill) {
-  //     isVisible && setIsVisible(true);
-  //   } else {
-  //     setIsVisible(false);
-  //   }
-  // };
+    if (winScroll > hideTill) {
+      isVisible && setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
 
 
 
 
   return (
     <div>
-      {/* {isVisible && (
+      {isVisible && (
         <HashLink smooth to="/cars#top">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -272,7 +272,7 @@ const Cars = () => {
             />
           </svg>
         </HashLink>
-      )} */}
+      )}
 
       <div
         id="carGallery"
