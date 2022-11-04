@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel, handleFilter,  reset, validateSending}) => {
+const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel, handleFilter,  reset, validateSending, handlePrice}) => {
 
   // const handleSelection = (e, check) => {
   //   check === "mileage"
@@ -22,7 +22,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
                 max="100000"
                 step="500"
                 className="ml-5"
-                onChange={(e) => setSelectedPrice(e.target.value)}
+                onChange={ (e) =>  setSelectedPrice( e.target.value)}
                 value={selectedPrice}
                 
               />

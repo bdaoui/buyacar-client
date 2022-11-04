@@ -8,13 +8,12 @@ const Cars = () => {
   const server = "http://localhost:5005";
 
   const [cars, setCars] = useState([]);
+
   const [filteredCars, setFilteredCars] = useState([...cars]);
 
   // Filter
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [selectedMileage, setSelectedMileage] = useState(0);
-
-
   const [selectedTransmission, setSelectedTransmission] = useState("");
   const [selectedFuel, setSelectedFuel] = useState("")
 
@@ -34,36 +33,93 @@ const Cars = () => {
   }, [refresh]);
   
   
+      const handlePrice =  () => {       
+        const filteredByPrice =  [...cars].filter(car => {
+         console.log("car price " ,car.price)
+         console.log("selected price " , selectedPrice)
+         return  selectedPrice > car.price 
+        } )
+
+        console.log(filteredByPrice)
+
+        return filteredByPrice
+      
+      }
   
+  
+
+
   const handleFilter = async (e) => {
+    const filteredByPrice = handlePrice()
+    const filteredbyMileage = []
+    const filteredbyFuel = []
+    const filteredbyTransmission = []
+
+
+    setFilteredCars(filteredByPrice)
+
+
+
+
+
+
+
+
     // e.preventDefault()
 
-    let searchQuery = {};
+    // let searchQuery = {};
     
-    if(selectedMileage){
-      searchQuery.mileage = selectedMileage
-    }
+    // if(selectedMileage){
+    //   searchQuery.mileage = selectedMileage
+    // }
     
-    if(selectedPrice){
-      searchQuery.price = Number(selectedPrice) 
+    // if(selectedPrice){
+    //   searchQuery.price = Number(selectedPrice) 
 
-    }
+    // }
     
-    const spreadCar = [...cars]
+
+
+    // const spreadCar = [...cars]
 
     // Filter by Mileage && PRice
-    let filtered = spreadCar.filter(car =>{
-      if(searchQuery.price < car.price ) return false
-      if(searchQuery.mileage < car.mileage) return false
-      if(car.fuel.toLowerCase() !== selectedFuel.toLowerCase()) return false  
-      if(car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
-      return car 
+    // let filtered = spreadCar.filter(car =>{
+      
+      // if(car.fuel.toLowerCase()  !== "choose"  
+      // && car.fuel.toLowerCase() !== selectedFuel.toLowerCase()) return false  
+      
+      // if(car.transmission.toLowerCase() !== "choose"  
+      // && car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
+      
+      // if(searchQuery.price < car.price ) return false
+      // if(searchQuery.mileage < car.mileage) return false
+      
 
 
-    })
+    //  if(car.fuel.toLowerCase()  !== "choose" 
+    //  && car.fuel.toLowerCase() !== selectedFuel.toLowerCase() ){
+    //   return false
+    //  }
 
-    console.log(filtered)
-    setFilteredCars(filtered)
+    //  else if(car.transmission.toLowerCase() !== "choose"  
+    //  && car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()){
+    //   return false
+    //  }
+
+    //  else if(searchQuery.price < car.price){
+    //   return false
+    //  }
+
+    //  else if(searchQuery.mileage < car.mileage){
+    //   return false
+    //  }
+    //  else return car
+      
+
+    // })
+
+    // console.log(filtered)
+    // setFilteredCars(filtered)
     
     // // Filter by Fuel Type
     
@@ -100,8 +156,8 @@ const Cars = () => {
 
     // Validation of Sent Message
 
-    await setValidateSending("Recherche en Cours");
-    await setInterval( () => setValidateSending(""), 2000);
+    // await setValidateSending("Recherche en Cours");
+    // await setInterval( () => setValidateSending(""), 2000);
 
   }
 
@@ -189,6 +245,7 @@ const Cars = () => {
         reset={reset}
         handleFilter={handleFilter}
         validateSending={validateSending}
+        handlePrice={handlePrice}
         />
       </section>
 
