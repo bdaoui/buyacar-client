@@ -32,12 +32,12 @@ const CarDetails = () => {
 
   console.log(car);
   return (
-    <div className="text-white h-full w-full">
+    <div className="text-white  ">
       <header className="flex justify-center my-20 font-bold text-gold text-2xl md:text-4xl">
         {car?.make} {car?.model}
       </header>
 
-      <section className="flex flex-col lg:flex-row w-screen h-full">
+      <section className="flex flex-col lg:flex-row ">
         <div className="w-full lg:w-2/4">
           {car.image && (
             <div key={car._id}>
