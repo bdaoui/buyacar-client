@@ -32,12 +32,13 @@ const CarDetails = () => {
 
   console.log(car);
   return (
-    <div className="text-white   ">
+    <div className="text-white w-full">
       <header className="flex justify-center my-20 font-bold text-gold text-2xl md:text-4xl ">
         {car?.make} {car?.model}
       </header>
 
       <section className="flex flex-col lg:flex-row">
+        
         <div className="w-full lg:w-2/4">
           {car.image && (
             <div key={car._id}>
@@ -90,7 +91,7 @@ const CarDetails = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-3/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-10">
+        <div className="w-full lg:w-2/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-10">
           <section className="flex md:w-1/4 flex-col gap-y-5 lg:gap-y-10 text-center lg:text-left">
             <p>
               Marque: <span className="italic text-gold">{car?.make}</span>
@@ -141,6 +142,7 @@ const CarDetails = () => {
           </section>
           
         </div>
+
       </section>
     </div>
   );
