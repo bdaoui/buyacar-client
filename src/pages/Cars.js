@@ -35,17 +35,14 @@ const Cars = () => {
   
       const handlePrice =  (data) => {        
        if(selectedPrice <= 0) return data  
-        console.log(data)
-        return data.filter(car => {
+       return data.filter(car => {
          return  Number(selectedPrice) > car.price 
         } )
       
       }
   
       const handleMileage =  (data) => {       
-
         if(selectedMileage <= 0) return data
-
         return data.filter(car => {
          return  Number(selectedMileage) > car.mileage 
         } )
@@ -53,23 +50,25 @@ const Cars = () => {
       }
 
       const handleTransmission = (data) => {
-        
-        console.log(data)
-        console.log(selectedTransmission)
-        
-        if(selectedTransmission.toLowerCase() === "choose") return data
-        
+        if(selectedTransmission.toLowerCase() === "choose" || !selectedTransmission ) return data
         return data.filter(car =>{
           return selectedTransmission.toLowerCase()  === car.transmission.toLowerCase() 
-         })
-      
+         })   
       }
+
+      const handleFuel = (data) => {
+        if(selectedFuel.toLowerCase() === "choose" || !selectedFuel) return data
+        return data.filter(car =>{
+          return selectedFuel.toLowerCase()  === car.fuel.toLowerCase() 
+         })
+      }
+      
+
   
-  
 
 
-  const handleFilter = async (e) => {
-
+  const handleFilter =  (e) => {
+    
     let filtering = new Promise((resolve, reject) => {
       setFilteredCars(cars)
       resolve(cars)
@@ -78,6 +77,7 @@ const Cars = () => {
     .then(response => handlePrice( response))
     .then(response => handleMileage(response) )
     .then(response => handleTransmission(response))
+    .then(response => handleFuel(response))
     .then(response => setFilteredCars(response))
     .catch(err => console.log(err))
 
