@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const OtherOffers = ({ cars }) => {
+
+  let counter = 0 
   return (
     <div
       id="carGallery"
@@ -13,6 +15,11 @@ const OtherOffers = ({ cars }) => {
         </h1>
       </header>
       {cars.map((car) => {
+        
+        // Only Counter Number of Cars Visible
+        counter++ 
+        if(counter > 4 ) return true
+
         return (
           <div key={car._id} className="p-5 md:px-6 lg:w-2/4">
             <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
