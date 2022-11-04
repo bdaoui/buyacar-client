@@ -31,7 +31,7 @@ const Testimonial = () => {
     <div>
     {testimonials &&
     <div
-      className="flex flex-col text-white h-screen justify-center items-center mx-4 lg:mx-40"
+      className="flex flex-col text-white h-screen justify-center items-center mx-0 lg:mx-40"
       id="temoniage"
     >
 
@@ -43,7 +43,7 @@ const Testimonial = () => {
       <section className="flex flex-row ">
         <svg
           aria-hidden="true"
-          className="w-8 h-8 text-gold  md:w-1/6  my-auto cursor-pointer "
+          className="w-8 h-8 text-gold md:w-1/6 my-auto cursor-pointer "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
