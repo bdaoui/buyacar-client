@@ -2,11 +2,6 @@ import React from 'react'
 
 const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel, handleFilter,  reset, validateSending, handlePrice}) => {
 
-  // const handleSelection = (e, check) => {
-  //   check === "mileage"
-  //     ? setSelectedMileage(e.target.value)
-  //     : setSelectedPrice(e.target.value);
-  // };
 
 
 

@@ -51,6 +51,19 @@ const Cars = () => {
         } )
 
       }
+
+      const handleTransmission = (data) => {
+        
+        console.log(data)
+        console.log(selectedTransmission)
+        
+        if(selectedTransmission.toLowerCase() === "choose") return data
+        
+        return data.filter(car =>{
+          return selectedTransmission.toLowerCase()  === car.transmission.toLowerCase() 
+         })
+      
+      }
   
   
 
@@ -64,6 +77,7 @@ const Cars = () => {
     })
     .then(response => handlePrice( response))
     .then(response => handleMileage(response) )
+    .then(response => handleTransmission(response))
     .then(response => setFilteredCars(response))
     .catch(err => console.log(err))
 
