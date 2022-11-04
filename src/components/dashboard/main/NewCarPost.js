@@ -341,7 +341,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
 
           <button
             type="submit"
-            className="bg-gold hover:bg-gold/70  rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-gold py-2"
+            className="bg-gold hover:bg-gold/70  rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
           >
             {" "}
             Envoyer
