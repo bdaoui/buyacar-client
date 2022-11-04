@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="p-0 h-10 bg-black text-xs md:text-base flex flex-col md:flex-row items-center md:justify-between md:p-6">
+
+    <footer className="p-0 h-10 bg-black  text-xs md:text-base fixed bottom-0 w-full flex flex-col md:flex-row items-center md:justify-between md:p-6">
       <ul className="flex flex-wrap items-center mt-3 md:mt-0 text-white">
         <li>
-          <span className="mr-1 text-center">
+          <span className="mr-1 text-center hidden sm:block">
             N'hésitez pas à me contacter au{" "}
           </span>
         </li>

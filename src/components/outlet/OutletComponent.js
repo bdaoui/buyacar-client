@@ -8,9 +8,8 @@ const OutletComponent = () => {
     <div>
       <Navbar />
       <Outlet />
-      <div className="fixed bottom-0 w-full">
-        <Footer />
-      </div>
+      <Footer />
+     
     </div>
   );
 };

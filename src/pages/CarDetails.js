@@ -40,19 +40,19 @@ const CarDetails = () => {
   console.log(car);
   return (
     <div className="text-white w-full">
-      <header className="flex justify-center my-20 font-bold text-gold text-2xl md:text-4xl ">
+      <header className="flex w-full justify-center my-10 font-bold text-gold text-2xl md:text-4xl ">
         {car?.make} {car?.model}
       </header>
 
-      <section className="flex flex-col lg:flex-row">
+      <section className="flex w-full flex-col lg:flex-row">
         
-        <div className="w-full lg:w-2/4">
+        <div className="w-full">
           {car.image && (
             <div key={car._id}>
               <img
                 src={car?.image[imageIndex]}
                 alt={car?.make}
-                className="flex justify-center mx-auto mb-10 md:mb-20 px-10"
+                className="flex justify-center mx-auto h-[150px] sm:h-[200px] md:h-[400px] lg:h-[500px] mb-5"
               />
             </div>
           )}
@@ -97,60 +97,75 @@ const CarDetails = () => {
             </button>
           </div>
         </div>
+</section>
 
-        <div className="w-full lg:w-2/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-10">
-          <section className="flex md:w-1/4 flex-col gap-y-5 lg:gap-y-8 text-center lg:text-left">
-            <p>
-              Marque: <span className="italic text-gold">{car?.make}</span>
+
+        <div className="w-full text-xs md:text-xl flex">
+          
+       
+          <section className="flex flex-col w-1/2 gap-y-2 md:gap-y-5">
+
+            <p className="flex justify-left pl-10 md:pl-32">
+              Marque: <span className="italic text-gold ml-2">{car?.make}</span>
             </p>
-            <p>
-              Modèle: <span className="italic text-gold">{car?.model}</span>
+
+            <p className="flex justify-left pl-10 md:pl-32">
+              Modèle: <span className="italic text-gold ml-2">{car?.model}</span>
             </p>
-            <p>
-              <BsCurrencyEuro/> <span className="italic text-gold">{car?.price}</span>
-            </p>
-            <p>
-              <FaRoad />
+           
+              <p className="flex justify-left pl-10 md:pl-32"><BsCurrencyEuro className="mt-1 mr-2 text-lg"/> 
+              <span className="italic text-gold">{car?.price}</span></p>
+            
+              <p className="flex justify-left pl-10 md:pl-32">
+              <FaRoad className="mt-1 mr-2 text-lg" />
               <span className="italic text-gold">{car?.mileage}km</span>
             </p>
-            <p>
-              <TfiSpray /> <span className="italic text-gold">{car?.color}</span>
+          
+            <p className="flex justify-left pl-10 md:pl-32">
+              <TfiSpray className="mt-1 mr-2 text-lg"/> <span className="italic text-gold">{car?.color}</span>
             </p>
-            <p>
-              <RiGasStationFill /> <span className="italic text-gold">{car?.fuel}</span>
-            </p>
-          </section>
 
-          <section className="flex md:w-1/4 flex-col gap-y-5 lg:gap-y-8 text-center lg:text-left">
-            <p>
-              <GiGearStickPattern />
+            <p className="flex justify-left pl-10 md:pl-32">
+              <RiGasStationFill className="mt-1 mr-2 text-lg"/> <span className="italic text-gold">{car?.fuel}</span>
+            </p>
+         
+</section>
+<section className="flex flex-col w-1/2 gap-y-2 md:gap-y-5">
+          <p className="flex justify-left pl-10 md:pl-32">
+              <GiGearStickPattern className="mt-1 mr-2 text-lg"/>
               <span className="italic text-gold">{car?.transmission}</span>
             </p>
-            <p>
-              <TbEngine /> <span className="italic text-gold">{car?.engine} L</span>
+
+            <p className="flex justify-left pl-10 md:pl-32">
+              <TbEngine className="mt-1 mr-2 text-lg"/> <span className="italic text-gold">{car?.engine} L</span>
             </p>
-            <p>
-              <GiCarDoor />
+           
+            <p className="flex justify-left pl-10 md:pl-32">
+              <GiCarDoor className="mt-1 mr-2 text-lg"/>
               <span className="italic text-gold">{car?.doors}</span>
             </p>
-            <p>
-              <GiCarSeat />
+
+            <p className="flex justify-left pl-10 md:pl-32">
+              <GiCarSeat className="mt-1 mr-2 text-lg"/>
               <span className="italic text-gold">{car?.seats}</span>
             </p>
-            <p>
-              <BsFillCalendar2DateFill />
+
+            <p className="flex justify-left pl-10 md:pl-32">
+              <BsFillCalendar2DateFill className="mt-1 mr-2 text-lg"/>
               <span className="italic text-gold">{car?.year}</span>
             </p>
-          </section>
+            
 
-          <section className="flex md:w-2/4 flex-col h-full gap-y-5 lg:gap-y-8 text-center lg:text-left ">
-            <CgQuote />
-            <span className="italic text-gold ">{car?.description}</span>
           </section>
-          
         </div>
+<section className="flex flex-col w-full py-5 pb-20">
+       <CgQuote className="mt-3 text-5xl ml-5"/>
+          <p className="text-xs md:text-base px-10">
+            <span className="italic text-gold ">{car?.description}</span></p>
 
-      </section>
+            </section>
+
+      
     </div>
   );
 };
