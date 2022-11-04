@@ -2,7 +2,7 @@ import React from "react";
 
 const CarSidebarDashboard = ({ handleShowAside, cars }) => {
   return (
-    <div>
+    <div className="pb-30">
       <div className="flex justify-center text-center pt-5 gap-6 ">
         <h1 className="font-bold text-gold text-xl">Catalogue</h1>
         <svg

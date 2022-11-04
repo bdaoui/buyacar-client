@@ -11,7 +11,7 @@ const DashboardSidebar = ({
   contentAside,
 }) => {
   return (
-    <div className="h-screen">
+    <div className="pb-30">
       {contentAside === "Cars" && (
         <CarSidebarDashboard 
           handleShowAside={handleShowAside} 

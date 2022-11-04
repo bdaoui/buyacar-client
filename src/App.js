@@ -12,7 +12,7 @@ const App = () => {
 
 
   return (
-    <div className='App bg-black/90'>
+    <div className='App'>
   
        <Routes>
           <Route element={<OutletComponent />}>

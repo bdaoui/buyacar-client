@@ -77,7 +77,7 @@ const CarTextLG = ({car}) => {
       </section>
   </div>
 
-  <ContactSingleCar car={car} />
+  
   </>
   )
 }
