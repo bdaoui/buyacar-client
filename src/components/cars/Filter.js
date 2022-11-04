@@ -6,8 +6,8 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
 
 
   return (
-    <div>
-    <div className="flex flex-col md:flex-row justify-center text-white font-medium text-base md:text-2xl">
+    <div className="flex w-full flex-col md:flex-row justify-center
+       text-white font-medium text-base text-center gap-y-4">
             <label htmlFor="price" className="md:mr-16">
               Prix
               <input
@@ -109,7 +109,6 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
 
           </div>
     
-    </div>
   )
 }
 
