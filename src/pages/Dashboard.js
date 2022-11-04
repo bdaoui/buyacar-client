@@ -19,7 +19,7 @@ const Dashboard = () => {
   const [visible, setVisible] = useState("flex");
   const [contentAside, setContentAside] = useState("Cars");
 
-  // Retreive Data
+  // Retreive All Data
   useEffect(() => {
     axios
       .get(`${server}/car`)
