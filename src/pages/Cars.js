@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Filter from "../components/cars/Filter";
@@ -18,6 +18,7 @@ const Cars = () => {
   const [selectedTransmission, setSelectedTransmission] = useState("");
   const [selectedFuel, setSelectedFuel] = useState("")
 
+  const [validateSending, setValidateSending] = useState("")
   
   
   const [refresh, setRefresh] = useState(false);
@@ -34,7 +35,9 @@ const Cars = () => {
   
   
   
-  useEffect(() => {
+  const handleFilter = async (e) => {
+    // e.preventDefault()
+
     let searchQuery = {};
     
     if(selectedMileage){
@@ -49,59 +52,58 @@ const Cars = () => {
     const spreadCar = [...cars]
 
     // Filter by Mileage && PRice
-    
     let filtered = spreadCar.filter(car =>{
-      
       if(searchQuery.price < car.price ) return false
       if(searchQuery.mileage < car.mileage) return false
-
+      if(car.fuel.toLowerCase() !== selectedFuel.toLowerCase()) return false  
+      if(car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
       return car 
 
 
     })
 
+    console.log(filtered)
+    setFilteredCars(filtered)
     
-    // Filter by Fuel Type
+    // // Filter by Fuel Type
     
-    let secondFiltered = filtered.filter(car => {
+    // let secondFiltered = filtered.filter(car => {
+    //   return car
       
-      if(car.fuel !== selectedFuel) return false
-      
-      return car
-      
-    })
+    // })
     
     
-    // Filter By Transmission Type
-    
-    let thirdFiltered = secondFiltered.filter(car =>{
-      
-      if(car.transmission.toLowerCase() !== selectedTransmission.toLowerCase()) return false
-      
-      return car
-    } )
+    // // Filter By Transmission Type
+    // let thirdFiltered = secondFiltered.filter(car =>{
+    //   return car
+    // } )
 
     
     
+    // if(thirdFiltered ){
+    //   setFilteredCars(thirdFiltered)
+    // } 
+    // else if(secondFiltered){
+    //   setFilteredCars(secondFiltered)
+
+    // }
+    // else {
+    //   setFilteredCars(filtered)
+
+    // }
+
     
-    if(thirdFiltered ){
-      setFilteredCars(thirdFiltered)
-    } 
-    else if(secondFiltered){
-      setFilteredCars(secondFiltered)
+    // console.log('1 ', filtered)
+    // console.log('2 ', secondFiltered)
+    // console.log('3 ', thirdFiltered)
 
-    }
-    else {
-      setFilteredCars(filtered)
 
-    }
+    // Validation of Sent Message
 
-    
-    console.log('1 ', filtered)
-    console.log('2 ', secondFiltered)
-    console.log('3 ', thirdFiltered)
+    await setValidateSending("Recherche en Cours");
+    await setInterval( () => setValidateSending(""), 2000);
 
-  },[selectedPrice, selectedMileage, selectedFuel, selectedTransmission])
+  }
 
 
 
@@ -110,6 +112,15 @@ const Cars = () => {
   const reset = () =>{
 
     setFilteredCars(cars)
+
+    // Resetting Filters
+      setSelectedMileage(0)
+      setSelectedPrice(0)
+      setSelectedFuel("Choose")
+      setSelectedTransmission("Choose")
+
+    setRefresh(!refresh)
+
   }
 
 
@@ -176,7 +187,8 @@ const Cars = () => {
         selectedTransmission={selectedTransmission}
         setSelectedTransmission={setSelectedTransmission}
         reset={reset}
-
+        handleFilter={handleFilter}
+        validateSending={validateSending}
         />
       </section>
 

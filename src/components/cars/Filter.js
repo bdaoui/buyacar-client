@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel,  reset}) => {
+const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel, handleFilter,  reset, validateSending}) => {
 
-  const handleSelection = (e, check) => {
-    check === "mileage"
-      ? setSelectedMileage(e.target.value)
-      : setSelectedPrice(e.target.value);
-  };
+  // const handleSelection = (e, check) => {
+  //   check === "mileage"
+  //     ? setSelectedMileage(e.target.value)
+  //     : setSelectedPrice(e.target.value);
+  // };
 
 
 
@@ -22,7 +22,9 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
                 max="100000"
                 step="500"
                 className="ml-5"
-                onChange={(e) => handleSelection(e, "price")}
+                onChange={(e) => setSelectedPrice(e.target.value)}
+                value={selectedPrice}
+                
               />
               <h2 className="text-center underline text-middle">
                 {selectedPrice}
@@ -38,7 +40,9 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
                 max="250000"
                 step="10000"
                 className="ml-5"
-                onChange={(e) => handleSelection(e, "mileage")}
+                onChange={(e) => setSelectedMileage(e.target.value)}
+                value={selectedMileage}
+
               />
               <h2 className="text-center underline text-middle">
                 {selectedMileage}
@@ -77,7 +81,17 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
             </label>
 
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-14 h-14 md: w-10 md:h-10 pl-5 cursor-pointer" onClick={e => reset()  }>
+            
+            <button
+              type="submit"
+              className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
+              onClick={e => handleFilter(e)}
+            >
+              {validateSending || "Envoyer"}
+            </button>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-14 h-14 md: w-10 md:h-10 pl-5 cursor-pointer" onClick={e => reset(e)  }>
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>
 
