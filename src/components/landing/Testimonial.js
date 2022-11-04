@@ -43,7 +43,7 @@ const Testimonial = () => {
       <section className="flex flex-row ">
         <svg
           aria-hidden="true"
-          className="w-8 h-8 text-gold md:w-1/6 my-auto cursor-pointer "
+          className="h-4 w-4 sm:w-8 sm:h-8 text-gold md:w-1/6 my-auto cursor-pointer "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -69,7 +69,7 @@ const Testimonial = () => {
           >
             <path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" />
           </svg>
-          <p className="text-sm md:text-xl">
+          <p className="text-[0.7rem] sm:text-sm md:text-xl">
             {testimonials[testimonialIndex]?.body}
           </p>
 
@@ -82,7 +82,7 @@ const Testimonial = () => {
 
         <svg
           aria-hidden="true"
-          className="w-8 h-8 text-gold my-auto  md:w-1/6 cursor-pointer  "
+          className="h-4 w-4 sm:w-8 sm:h-8 text-gold my-auto  md:w-1/6 cursor-pointer  "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

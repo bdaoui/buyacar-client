@@ -9,7 +9,6 @@ const OutletComponent = () => {
       <Navbar />
       <Outlet />
       <Footer />
-     
     </div>
   );
 };

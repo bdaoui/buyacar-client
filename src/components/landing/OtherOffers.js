@@ -25,51 +25,51 @@ const OtherOffers = ({ cars }) => {
             <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
               <Link to={`/${car._id}`}>
                 <img
-                  className="rounded-t-lg w-full h-[200px] md:h-[325px] lg:h-[200px] overflow-hidden  m-auto"
+                  className="rounded-t-lg w-full h-[130px] sm:h-[200px] md:h-[350px] lg:h-[225px] overflow-hidden  m-auto"
                   src={car.image[0]}
                   alt={car.name}
                 />
               </Link>
               <div className="p-3">
                 <section className="flex flex-row justify-around  ">
-                  <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">
+                  <h5 className="text-xs sm:text-sm md:text-lg font-bold tracking-tight text-white">
                     {car.make + " " + car.model}
                   </h5>
                 </section>
 
-                <section className="flex flex-col justify-center mb-2 gap-2">
-                  <h1 className="text-sm  text-center text-white">
+                <section className="flex flex-col justify-center mb-0 sm:mb-2 gap-2">
+                  <h1 className="text-xs sm:text-sm md:text-lg text-center text-white">
                     € {car.price}{" "}
                   </h1>
 
-                  <div className="flex justify-center mt-5 gap-2">
+                  <div className="flex justify-center mt-1 sm:mt-3 md:mt-5 gap-2">
                     <section className="p-2 border-r-white border-r-2 flex flex-col">
-                      <h1 className="text-sm font-light  text-white">Année </h1>
-                      <h1 className="text-sm  text-white">{car.year} </h1>
+                      <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light  text-white">Année </h1>
+                      <h1 className="text-[0.6rem] sm:text-sm md:text-lg text-white">{car.year} </h1>
                     </section>
 
                     <section className="p-2 border-r-white border-r-2">
-                      <h1 className="text-sm  font-light text-white">
+                      <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light text-white">
                         Kilométrage{" "}
                       </h1>
-                      <h1 className="text-sm  text-white">{car.mileage} </h1>
+                      <h1 className="text-[0.6rem] sm:text-sm md:text-lg text-white">{car.mileage} </h1>
                     </section>
 
                     <section className="p-2">
-                      <h1 className="text-sm  font-light text-white">
+                      <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light text-white">
                         Carburant{" "}
                       </h1>
-                      <h1 className="text-sm  text-white"> {car.fuel} </h1>
+                      <h1 className="text-[0.6rem] sm:text-sm md:text-lg text-white"> {car.fuel} </h1>
                     </section>
                   </div>
                 </section>
 
-                <p className="mb-3 text-sm md:text-basefont-normal text-white h-10">
+                <p className="my-1 sm:my-3 text-[0.5rem] sm:text-sm md:text-base font-normal text-white h-10">
                   {car.description.substr(0, 80) + "..."}
                 </p>
                 <Link
                   to={`/${car._id}`}
-                  className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-black bg-white rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300"
+                  className="inline-flex items-center p-1 sm:py-2 sm:px-3 text-[0.5rem] sm:text-sm md:text-lg font-medium text-center text-black bg-white rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300"
                 >
                   voir plus
                   <svg
@@ -94,7 +94,7 @@ const OtherOffers = ({ cars }) => {
 
       <Link
         to="/cars"
-        className=" w-2/4 md:w-full mx-auto py-2 my-5 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+        className=" w-2/4 md:w-full mx-auto py-2 my-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
       >
         {" "}
         PLUS D'OFFRES

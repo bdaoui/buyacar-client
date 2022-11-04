@@ -153,7 +153,7 @@ const BestOffer = () => {
 
   return (
     <div
-      className="w-full bg-black my-10 py-10 rounded-lg text-white flex flex-col drop-shadow-2xl "
+      className="w-full bg-black my-10 py-10 rounded-lg text-white flex flex-col drop-shadow-2xl text-xs sm:text-sm md:text-xl "
       id="bestOffer"
     >
       <header
@@ -164,7 +164,7 @@ const BestOffer = () => {
       </header>
 
       <section className="text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl">
-        <h1 className="text-base md:text-2xl">
+        <h1>
           {bestOffer[bestOfferIndex].name}
         </h1>
       </section>
@@ -218,45 +218,46 @@ const BestOffer = () => {
         </h1>
 
         <div className="flex flex-col md:flex-row justify-center mt-5 gap-2">
+
           <section className="md:p-2 md:border-r-white md:border-r-2 flex flex-col text-center">
-            <h1 className="text-sm font-light md:text-xl text-gold">Année </h1>
-            <h1 className="text-sm md:text-xl">
+            <h1 className="font-light text-gold">Année </h1>
+            <h1>
               {bestOffer[bestOfferIndex].year}{" "}
             </h1>
           </section>
 
           <section className="md:p-2 md:border-r-white md:border-r-2 text-center">
-            <h1 className="text-sm md:text-xl font-light text-gold">
+            <h1 className="font-light text-gold">
               Kilométrage{" "}
             </h1>
-            <h1 className="text-sm md:text-xl">
+            <h1 >
               {bestOffer[bestOfferIndex].mileage}{" "}
             </h1>
           </section>
 
           <section className="md:p-2 md:border-r-white md:border-r-2 text-center">
-            <h1 className="text-sm md:text-xl font-light text-gold">
+            <h1 className="font-light text-gold">
               Carburant{" "}
             </h1>
-            <h1 className="text-sm md:text-xl">
+            <h1>
               {" "}
               {bestOffer[bestOfferIndex].fuel}{" "}
             </h1>
           </section>
 
           <section className="md:p-2 text-center">
-            <h1 className="text-sm md:text-xl font-light text-gold ">
+            <h1 className="font-light text-gold ">
               Boite de Vitesse{" "}
             </h1>
 
-            <h1 className="text-sm md:text-xl">
+            <h1>
               {bestOffer[bestOfferIndex].transmission}{" "}
             </h1>
           </section>
         </div>
       </section>
 
-      <p className="text-sm md:text-lg p-10 xl:px-72">
+      <p className="p-10 xl:px-72 text-center">
         {bestOffer[bestOfferIndex].description}
       </p>
 
