@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import {BsCurrencyEuro, BsFillCalendar2DateFill} from 'react-icons/bs'
+import {FaRoad} from 'react-icons/fa'
+import {TfiSpray} from 'react-icons/tfi'
+import {RiGasStationFill} from 'react-icons/ri'
+import {GiGearStickPattern, GiCarDoor, GiCarSeat} from 'react-icons/gi'
+import {TbEngine} from 'react-icons/tb'
+import {CgQuote} from 'react-icons/cg'
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -92,7 +99,7 @@ const CarDetails = () => {
         </div>
 
         <div className="w-full lg:w-2/4 h-screen text-base flex flex-col lg:flex-row gap-5 lg:gap-10">
-          <section className="flex md:w-1/4 flex-col gap-y-5 lg:gap-y-10 text-center lg:text-left">
+          <section className="flex md:w-1/4 flex-col gap-y-5 lg:gap-y-8 text-center lg:text-left">
             <p>
               Marque: <span className="italic text-gold">{car?.make}</span>
             </p>
@@ -100,44 +107,44 @@ const CarDetails = () => {
               Modèle: <span className="italic text-gold">{car?.model}</span>
             </p>
             <p>
-              Prix: <span className="italic text-gold">{car?.price + "€"}</span>
+              <BsCurrencyEuro/> <span className="italic text-gold">{car?.price}</span>
             </p>
             <p>
-              Kilométrage:{" "}
-              <span className="italic text-gold">{car?.mileage}</span>
+              <FaRoad />
+              <span className="italic text-gold">{car?.mileage}km</span>
             </p>
             <p>
-              Couleurs: <span className="italic text-gold">{car?.color}</span>
+              <TfiSpray /> <span className="italic text-gold">{car?.color}</span>
             </p>
             <p>
-              Carburant: <span className="italic text-gold">{car?.fuel}</span>
+              <RiGasStationFill /> <span className="italic text-gold">{car?.fuel}</span>
             </p>
           </section>
 
-          <section className="flex md:w-1/4 flex-col gap-y-5 lg:gap-y-10 text-center lg:text-left">
+          <section className="flex md:w-1/4 flex-col gap-y-5 lg:gap-y-8 text-center lg:text-left">
             <p>
-              Boîte de vitesse:{" "}
+              <GiGearStickPattern />
               <span className="italic text-gold">{car?.transmission}</span>
             </p>
             <p>
-              Moteur: <span className="italic text-gold">{car?.engine}L</span>
+              <TbEngine /> <span className="italic text-gold">{car?.engine} L</span>
             </p>
             <p>
-              Nombre de portes:{" "}
+              <GiCarDoor />
               <span className="italic text-gold">{car?.doors}</span>
             </p>
             <p>
-              Nombre de place(s):{" "}
+              <GiCarSeat />
               <span className="italic text-gold">{car?.seats}</span>
             </p>
             <p>
-              Année-modèle:{" "}
-              <span className="italic text-gold">{car?.seats}</span>
+              <BsFillCalendar2DateFill />
+              <span className="italic text-gold">{car?.year}</span>
             </p>
           </section>
 
-          <section className="flex md:w-2/4 flex-col h-full gap-y-5 lg:gap-y-10 text-center mx-20 lg:text-left ">
-            Description:{" "}
+          <section className="flex md:w-2/4 flex-col h-full gap-y-5 lg:gap-y-8 text-center lg:text-left ">
+            <CgQuote />
             <span className="italic text-gold ">{car?.description}</span>
           </section>
           
