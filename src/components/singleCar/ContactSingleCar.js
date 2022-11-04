@@ -10,36 +10,38 @@ const ContactSingleCar = ({car}) => {
   const [contactPhone, setContactPhone] = useState("");
   const [contactSubject, setContactSubject] = useState("");
   const [contactMessage, setContactMessage] = useState("");
-
+  
   const [validateSending, setValidateSending] = useState("");
-
+  
+  let messageCar = `${car.make} ${car.model}`
   const handleContact = (e) => {
-    e.preventDefault();
-
-    const fileContact = {
-      contactName,
+      e.preventDefault();
+      
+      setContactSubject(messageCar)
+      
+      const fileContact = {
+          contactName,
       contactLastName,
       contactEmail,
       contactPhone,
       contactSubject,
       contactMessage,
     };
-
+    
     axios
-      .post("http://localhost:5005/contact", fileContact)
+      .post("http://localhost:5005/contact/car", fileContact)
       .then((response) => {
         console.log(response.data);
         setValidateSending(response.data);
-      })
-      .catch((err) => console.log(err));
-
+    })
+    .catch((err) => console.log(err));
+    
     return setInterval(() => {
-      return setValidateSending("");
+        return setValidateSending("");
     }, 6000);
-  };
-  const messageCar = `${car.make} ${car.model}`
+};
 
-  return (
+return (
     <div className="py-40  px-10 h-fit">
       <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
         ---Contactez moi---
@@ -55,7 +57,7 @@ const ContactSingleCar = ({car}) => {
               <input
                 required
                 type="text"
-                className="leading-none p-3 mt-4 bg-white rounded-2xl"
+                className="leading-none p-3 mt-4 text-black rounded-2xl"
                 onChange={(e) => setContactName(e.target.value)}
               />
             </div>
@@ -66,7 +68,7 @@ const ContactSingleCar = ({car}) => {
               <input
                 required
                 type="text"
-                className="leading-none p-3 mt-4 bg-white rounded-2xl"
+                className="leading-none p-3 mt-4 text-black rounded-2xl"
                 onChange={(e) => setContactLastName(e.target.value)}
               />
             </div>
@@ -79,7 +81,7 @@ const ContactSingleCar = ({car}) => {
               <input
                 required
                 type="email"
-                className="leading-none p-3 mt-4 bg-white rounded-2xl"
+                className="leading-none p-3 mt-4 text-black rounded-2xl"
                 onChange={(e) => setContactEmail(e.target.value)}
               />
             </div>
@@ -90,7 +92,7 @@ const ContactSingleCar = ({car}) => {
               <input
                 required
                 type="text"
-                className="leading-none p-3 mt-4 bg-white rounded-2xl"
+                className="leading-none p-3 mt-4 text-black rounded-2xl"
                 onChange={(e) => setContactPhone(e.target.value)}
               />
             </div>
@@ -105,7 +107,7 @@ const ContactSingleCar = ({car}) => {
                 required
                 type="text"
                 className="leading-none p-3 mt-4 text-black rounded-2xl"
-                defaultValue={messageCar}
+                value={`${car.make} ${car.model}`}
               />
             </div>
           </div>
@@ -117,7 +119,7 @@ const ContactSingleCar = ({car}) => {
               <textarea
                 required
                 type="text"
-                className="h-40 text-base leading-none p-3 mt-4 bg-white rounded-2xl"
+                className="h-40 text-base leading-none p-3 mt-4 text-black rounded-2xl"
                 onChange={(e) => setContactMessage(e.target.value)}
               ></textarea>
             </div>

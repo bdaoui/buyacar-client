@@ -76,7 +76,7 @@ const CarTextSM = ({car}) => {
 
       </section>
 
-      <ContactSingleCar car={car} />
+     
   </>
   )
 }

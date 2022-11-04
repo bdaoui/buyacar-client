@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CarTextSM from "../components/singleCar/CarTextSM";
 import CarTextLG from "../components/singleCar/CarTextLG";
+import ContactSingleCar from "../components/singleCar/ContactSingleCar";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -101,6 +102,7 @@ const CarDetails = () => {
         <CarTextLG car={car} />
 </div>
 
+<ContactSingleCar car={car} />
       
     </div>
   );

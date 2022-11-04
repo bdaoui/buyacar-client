@@ -2,7 +2,7 @@ import React from "react";
 
 const TestimonialSidebarDashboard = ({ handleShowAside, testimonials }) => {
   return (
-    <div>
+    <div className="pb-30">
       <div className="flex gap-2 justify-center mt-5">
         <h1 className="font-bold text-gold text-xl ">Temoniages</h1>
         <svg
