@@ -5,7 +5,7 @@ import Filter from "../components/cars/Filter";
 import { HashLink } from "react-router-hash-link";
 import {RiInsertColumnLeft} from "react-icons/ri"
 import {RiDeleteColumn} from "react-icons/ri"
-import {TfiLayoutGrid2Alt, TfiLayoutGrid3Alt} from 'react-icons/tf'
+import {TfiLayoutGrid2Alt, TfiLayoutGrid3Alt} from 'react-icons/tfi'
 import {BsSquareFill} from 'react-icons/bs'
 
 
