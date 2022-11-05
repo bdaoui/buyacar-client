@@ -29,7 +29,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               </h2>
             </label>
 
-            <label htmlFor="mileage" className='flex'>
+            <label htmlFor="mileage" className='flex justify-end'>
               Kilométrage
               <input
                 type="range"
@@ -100,7 +100,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
 
             <button
               type="submit"
-              className="bg-gold hover:bg-gold/70  w-1/2 mt-5 text-white py-2 rounded-3xl absolute mr-2"
+              className="bg-gold hover:bg-gold/70 w-1/4 md:w-1/2 mt-5 text-white text-xs md:text-lg py-2 rounded-3xl absolute mr-2"
               onClick={e => handleFilter(e)}
             >
               {validateSending || "Envoyer"}
@@ -110,7 +110,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" 
               viewBox="0 0 24 24" 
               strokeWidth="1.5" stroke="currentColor" 
-              className="w-5 h-5 cursor-pointer ml-10 mt-2 absolute top-5 left-2 md:left-3/4 " 
+              className="w-5 h-5 md:w-7 md:h-7 cursor-pointer ml-10 mt-2 absolute top-5 left-2 md:left-3/4 " 
               onClick={e => reset(e)  }>
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>

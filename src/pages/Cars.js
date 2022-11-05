@@ -216,12 +216,12 @@ const Cars = () => {
 
         {filteredCars?.map((car) => {
           return (
-            <div key={car._id} className="p-5 md:p-10 lg:p-30 w-full flex justify-center">
-              <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white ">
+            <div key={car._id} className="p-2 sm:p-5 md:p-10 lg:p-30 w-full flex justify-center">
+              <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white w-[660px] md:h-[990px]">
                 
                 <Link to={`/${car._id}`}>
                   <img
-                    className="rounded-xl h-[150px] sm:h-[200px] md:h-[400px] lg:h-[450px]"
+                    className="rounded-xl h-[150px] sm:h-[200px] md:h-[400px] lg:h-[430px] w-full"
                     src={car.image[0]}
                     alt={car.name}
                   />
@@ -279,7 +279,7 @@ const Cars = () => {
 
                   <Link
                     to={`/${car._id}`}
-                    className="inline-flex items-center py-2 px-3 ml-3 mb-1 text-xs sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+                    className="inline-flex items-center py-2 px-3 ml-1 sm:ml-2 mb-1 text-xs sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
                   >
                     See more
                     <svg
