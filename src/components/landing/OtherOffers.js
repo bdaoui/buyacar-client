@@ -14,18 +14,21 @@ const OtherOffers = ({ cars }) => {
           ~<span className="text-lg md:text-4xl"> Autres Offres </span> ~ 
         </h1>
       </header>
+
+      
+      <div className="w-full flex flex-col lg:flex-row lg:flex-wrap lg:mx-40 justify-center ">
       {cars.map((car) => {
         
         // Only Counter Number of Cars Visible
         counter++ 
-        if(counter > 4 ) return true
+        if(counter > 4) return true
 
         return (
-          <div key={car._id} className="p-5 px-8 md:px-6 lg:px-1 lg:w-1/2">
-            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl lg:w-[50%] mx-auto">
+          <div key={car._id} className="lg:w-[500px] flex flex-wrap m-10">
+            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl mx-auto">
               <Link to={`/${car._id}`}>
                 <img
-                  className="rounded-t-lg w-full h-[130px] sm:h-[200px] md:h-[350px] lg:h-[250px] overflow-hidden  m-auto"
+                  className="rounded-t-lg w-[500px] h-[130px] sm:h-[200px] md:h-[350px] lg:h-[320px]"
                   src={car.image[0]}
                   alt={car.name}
                 />
@@ -64,7 +67,7 @@ const OtherOffers = ({ cars }) => {
                   </div>
                 </section>
 
-                <p className="my-1 sm:my-3 text-[0.5rem] sm:text-sm md:text-base font-normal text-white h-10">
+                <p className="my-1 sm:my-3 text-[0.5rem] sm:text-sm md:text-base font-normal text-white w-3/4">
                   {car.description.substr(0, 80) + "..."}
                 </p>
                 <Link
@@ -91,7 +94,7 @@ const OtherOffers = ({ cars }) => {
           </div>
         );
       })}
-
+</div>
       <Link
         to="/cars"
         className=" my-10 w-2/4  mx-auto py-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
