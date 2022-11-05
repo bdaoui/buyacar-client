@@ -7,9 +7,9 @@ const OtherOffers = ({ cars }) => {
   return (
     <div
       id="carGallery"
-      className="flex flex-col lg:flex-row justify-center md:w-5/6 lg:w-2/4 m-auto md:flex-wrap md:p-10 "
+      className="flex flex-col lg:flex-row justify-center md:w-5/6 lg:w-full m-auto md:flex-wrap md:p-10 "
     >
-      <header className="w-full">
+      <header className="w-full my-10">
         <h1 className="text-2xl md:text-5xl text-center m-auto font-bold py-4 text-gold">
           ~<span className="text-lg md:text-4xl"> Autres Offres </span> ~ 
         </h1>
@@ -21,11 +21,11 @@ const OtherOffers = ({ cars }) => {
         if(counter > 4 ) return true
 
         return (
-          <div key={car._id} className="p-5 md:px-6 lg:w-2/4">
-            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl">
+          <div key={car._id} className="p-5 px-8 md:px-6 lg:px-1 lg:w-1/2">
+            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl w-1/2 mx-auto">
               <Link to={`/${car._id}`}>
                 <img
-                  className="rounded-t-lg w-full h-[130px] sm:h-[200px] md:h-[350px] lg:h-[225px] overflow-hidden  m-auto"
+                  className="rounded-t-lg w-full h-[130px] sm:h-[200px] md:h-[350px] lg:h-[250px] overflow-hidden  m-auto"
                   src={car.image[0]}
                   alt={car.name}
                 />
@@ -94,7 +94,7 @@ const OtherOffers = ({ cars }) => {
 
       <Link
         to="/cars"
-        className=" w-2/4 md:w-full mx-auto py-2 my-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+        className=" my-10 w-2/4  mx-auto py-2 px-3 md:px-5 mb-20 text-base font-semibold text-center text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
       >
         {" "}
         PLUS D'OFFRES

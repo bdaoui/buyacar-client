@@ -75,7 +75,7 @@ const Cars = () => {
 
 
   const handleFilter =  (e) => {
-
+    setValidateSending("Recherche")
     let filtering = new Promise((resolve, reject) => {
       setFilteredCars(cars)
       resolve(cars)
@@ -88,6 +88,10 @@ const Cars = () => {
     .then(response => handleMake(response))
     .then(response => setFilteredCars(response))
     .catch(err => console.log(err))
+
+    return setInterval(() => {
+      return setValidateSending("");
+    }, 2000);
 
   }
 
@@ -221,7 +225,7 @@ const Cars = () => {
                 
                 <Link to={`/${car._id}`}>
                   <img
-                    className="rounded-xl h-[150px] sm:h-[200px] md:h-[400px] lg:h-[430px] w-full"
+                    className="rounded-xl h-[150px] sm:h-[195px] md:h-[400px] lg:h-[430px] w-[660px]"
                     src={car.image[0]}
                     alt={car.name}
                   />
@@ -230,7 +234,7 @@ const Cars = () => {
                 <div className="p-0 sm:p-2 md:p-5">
 
                   <section className="flex flex-row justify-around sm:mt-2 ">
-                    <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">
+                    <h5 className="text-[0.7rem] sm:text-sm md:text-lg font-bold tracking-tight text-white">
                       {car.make + " " + car.model}
                     </h5>
                   </section>
@@ -242,49 +246,49 @@ const Cars = () => {
 
                     <div className="flex flex-col lg:flex-row justify-center md:mt-5 md:gap-2">
                       <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2 flex flex-col">
-                        <h1 className="text-sm font-light md:text-base text-gold">
+                        <h1 className="text-[0.7rem] sm:text-sm font-light md:text-base text-gold">
                           Année{" "}
                         </h1>
-                        <h1 className="text-sm md:text-base">{car.year} </h1>
+                        <h1 className="text-[0.7rem] sm:text-sm md:text-base">{car.year} </h1>
                       </section>
 
                       <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2">
-                        <h1 className="text-sm md:text-base font-light text-gold">
+                        <h1 className="text-[0.7rem] sm:text-sm md:text-base font-light text-gold">
                           Kilométrage{" "}
                         </h1>
-                        <h1 className="text-sm md:text-base">{car.mileage} </h1>
+                        <h1 className="text-[0.7rem] sm:text-sm md:text-base">{car.mileage} </h1>
                       </section>
 
                       <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2">
-                        <h1 className="text-sm md:text-base font-light text-gold">
+                        <h1 className="text-[0.7rem] sm:text-sm md:text-base font-light text-gold">
                           Carburant{" "}
                         </h1>
-                        <h1 className="text-sm md:text-base"> {car.fuel} </h1>
+                        <h1 className="text-[0.7rem] sm:text-sm md:text-base"> {car.fuel} </h1>
                       </section>
 
                       <section className="px-1 sm:p-2">
-                        <h1 className="text-sm md:text-base font-light text-gold">
+                        <h1 className="text-[0.7rem] sm:text-sm md:text-base font-light text-gold">
                           Boite de Vitesse{" "}
                         </h1>
-                        <h1 className="text-sm md:text-base">
+                        <h1 className="text-[0.7rem] sm:text-sm md:text-base">
                           {car.transmission}{" "}
                         </h1>
                       </section>
                     </div>
                   </section>
 
-                  <h5 className="text-xs md:text-base font-bold tracking-tight text-white mt-1 sm:mt-3 md:mt-8 p-1 sm:p-3">
+                  <h5 className="text-[0.6rem] sm:text-xs md:text-base font-bold tracking-tight text-white mt-1 sm:mt-3 md:mt-8 p-1 sm:p-3">
                     {car.description.substr(0, 80) + "..."}
                   </h5>
 
                   <Link
                     to={`/${car._id}`}
-                    className="inline-flex items-center py-2 px-3 ml-1 sm:ml-2 mb-1 text-xs sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+                    className="inline-flex items-center py-1 sm:py-2 px-1 sm:px-3 ml-1 sm:ml-2 mb-1 text-[0.6rem] sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
                   >
                     See more
                     <svg
                       aria-hidden="true"
-                      className="ml-2 -mr-1 w-4 h-4 "
+                      className="ml-2 -mr-1 w-2 h-2 sm:w-4 sm:h-4 "
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
