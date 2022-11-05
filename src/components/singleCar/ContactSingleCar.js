@@ -18,7 +18,6 @@ const ContactSingleCar = ({car}) => {
 
   
 
-  console.log(messageCar)
 
   const handleContact = (e) => {
       e.preventDefault();

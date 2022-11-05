@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Filter from "../components/cars/Filter";
 import { HashLink } from "react-router-hash-link";
+import {RiInsertColumnLeft} from "react-icons/ri"
+import {RiDeleteColumn} from "react-icons/ri"
+
 
 const Cars = () => {
   const server = "http://localhost:5005";
@@ -154,8 +157,14 @@ const Cars = () => {
   };
 
 
+  // Layout Changer
+ const [counter, setCounter] = useState(0)
+  
+  const showImageListBy = (e, action) => {
+    setCounter(counter + action)
 
-  const showImageListBy = (e, type) => {
+    console.log(counter)
+
 
     const layoutByOne = {
       container: "w-full",
@@ -164,7 +173,7 @@ const Cars = () => {
     }
 
     const layoutByTwo = {
-      container: "w-full md:w-1/2",
+      container: "w-full lg:w-1/2",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
       descriptionLenght: ".substring(0,100)"
 
@@ -172,15 +181,18 @@ const Cars = () => {
     }
    
     const layoutByThree = {
-      container: "w-full md:w-1/3",
+      container: "w-full lg:w-1/3",
+      infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+
       descriptionLenght: ".substring(0,50)"
 
 
     }
 
-    if(type === 1) return setImageListBy(layoutByOne)
-    if(type === 2) return setImageListBy(layoutByTwo)
-    if(type === 3) return setImageListBy(layoutByThree)
+    if(counter <= 1 ) return setImageListBy(layoutByOne)
+    if(counter > 1 && counter < 3) return setImageListBy(layoutByTwo)
+    if(counter >= 3 ) return setImageListBy(layoutByThree)
+
  
   }
 
@@ -218,11 +230,6 @@ const Cars = () => {
 
         
 
-        <div  className="text-white" onClick={ e => showImageListBy(e, 1)}>1</div>
-        <div className="text-white" onClick={ e => showImageListBy(e, 2)} >2</div>
-        <div className="text-white" onClick={ e => showImageListBy(e, 3)}>3</div>
-        
-
 
         </header>
 
@@ -247,6 +254,18 @@ const Cars = () => {
         uniqueMakes={uniqueMakes}
         />
       </section>
+
+      <section className="w-full hidden  lg:flex justify-center ">
+      
+        <div className="text-white text-3xl cursor-pointer	" onClick={ e => showImageListBy(e, 1)} >
+        <RiInsertColumnLeft />
+        </div>
+        <div className="text-white text-3xl cursor-pointer	" onClick={ e => showImageListBy(e, -1)}>
+        <RiDeleteColumn />
+        </div>
+
+      </section> 
+        
 
         { filteredCars?.length === 0  && 
 
