@@ -47,7 +47,7 @@ const Landing = () => {
             viewBox="0 0 24 24"
             strokeWidth="2"
             stroke="currentColor"
-            className="w-8 h-8 mb-1 md:mb-0 md:w-10 md:h-10 bottom-16 right-1 md:bottom-10 md:right-1 lg:bottom-20 lg:right-10 fixed text-gold"
+            className="w-8 h-8 mb-1 md:mb-0 md:w-10 md:h-10 bottom-16 right-1 md:bottom-10 md:right-1 lg:bottom-20 lg:right-10 fixed text-gold "
           >
             <path
               strokeLinecap="round"
@@ -59,9 +59,7 @@ const Landing = () => {
       )}
 
       <Header />
-      <section className="bg-black">
-        <BestOffer />
-      </section>
+      <BestOffer />
       <OtherOffers cars={cars} />
       <Testimonial />
       <ContactForm />
