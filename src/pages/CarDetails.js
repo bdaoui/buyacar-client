@@ -10,9 +10,12 @@ const CarDetails = () => {
   const [car, setCar] = useState({});
   const [imageIndex, setImageIndex] = useState(0);
 
+  const server = "http://localhost:5005";
+
+
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/car/${id}`)
+      .get(`${server}/car/${id}`)
       .then((res) => {
         setCar(res.data);
       })

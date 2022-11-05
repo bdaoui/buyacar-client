@@ -49,7 +49,7 @@ const ContactForm = () => {
           <div className="md:flex items-center mt-12  ">
             <div className="w-full md:w-1/2 flex flex-col">
               <label className="font-semibold leading-none text-gold ">
-                Nom
+                Prenom
               </label>
               <input
                 required
@@ -60,7 +60,7 @@ const ContactForm = () => {
             </div>
             <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="font-semibold leading-none text-gold">
-                Nom De Famille
+                Nom
               </label>
               <input
                 required
@@ -84,7 +84,7 @@ const ContactForm = () => {
             </div>
             <div className="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="font-semibold leading-none text-gold">
-                Téléphoner
+                Numero
               </label>
               <input
                 required
@@ -97,7 +97,7 @@ const ContactForm = () => {
           <div className="md:flex items-center mt-8">
             <div className="w-full flex flex-col">
               <label className="font-semibold leading-none text-gold">
-                Matière
+                Sujet
               </label>
               <input
                 required
