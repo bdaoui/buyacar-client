@@ -22,7 +22,7 @@ const OtherOffers = ({ cars }) => {
 
         return (
           <div key={car._id} className="p-5 px-8 md:px-6 lg:px-1 lg:w-1/2">
-            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl mx-auto">
+            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl lg:w-[50%] mx-auto">
               <Link to={`/${car._id}`}>
                 <img
                   className="rounded-t-lg w-full h-[130px] sm:h-[200px] md:h-[350px] lg:h-[250px] overflow-hidden  m-auto"
