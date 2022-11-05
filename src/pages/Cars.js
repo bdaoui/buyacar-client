@@ -3,10 +3,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Filter from "../components/cars/Filter";
 import { HashLink } from "react-router-hash-link";
-import {RiInsertColumnLeft} from "react-icons/ri"
-import {RiDeleteColumn} from "react-icons/ri"
-import {TfiLayoutGrid2Alt, TfiLayoutGrid3Alt} from 'react-icons/tf'
+
+import {HiOutlinePlusCircle, HiOutlineMinusCircle} from "react-icons/hi"
+
+
+import {TfiLayoutGrid2, TfiLayoutGrid3} from 'react-icons/tfi'
 import {BsSquareFill} from 'react-icons/bs'
+
 
 
 
@@ -172,14 +175,16 @@ const Cars = () => {
     const layoutByOne = {
       container: "w-full",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]"
+      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]",
+      icon: <BsSquareFill />
 
     }
 
     const layoutByTwo = {
       container: "w-full lg:w-1/2",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]"
+      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]",
+      icon: <TfiLayoutGrid2 />
 
 
 
@@ -188,7 +193,8 @@ const Cars = () => {
     const layoutByThree = {
       container: "w-full lg:w-1/3",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[325px] w-[660px]"
+      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[325px] w-[660px]",
+      icon: <TfiLayoutGrid3 />
 
     }
 
@@ -262,15 +268,21 @@ const Cars = () => {
       </section>
 
       <section className="w-full hidden  lg:flex justify-center gap-5 ">
-      
-        <div className="text-white text-3xl cursor-pointer	" onClick={ e => setCounter(prev => prev >= 3 ? prev : prev+1)} >
-        <RiInsertColumnLeft />
-        </div>
-        <div className="text-white text-3xl cursor-pointer	" onClick={ e => setCounter(prev => prev <= 1 ? prev : prev-1)}>
-        <RiDeleteColumn />
+
+
+
+        <div className="text-white text-3xl cursor-pointer    " onClick={ e => setCounter(prev => prev <= 1 ? prev : prev-1)}>
+        <HiOutlineMinusCircle />
         </div>
 
-      </section> 
+        <div className=" text-white text-xl mt-1">
+        {imageListBy.icon} 
+        </div>
+
+        <div className="text-white text-3xl cursor-pointer    " onClick={ e => setCounter(prev => prev >= 3 ? prev : prev+1)} >
+        <HiOutlinePlusCircle />
+        </div>
+      </section>
         
 
         { filteredCars?.length === 0  && 
