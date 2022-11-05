@@ -262,8 +262,7 @@ const Cars = () => {
           return (
 
             <div key={car._id} className={`p-2 sm:p-5 md:p-10 lg:p-30 ${imageListBy.container} flex justify-center`}>
-              <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white w-[660px] md:h-[990px]">
-
+              <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white w-[660px]">
                 
                 <Link to={`/${car._id}`}>
                   <img
