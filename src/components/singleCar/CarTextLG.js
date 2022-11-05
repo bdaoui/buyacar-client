@@ -12,7 +12,7 @@ import ContactSingleCar from './ContactSingleCar'
 const CarTextLG = ({car}) => {
   return (
     <>
-    <div className="w-full text-2xl font-semibold flex pb-20 justify-center ">
+    <div className="w-[100%] text-2xl font-semibold flex p-[10%] pb-20 justify-center ">
           
        <div className='flex flex-col'>
 
@@ -77,7 +77,7 @@ const CarTextLG = ({car}) => {
 
 </section>
 
-<section className="flex flex-col w-1/2">
+<section className="flex flex-col m-auto px-[10%] pt-10">
  <CgQuote className="text-[100px]"/>
     <p className="text-xs md:text-lg px-10">
       <span className="italic text-gold ">{car?.description}</span></p>

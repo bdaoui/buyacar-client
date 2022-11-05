@@ -69,7 +69,7 @@ const CarTextSM = ({car}) => {
 
     </section>
   </div>
-<section className="flex flex-col w-full py-5 pb-20">
+<section className="flex flex-col  py-5 pb-20">
  <CgQuote className="mt-3 text-5xl ml-5"/>
     <p className="text-xs md:text-base px-10">
       <span className="italic text-gold ">{car?.description}</span></p>
