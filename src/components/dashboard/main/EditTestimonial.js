@@ -10,7 +10,7 @@ const EditTestimonial = ({
 }) => {
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
-  const server = "http://localhost:5005";
+  const server = "https://erin-real-wombat.cyclic.app";
 
   //Edit a testiomonial
   const handleTestimonialEdit = (e, id) => {

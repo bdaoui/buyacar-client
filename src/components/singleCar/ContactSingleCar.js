@@ -32,7 +32,7 @@ const ContactSingleCar = ({car}) => {
     };
     
     axios
-      .post("http://localhost:5005/contact/car", fileContact)
+      .post("https://erin-real-wombat.cyclic.app/contact/car", fileContact)
       .then((response) => {
         console.log(response.data);
         setValidateSending(response.data);

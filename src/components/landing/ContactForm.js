@@ -26,7 +26,7 @@ const ContactForm = () => {
     };
 
     axios
-      .post("http://localhost:5005/contact", fileContact)
+      .post("https://erin-real-wombat.cyclic.app/contact", fileContact)
       .then((response) => {
         console.log(response.data);
         setValidateSending(response.data);

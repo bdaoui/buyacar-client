@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5005/admin/login", { identifier, password })
+      .post("https://erin-real-wombat.cyclic.app/admin/login", { identifier, password })
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);

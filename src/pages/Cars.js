@@ -14,7 +14,7 @@ import {BsSquareFill} from 'react-icons/bs'
 
 
 const Cars = () => {
-  const server = "http://localhost:5005";
+  const server = "https://erin-real-wombat.cyclic.app";
 
   const [cars, setCars] = useState([]);
 
