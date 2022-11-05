@@ -5,6 +5,9 @@ import Filter from "../components/cars/Filter";
 import { HashLink } from "react-router-hash-link";
 import {RiInsertColumnLeft} from "react-icons/ri"
 import {RiDeleteColumn} from "react-icons/ri"
+import {TfiLayoutGrid2Alt, TfiLayoutGrid3Alt} from 'react-icons/tf'
+import {BsSquareFill} from 'react-icons/bs'
+
 
 
 const Cars = () => {
@@ -169,14 +172,14 @@ const Cars = () => {
     const layoutByOne = {
       container: "w-full",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[400px] lg:h-[430px] w-[660px]"
+      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]"
 
     }
 
     const layoutByTwo = {
       container: "w-full lg:w-1/2",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[400px] lg:h-[430px] w-[660px]"
+      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]"
 
 
 
@@ -185,7 +188,7 @@ const Cars = () => {
     const layoutByThree = {
       container: "w-full lg:w-1/3",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[400px] lg:h-[325px] w-[660px]"
+      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[325px] w-[660px]"
 
     }
 
