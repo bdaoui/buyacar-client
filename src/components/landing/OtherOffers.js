@@ -10,8 +10,8 @@ const OtherOffers = ({ cars }) => {
       className="flex flex-col lg:flex-row justify-center md:w-5/6 lg:w-2/4 m-auto md:flex-wrap md:p-10 "
     >
       <header className="w-full">
-        <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
-          --- Autres Offres---
+        <h1 className="text-2xl md:text-5xl text-center m-auto font-bold py-4 text-gold">
+          ~<span className="text-lg md:text-4xl"> Autres Offres </span> ~ 
         </h1>
       </header>
       {cars.map((car) => {

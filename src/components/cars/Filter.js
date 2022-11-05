@@ -7,7 +7,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
 
   return (
     <div className="flex w-full flex-col md:flex-row justify-center
-       text-white font-medium text-base text-right mx-28 md:mx-5 lg:mx-20 gap-4
+       text-white font-medium text-xs sm:text-sm md:text-base text-right mx-28 md:mx-5 lg:mx-20 gap-4
       flex-wrap">
             
             
