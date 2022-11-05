@@ -160,7 +160,7 @@ const Cars = () => {
             viewBox="0 0 24 24"
             strokeWidth="2"
             stroke="currentColor"
-            className="w-8 h-8 mb-1 md:mb-0 md:w-10 md:h-10 bottom-16 right-1 md:bottom-10 md:right-1 lg:bottom-20 lg:right-10 fixed text-gold"
+            className="hidden md:block mb-3 lg:mb-0 w-10 h-10 bottom-10 right-1 lg:bottom-20 lg:right-10 fixed text-gold"
           >
             <path
               strokeLinecap="round"
@@ -173,7 +173,7 @@ const Cars = () => {
 
       <div
         id="carGallery"
-        className="flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-1 md:p-10"
+        className="flex flex-col md:flex-row justify-center m-auto md:flex-wrap p-1 md:p-10"
       >
         <header className="w-full">
          
@@ -216,50 +216,53 @@ const Cars = () => {
 
         {filteredCars?.map((car) => {
           return (
-            <div key={car._id} className="p-10 w-full ">
+            <div key={car._id} className="p-5 md:p-10 lg:p-30 w-full flex justify-center">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white ">
+                
                 <Link to={`/${car._id}`}>
                   <img
-                    className="rounded-t-lg"
+                    className="rounded-xl h-[150px] sm:h-[200px] md:h-[400px] lg:h-[450px]"
                     src={car.image[0]}
                     alt={car.name}
                   />
                 </Link>
-                <div className="p-5 ">
-                  <section className="flex flex-row justify-around  ">
+
+                <div className="p-0 sm:p-2 md:p-5">
+
+                  <section className="flex flex-row justify-around sm:mt-2 ">
                     <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">
                       {car.make + " " + car.model}
                     </h5>
                   </section>
 
-                  <section className="flex flex-col justify-center mt-5 gap-2">
+                  <section className="flex flex-col justify-center sm:mt-1 md:mt-5 gap-0 md:gap-2">
                     <h1 className="text-base md:text-xl text-center">
                       € {car.price}{" "}
                     </h1>
 
-                    <div className="flex flex-col lg:flex-row justify-center mt-5 gap-2">
-                      <section className="p-2 md:border-r-white md:border-r-2 flex flex-col">
+                    <div className="flex flex-col lg:flex-row justify-center md:mt-5 md:gap-2">
+                      <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2 flex flex-col">
                         <h1 className="text-sm font-light md:text-base text-gold">
                           Année{" "}
                         </h1>
                         <h1 className="text-sm md:text-base">{car.year} </h1>
                       </section>
 
-                      <section className="p-2 md:border-r-white md:border-r-2">
+                      <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2">
                         <h1 className="text-sm md:text-base font-light text-gold">
                           Kilométrage{" "}
                         </h1>
                         <h1 className="text-sm md:text-base">{car.mileage} </h1>
                       </section>
 
-                      <section className="p-2 md:border-r-white md:border-r-2">
+                      <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2">
                         <h1 className="text-sm md:text-base font-light text-gold">
                           Carburant{" "}
                         </h1>
                         <h1 className="text-sm md:text-base"> {car.fuel} </h1>
                       </section>
 
-                      <section className="p-2">
+                      <section className="px-1 sm:p-2">
                         <h1 className="text-sm md:text-base font-light text-gold">
                           Boite de Vitesse{" "}
                         </h1>
@@ -270,13 +273,13 @@ const Cars = () => {
                     </div>
                   </section>
 
-                  <h5 className="text-xs md:text-base font-bold tracking-tight text-white mt-8">
-                    {car.description}
+                  <h5 className="text-xs md:text-base font-bold tracking-tight text-white mt-1 sm:mt-3 md:mt-8 p-1 sm:p-3">
+                    {car.description.substr(0, 80) + "..."}
                   </h5>
 
                   <Link
                     to={`/${car._id}`}
-                    className="inline-flex items-center py-2 px-3 text-sm font-medium text-center mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+                    className="inline-flex items-center py-2 px-3 ml-3 mb-1 text-xs sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
                   >
                     See more
                     <svg
@@ -294,6 +297,7 @@ const Cars = () => {
                     </svg>
                   </Link>
                 </div>
+
               </div>
             </div>
           );
