@@ -261,7 +261,7 @@ const Cars = () => {
         {filteredCars?.map((car) => {
           return (
 
-            <div key={car._id} className="p-2 sm:p-5 md:p-10 lg:p-30 w-full flex justify-center">
+            <div key={car._id} className={`p-2 sm:p-5 md:p-10 lg:p-30 ${imageListBy.container} flex justify-center`}>
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white w-[660px] md:h-[990px]">
 
                 
@@ -287,7 +287,7 @@ const Cars = () => {
                     </h1>
 
 
-                    <div className="flex flex-col lg:flex-row justify-center md:mt-5 md:gap-2">
+                    <div className={imageListBy.infoSection}>
                       <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2 flex flex-col">
                         <h1 className="text-[0.7rem] sm:text-sm font-light md:text-base text-gold">
 
