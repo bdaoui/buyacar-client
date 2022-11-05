@@ -18,8 +18,10 @@ const Cars = () => {
   const [selectedFuel, setSelectedFuel] = useState("")
   const [selectedMake, setSelectedMake] = useState("")
 
-  const [validateSending, setValidateSending] = useState("")
   
+  const [imageListBy, setImageListBy] = useState("")
+  
+  const [validateSending, setValidateSending] = useState("")
   
   const [refresh, setRefresh] = useState(false);
   
@@ -149,6 +151,35 @@ const Cars = () => {
 
 
 
+  const showImageListBy = (e, type) => {
+
+    const layoutByOne = {
+      container: "w-full",
+      infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+
+    }
+
+    const layoutByTwo = {
+      container: "w-full md:w-1/2",
+      infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+      descriptionLenght: ".substring(0,100)"
+
+
+    }
+   
+    const layoutByThree = {
+      container: "w-full md:w-1/3",
+      descriptionLenght: ".substring(0,50)"
+
+
+    }
+
+    if(type === 1) return setImageListBy(layoutByOne)
+    if(type === 2) return setImageListBy(layoutByTwo)
+    if(type === 3) return setImageListBy(layoutByThree)
+ 
+  }
+
 
   return (
     <div>
@@ -201,7 +232,7 @@ const Cars = () => {
           width="708.000000pt" height="1280.000000pt" viewBox="0 0 708.000000 1280.000000"
           preserveAspectRatio="xMidYMid meet"
           
-          className="w-5 h-10 -rotate-45 absolute left-[220px] top-5">
+          className="w-5 h-10 rotate-90 absolute left-[220px] top-5">
          
           <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
           fill="#d4af37" stroke="none">
@@ -222,8 +253,17 @@ const Cars = () => {
           
 
 
-             Catalogue Complet  
+             Catalogue  
           </h1>
+
+        
+
+        <div  className="text-white" onClick={ e => showImageListBy(e, 1)}>1</div>
+        <div className="text-white" onClick={ e => showImageListBy(e, 2)} >2</div>
+        <div className="text-white" onClick={ e => showImageListBy(e, 3)}>4</div>
+        
+
+
         </header>
 
       <section className="flex">
@@ -260,7 +300,7 @@ const Cars = () => {
 
         {filteredCars?.map((car) => {
           return (
-            <div key={car._id} className="p-10 w-full ">
+            <div key={car._id} className={`p-10 ${imageListBy.container}`}>
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white ">
                 <Link to={`/${car._id}`}>
                   <img
@@ -281,7 +321,8 @@ const Cars = () => {
                       € {car.price}{" "}
                     </h1>
 
-                    <div className="flex flex-col lg:flex-row justify-center mt-5 gap-2">
+                    <div className={imageListBy.infoSection}>
+                      
                       <section className="p-2 md:border-r-white md:border-r-2 flex flex-col">
                         <h1 className="text-sm font-light md:text-base text-gold">
                           Année{" "}
@@ -308,14 +349,16 @@ const Cars = () => {
                           Boite de Vitesse{" "}
                         </h1>
                         <h1 className="text-sm md:text-base">
-                          {car.transmission}{" "}
+                        {car.transmission} 
                         </h1>
                       </section>
+
                     </div>
                   </section>
 
                   <h5 className="text-xs md:text-base font-bold tracking-tight text-white mt-8">
-                    {car.description}
+                  {imageListBy.descriptionLenght ? car.description.substring(0,50) : car.description}
+
                   </h5>
 
                   <Link
