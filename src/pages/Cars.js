@@ -191,7 +191,7 @@ const Cars = () => {
             viewBox="0 0 24 24"
             strokeWidth="2"
             stroke="currentColor"
-            className="w-8 h-8 mb-1 md:mb-0 md:w-10 md:h-10 bottom-16 right-1 md:bottom-10 md:right-1 lg:bottom-20 lg:right-10 fixed text-gold"
+            className="hidden md:block mb-3 lg:mb-0 w-10 h-10 bottom-10 right-1 lg:bottom-20 lg:right-10 fixed text-gold"
           >
             <path
               strokeLinecap="round"
@@ -204,56 +204,12 @@ const Cars = () => {
 
       <div
         id="carGallery"
-        className="flex flex-col md:flex-row justify-center md:w-2/4 m-auto md:flex-wrap p-1 md:p-10"
+        className="flex flex-col md:flex-row justify-center m-auto md:flex-wrap p-1 md:p-10"
       >
-        <header className="w-full relative">
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-          width="708.000000pt" height="1280.000000pt" viewBox="0 0 708.000000 1280.000000"
-          preserveAspectRatio="xMidYMid meet"
-          
-          className="w-5 h-10 -rotate-45 absolute right-[220px] top-5">
+        <header className="w-full">
          
-          <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-          fill="#d4af37" stroke="none">
-          <path d="M1985 12547 l-160 -61 -146 -146 c-490 -489 -916 -1097 -1202 -1716
-          -238 -515 -377 -1029 -418 -1549 -15 -185 -6 -624 15 -785 99 -740 349 -1411
-          759 -2031 364 -552 897 -1078 1470 -1453 203 -133 278 -174 566 -311 914 -435
-          1833 -936 2296 -1254 354 -242 640 -507 900 -831 567 -708 786 -1524 610
-          -2272 -12 -54 -19 -95 -14 -92 24 15 109 207 171 384 269 781 257 1709 -35
-          2590 -153 461 -295 736 -538 1039 -496 621 -1355 1262 -2455 1833 -313 163
-          -416 222 -601 344 -890 585 -1537 1314 -1895 2134 -160 366 -283 852 -323
-          1274 -17 183 -20 518 -5 686 57 645 291 1240 690 1755 118 151 287 328 464
-          483 33 29 42 42 30 41 -11 0 -91 -28 -179 -62z"/>
-          </g>
-          </svg>
-
-          
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-          width="708.000000pt" height="1280.000000pt" viewBox="0 0 708.000000 1280.000000"
-          preserveAspectRatio="xMidYMid meet"
-          
-          className="w-5 h-10 rotate-90 absolute left-[220px] top-5">
-         
-          <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-          fill="#d4af37" stroke="none">
-          <path d="M1985 12547 l-160 -61 -146 -146 c-490 -489 -916 -1097 -1202 -1716
-          -238 -515 -377 -1029 -418 -1549 -15 -185 -6 -624 15 -785 99 -740 349 -1411
-          759 -2031 364 -552 897 -1078 1470 -1453 203 -133 278 -174 566 -311 914 -435
-          1833 -936 2296 -1254 354 -242 640 -507 900 -831 567 -708 786 -1524 610
-          -2272 -12 -54 -19 -95 -14 -92 24 15 109 207 171 384 269 781 257 1709 -35
-          2590 -153 461 -295 736 -538 1039 -496 621 -1355 1262 -2455 1833 -313 163
-          -416 222 -601 344 -890 585 -1537 1314 -1895 2134 -160 366 -283 852 -323
-          1274 -17 183 -20 518 -5 686 57 645 291 1240 690 1755 118 151 287 328 464
-          483 33 29 42 42 30 41 -11 0 -91 -28 -179 -62z"/>
-          </g>
-          </svg>
-
-          <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 mb-5 text-gold">
-
-          
-
-
-             Catalogue  
+          <h1 className="text-2xl md:text-5xl text-center m-auto font-bold py-4 mb-5 text-gold">
+             ~ <span className="text-lg md:text-4xl"> Catalogue Complet </span> ~
           </h1>
 
         
@@ -302,21 +258,24 @@ const Cars = () => {
           return (
             <div key={car._id} className={`p-10 ${imageListBy.container}`}>
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white ">
+                
                 <Link to={`/${car._id}`}>
                   <img
-                    className="rounded-t-lg"
+                    className="rounded-xl h-[150px] sm:h-[200px] md:h-[400px] lg:h-[450px]"
                     src={car.image[0]}
                     alt={car.name}
                   />
                 </Link>
-                <div className="p-5 ">
-                  <section className="flex flex-row justify-around  ">
+
+                <div className="p-0 sm:p-2 md:p-5">
+
+                  <section className="flex flex-row justify-around sm:mt-2 ">
                     <h5 className="text-sm md:text-lg font-bold tracking-tight text-white">
                       {car.make + " " + car.model}
                     </h5>
                   </section>
 
-                  <section className="flex flex-col justify-center mt-5 gap-2">
+                  <section className="flex flex-col justify-center sm:mt-1 md:mt-5 gap-0 md:gap-2">
                     <h1 className="text-base md:text-xl text-center">
                       € {car.price}{" "}
                     </h1>
@@ -330,21 +289,21 @@ const Cars = () => {
                         <h1 className="text-sm md:text-base">{car.year} </h1>
                       </section>
 
-                      <section className="p-2 md:border-r-white md:border-r-2">
+                      <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2">
                         <h1 className="text-sm md:text-base font-light text-gold">
                           Kilométrage{" "}
                         </h1>
                         <h1 className="text-sm md:text-base">{car.mileage} </h1>
                       </section>
 
-                      <section className="p-2 md:border-r-white md:border-r-2">
+                      <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2">
                         <h1 className="text-sm md:text-base font-light text-gold">
                           Carburant{" "}
                         </h1>
                         <h1 className="text-sm md:text-base"> {car.fuel} </h1>
                       </section>
 
-                      <section className="p-2">
+                      <section className="px-1 sm:p-2">
                         <h1 className="text-sm md:text-base font-light text-gold">
                           Boite de Vitesse{" "}
                         </h1>
@@ -363,7 +322,7 @@ const Cars = () => {
 
                   <Link
                     to={`/${car._id}`}
-                    className="inline-flex items-center py-2 px-3 text-sm font-medium text-center mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+                    className="inline-flex items-center py-2 px-3 ml-3 mb-1 text-xs sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
                   >
                     See more
                     <svg
@@ -381,6 +340,7 @@ const Cars = () => {
                     </svg>
                   </Link>
                 </div>
+
               </div>
             </div>
           );

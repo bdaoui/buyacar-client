@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CarTextSM from "../components/singleCar/CarTextSM";
@@ -30,6 +30,10 @@ const CarDetails = () => {
     const prev = imageIndex <= 0 ? endArray - 1 : imageIndex - 1;
     setImageIndex(prev);
   };
+  
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+});
 
   return (
     <div className="text-white w-full">

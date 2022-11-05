@@ -33,6 +33,7 @@ const EditContact = ({
       .delete(`${server}/contact/${chosenMessage[0]._id}`)
       .then((response) => {
         console.log(response);
+        handleCloseSecondSection()
         setRefresh(!refresh);
       })
       .catch((err) => console.log(err));

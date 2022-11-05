@@ -157,10 +157,10 @@ const BestOffer = () => {
       id="bestOffer"
     >
       <header
-        className="text-lg md:text-4xl text-center m-auto font-bold w-2/4 text-gold "
+        className="text-2xl md:text-5xl text-center m-auto font-bold w-2/4 text-gold "
         id="bonPlans"
       >
-        --- Bons Plans ---
+        ~ <span className="text-lg md:text-4xl text-center"> Bons Plans </span> ~
       </header>
 
       <section className="text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl">

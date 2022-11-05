@@ -74,6 +74,7 @@ const EditCarPost = ({
     axios
       .delete(`${server}/car/${selectedId}`)
       .then((res) => {
+        handleCloseSecondSection()
         setRefresh(!refresh);
         console.log(res);
       })
