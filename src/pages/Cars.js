@@ -158,13 +158,13 @@ const Cars = () => {
 
 
   // Layout Changer
- const [counter, setCounter] = useState(0)
-  
-  const showImageListBy = (e, action) => {
-    setCounter(counter + action)
+ const [counter, setCounter] = useState(1)
+ console.log(counter)
 
-    console.log(counter)
 
+ useEffect(() => {
+
+    // Various Layout
 
     const layoutByOne = {
       container: "w-full",
@@ -189,12 +189,60 @@ const Cars = () => {
 
     }
 
+    // Conditionals for Rendering the Layout
+
     if(counter <= 1 ) return setImageListBy(layoutByOne)
     if(counter > 1 && counter < 3) return setImageListBy(layoutByTwo)
     if(counter >= 3 ) return setImageListBy(layoutByThree)
 
+ },[counter])
+  
+  // const showImageListBy =   (e, action) => {
+  //   console.log("action ", action)
+  //   if(counter <= 0 && action === -1) return false
+    
+  //   let newCount = counter+action
+  //   const newCount = () => setCounter( prev => prev+action)
+  //   newCount()
+
+  //   let settingCounter = new Promise((resolve, reject) => {
+  //     setCounter(counter + action)
+  //     resolve(counter)
+  //   })
+
+  //   await settingCounter;
+
+
+
+  //   const layoutByOne = {
+  //     container: "w-full",
+  //     infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+
+  //   }
+
+  //   const layoutByTwo = {
+  //     container: "w-full lg:w-1/2",
+  //     infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+  //     descriptionLenght: ".substring(0,100)"
+
+
+  //   }
+   
+  //   const layoutByThree = {
+  //     container: "w-full lg:w-1/3",
+  //     infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+
+  //     descriptionLenght: ".substring(0,50)"
+
+
+  //   }
+
+  //   if(counter <= 1 ) return setImageListBy(layoutByOne)
+  //   if(counter > 1 && counter < 3) return setImageListBy(layoutByTwo)
+  //   if(counter >= 3 ) return setImageListBy(layoutByThree)
+
  
-  }
+  // }
 
 
   return (
@@ -255,12 +303,12 @@ const Cars = () => {
         />
       </section>
 
-      <section className="w-full hidden  lg:flex justify-center ">
+      <section className="w-full hidden  lg:flex justify-center gap-5 ">
       
-        <div className="text-white text-3xl cursor-pointer	" onClick={ e => showImageListBy(e, 1)} >
+        <div className="text-white text-3xl cursor-pointer	" onClick={ e => setCounter(prev => prev >= 3 ? prev : prev+1)} >
         <RiInsertColumnLeft />
         </div>
-        <div className="text-white text-3xl cursor-pointer	" onClick={ e => showImageListBy(e, -1)}>
+        <div className="text-white text-3xl cursor-pointer	" onClick={ e => setCounter(prev => prev <= 1 ? prev : prev-1)}>
         <RiDeleteColumn />
         </div>
 
