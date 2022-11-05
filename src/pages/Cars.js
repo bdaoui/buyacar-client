@@ -18,8 +18,10 @@ const Cars = () => {
   const [selectedFuel, setSelectedFuel] = useState("")
   const [selectedMake, setSelectedMake] = useState("")
 
-  const [validateSending, setValidateSending] = useState("")
   
+  const [imageListBy, setImageListBy] = useState("")
+  
+  const [validateSending, setValidateSending] = useState("")
   
   const [refresh, setRefresh] = useState(false);
   
@@ -153,6 +155,35 @@ const Cars = () => {
 
 
 
+  const showImageListBy = (e, type) => {
+
+    const layoutByOne = {
+      container: "w-full",
+      infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+
+    }
+
+    const layoutByTwo = {
+      container: "w-full md:w-1/2",
+      infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
+      descriptionLenght: ".substring(0,100)"
+
+
+    }
+   
+    const layoutByThree = {
+      container: "w-full md:w-1/3",
+      descriptionLenght: ".substring(0,50)"
+
+
+    }
+
+    if(type === 1) return setImageListBy(layoutByOne)
+    if(type === 2) return setImageListBy(layoutByTwo)
+    if(type === 3) return setImageListBy(layoutByThree)
+ 
+  }
+
 
   return (
     <div>
@@ -184,6 +215,15 @@ const Cars = () => {
           <h1 className="text-2xl md:text-5xl text-center m-auto font-bold py-4 mb-5 text-gold">
              ~ <span className="text-lg md:text-4xl"> Catalogue Complet </span> ~
           </h1>
+
+        
+
+        <div  className="text-white" onClick={ e => showImageListBy(e, 1)}>1</div>
+        <div className="text-white" onClick={ e => showImageListBy(e, 2)} >2</div>
+        <div className="text-white" onClick={ e => showImageListBy(e, 3)}>4</div>
+        
+
+
         </header>
 
       <section className="flex">
@@ -220,6 +260,7 @@ const Cars = () => {
 
         {filteredCars?.map((car) => {
           return (
+
             <div key={car._id} className="p-2 sm:p-5 md:p-10 lg:p-30 w-full flex justify-center">
               <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white w-[660px]">
                 
@@ -244,9 +285,11 @@ const Cars = () => {
                       € {car.price}{" "}
                     </h1>
 
+
                     <div className="flex flex-col lg:flex-row justify-center md:mt-5 md:gap-2">
                       <section className="px-1 sm:p-2 lg:border-r-white lg:border-r-2 flex flex-col">
                         <h1 className="text-[0.7rem] sm:text-sm font-light md:text-base text-gold">
+
                           Année{" "}
                         </h1>
                         <h1 className="text-[0.7rem] sm:text-sm md:text-base">{car.year} </h1>
@@ -270,15 +313,19 @@ const Cars = () => {
                         <h1 className="text-[0.7rem] sm:text-sm md:text-base font-light text-gold">
                           Boite de Vitesse{" "}
                         </h1>
+
                         <h1 className="text-[0.7rem] sm:text-sm md:text-base">
                           {car.transmission}{" "}
+
                         </h1>
                       </section>
+
                     </div>
                   </section>
 
                   <h5 className="text-[0.6rem] sm:text-xs md:text-base font-bold tracking-tight text-white mt-1 sm:mt-3 md:mt-8 p-1 sm:p-3">
                     {car.description.substr(0, 80) + "..."}
+
                   </h5>
 
                   <Link
