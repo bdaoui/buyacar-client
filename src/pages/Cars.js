@@ -176,7 +176,6 @@ const Cars = () => {
     const layoutByTwo = {
       container: "w-full lg:w-1/2",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      descriptionLenght: ".substring(0,100)",
       image: "rounded-xl h-[150px] sm:h-[195px] md:h-[400px] lg:h-[430px] w-[660px]"
 
 
@@ -186,10 +185,7 @@ const Cars = () => {
     const layoutByThree = {
       container: "w-full lg:w-1/3",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      descriptionLenght: ".substring(0,50)",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[400px] lg:h-[330px] w-[660px]"
-
-
+      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[400px] lg:h-[325px] w-[660px]"
 
     }
 
@@ -201,6 +197,7 @@ const Cars = () => {
 
  },[counter])
   
+
 
 
   return (
