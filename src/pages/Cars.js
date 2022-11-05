@@ -216,7 +216,7 @@ const Cars = () => {
 
         <div  className="text-white" onClick={ e => showImageListBy(e, 1)}>1</div>
         <div className="text-white" onClick={ e => showImageListBy(e, 2)} >2</div>
-        <div className="text-white" onClick={ e => showImageListBy(e, 3)}>4</div>
+        <div className="text-white" onClick={ e => showImageListBy(e, 3)}>3</div>
         
 
 
