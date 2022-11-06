@@ -45,20 +45,20 @@ const OtherOffers = ({ cars }) => {
                     € {car.price}{" "}
                   </h1>
 
-                  <div className="flex justify-center mt-1 sm:mt-3 md:mt-5 gap-2">
-                    <section className="p-2 border-r-white border-r-2 flex flex-col">
+                  <div className="flex justify-center mt-1 sm:mt-3 md:mt-5">
+                    <section className="p-2 px-4 border-r-white border-r-2 flex flex-col">
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light  text-white">Année </h1>
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg text-white">{car.year} </h1>
                     </section>
 
-                    <section className="p-2 border-r-white border-r-2">
+                    <section className="p-2 px-4 border-r-white border-r-2">
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light text-white">
                         Kilométrage{" "}
                       </h1>
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg text-white">{car.mileage} </h1>
                     </section>
 
-                    <section className="p-2">
+                    <section className="p-2 px-4">
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light text-white">
                         Carburant{" "}
                       </h1>
