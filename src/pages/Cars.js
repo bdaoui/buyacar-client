@@ -14,7 +14,7 @@ import {BsSquareFill} from 'react-icons/bs'
 
 
 const Cars = () => {
-  const server = "http://localhost:5005";
+  const server = "https://drab-red-woodpecker-hat.cyclic.app" ;
 
   const [cars, setCars] = useState([]);
 
@@ -175,7 +175,7 @@ const Cars = () => {
     const layoutByOne = {
       container: "w-full",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]",
+      image: "rounded-t-xl h-[175px] sm:h-[220px] md:h-[450px] lg:h-[440px] w-[660px]",
       icon: <BsSquareFill />
 
     }
@@ -183,7 +183,7 @@ const Cars = () => {
     const layoutByTwo = {
       container: "w-full lg:w-1/2",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[430px] w-[660px]",
+      image: "rounded-t-xl h-[175px] sm:h-[220px] md:h-[450px] lg:h-[440px] w-[660px]",
       icon: <TfiLayoutGrid2 />
 
 
@@ -193,7 +193,7 @@ const Cars = () => {
     const layoutByThree = {
       container: "w-full lg:w-1/3",
       infoSection: "flex flex-col lg:flex-row justify-center mt-5 gap-2",
-      image: "rounded-xl h-[150px] sm:h-[195px] md:h-[420px] lg:h-[325px] w-[660px]",
+      image: "rounded-t-xl h-[175px] sm:h-[220px] md:h-[450px] lg:h-[325px] w-[660px]",
       icon: <TfiLayoutGrid3 />
 
     }
@@ -299,7 +299,7 @@ const Cars = () => {
           return (
 
             <div key={car._id} className={`p-2 sm:p-5 md:p-10 lg:p-30 ${imageListBy.container} flex justify-center`}>
-              <div className="bg-black rounded-lg border border-gray-200 shadow-2xl text-white w-[660px]">
+              <div className="bg-black rounded-lg border border-gold shadow-2xl text-white w-[300px] md:w-[660px]">
                 
                 <Link to={`/${car._id}`}>
                   <img

@@ -28,7 +28,7 @@ const EditCarPost = ({
   const [imageIndex, setImageIndex] = useState(0);
   const [validateSending, setValidateSending] = useState("");
 
-  const server = "http://localhost:5005";
+  const server = "https://drab-red-woodpecker-hat.cyclic.app" ;
 
   let filteredCar = cars.filter((car) => car._id === selectedId);
 
@@ -82,30 +82,30 @@ const EditCarPost = ({
   };
 
   //Delete Single Image
-  const handleImageDelete = (e, image) => {
-    e.preventDefault();
-
-    axios
-      .put(`${server}/car/${selectedId}/image`, image)
-      .then((response) => {
-        setRefresh(!refresh);
-        setValidateSending(response.data);
-        if (imageIndex <= 0) {
-          setImageIndex(1);
-        } else if (imageIndex > filteredCar[0].image.length) {
-          setImageIndex(filteredCar[0].image.length);
-        } else if (imageIndex === filteredCar[0].image.length) {
-          setImageIndex(filteredCar[0].image.length - 1);
-        } else if (filteredCar[0].image.length === 1) {
-          setImageIndex(1);
-        }
-      })
-      .catch((err) => console.log(err));
-
-    return setInterval(() => {
-      return setValidateSending("");
-    }, 4000);
-  };
+    const handleImageDelete = (e, image) => {
+      e.preventDefault();
+  
+      axios
+        .put(`${server}/car/${selectedId}/image`, image)
+        .then((response) => {
+          setRefresh(!refresh);
+          setValidateSending(response.data);
+          if (imageIndex <= 0) {
+            setImageIndex(1);
+          } else if (imageIndex > filteredCar[0].image.length) {
+            setImageIndex(filteredCar[0].image.length);
+          } else if (imageIndex === filteredCar[0].image.length) {
+            setImageIndex(filteredCar[0].image.length - 1);
+          } else if (filteredCar[0].image.length === 1) {
+            setImageIndex(1);
+          }
+        })
+        .catch((err) => console.log(err));
+  
+      return setInterval(() => {
+        return setValidateSending("");
+      }, 4000);
+    };
 
   const handleAllImageDelete = (e) => {
     e.preventDefault();

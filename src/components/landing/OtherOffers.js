@@ -24,11 +24,11 @@ const OtherOffers = ({ cars }) => {
         if(counter > 4) return true
 
         return (
-          <div key={car._id} className="lg:w-[500px] flex flex-wrap m-10">
-            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl mx-auto">
+          <div key={car._id} className="w-[300px] md:w-[600px] lg:w-[500px] mx-auto lg:mx-10 flex flex-wrap m-10">
+            <div className="bg-black rounded-lg border border-gold shadow-2xl mx-auto">
               <Link to={`/${car._id}`}>
                 <img
-                  className="rounded-t-lg w-[500px] h-[130px] sm:h-[200px] md:h-[350px] lg:h-[320px]"
+                  className="rounded-t-lg w-[300px] md:w-[600px] lg:w-[500px] h-[180px] sm:h-[220px] md:h-[400px] lg:h-[320px]"
                   src={car.image[0]}
                   alt={car.name}
                 />
