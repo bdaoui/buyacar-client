@@ -219,18 +219,18 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
                 value="automatic"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("automatic")}
+                onChange={(e) => setTransmission("Automatique")}
               />
 
               <label htmlFor="transmission" className="text-gold">
-                Manuel
+                Manuelle
               </label>
               <input
                 type="radio"
                 value="manual"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("manual")}
+                onChange={(e) => setTransmission("Manuelle")}
               />
 
               <label htmlFor="transmission" className="text-gold">
@@ -241,7 +241,7 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
                 value="sequential"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("sequential")}
+                onChange={(e) => setTransmission("Séquentielle")}
               />
             </fieldset>
 
