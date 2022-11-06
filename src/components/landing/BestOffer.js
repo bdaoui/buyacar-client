@@ -100,7 +100,7 @@ const BestOffer = () => {
 
         <div className="flex flex-col md:flex-row justify-center mt-5">
 
-          <section className="md:p-2 md:border-r-white md:border-r-2 flex flex-col text-center">
+          <section className="md:p-2 md:px-4 md:border-r-white md:border-r-2 flex flex-col text-center">
             <h1 className="font-light text-gold">Année </h1>
             <h1>
               {bestOffer[bestOfferIndex]?.year}{" "}
