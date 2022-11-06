@@ -7,23 +7,31 @@ const Login = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const { storeToken, authenticateUser } = useContext(AuthContext);
+  const [validateSending, setValidateSending] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5005/admin/login", { identifier, password })
+      .post("https://drab-red-woodpecker-hat.cyclic.app/admin/login", { identifier, password })
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
+        console.log(response.data)
+        setValidateSending(response.data);
       })
       .then((response) => {
         console.log("Logged in");
         navigate("/admin/dashboard");
       })
       .catch((err) => console.log(err));
+
+      return setInterval(() => {
+        return setValidateSending("");
+      }, 2000);
   };
 
   return (
@@ -87,7 +95,7 @@ const Login = () => {
                   />
                 </svg>
               </span>
-              SIGN IN
+              {validateSending || "SIGN IN"}
             </button>
           </div>
         </form>
