@@ -8,7 +8,7 @@ import EditContact from "../components/dashboard/main/EditContact";
 import DashboardSidebar from "../components/dashboard/sidebar/DashboardSidebar";
 
 const Dashboard = () => {
-  const server = "https://drab-red-woodpecker-hat.cyclic.app" ;
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
   const [cars, setCars] = useState([]);
   const [testimonials, setTestimonials] = useState([]);

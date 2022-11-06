@@ -8,7 +8,7 @@ import { HashLink } from "react-router-hash-link";
 import OtherOffers from "../components/landing/OtherOffers";
 
 const Landing = () => {
-  const server = "https://drab-red-woodpecker-hat.cyclic.app" ;
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
   const [cars, setCars] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
 
