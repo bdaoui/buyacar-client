@@ -107,7 +107,7 @@ const BestOffer = () => {
             </h1>
           </section>
 
-          <section className="md:p-2 md:border-r-white md:border-r-2 text-center">
+          <section className="md:p-2 md:px-4 md:border-r-white md:border-r-2 text-center">
             <h1 className="font-light text-gold">
               Kilométrage{" "}
             </h1>
@@ -116,7 +116,7 @@ const BestOffer = () => {
             </h1>
           </section>
 
-          <section className="md:p-2 md:border-r-white md:border-r-2 text-center">
+          <section className="md:p-2 md:px-4 md:border-r-white md:border-r-2 text-center">
             <h1 className="font-light text-gold">
               Carburant{" "}
             </h1>
@@ -126,7 +126,7 @@ const BestOffer = () => {
             </h1>
           </section>
 
-          <section className="md:p-2 text-center">
+          <section className="md:p-2 md:px-4 text-center">
             <h1 className="font-light text-gold ">
               Boite de Vitesse{" "}
             </h1>
