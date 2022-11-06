@@ -153,7 +153,7 @@ const EditCarPostLG = ({
             </legend>
             <label
               htmlFor="description"
-              value="automatic"
+              value="Automatique"
               className="text-white"
             >
               Automatique
@@ -162,12 +162,11 @@ const EditCarPostLG = ({
               defaultChecked={filteredCar[0]?.transmission === "Automatique"}
               className="border-2 border-gold ml-2 "
               name="transmission"
-              defaultValue
               onChange={(e) => setTransmission("Automatique")}
               />
               </label>
 
-            <label htmlFor="description" value="manual" className="text-white">
+            <label htmlFor="description" value="Manuelle" className="text-white">
               Manuelle
             <input
               type="radio"
@@ -180,7 +179,7 @@ const EditCarPostLG = ({
 
             <label
               htmlFor="description"
-              value="sequential"
+              value="Séquentielle"
               className="text-white"
             >
               Séquentielle

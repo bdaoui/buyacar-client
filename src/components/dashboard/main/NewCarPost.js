@@ -13,8 +13,8 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
   const [seats, setSeats] = useState("");
   const [doors, setDoors] = useState("");
   const [body, setBody] = useState("");
-  const [bestDeal, setBestDeal] = useState("no");
-  const [transmission, setTransmission] = useState("automatic");
+  const [bestDeal, setBestDeal] = useState("");
+  const [transmission, setTransmission] = useState("");
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
@@ -60,8 +60,8 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
         setSeats("");
         setDoors("");
         setBody("");
-        setBestDeal("no");
-        setTransmission("automatic");
+        setBestDeal("");
+        setTransmission("");
         setDescription("");
         setEngine("");
         setImage("");
@@ -216,10 +216,10 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               </label>
               <input
                 type="radio"
-                value="automatic"
+                value="Automatique"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("Automatique")}
+                onChange={(e) => setTransmission(e.target.value)}
               />
 
               <label htmlFor="transmission" className="text-gold">
@@ -227,10 +227,10 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               </label>
               <input
                 type="radio"
-                value="manual"
+                value="Manuelle"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("Manuelle")}
+                onChange={(e) => setTransmission(e.target.value)}
               />
 
               <label htmlFor="transmission" className="text-gold">
@@ -238,10 +238,10 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               </label>
               <input
                 type="radio"
-                value="sequential"
+                value="Séquentielle"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("Séquentielle")}
+                onChange={(e) => setTransmission(e.target.value)}
               />
             </fieldset>
 
