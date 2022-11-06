@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post("https://drab-red-woodpecker-hat.cyclic.app/admin/login", { identifier, password })
+      .post("https://muddy-moth-top-hat.cyclic.app/admin/login", { identifier, password })
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
