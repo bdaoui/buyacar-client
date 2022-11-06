@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Filter from "../components/cars/Filter";
@@ -87,11 +87,12 @@ const Cars = () => {
 
   const handleFilter =  (e) => {
     setValidateSending("Recherche")
-    let filtering = new Promise((resolve, reject) => {
+    new Promise((resolve, reject) => {
       setFilteredCars(cars)
       resolve(cars)
     
     })
+
     .then(response => handlePrice( response))
     .then(response => handleMileage(response) )
     .then(response => handleTransmission(response))
@@ -134,9 +135,9 @@ const Cars = () => {
 
     if(!isDuplicate) {
       uniqueMakes.push(car.make)
-
+      return true
     }
-
+    return false
    })
   
 

@@ -20,6 +20,7 @@ const CarDetails = () => {
         setCar(res.data);
       })
       .catch((err) => console.log(err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const nextImage = () => {

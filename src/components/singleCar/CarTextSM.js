@@ -6,7 +6,6 @@ import {RiGasStationFill} from 'react-icons/ri'
 import {GiGearStickPattern, GiCarDoor, GiCarSeat} from 'react-icons/gi'
 import {TbEngine} from 'react-icons/tb'
 import {CgQuote} from 'react-icons/cg'
-import ContactSingleCar from './ContactSingleCar'
 
 const CarTextSM = ({car}) => {
   return (
