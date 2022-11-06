@@ -87,12 +87,23 @@ const Navbar = () => {
                 </NavLink>
               </li>
               {isLoggedIn && 
+              <>
+              <li className="nav-item">
+               <NavLink
+                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                 to="/admin/dashboard"
+                 onClick={() => setNavbarOpen(!navbarOpen)}
+               >
+                 <span className="ml-2">Tableau de Bord</span>
+               </NavLink>
+             </li>
               <li className="nav-item">
                 <span onClick={logOutUser}
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2 cursor-pointer">
                   Logout
                 </span>
               </li>
+              </>
               }
             </ul>
           </div>
