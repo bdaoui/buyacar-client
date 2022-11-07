@@ -6,6 +6,10 @@ import EditCarPost from "../components/dashboard/main/EditCarPost";
 import EditTestimonial from "../components/dashboard/main/EditTestimonial";
 import EditContact from "../components/dashboard/main/EditContact";
 import DashboardSidebar from "../components/dashboard/sidebar/DashboardSidebar";
+import EditFooter from "../components/dashboard/main/EditFooter";
+
+import {AiTwotonePhone} from "react-icons/ai"
+
 
 const Dashboard = () => {
   const server = "https://muddy-moth-top-hat.cyclic.app" ;
@@ -43,9 +47,11 @@ const Dashboard = () => {
 
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
-  const handleShowAside = async (e, choice, id) => {
+  const handleShowAside =  (e, choice, id) => {
+
+    
     // Reset Default Value
-    await setSelected("");
+     setSelected("");
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
     choice === "New Testimonial"
@@ -61,12 +67,18 @@ const Dashboard = () => {
 
     setSelectedId(id);
     setVisible("hidden");
+    
   };
 
   const handleCloseSecondSection = (e) => {
     setSelected("");
     setVisible("flex");
+
+    if(contentAside === "Phone") return setContentAside("Cars") 
+    
+    
   };
+
 
   return (
     <div className="pb-30">
@@ -91,11 +103,30 @@ const Dashboard = () => {
           className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Messages")}
         >
-          Contactez
+          Contactes
         </h2>
+        
+        <h2
+          className=" hidden md:flex md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Phone")}
+        >
+          Numero d'Appelle 
+        </h2>
+
+        <h2
+          className=" md:hidden text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Phone")}
+        >
+         <AiTwotonePhone />
+        </h2>
+
       </section>
 
       <div className="flex">
+       
+       { contentAside !== "Phone" &&
+
+       
         <aside
           className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll h-screen ${visible} md:flex flex-col`}
         >
@@ -108,10 +139,13 @@ const Dashboard = () => {
           />
         </aside>
 
+       }
+
         <section
-          className={`border-black border-t-2 m-auto md:m-0 text-black ${
-            visible === "hidden" ? "flex" : "hidden"
-          } md:w-4/6 md:flex justify-center `}
+          className={`border-black border-t-2 m-auto md:m-0 text-black 
+          ${visible === "hidden" ? "flex" : "hidden"} 
+          ${contentAside === "Phone" ? "w-full" : "md:w-4/6" }
+          md:flex justify-center `}
         >
           
           {selected === "New Post" && (
@@ -159,6 +193,16 @@ const Dashboard = () => {
               setRefresh={setRefresh}
               selectedId={selectedId}
               contact={contact}
+            />
+          )}
+
+
+          { contentAside === "Phone" && (
+            <EditFooter
+              refresh={refresh}
+              setRefresh={setRefresh}
+              handleCloseSecondSection={handleCloseSecondSection}
+
             />
           )}
 

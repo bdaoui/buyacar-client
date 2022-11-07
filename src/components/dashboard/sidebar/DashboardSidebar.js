@@ -31,6 +31,7 @@ const DashboardSidebar = ({
           contact={contact}
         />
       )}
+
     </div>
   );
 };
