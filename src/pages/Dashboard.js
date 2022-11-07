@@ -6,6 +6,7 @@ import EditCarPost from "../components/dashboard/main/EditCarPost";
 import EditTestimonial from "../components/dashboard/main/EditTestimonial";
 import EditContact from "../components/dashboard/main/EditContact";
 import DashboardSidebar from "../components/dashboard/sidebar/DashboardSidebar";
+import EditFooter from "../components/dashboard/main/EditFooter";
 
 const Dashboard = () => {
   const server = "https://muddy-moth-top-hat.cyclic.app" ;
@@ -58,6 +59,9 @@ const Dashboard = () => {
     choice === "Edit Contact"
       ? setSelected("Edit Contact")
       : setVisible("hidden");
+    choice === "Phone"
+      ? setSelected("Phone")
+      : setVisible("hidden");
 
     setSelectedId(id);
     setVisible("hidden");
@@ -91,7 +95,13 @@ const Dashboard = () => {
           className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Messages")}
         >
-          Contactez
+          Contactes
+        </h2>
+        <h2
+          className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Phone")}
+        >
+          Numero d'Appelle 
         </h2>
       </section>
 
@@ -159,6 +169,14 @@ const Dashboard = () => {
               setRefresh={setRefresh}
               selectedId={selectedId}
               contact={contact}
+            />
+          )}
+
+
+          {selected === "Phone" && (
+            <EditFooter
+              refresh={refresh}
+              setRefresh={setRefresh}
             />
           )}
 
