@@ -44,7 +44,7 @@ const BestOffer = () => {
         ~ <span className="text-lg md:text-4xl text-center"> Bons Plans </span> ~
       </header>
 
-      <section className="text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl">
+      <section className="text-center text-[1.5rem] md:text-[3rem] my-4 md:my-10 w-2/4 m-auto drop-shadow-xl">
         <h1>
           {bestOffer[bestOfferIndex]?.make + " " + bestOffer[bestOfferIndex]?.model}
         </h1>
@@ -71,7 +71,7 @@ const BestOffer = () => {
         <img
           src={bestOffer[bestOfferIndex]?.image}
           alt={bestOffer[bestOfferIndex]?.make + " " + bestOffer[bestOfferIndex]?.model}
-          className="object-scale-down h-52 w-3/4 lg:w-fit md:h-96 m-auto drop-shadow-2xl rounded-xl"
+          className="rounded-xl w-[300px] h-[200px] md:w-[800px] md:h-[400px] lg:w-[650px] lg:h-[400px] m-auto"
         />
 
         <button onClick={(e) => nextBestOffer()} className="pl-2">
@@ -94,7 +94,7 @@ const BestOffer = () => {
       </section>
 
       <section className="flex flex-col justify-center mt-5 gap-2">
-        <h1 className="text-base md:text-xl text-center">
+        <h1 className="text-base md:text-xl text-center text-gold">
           € {bestOffer[bestOfferIndex]?.price}{" "}
         </h1>
 

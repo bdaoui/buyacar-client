@@ -6,6 +6,8 @@ const NewTestimonialPost = ({ handleCloseSecondSection, refresh, setRefresh }) =
 
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
+  const [validateSending, setValidateSending] = useState("");
+
 
   const handleNewTestimonial = (e) => {
     e.preventDefault()
@@ -13,11 +15,16 @@ const NewTestimonialPost = ({ handleCloseSecondSection, refresh, setRefresh }) =
       .post(`${server}/testimonial`, {body, author})
       .then((response) => {
         console.log(response)
+        setValidateSending(response.data);
         setRefresh(!refresh)
         setAuthor("")
         setBody("")
       })
       .catch(err => console.log(err))
+
+      return setInterval(() => {
+        return setValidateSending("");
+    }, 3000);
   }
 
   return (
@@ -71,7 +78,7 @@ const NewTestimonialPost = ({ handleCloseSecondSection, refresh, setRefresh }) =
           type="submit"
           className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
         >
-          Envoyer
+           {validateSending || "Envoyer"}
         </button>
       </form>
     </div>

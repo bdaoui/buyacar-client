@@ -36,8 +36,8 @@ const Testimonial = () => {
     >
 
       
-      <h1 className="text-lg md:text-4xl text-center font-bold text-gold mb-10">
-        Témoignages{" "}
+       <h1 className="text-lg md:text-4xl text-center font-bold text-gold mb-10">
+        ~ <span>Témoignages</span> ~
       </h1>
 
       <section className="flex flex-row ">

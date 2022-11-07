@@ -14,6 +14,7 @@ const ContactSingleCar = ({car}) => {
   const [validateSending, setValidateSending] = useState("");
   
   let messageCar = `${car.make} ${car.model}`
+  let carId = `${car._id}`
 
 
   
@@ -29,6 +30,7 @@ const ContactSingleCar = ({car}) => {
       contactPhone,
       messageCar,
       contactMessage,
+      carId
     };
     
     axios
@@ -47,7 +49,7 @@ const ContactSingleCar = ({car}) => {
 return (
     <div className="py-40  px-10 h-fit">
       <h1 className="text-lg md:text-4xl text-center m-auto font-bold py-4 text-gold">
-        ---Contactez moi---
+        ~ <span>Renseigner</span> ~
       </h1>
 
       <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 my-12 bg-black border-2 border-gold rounded-3xl">

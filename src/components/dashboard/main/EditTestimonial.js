@@ -10,6 +10,7 @@ const EditTestimonial = ({
 }) => {
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
+  const [validateSending, setValidateSending] = useState("");
   const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
   //Edit a testiomonial
@@ -20,8 +21,13 @@ const EditTestimonial = ({
       .then((response) => {
         setRefresh(!refresh);
         console.log(response);
+        setValidateSending(response.data);
       })
       .catch((err) => console.log(err));
+
+      return setInterval(() => {
+        return setValidateSending("");
+    }, 3000);
   };
 
   //Delete a testiomonial
@@ -110,7 +116,7 @@ const EditTestimonial = ({
           type="submit"
           className="bg-gold hover:bg-gold/70 rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
         >
-          Envoyer
+          {validateSending || "Envoyer"}
         </button>
       </form>
     </div>
