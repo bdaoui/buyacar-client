@@ -120,6 +120,7 @@ const Cars = () => {
       setSelectedPrice(0)
       setSelectedFuel("Choose")
       setSelectedTransmission("Choose")
+      setSelectedMake("Choose")
 
     setRefresh(!refresh)
 
