@@ -47,23 +47,16 @@ const Dashboard = () => {
 
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
-  const handleShowAside =  (e, choice, id) => {
-
+  const handleShowAside = async (e, choice, id) => {
     
     // Reset Default Value
-     setSelected("");
+    await setSelected("");
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
-    choice === "New Testimonial"
-      ? setSelected("New Testimonial")
-      : setVisible("hidden");
+    choice === "New Testimonial" ? setSelected("New Testimonial") : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
-    choice === "Edit Testimonial"
-      ? setSelected("Edit Testimonial")
-      : setVisible("hidden");
-    choice === "Edit Contact"
-      ? setSelected("Edit Contact")
-      : setVisible("hidden");
+    choice === "Edit Testimonial" ? setSelected("Edit Testimonial") : setVisible("hidden");
+    choice === "Edit Contact" ? setSelected("Edit Contact") : setVisible("hidden");
 
     setSelectedId(id);
     setVisible("hidden");
