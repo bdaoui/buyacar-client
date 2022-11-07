@@ -12,7 +12,7 @@ import {AiTwotonePhone} from "react-icons/ai"
 
 
 const Dashboard = () => {
-  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+  const server = "http://localhost:5005" ;
 
   const [cars, setCars] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
@@ -47,9 +47,11 @@ const Dashboard = () => {
 
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
-  const handleShowAside = async (e, choice, id) => {
+  const handleShowAside =  (e, choice, id) => {
+
+    
     // Reset Default Value
-    await setSelected("");
+     setSelected("");
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
     choice === "New Testimonial"
@@ -62,19 +64,19 @@ const Dashboard = () => {
     choice === "Edit Contact"
       ? setSelected("Edit Contact")
       : setVisible("hidden");
-    
-      choice === "Phone"
-      ? setSelected("Phone")
-      : setVisible("flex");
 
     setSelectedId(id);
     setVisible("hidden");
+    
   };
 
   const handleCloseSecondSection = (e) => {
     setSelected("");
     setVisible("flex");
+    
+    
   };
+
 
   return (
     <div className="pb-30">
@@ -119,6 +121,10 @@ const Dashboard = () => {
       </section>
 
       <div className="flex">
+       
+       { contentAside !== "Phone" &&
+
+       
         <aside
           className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
         >
@@ -131,10 +137,13 @@ const Dashboard = () => {
           />
         </aside>
 
+       }
+
         <section
-          className={`border-black border-t-2 m-auto md:m-0 text-black ${
-            visible === "hidden" ? "flex" : "hidden"
-          } md:w-4/6 md:flex justify-center `}
+          className={`border-black border-t-2 m-auto md:m-0 text-black 
+          ${visible === "hidden" ? "flex" : "hidden"} 
+          ${contentAside === "Phone" ? "w-full" : "md:w-4/6" }
+          md:flex justify-center `}
         >
           
           {selected === "New Post" && (
@@ -186,7 +195,7 @@ const Dashboard = () => {
           )}
 
 
-          {selected === "Phone" && (
+          { contentAside === "Phone" && (
             <EditFooter
               refresh={refresh}
               setRefresh={setRefresh}

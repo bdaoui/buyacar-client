@@ -7,12 +7,11 @@ const BestOffer = () => {
   const [bestOffer, setBestOffer] = useState([]);
   const [bestOfferIndex, setBestOfferIndex] = useState(0);
 
-  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+  const server = "http://localhost:5005" ;
 
   useEffect(() => {
     axios.get(`${server}/car/bestdeals`)
       .then(response => {
-        console.log(response.data)
         setBestOffer(response.data)})
       .catch(err => console.log(err))
 
@@ -28,7 +27,6 @@ const BestOffer = () => {
   const previousBestOffer = () => {
     const endArray = bestOffer.length;
     const prev = bestOfferIndex <= 0 ? endArray - 1 : bestOfferIndex - 1;
-    console.log(prev, endArray, bestOfferIndex);
     setBestOfferIndex(prev);
   };
 

@@ -6,7 +6,7 @@ const EditFooter = ({
     setRefresh,
     }) => {
     const [phone, setPhone] = useState(0)
-    const server = "https://muddy-moth-top-hat.cyclic.app" ;
+    const server = "http://localhost:5005" ;
 
     
     useEffect(() => {
@@ -24,6 +24,7 @@ const EditFooter = ({
             .then(response => setRefresh(!refresh))
             .catch(err => console.log(err))
 
+
         
     }
 
@@ -35,7 +36,7 @@ const EditFooter = ({
     return (
     <div className='flex flex-col text-white'>
         <section className='flex flex-end'>
-        hi
+        
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
