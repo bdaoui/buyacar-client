@@ -199,6 +199,8 @@ const Dashboard = () => {
             <EditFooter
               refresh={refresh}
               setRefresh={setRefresh}
+              handleCloseSecondSection={handleCloseSecondSection}
+
             />
           )}
 
