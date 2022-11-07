@@ -35,7 +35,7 @@ const EditFooter = ({
     return (
     <div className='flex flex-col text-white'>
         <section className='flex flex-end'>
-
+        hi
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
