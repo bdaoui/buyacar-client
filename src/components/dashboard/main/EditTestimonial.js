@@ -11,7 +11,7 @@ const EditTestimonial = ({
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
   const [validateSending, setValidateSending] = useState("");
-  const server = "http://localhost:5005" ;
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
   //Edit a testiomonial
   const handleTestimonialEdit = (e, id) => {

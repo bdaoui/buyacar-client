@@ -12,7 +12,7 @@ import {AiTwotonePhone} from "react-icons/ai"
 
 
 const Dashboard = () => {
-  const server = "http://localhost:5005" ;
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
   const [cars, setCars] = useState([]);
   const [testimonials, setTestimonials] = useState([]);

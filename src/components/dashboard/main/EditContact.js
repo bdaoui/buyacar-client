@@ -9,7 +9,7 @@ const EditContact = ({
   refresh,
   setRefresh,
 }) => {
-  const server = "http://localhost:5005" ;
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
   const chosenMessage = contact.filter((message) => message._id === selectedId);
   const [enabled, setEnabled] = useState(chosenMessage[0].status);
 
