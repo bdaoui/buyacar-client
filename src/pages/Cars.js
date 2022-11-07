@@ -237,7 +237,7 @@ const Cars = () => {
       >
         <header className="w-full">
          
-          <h1 className="text-2xl md:text-5xl text-center m-auto font-bold py-4 mb-5 text-gold">
+          <h1 className="text-2xl md:text-5xl text-center m-auto font-bold py-4  text-gold">
              ~ <span className="text-lg md:text-4xl"> Catalogue Complet </span> ~
           </h1>
 
@@ -299,7 +299,7 @@ const Cars = () => {
         {filteredCars?.map((car) => {
           return (
 
-            <div key={car._id} className={`p-2 sm:p-5 md:p-10 lg:p-30 ${imageListBy.container} flex justify-center`}>
+            <div key={car._id} className={`p-2 mb-2 sm:p-5 md:p-10 lg:p-30 ${imageListBy.container} flex justify-center`}>
               <div className="bg-black rounded-lg border border-gold shadow-2xl text-white w-[300px] md:w-[660px]">
                 
                 <Link to={`/${car._id}`}>
@@ -313,7 +313,7 @@ const Cars = () => {
                 <div className="p-0 sm:p-2 md:p-5">
 
                   <section className="flex flex-row justify-around sm:mt-2 ">
-                    <h5 className="text-[0.7rem] sm:text-sm md:text-lg font-bold tracking-tight text-white">
+                    <h5 className="text-base md:text-xl font-bold tracking-tight text-gold">
                       {car.make + " " + car.model}
                     </h5>
                   </section>
@@ -368,7 +368,7 @@ const Cars = () => {
 
                   <Link
                     to={`/${car._id}`}
-                    className="inline-flex items-center py-1 sm:py-2 px-1 sm:px-3 ml-1 sm:ml-2 mb-1 text-[0.6rem] sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
+                    className="inline-flex items-center py-2 sm:py-3 px-3 sm:px-4 ml-1 sm:ml-2 mb-1 text-[0.6rem] sm:text-sm font-medium text-center mt-2 md:mt-5 text-white bg-gold rounded-lg hover:bg-gold/90 focus:ring-4 focus:outline-none focus:ring-gold"
                   >
                     See more
                     <svg

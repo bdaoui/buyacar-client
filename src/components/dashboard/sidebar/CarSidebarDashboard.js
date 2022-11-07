@@ -20,7 +20,7 @@ const CarSidebarDashboard = ({ handleShowAside, cars }) => {
         </svg>
       </div>
 
-      <div className="p-1 lg:p-5 lg:0-2 flex flex-col text-white">
+      <div className="p-1 lg:p-5 lg:0-2 flex flex-col text-white ">
         {cars.map((car) => {
           return (
             <div

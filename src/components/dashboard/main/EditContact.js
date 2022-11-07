@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const EditContact = ({
   contact,
@@ -39,7 +40,7 @@ const EditContact = ({
       .catch((err) => console.log(err));
   };
 
-  console.log(enabled, "message state");
+  console.log(chosenMessage[0]);
 
   return (
     <div className="flex flex-col text-gold w-full text-base md:text-lg lg:text-xl p-10">
@@ -113,10 +114,12 @@ const EditContact = ({
       </section>
 
       <main className="flex flex-col flex-wrap mx-auto p-4">
+        <Link to={`/${chosenMessage[0].carId}`}>
         <p className="py-4">
           Subject:{" "}
           <span className="text-white">{chosenMessage[0].subject}</span>
         </p>
+        </Link>
         <p className="text-white">{chosenMessage[0].message}</p>
       </main>
     </div>

@@ -81,8 +81,13 @@ const Dashboard = () => {
 
 
   return (
+<<<<<<< HEAD
     <div className="pb-30" >
       <h1 className="text-center p-5 text-base md:text-lg lg:text-xl  text-gold font-bold">
+=======
+    <div className="pb-30">
+      <h1 className="text-center p-5 text-xl md:text-2xl lg:text-3xl underline text-gold font-bold">
+>>>>>>> 43cdc35b699e25b3ee08bbc530db7fb3ce3ae141
         Tableau de Bord
       </h1>
 
@@ -128,7 +133,7 @@ const Dashboard = () => {
 
        
         <aside
-          className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
+          className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll h-screen ${visible} md:flex flex-col`}
         >
           <DashboardSidebar
             handleShowAside={handleShowAside}
