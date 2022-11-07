@@ -67,7 +67,7 @@ const BestOffer = () => {
           </svg>
         </button>
         <img
-          src={bestOffer[bestOfferIndex]?.image}
+          src={bestOffer[bestOfferIndex]?.image[0]}
           alt={bestOffer[bestOfferIndex]?.make + " " + bestOffer[bestOfferIndex]?.model}
           className="rounded-xl w-[300px] h-[200px] md:w-[800px] md:h-[400px] lg:w-[650px] lg:h-[400px] m-auto"
         />
