@@ -1,4 +1,5 @@
 import React from "react";
+import EditFooter from "../main/EditFooter";
 import CarSidebarDashboard from "./CarSidebarDashboard";
 import ContactSidebarDashboard from "./ContactSidebarDashboard";
 import TestimonialSidebarDashboard from "./TestimonialSidebarDashboard";

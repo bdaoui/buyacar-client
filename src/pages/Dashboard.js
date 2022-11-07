@@ -86,7 +86,7 @@ const Dashboard = () => {
         Tableau de Bord
       </h1>
 
-      <section className="flex gap-2 md:gap-5 justify-center md:justify-start my-2 mx-4 md:m-2">
+      <section className="flex gap-2 md:gap-5 justify-center lg:justify-start my-2 mx-4 md:m-2">
         <h2
           className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Cars")}
@@ -126,9 +126,8 @@ const Dashboard = () => {
        
        { contentAside !== "Phone" &&
 
-       
         <aside
-          className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll h-screen ${visible} md:flex flex-col`}
+          className={`w-full px-3 md:w-3/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll h-screen ${visible} md:flex flex-col`}
         >
           <DashboardSidebar
             handleShowAside={handleShowAside}
@@ -140,73 +139,80 @@ const Dashboard = () => {
         </aside>
 
        }
-
+{/* ${contentAside === "Phone" ? "w-screen block" : "md:w-4/6" } */}
+{contentAside !== "Phone" && 
         <section
-          className={`border-black border-t-2 m-auto md:m-0 text-black 
-          ${visible === "hidden" ? "flex" : "hidden"} 
-          ${contentAside === "Phone" ? "w-full" : "md:w-4/6" }
-          md:flex justify-center `}
+        className={`border-black border-t-2 m-auto md:m-0 text-black 
+        ${visible === "hidden" ? "flex" : "hidden"} 
+        
+        md:w-full md:flex justify-center `}
         >
           
           {selected === "New Post" && (
             <NewCarPost
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
             />
-          )}
+            )}
 
           {selected === "New Testimonial" && (
             <NewTestimonialPost
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
             />
-          )}
+            )}
 
           {/* Edit Section */}
 
           {selected === "Edit" && (
             <EditCarPost
-              handleCloseSecondSection={handleCloseSecondSection}
-              selectedId={selectedId}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              cars={cars}
+            handleCloseSecondSection={handleCloseSecondSection}
+            selectedId={selectedId}
+            refresh={refresh}
+            setRefresh={setRefresh}
+            cars={cars}
             />
-          )}
+            )}
 
           {selected === "Edit Testimonial" && (
             <EditTestimonial
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              selectedId={selectedId}
-              testimonials={testimonials}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
+            selectedId={selectedId}
+            testimonials={testimonials}
             />
-          )}
+            )}
 
           {selected === "Edit Contact" && (
             <EditContact
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              selectedId={selectedId}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
+            selectedId={selectedId}
               contact={contact}
             />
-          )}
-
-
-          { contentAside === "Phone" && (
-            <EditFooter
-              refresh={refresh}
-              setRefresh={setRefresh}
-              handleCloseSecondSection={handleCloseSecondSection}
-
-            />
-          )}
+            )}
 
         </section>
+    }
+    
+    { contentAside === "Phone" && 
+    <section
+        className={'border-black border-t-2 m-auto md:m-0 text-black md:flex justify-center w-full'}
+        >
+            <EditFooter
+            refresh={refresh}
+            setRefresh={setRefresh}
+            handleCloseSecondSection={handleCloseSecondSection}
+            
+            />
+        </section>
+            }
+    
+    
       </div>
     </div>
   );

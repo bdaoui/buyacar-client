@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react'
 const EditFooter = ({
     refresh,
     setRefresh,
-    handleCloseSecondSection
+    handleCloseSecondSection,
     }) => {
     const [phone, setPhone] = useState("")
+    const [validateSending, setValidateSending] = useState("");
     const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
     
@@ -16,31 +17,29 @@ const EditFooter = ({
         .then(response => {
             setPhone(response.data)})
         .catch(err => console.log(err))
+        
     }, [])
-
-    console.log(typeof phone)
 
     const handleChangeNumber = (e) => {
         e.preventDefault();
 
         axios.put(`${server}/admin/number`, phone)
-            .then(response => console.log(response.data))
-            .then(response => setRefresh(!refresh))
+            .then(response => {
+              setRefresh(!refresh)
+              setValidateSending(response.data);
+            })
             .catch(err => console.log(err))
-
-
-        
+        return setInterval(() => {
+          return setValidateSending("");
+        }, 4000);
+    
     }
-
-
- 
-  
 
     return (
     <div className='flex flex-col text-white'>
-        <section className='flex flex-end'>
+        <section className='flex '>
         
-        <div className="w-full flex mt-5">
+        <div className="w-full flex mt-5 justify-center">
           <h1 className="text-2xl md:text-3xl text-center mb-5 text-gold">
             {" "}
             Modifier Numero d'Appelle
@@ -52,7 +51,7 @@ const EditFooter = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 cursor-pointer mt-2.5 ml-5 text-gold"
+            className="w-6 h-6 cursor-pointer mt-1.5 md:mt-2.5 ml-5 text-gold"
             onClick={(e) => handleCloseSecondSection()}
           >
             <path
@@ -64,7 +63,7 @@ const EditFooter = ({
         </div>
         </section>
 
-        <form onSubmit={(e) => handleChangeNumber(e)} className="flex flex-col">
+        <form onSubmit={(e) => handleChangeNumber(e)} className="flex flex-col w-1/2 md:w-full mx-auto">
         <label htmlFor="phone"></label>
         <input type="number" className='text-black rounded-xl' defaultValue={phone} name="phone" onChange={e => setPhone(e.target.value)}/>
         <button
@@ -72,7 +71,7 @@ const EditFooter = ({
             className="bg-gold hover:bg-gold/70  rounded w-1/2 md:w-1/4 mt-3 mb-20 m-auto text-white py-2"
           >
            
-            Envoyer
+            {validateSending || "Envoyer"}
           </button>
         </form>
 
