@@ -86,7 +86,7 @@ const Dashboard = () => {
         Tableau de Bord
       </h1>
 
-      <section className="flex gap-3 justify-center md:justify-start m-2">
+      <section className="flex gap-3 md:gap-5 justify-center md:justify-start m-2">
         <h2
           className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Cars")}
