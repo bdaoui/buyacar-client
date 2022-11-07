@@ -81,17 +81,12 @@ const Dashboard = () => {
 
 
   return (
-<<<<<<< HEAD
     <div className="pb-30" >
       <h1 className="text-center p-5 text-base md:text-lg lg:text-xl  text-gold font-bold">
-=======
-    <div className="pb-30">
-      <h1 className="text-center p-5 text-xl md:text-2xl lg:text-3xl underline text-gold font-bold">
->>>>>>> 43cdc35b699e25b3ee08bbc530db7fb3ce3ae141
         Tableau de Bord
       </h1>
 
-      <section className="flex gap-3 md:gap-5 justify-center md:justify-start m-2">
+      <section className="flex gap-3 md:gap-5 justify-center md:justify-start my-2 mx-4 md:m-2">
         <h2
           className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Cars")}
