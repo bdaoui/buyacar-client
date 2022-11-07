@@ -68,8 +68,6 @@ const Dashboard = () => {
     setVisible("flex");
 
     if(contentAside === "Phone") return setContentAside("Cars") 
-    
-    
   };
 
 
