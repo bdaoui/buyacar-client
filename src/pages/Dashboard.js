@@ -50,7 +50,7 @@ const Dashboard = () => {
   const handleShowAside = async (e, choice, id) => {
     
     // Reset Default Value
-    await setSelected("");
+    setSelected("");
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
     choice === "New Testimonial" ? setSelected("New Testimonial") : setVisible("hidden");
