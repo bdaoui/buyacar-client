@@ -62,9 +62,10 @@ const Dashboard = () => {
     choice === "Edit Contact"
       ? setSelected("Edit Contact")
       : setVisible("hidden");
-    choice === "Phone"
+    
+      choice === "Phone"
       ? setSelected("Phone")
-      : setVisible("hidden");
+      : setVisible("flex");
 
     setSelectedId(id);
     setVisible("hidden");
@@ -100,6 +101,7 @@ const Dashboard = () => {
         >
           Contactes
         </h2>
+        
         <h2
           className=" hidden md:flex md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Phone")}
