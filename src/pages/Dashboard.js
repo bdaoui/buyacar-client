@@ -8,6 +8,9 @@ import EditContact from "../components/dashboard/main/EditContact";
 import DashboardSidebar from "../components/dashboard/sidebar/DashboardSidebar";
 import EditFooter from "../components/dashboard/main/EditFooter";
 
+import {AiTwotonePhone} from "react-icons/ai"
+
+
 const Dashboard = () => {
   const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
@@ -98,11 +101,19 @@ const Dashboard = () => {
           Contactes
         </h2>
         <h2
-          className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          className=" hidden md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Phone")}
         >
           Numero d'Appelle 
         </h2>
+
+        <h2
+          className=" md:hidden text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Phone")}
+        >
+         <AiTwotonePhone />
+        </h2>
+
       </section>
 
       <div className="flex">
