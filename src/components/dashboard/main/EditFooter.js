@@ -21,7 +21,10 @@ const EditFooter = ({
 
         axios.put(`${server}/number`, phone)
             .then(response => console.log(response.data))
+            .then(response => setRefresh(!refresh))
             .catch(err => console.log(err))
+
+        
     }
 
 
@@ -30,7 +33,7 @@ const EditFooter = ({
     }
   
     return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col text-white'>
         <section className='flex flex-end'>
 
         <svg
