@@ -7,7 +7,7 @@ const EditFooter = ({
     handleCloseSecondSection
     }) => {
     const [phone, setPhone] = useState("")
-    const server = "http://localhost:5005" ;
+    const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
     
     useEffect(() => {

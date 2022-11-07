@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 
 const NewTestimonialPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
-  const server = "http://localhost:5005" ;
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
 
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
