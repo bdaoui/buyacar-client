@@ -101,7 +101,7 @@ const Dashboard = () => {
           Contactes
         </h2>
         <h2
-          className=" hidden md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          className=" hidden md:flex md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Phone")}
         >
           Numero d'Appelle 
