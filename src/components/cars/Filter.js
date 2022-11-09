@@ -71,7 +71,7 @@ const handleFilterDropdown = (e) => {
               
             >
             <option value={"Choose"} >Choose</option>
-            <option value={"Manuel"} >Manuel</option>
+            <option value={"Manuelle"} >Manuelle</option>
             <option value={"Automatique"} >Automatique</option>
             <option value={"Séquentielle"} >Séquentielle</option>
             </select>
