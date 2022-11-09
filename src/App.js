@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from 'react-router-dom'
+import {Route, Routes, Redirect} from 'react-router-dom'
 import CarDetails from './pages/CarDetails'
 import Landing from './pages/Landing'
 import Info from './pages/Info'
@@ -24,16 +24,11 @@ const App = () => {
           <Route path="/info" element={<Info />} />
           <Route path="/admin/login" element={<Login />} />
 
-          {!isLoggedIn &&
-          <Route path="/admin/dashboard" element={<Landing />} />
-          }
 
-        { isLoggedIn &&
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-        }
-
-
-
+          <Route exact path="/admin/dashboard">
+              {isLoggedIn ? <Dashboard /> : <Redirect to="/admin/login" /> }
+          </Route>
+   
           </Route>
        </Routes>
 
