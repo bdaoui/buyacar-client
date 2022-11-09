@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes, Navigate} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import CarDetails from './pages/CarDetails'
 import Landing from './pages/Landing'
 import Info from './pages/Info'
@@ -24,11 +24,16 @@ const App = () => {
           <Route path="/info" element={<Info />} />
           <Route path="/admin/login" element={<Login />} />
 
+          {!isLoggedIn &&
+          <Route path="/admin/dashboard" element={<Landing />} />
+          }
 
-          <Route exact path="/admin/dashboard">
-              {isLoggedIn ? <Dashboard /> : <Navigate to="/admin/login" /> }
-          </Route>
-   
+        { isLoggedIn &&
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+        }
+
+
+
           </Route>
        </Routes>
 
