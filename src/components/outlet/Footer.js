@@ -1,7 +1,17 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+  const [number, setNumber] = useState(0)
+  useEffect(() => {
+    axios.get(`${server}/admin/number`)
+      .then(response => setNumber(response.data) )
+      .catch(err => console.log(err))
+  }, [])
+
+
   return (
 
     <footer className="p-0 h-10 bg-black fixed bottom-0 w-full text-xs md:text-base flex flex-col md:flex-row items-center md:justify-between md:p-6">
@@ -27,7 +37,7 @@ const Footer = () => {
             />
           </svg>
           <span className="hover:underline md:mr-6 mt-1 font-semibold text-gold">
-            +33 3923 2903
+           {number}
           </span>
         </li>
       </ul>
