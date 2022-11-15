@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const server = "https://muddy-moth-top-hat.cyclic.app" ;
   const [number, setNumber] = useState(0)
+  
   useEffect(() => {
     axios.get(`${server}/admin/number`)
       .then(response => setNumber(response.data) )
