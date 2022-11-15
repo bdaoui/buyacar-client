@@ -15,14 +15,9 @@ const Info = () => {
           Kontakt: Office Punkt vor Strich
         </h2>
         <p>Tel: + 43 (0) 650 / 4150590</p>
-        <p>office@punkt-vor-strich.at</p>
+        <p>p.pexclusivecar@gmail.com</p>
 
-        <h2 className="pt-6 font-semibold text-gold">
-          Bankverbindungen &amp; Überweisungen:
-        </h2>
-        <p>Erste Bank</p>
-        <p>IBAN: AT06 2011 1844 8156 3400</p>
-        <p>BIC: GIBBAATWWXXX</p>
+        
 
         <h2 className="pt-10 font-semibold text-gold">Copyright</h2>
         <p>
