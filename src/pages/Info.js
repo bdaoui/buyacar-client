@@ -7,9 +7,11 @@ const Info = () => {
         <h1 className="py-6 text-2xl text-gold font-semibold">Info page</h1>
         <h2 className="font-semibold text-gold">P&P Exclusive Cars</h2>
         <p>Salmgasse 5, 1030 Wien</p>
-        <p className="pt-6">UID-Nummer: ATU77547415</p>
-        <p>FN: 567321 x</p>
-        <p>FB-Gericht: Handelsgericht Wien</p>
+        <p className="pt-6">Numéro SIREN : 913 361 804</p>
+        <p>Centre artisanal Bleu Guimet
+            Allée Guimet
+        </p>
+        <p>69250 Fleurieu sur Saône </p>
 
         <h2 className="pt-6 font-semibold text-gold">
           Kontakt: Office Punkt vor Strich
