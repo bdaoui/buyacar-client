@@ -14,7 +14,7 @@ const Info = () => {
         <p>69250 Fleurieu sur Saône </p>
 
         <h2 className="pt-6 font-semibold text-gold">
-          Kontakt: Office Punkt vor Strich
+         Contact: P&P Exclusive Cars
         </h2>
         <p>Tel: + 43 (0) 650 / 4150590</p>
         <p>p.pexclusivecar@gmail.com</p>
