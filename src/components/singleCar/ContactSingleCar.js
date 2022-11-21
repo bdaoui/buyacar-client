@@ -34,11 +34,7 @@ const ContactSingleCar = ({car}) => {
     };
     
     axios
-<<<<<<< HEAD
       .post("https://drab-pink-monkey-kilt.cyclic.app/contact/car", fileContact)
-=======
-      .post("https://drab-pink-monkey-kilt.cyclic.app/contact/car", fileContact)
->>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
       .then((response) => {
         console.log(response.data);
         setValidateSending(response.data);
