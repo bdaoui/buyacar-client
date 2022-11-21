@@ -9,11 +9,7 @@ const EditContact = ({
   refresh,
   setRefresh,
 }) => {
-<<<<<<< HEAD
-  const server = "https://erin-real-wombat.cyclic.app";
-=======
-  const server = "https://muddy-moth-top-hat.cyclic.app" ;
->>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
   const chosenMessage = contact.filter((message) => message._id === selectedId);
   const [enabled, setEnabled] = useState(chosenMessage[0].status);
 

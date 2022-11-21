@@ -2,11 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 
 const NewTestimonialPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
-<<<<<<< HEAD
-  const server = "https://erin-real-wombat.cyclic.app";
-=======
-  const server = "https://muddy-moth-top-hat.cyclic.app" ;
->>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
 
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");

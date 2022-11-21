@@ -14,11 +14,7 @@ import {BsSquareFill} from 'react-icons/bs'
 
 
 const Cars = () => {
-<<<<<<< HEAD
-  const server = "https://erin-real-wombat.cyclic.app";
-=======
-  const server = "https://muddy-moth-top-hat.cyclic.app" ;
->>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
 
   const [cars, setCars] = useState([]);
 
