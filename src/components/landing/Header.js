@@ -19,13 +19,15 @@ const Header = () => {
             </h4>
             <p className="p-2 text-[0.6rem] sm:text-sm md:text-xl lg:text-lg">
             Il s'agit d'un accompagnement personnalisé qui se construit en toute confiance.
- 
+            <br />
             Nos services vous permettent à la fois de déposer votre véhicule puis trouver un acheteur, de le racheter directement ou encore de vous proposer des véhicules de qualité à des prix imbattables avec les meilleures options qui vous correspondent.
   
+            <br />
            Notre connaissance du marché, notre passion pour l'automobile et la relation humaine avec nos clients sont notre moteur pour vous offrir un service premium et une expérience unique.
+            <br />
   
             N'hésitez pas à prendre contact avec nous et réserver un rendez-vous pour que nous puissions nous rencontrer. 
- —————————————————————————
+
  
             </p>
           </div>
