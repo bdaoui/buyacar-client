@@ -178,9 +178,9 @@ const EditCarPostSM = ({
               defaultValue={filteredCar[0]?.transmission}
               onChange={(e) => setTransmission(e.target.value)}
             >
-              <option value="automatic">Automatique</option>
-              <option value="manual">Manuel</option>
-              <option value="sequential">Séquentielle</option>
+              <option value="Automatique">Automatique</option>
+              <option value="Manuelle">Manuelle</option>
+              <option value="Séquentielle">Séquentielle</option>
             </select>
           </label>
         </section>
@@ -189,7 +189,7 @@ const EditCarPostSM = ({
           <fieldset className="flex border-2 border-gold gap-2 p-3">
             <legend className="text-white">Bon Plan? </legend>
             <label htmlFor="description" className="text-white">
-              No
+              Non
             </label>
             <input
               type="radio"

@@ -6,7 +6,6 @@ import {RiGasStationFill, RiCarLine, RiCarFill} from 'react-icons/ri'
 import {GiGearStickPattern, GiCarDoor, GiCarSeat} from 'react-icons/gi'
 import {TbEngine} from 'react-icons/tb'
 import {CgQuote} from 'react-icons/cg'
-import ContactSingleCar from './ContactSingleCar'
 
 
 const CarTextLG = ({car}) => {

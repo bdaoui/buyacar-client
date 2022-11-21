@@ -153,43 +153,42 @@ const EditCarPostLG = ({
             </legend>
             <label
               htmlFor="description"
-              value="automatic"
+              value="Automatique"
               className="text-white"
             >
               Automatique
             <input
               type="radio"
-              defaultChecked={filteredCar[0]?.transmission === "automatic"}
+              defaultChecked={filteredCar[0]?.transmission === "Automatique"}
               className="border-2 border-gold ml-2 "
               name="transmission"
-              defaultValue
-              onChange={(e) => setTransmission("automatic")}
+              onChange={(e) => setTransmission("Automatique")}
               />
               </label>
 
-            <label htmlFor="description" value="manual" className="text-white">
-              Manuel
+            <label htmlFor="description" value="Manuelle" className="text-white">
+              Manuelle
             <input
               type="radio"
-              defaultChecked={filteredCar[0]?.transmission === "manual"}
+              defaultChecked={filteredCar[0]?.transmission === "Manuelle"}
               className="border-2 border-gold ml-2 "
               name="transmission"
-              onChange={(e) => setTransmission("manual")}
+              onChange={(e) => setTransmission("Manuelle")}
               />
               </label>
 
             <label
               htmlFor="description"
-              value="sequential"
+              value="Séquentielle"
               className="text-white"
             >
               Séquentielle
             <input
               type="radio"
-              defaultChecked={filteredCar[0]?.transmission === "sequential"}
+              defaultChecked={filteredCar[0]?.transmission === "Séquentielle"}
               className="border-2 border-gold ml-2 "
               name="transmission"
-              onChange={(e) => setTransmission("sequential")}
+              onChange={(e) => setTransmission("Séquentielle")}
               />
               </label>
           </fieldset>
@@ -197,7 +196,7 @@ const EditCarPostLG = ({
           <fieldset className="flex border-2 border-gold gap-2 p-3">
             <legend className="text-white">Bon Plan? </legend>
             <label htmlFor="description" className="text-white">
-              No
+              Non
             </label>
             <input
               type="radio"

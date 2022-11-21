@@ -24,11 +24,11 @@ const OtherOffers = ({ cars }) => {
         if(counter > 4) return true
 
         return (
-          <div key={car._id} className="lg:w-[500px] flex flex-wrap m-10">
-            <div className="bg-black rounded-lg border border-gray-200 shadow-2xl mx-auto">
+          <div key={car._id} className="w-[300px] md:w-[600px] lg:w-[500px] mx-auto lg:mx-10 flex flex-wrap m-10">
+            <div className="bg-black rounded-lg border border-gold shadow-2xl mx-auto">
               <Link to={`/${car._id}`}>
                 <img
-                  className="rounded-t-lg w-[500px] h-[130px] sm:h-[200px] md:h-[350px] lg:h-[320px]"
+                  className="rounded-t-lg w-[300px] md:w-[600px] lg:w-[500px] h-[180px] sm:h-[220px] md:h-[400px] lg:h-[320px]"
                   src={car.image[0]}
                   alt={car.name}
                 />
@@ -45,20 +45,20 @@ const OtherOffers = ({ cars }) => {
                     € {car.price}{" "}
                   </h1>
 
-                  <div className="flex justify-center mt-1 sm:mt-3 md:mt-5 gap-2">
-                    <section className="p-2 border-r-white border-r-2 flex flex-col">
+                  <div className="flex justify-center mt-1 sm:mt-3 md:mt-5">
+                    <section className="p-2 px-4 border-r-white border-r-2 flex flex-col">
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light  text-white">Année </h1>
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg text-white">{car.year} </h1>
                     </section>
 
-                    <section className="p-2 border-r-white border-r-2">
+                    <section className="p-2 px-4 border-r-white border-r-2">
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light text-white">
                         Kilométrage{" "}
                       </h1>
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg text-white">{car.mileage} </h1>
                     </section>
 
-                    <section className="p-2">
+                    <section className="p-2 px-4">
                       <h1 className="text-[0.6rem] sm:text-sm md:text-lg font-light text-white">
                         Carburant{" "}
                       </h1>

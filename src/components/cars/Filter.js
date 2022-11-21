@@ -1,11 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMileage, selectedTransmission, setSelectedTransmission, selectedFuel, setSelectedFuel, handleFilter,  reset, validateSending, uniqueMakes, setSelectedMake, selectedMake}) => {
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [closeFilter, setCloseFilter] = useState(false);
+  // Fermer
+
+const handleFilterDropdown = (e) => {
+  e.preventDefault()
+  setFilterOpen(!filterOpen)
+  setCloseFilter(!closeFilter)
+}
 
 
+  return (  
+  <div className='flex flex-col mx-auto'>
+  <section className='w-full flex'>
+    <button onClick={(e) => handleFilterDropdown(e)} className="rounded-2xl py-1 px-3 bg-gold my-5 text-white mx-auto text-[0.6rem] md:text-sm">{closeFilter ? 'Fermer' : 'Rechercher'}</button>
+  </section>
+    
+    
+    <div className={(filterOpen ? " flex" : " hidden")}>
 
-
-  return (
     <div className="flex w-full flex-col md:flex-row justify-center
        text-white font-medium text-xs sm:text-sm md:text-base text-right mx-10 md:mx-5 lg:mx-20 gap-4
       flex-wrap">
@@ -56,7 +71,7 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
               
             >
             <option value={"Choose"} >Choose</option>
-            <option value={"Manuel"} >Manuel</option>
+            <option value={"Manuelle"} >Manuelle</option>
             <option value={"Automatique"} >Automatique</option>
             <option value={"Séquentielle"} >Séquentielle</option>
             </select>
@@ -119,7 +134,8 @@ const Filter = ({setSelectedMileage, setSelectedPrice, selectedPrice, selectedMi
             </div>
 
           </div>
-    
+     </div>
+     </div>
   )
 }
 

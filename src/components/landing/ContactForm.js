@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const ContactForm = () => {
@@ -26,7 +26,11 @@ const ContactForm = () => {
     };
 
     axios
+<<<<<<< HEAD
       .post("https://erin-real-wombat.cyclic.app/contact", fileContact)
+=======
+      .post("https://muddy-moth-top-hat.cyclic.app/contact", fileContact)
+>>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
       .then((response) => {
         console.log(response.data);
         setValidateSending(response.data);

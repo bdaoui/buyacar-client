@@ -4,13 +4,18 @@ import axios from "axios";
 import CarTextSM from "../components/singleCar/CarTextSM";
 import CarTextLG from "../components/singleCar/CarTextLG";
 import ContactSingleCar from "../components/singleCar/ContactSingleCar";
+import { HashLink } from "react-router-hash-link";
 
 const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState({});
   const [imageIndex, setImageIndex] = useState(0);
 
+<<<<<<< HEAD
   const server = "https://erin-real-wombat.cyclic.app";
+=======
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+>>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
 
 
   useEffect(() => {
@@ -20,6 +25,7 @@ const CarDetails = () => {
         setCar(res.data);
       })
       .catch((err) => console.log(err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const nextImage = () => {
@@ -40,9 +46,16 @@ const CarDetails = () => {
 
   return (
     <div className="text-white w-full">
-      <header className="flex w-full justify-center my-10 font-bold text-gold text-2xl md:text-4xl ">
+      <header className="flex w-full justify-center mt-10 mb-3 font-bold text-gold text-[2rem] md:text-[3rem]">
         {car?.make} {car?.model}
       </header>
+
+      <section>
+        <HashLink smooth to="/:id#contact">
+        <span className="flex w-full justify-center mb-10 font-bold text-gold text-base underline cursor-pointer">
+          Cliquez ici pour vous renseigner</span>
+        </HashLink>
+      </section>
 
       <section className="flex w-full flex-col lg:flex-row">
         
@@ -105,8 +118,9 @@ const CarDetails = () => {
 <div className="hidden lg:block">
         <CarTextLG car={car} />
 </div>
-
+<div id="contact">
 <ContactSingleCar car={car} />
+</div>
       
     </div>
   );

@@ -7,23 +7,35 @@ const Login = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const { storeToken, authenticateUser } = useContext(AuthContext);
+  const [validateSending, setValidateSending] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
+<<<<<<< HEAD
       .post("https://erin-real-wombat.cyclic.app/admin/login", { identifier, password })
+=======
+      .post("https://muddy-moth-top-hat.cyclic.app/admin/login", { identifier, password })
+>>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
+        console.log(response.data)
+        setValidateSending(response.data);
       })
       .then((response) => {
         console.log("Logged in");
         navigate("/admin/dashboard");
       })
       .catch((err) => console.log(err));
+
+      return setInterval(() => {
+        return setValidateSending("");
+      }, 2000);
   };
 
   return (
@@ -87,7 +99,7 @@ const Login = () => {
                   />
                 </svg>
               </span>
-              SIGN IN
+              {validateSending || "SIGN IN"}
             </button>
           </div>
         </form>

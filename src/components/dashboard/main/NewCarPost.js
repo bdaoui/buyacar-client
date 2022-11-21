@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
+<<<<<<< HEAD
   const server = "https://erin-real-wombat.cyclic.app";
+=======
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+>>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
 
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
@@ -13,8 +17,8 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
   const [seats, setSeats] = useState("");
   const [doors, setDoors] = useState("");
   const [body, setBody] = useState("");
-  const [bestDeal, setBestDeal] = useState("no");
-  const [transmission, setTransmission] = useState("automatic");
+  const [bestDeal, setBestDeal] = useState("");
+  const [transmission, setTransmission] = useState("");
   const [description, setDescription] = useState("");
   const [engine, setEngine] = useState("");
   const [image, setImage] = useState("");
@@ -60,8 +64,8 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
         setSeats("");
         setDoors("");
         setBody("");
-        setBestDeal("no");
-        setTransmission("automatic");
+        setBestDeal("");
+        setTransmission("");
         setDescription("");
         setEngine("");
         setImage("");
@@ -216,21 +220,21 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               </label>
               <input
                 type="radio"
-                value="automatic"
+                value="Automatique"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("automatic")}
+                onChange={(e) => setTransmission(e.target.value)}
               />
 
               <label htmlFor="transmission" className="text-gold">
-                Manuel
+                Manuelle
               </label>
               <input
                 type="radio"
-                value="manual"
+                value="Manuelle"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("manual")}
+                onChange={(e) => setTransmission(e.target.value)}
               />
 
               <label htmlFor="transmission" className="text-gold">
@@ -238,10 +242,10 @@ const NewCarPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
               </label>
               <input
                 type="radio"
-                value="sequential"
+                value="Séquentielle"
                 className="border-2 border-gold "
                 name="transmission"
-                onChange={(e) => setTransmission("sequential")}
+                onChange={(e) => setTransmission(e.target.value)}
               />
             </fieldset>
 

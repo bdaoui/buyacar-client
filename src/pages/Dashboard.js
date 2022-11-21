@@ -6,9 +6,17 @@ import EditCarPost from "../components/dashboard/main/EditCarPost";
 import EditTestimonial from "../components/dashboard/main/EditTestimonial";
 import EditContact from "../components/dashboard/main/EditContact";
 import DashboardSidebar from "../components/dashboard/sidebar/DashboardSidebar";
+import EditFooter from "../components/dashboard/main/EditFooter";
+
+import {AiTwotonePhone} from "react-icons/ai"
+
 
 const Dashboard = () => {
+<<<<<<< HEAD
   const server = "https://erin-real-wombat.cyclic.app";
+=======
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+>>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
 
   const [cars, setCars] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
@@ -44,37 +52,36 @@ const Dashboard = () => {
   // Show and Hide based on vector click (+ and x)
   // Handle New Car and Edit visibility
   const handleShowAside = async (e, choice, id) => {
+    
     // Reset Default Value
     await setSelected("");
 
     choice === "New Post" ? setSelected("New Post") : setVisible("hidden");
-    choice === "New Testimonial"
-      ? setSelected("New Testimonial")
-      : setVisible("hidden");
+    choice === "New Testimonial" ? setSelected("New Testimonial") : setVisible("hidden");
     choice === "Edit" ? setSelected("Edit") : setVisible("hidden");
-    choice === "Edit Testimonial"
-      ? setSelected("Edit Testimonial")
-      : setVisible("hidden");
-    choice === "Edit Contact"
-      ? setSelected("Edit Contact")
-      : setVisible("hidden");
+    choice === "Edit Testimonial" ? setSelected("Edit Testimonial") : setVisible("hidden");
+    choice === "Edit Contact" ? setSelected("Edit Contact") : setVisible("hidden");
 
     setSelectedId(id);
     setVisible("hidden");
+    
   };
 
   const handleCloseSecondSection = (e) => {
     setSelected("");
     setVisible("flex");
+
+    if(contentAside === "Phone") return setContentAside("Cars") 
   };
 
+
   return (
-    <div className="pb-30">
+    <div className="pb-30" >
       <h1 className="text-center p-5 text-base md:text-lg lg:text-xl  text-gold font-bold">
         Tableau de Bord
       </h1>
 
-      <section className="flex gap-5 justify-center md:justify-start m-2">
+      <section className="flex gap-2 md:gap-5 justify-center lg:justify-start my-2 mx-4 md:m-2">
         <h2
           className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Cars")}
@@ -91,13 +98,31 @@ const Dashboard = () => {
           className=" text-base md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
           onClick={(e) => setContentAside("Messages")}
         >
-          Contactez
+          Contactes
         </h2>
+        
+        <h2
+          className=" hidden md:flex md:text-lg lg:text-xl text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Phone")}
+        >
+          Numero d'Appelle 
+        </h2>
+
+        <h2
+          className=" md:hidden text-gold font-bold cursor-pointer border-gold border-2 p-2 rounded-lg"
+          onClick={(e) => setContentAside("Phone")}
+        >
+         <AiTwotonePhone />
+        </h2>
+
       </section>
 
       <div className="flex">
+       
+       { contentAside !== "Phone" &&
+
         <aside
-          className={`w-full px-3 md:w-2/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll ${visible} md:flex flex-col`}
+          className={`w-full px-3 md:w-3/6 mx-auto lg:m-0 lg:w-1/3 border-black border-t-2 md:pr-4 md:overflow-y-scroll h-screen ${visible} md:flex flex-col`}
         >
           <DashboardSidebar
             handleShowAside={handleShowAside}
@@ -108,61 +133,81 @@ const Dashboard = () => {
           />
         </aside>
 
+       }
+{/* ${contentAside === "Phone" ? "w-screen block" : "md:w-4/6" } */}
+{contentAside !== "Phone" && 
         <section
-          className={`border-black border-t-2 m-auto md:m-0 text-black ${
-            visible === "hidden" ? "flex" : "hidden"
-          } md:w-4/6 md:flex justify-center `}
+        className={`border-black border-t-2 m-auto md:m-0 text-black 
+        ${visible === "hidden" ? "flex" : "hidden"} 
+        
+        md:w-full md:flex justify-center `}
         >
           
           {selected === "New Post" && (
             <NewCarPost
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
             />
-          )}
+            )}
 
           {selected === "New Testimonial" && (
             <NewTestimonialPost
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
             />
-          )}
+            )}
 
           {/* Edit Section */}
 
           {selected === "Edit" && (
             <EditCarPost
-              handleCloseSecondSection={handleCloseSecondSection}
-              selectedId={selectedId}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              cars={cars}
+            handleCloseSecondSection={handleCloseSecondSection}
+            selectedId={selectedId}
+            refresh={refresh}
+            setRefresh={setRefresh}
+            cars={cars}
             />
-          )}
+            )}
 
           {selected === "Edit Testimonial" && (
             <EditTestimonial
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              selectedId={selectedId}
-              testimonials={testimonials}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
+            selectedId={selectedId}
+            testimonials={testimonials}
             />
-          )}
+            )}
 
           {selected === "Edit Contact" && (
             <EditContact
-              handleCloseSecondSection={handleCloseSecondSection}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              selectedId={selectedId}
+            handleCloseSecondSection={handleCloseSecondSection}
+            refresh={refresh}
+            setRefresh={setRefresh}
+            selectedId={selectedId}
               contact={contact}
             />
-          )}
+            )}
 
         </section>
+    }
+    
+    { contentAside === "Phone" && 
+    <section
+        className={'border-black border-t-2 m-auto md:m-0 text-black md:flex justify-center w-full'}
+        >
+            <EditFooter
+            refresh={refresh}
+            setRefresh={setRefresh}
+            handleCloseSecondSection={handleCloseSecondSection}
+            
+            />
+        </section>
+            }
+    
+    
       </div>
     </div>
   );

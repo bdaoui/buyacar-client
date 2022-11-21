@@ -4,74 +4,49 @@ const Info = () => {
   return (
     <div className="flex flex-col h-full text-white">
       <div className="w-7/12 text-left mx-auto text-sm leading-6">
-        <h1 className="py-6 text-2xl text-gold font-semibold">Info page</h1>
+        <h1 className="py-6 text-2xl text-gold font-semibold">Info</h1>
         <h2 className="font-semibold text-gold">P&P Exclusive Cars</h2>
-        <p>Salmgasse 5, 1030 Wien</p>
-        <p className="pt-6">UID-Nummer: ATU77547415</p>
-        <p>FN: 567321 x</p>
-        <p>FB-Gericht: Handelsgericht Wien</p>
+        <p className="pt-6">Numéro SIREN : 913 361 804</p>
+        <p>Centre artisanal Bleu Guimet
+            Allée Guimet
+        </p>
+        <p>69250 Fleurieu sur Saône </p>
 
         <h2 className="pt-6 font-semibold text-gold">
-          Kontakt: Office Punkt vor Strich
+         Contactes: P&P Exclusive Cars
         </h2>
         <p>Tel: + 43 (0) 650 / 4150590</p>
-        <p>office@punkt-vor-strich.at</p>
+        <p>Mail: p.pexclusivecar@gmail.com</p>
 
-        <h2 className="pt-6 font-semibold text-gold">
-          Bankverbindungen &amp; Überweisungen:
-        </h2>
-        <p>Erste Bank</p>
-        <p>IBAN: AT06 2011 1844 8156 3400</p>
-        <p>BIC: GIBBAATWWXXX</p>
+        
 
         <h2 className="pt-10 font-semibold text-gold">Copyright</h2>
         <p>
-          Für den Inhalt und für die Richtigkeit ist PvS verantwortlich. Alle
-          Texte und Bilder unterliegen dem Copyright. Diese Texte und Bilder
-          dürfen ohne Genehmigung von PvS weder kopiert noch auf irgend eine
-          andere Weise vervielfältigt werden. Von Texten und Inhalten zu
-          verlinkten Seiten distanzieren wir uns und übernehmen keine Haftung
-          für deren Inhalte oder Verlinkungen!
+        En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site internet ppexclusivecars.com l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi: </p>
+        <ul>
+          <li>Propriétaire : SAS P&P Exclusive Cars Numéro de TVA: 913 361 804 – Centre artisanal Bleu Guimet Allée Guimet 69250 Fleurieu sur Saône</li>
+          <li>Responsable publication : Pierre Prevot – p.pexclusivecar@gmail.com</li>
+          <li>Webmaster : Soufiane Bdaoui – soufianebdaoui@gmail.com</li>
+          <li>Hébergeur : Cloudflare</li>
+          <li>Délégué à la protection des données : Pierre Prevot – p.pexclusivecar@gmail.com</li>
+        </ul>
+  
+        <p>
+        Le site utilise la technologie JavaScript. Le site Internet ne pourra être tenu responsable de dommages matériels liés à l’utilisation du site. De plus, l’utilisateur du site s’engage à accéder au site en utilisant un matériel récent, ne contenant pas de virus et avec un navigateur de dernière génération mis-à-jour Le site ppexclusivecars.com est hébergé chez un prestataire sur le territoire de l’Union Européenne conformément aux dispositions du Règlement Général sur la Protection des Données (RGPD : n° 2016-679)
+
+        L’objectif est d’apporter une prestation qui assure le meilleur taux d’accessibilité. L’hébergeur assure la continuité de son service 24 Heures sur 24, tous les jours de l’année. Il se réserve néanmoins la possibilité d’interrompre le service d’hébergement pour les durées les plus courtes possibles notamment à des fins de maintenance, d’amélioration de ses infrastructures, de défaillance de ses infrastructures ou si les Prestations et Services génèrent un trafic réputé anormal.
+
+        ppexclusivecars.com et l’hébergeur ne pourront être tenus responsables en cas de dysfonctionnement du réseau Internet, des lignes téléphoniques ou du matériel informatique et de téléphonie lié notamment à l’encombrement du réseau empêchant l’accès au serveur.
+        </p>
+        <p>
+        ppexclusivecars.com est propriétaire des droits de propriété intellectuelle et détient les droits d’usage sur tous les éléments accessibles sur le site internet, notamment les textes, images, graphismes, logos, vidéos, icônes et sons. Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de : ppexclusivecars.com.
+
+        Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.   
+
+        Le Client est informé des réglementations concernant la communication marketing, la loi du 21 Juin 2014 pour la confiance dans l’Economie Numérique, la Loi Informatique et Liberté du 06 Août 2004 ainsi que du Règlement Général sur la Protection des Données (RGPD : n° 2016-679).
         </p>
 
-        <h2 className="pt-10 font-semibold text-gold">Google Analytics</h2>
-        <p className="pb-10 mb-10">
-          Diese Website benutzt Google Analytics, einen Webanalysedienst der
-          Google Inc. („Google“). Google Analytics verwendet sog. „Cookies“,
-          Textdateien, die auf Ihrem Computer gespeichert werden und die eine
-          Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den
-          Cookie erzeugten Informationen über Ihre Benutzung dieser Website
-          werden in der Regel an einen Server von Google in den USA übertragen
-          und dort gespeichert. Im Falle der Aktivierung der IP-Anonymisierung
-          auf dieser Webseite, wird Ihre IP-Adresse von Google jedoch innerhalb
-          von Mitgliedstaaten der Europäischen Union oder in anderen
-          Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum
-          zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an
-          einen Server von Google in den USA übertragen und dort gekürzt. Im
-          Auftrag des Betreibers dieser Website wird Google diese Informationen
-          benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die
-          Websiteaktivitäten zusammenzustellen und um weitere mit der
-          Websitenutzung und der Internetnutzung verbundene Dienstleistungen
-          gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google
-          Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit
-          anderen Daten von Google zusammengeführt. Sie können die Speicherung
-          der Cookies durch eine entsprechende Einstellung Ihrer
-          Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass
-          Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser
-          Website vollumfänglich werden nutzen können. Sie können darüber hinaus
-          die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der
-          Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die
-          Verarbeitung dieser Daten durch Google verhindern, indem sie das unter
-          dem folgenden Link (http://tools.google.com/dlpage/gaoptout?hl=de)
-          verfügbare Browser-Plugin herunterladen und installieren. Nähere
-          Informationen hierzu finden Sie unter
-          http://tools.google.com/dlpage/gaoptout?hl=de bzw. unter
-          http://www.google.com/intl/de/analytics/privacyoverview.html
-          (allgemeine Informationen zu Google Analytics und Datenschutz). Wir
-          weisen Sie darauf hin, dass auf dieser Webseite Google Analytics um
-          den Code „gat._anonymizeIp();“ erweitert wurde, um eine anonymisierte
-          Erfassung von IP-Adressen (sog. IP-Masking) zu gewährleisten.
-        </p>
+      
       </div>
     </div>
   );

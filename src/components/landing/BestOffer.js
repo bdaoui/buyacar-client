@@ -7,12 +7,15 @@ const BestOffer = () => {
   const [bestOffer, setBestOffer] = useState([]);
   const [bestOfferIndex, setBestOfferIndex] = useState(0);
 
+<<<<<<< HEAD
   const server = "https://erin-real-wombat.cyclic.app";
+=======
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+>>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
 
   useEffect(() => {
     axios.get(`${server}/car/bestdeals`)
       .then(response => {
-        console.log(response.data)
         setBestOffer(response.data)})
       .catch(err => console.log(err))
 
@@ -28,7 +31,6 @@ const BestOffer = () => {
   const previousBestOffer = () => {
     const endArray = bestOffer.length;
     const prev = bestOfferIndex <= 0 ? endArray - 1 : bestOfferIndex - 1;
-    console.log(prev, endArray, bestOfferIndex);
     setBestOfferIndex(prev);
   };
 
@@ -44,7 +46,7 @@ const BestOffer = () => {
         ~ <span className="text-lg md:text-4xl text-center"> Bons Plans </span> ~
       </header>
 
-      <section className="text-center my-4 md:my-10 w-2/4 m-auto drop-shadow-xl">
+      <section className="text-center text-[1.5rem] md:text-[3rem] my-4 md:my-10 w-2/4 m-auto drop-shadow-xl">
         <h1>
           {bestOffer[bestOfferIndex]?.make + " " + bestOffer[bestOfferIndex]?.model}
         </h1>
@@ -69,9 +71,9 @@ const BestOffer = () => {
           </svg>
         </button>
         <img
-          src={bestOffer[bestOfferIndex]?.image}
+          src={bestOffer[bestOfferIndex]?.image[0]}
           alt={bestOffer[bestOfferIndex]?.make + " " + bestOffer[bestOfferIndex]?.model}
-          className="object-scale-down h-52 w-3/4 lg:w-fit md:h-96 m-auto drop-shadow-2xl rounded-xl"
+          className="rounded-xl w-[300px] h-[200px] md:w-[800px] md:h-[400px] lg:w-[650px] lg:h-[400px] m-auto"
         />
 
         <button onClick={(e) => nextBestOffer()} className="pl-2">
@@ -94,20 +96,20 @@ const BestOffer = () => {
       </section>
 
       <section className="flex flex-col justify-center mt-5 gap-2">
-        <h1 className="text-base md:text-xl text-center">
+        <h1 className="text-base md:text-xl text-center text-gold">
           € {bestOffer[bestOfferIndex]?.price}{" "}
         </h1>
 
-        <div className="flex flex-col md:flex-row justify-center mt-5 gap-2">
+        <div className="flex flex-col md:flex-row justify-center mt-5">
 
-          <section className="md:p-2 md:border-r-white md:border-r-2 flex flex-col text-center">
+          <section className="md:p-2 md:px-4 md:border-r-white md:border-r-2 flex flex-col text-center">
             <h1 className="font-light text-gold">Année </h1>
             <h1>
               {bestOffer[bestOfferIndex]?.year}{" "}
             </h1>
           </section>
 
-          <section className="md:p-2 md:border-r-white md:border-r-2 text-center">
+          <section className="md:p-2 md:px-4 md:border-r-white md:border-r-2 text-center">
             <h1 className="font-light text-gold">
               Kilométrage{" "}
             </h1>
@@ -116,7 +118,7 @@ const BestOffer = () => {
             </h1>
           </section>
 
-          <section className="md:p-2 md:border-r-white md:border-r-2 text-center">
+          <section className="md:p-2 md:px-4 md:border-r-white md:border-r-2 text-center">
             <h1 className="font-light text-gold">
               Carburant{" "}
             </h1>
@@ -126,7 +128,7 @@ const BestOffer = () => {
             </h1>
           </section>
 
-          <section className="md:p-2 text-center">
+          <section className="md:p-2 md:px-4 text-center">
             <h1 className="font-light text-gold ">
               Boite de Vitesse{" "}
             </h1>

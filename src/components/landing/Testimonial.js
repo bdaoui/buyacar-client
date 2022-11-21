@@ -5,7 +5,11 @@ const Testimonial = () => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
 
+<<<<<<< HEAD
   const server = "https://erin-real-wombat.cyclic.app";
+=======
+  const server = "https://muddy-moth-top-hat.cyclic.app" ;
+>>>>>>> 112190bb0ba2b6811842f7174aabc6f59fdf6397
 
   useEffect(() => {
     axios
@@ -36,8 +40,8 @@ const Testimonial = () => {
     >
 
       
-      <h1 className="text-lg md:text-4xl text-center font-bold text-gold mb-10">
-        Témoignages{" "}
+       <h1 className="text-lg md:text-4xl text-center font-bold text-gold mb-10">
+        ~ <span>Témoignages</span> ~
       </h1>
 
       <section className="flex flex-row ">
