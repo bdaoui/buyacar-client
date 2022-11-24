@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 
 const NewTestimonialPost = ({ handleCloseSecondSection, refresh, setRefresh }) => {
-  const server = process.env.SERVER ;
+  const server = "https://ppexclusivecars.com" ;
 
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");

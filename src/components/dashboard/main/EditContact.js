@@ -9,7 +9,7 @@ const EditContact = ({
   refresh,
   setRefresh,
 }) => {
-  const server = process.env.SERVER ;
+  const server = "https://ppexclusivecars.com" ;
   const chosenMessage = contact.filter((message) => message._id === selectedId);
   const [enabled, setEnabled] = useState(chosenMessage[0].status);
 

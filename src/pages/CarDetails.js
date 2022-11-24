@@ -11,7 +11,7 @@ const CarDetails = () => {
   const [car, setCar] = useState({});
   const [imageIndex, setImageIndex] = useState(0);
 
-  const server = process.env.SERVER ;
+  const server = "https://ppexclusivecars.com" ;
 
 
   useEffect(() => {

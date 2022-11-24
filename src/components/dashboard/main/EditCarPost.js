@@ -28,7 +28,7 @@ const EditCarPost = ({
   const [imageIndex, setImageIndex] = useState(0);
   const [validateSending, setValidateSending] = useState("");
 
-  const server = process.env.SERVER ;
+  const server = "https://ppexclusivecars.com" ;
 
   let filteredCar = cars.filter((car) => car._id === selectedId);
 

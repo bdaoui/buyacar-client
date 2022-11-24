@@ -12,7 +12,7 @@ import {AiTwotonePhone} from "react-icons/ai"
 
 
 const Dashboard = () => {
-  const server = process.env.SERVER ;
+  const server = "https://ppexclusivecars.com" ;
 
   const [cars, setCars] = useState([]);
   const [testimonials, setTestimonials] = useState([]);

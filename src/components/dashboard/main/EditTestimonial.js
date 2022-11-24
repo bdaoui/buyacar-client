@@ -11,7 +11,7 @@ const EditTestimonial = ({
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
   const [validateSending, setValidateSending] = useState("");
-  const server = process.env.SERVER ;
+  const server = "https://ppexclusivecars.com" ;
 
   //Edit a testiomonial
   const handleTestimonialEdit = (e, id) => {

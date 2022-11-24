@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
-  const server = process.env.SERVER
+  const server = "https://ppexclusivecars.com"
 
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");

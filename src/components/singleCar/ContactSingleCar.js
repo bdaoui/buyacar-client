@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const ContactSingleCar = ({car}) => {
-  const server = process.env.SERVER
+  const server = "https://ppexclusivecars.com"
 
   
   // states for Contact Form

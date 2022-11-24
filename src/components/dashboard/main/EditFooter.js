@@ -8,7 +8,7 @@ const EditFooter = ({
     }) => {
     const [phone, setPhone] = useState("")
     const [validateSending, setValidateSending] = useState("");
-    const server = process.env.SERVER ;
+    const server = "https://ppexclusivecars.com" ;
 
     
     useEffect(() => {
