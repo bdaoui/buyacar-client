@@ -7,7 +7,7 @@ const BestOffer = () => {
   const [bestOffer, setBestOffer] = useState([]);
   const [bestOfferIndex, setBestOfferIndex] = useState(0);
 
-  const server = "https://ppexclusivecars.com" ;
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
 
   useEffect(() => {
     axios.get(`${server}/car/bestdeals`)

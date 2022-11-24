@@ -9,7 +9,7 @@ const EditContact = ({
   refresh,
   setRefresh,
 }) => {
-  const server = "https://ppexclusivecars.com" ;
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
   const chosenMessage = contact.filter((message) => message._id === selectedId);
   const [enabled, setEnabled] = useState(chosenMessage[0].status);
 

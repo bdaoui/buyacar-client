@@ -3,7 +3,7 @@ import axios from "axios";
 
 const ContactForm = () => {
   
-  const server = "https://ppexclusivecars.com"
+  const server = "https://drab-pink-monkey-kilt.cyclic.app"
   
   // states for Contact Form
   const [contactName, setContactName] = useState("");

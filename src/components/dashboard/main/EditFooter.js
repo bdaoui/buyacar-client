@@ -8,7 +8,7 @@ const EditFooter = ({
     }) => {
     const [phone, setPhone] = useState("")
     const [validateSending, setValidateSending] = useState("");
-    const server = "https://ppexclusivecars.com" ;
+    const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
 
     
     useEffect(() => {

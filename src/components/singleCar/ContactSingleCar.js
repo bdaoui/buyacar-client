@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const ContactSingleCar = ({car}) => {
-  const server = "https://ppexclusivecars.com"
+  const server = "https://drab-pink-monkey-kilt.cyclic.app"
 
   
   // states for Contact Form

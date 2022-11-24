@@ -14,7 +14,7 @@ import {BsSquareFill} from 'react-icons/bs'
 
 
 const Cars = () => {
-  const server = "https://ppexclusivecars.com" ;
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
 
   const [cars, setCars] = useState([]);
 

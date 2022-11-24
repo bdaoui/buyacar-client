@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
-  const server = "https://ppexclusivecars.com"
+  const server = "https://drab-pink-monkey-kilt.cyclic.app"
 
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");

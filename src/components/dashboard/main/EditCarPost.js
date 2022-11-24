@@ -28,7 +28,7 @@ const EditCarPost = ({
   const [imageIndex, setImageIndex] = useState(0);
   const [validateSending, setValidateSending] = useState("");
 
-  const server = "https://ppexclusivecars.com" ;
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
 
   let filteredCar = cars.filter((car) => car._id === selectedId);
 

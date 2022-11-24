@@ -11,7 +11,7 @@ const EditTestimonial = ({
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
   const [validateSending, setValidateSending] = useState("");
-  const server = "https://ppexclusivecars.com" ;
+  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
 
   //Edit a testiomonial
   const handleTestimonialEdit = (e, id) => {
