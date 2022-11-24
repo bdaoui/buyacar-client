@@ -5,7 +5,7 @@ const Testimonial = () => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
 
-  const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
+  const server = process.env.SERVER ;
 
   useEffect(() => {
     axios
