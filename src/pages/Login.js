@@ -23,8 +23,8 @@ const Login = () => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
         authenticateUser();
-        console.log(response.data)
-        setValidateSending(response.data);
+        console.log("Se connecter...")
+        setValidateSending('Se connecter...');
       })
       .then((response) => {
         console.log("Logged in");
