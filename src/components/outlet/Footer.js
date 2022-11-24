@@ -6,11 +6,11 @@ const Footer = () => {
   const server = "https://drab-pink-monkey-kilt.cyclic.app" ;
   const [number, setNumber] = useState(0)
   
-  useEffect(() => {
-    axios.get(`${server}/admin/number`)
-      .then(response => setNumber(response.data) )
-      .catch(err => console.log(err))
-  }, [])
+  // useEffect(() => {
+  //   axios.get(`${server}/admin/number`)
+  //     .then(response => setNumber(response.data) )
+  //     .catch(err => console.log(err))
+  // }, [])
 
 
   return (
@@ -38,7 +38,7 @@ const Footer = () => {
             />
           </svg>
           <span className="hover:underline md:mr-6 mt-1 font-semibold text-gold">
-           {number}
+           {/* {number} */} 02556542
           </span>
         </li>
       </ul>
